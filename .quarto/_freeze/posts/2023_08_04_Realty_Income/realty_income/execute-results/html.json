@@ -1,0 +1,16 @@
+{
+  "hash": "a6c667cf53ea966c4a4b5d76e219c036",
+  "result": {
+    "markdown": "---\ntitle: \"Realty Income Stock analysis\"\ndescription: \"The monthly dividend company\"\nauthor: \"JNW\"\ndate: \"2023-08-04\"\nimage: Realtyincome_sign.png\n---\n\n\n**Realty Income Corp**\n\nThe monthly dividend stock\n\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nchart_Series(O)\n```\n\n::: {.cell-output-display}\n![](realty_income_files/figure-html/unnamed-chunk-3-1.png){width=672}\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\ndividends_df <- getDividends(\"DLR\", \n             from = \"1970-01-01\",\n             to = Sys.Date(), \n             env = parent.frame(), \n             src = \"yahoo\", \n             verbose = FALSE,\n             split.adjust = TRUE,\n             curl.options = list())\n```\n:::\n",
+    "supporting": [
+      "realty_income_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,34 @@
+---
+title: "Apple Stock analysis"
+description: "Apple article"
+author: "JNW"
+date: "2023-08-02"
+image: apple_sign.png
+format: 
+  html:
+    fig-width: 8
+    fig-height: 6
+---
+
+**Apple stock analysis**
+
+Apple is the biggest company by market value. Here is the chart.
+
+```{r}
+#| echo: false
+#| output: false
+library(tidyquant)
+```
+
+```{r}
+#| echo: false
+#| output: false
+getSymbols("AAPL", from = '2017-01-01',
+           to = "2027-03-01",warnings = FALSE,
+           auto.assign = TRUE)
+
+```
+
+```{r}
+chart_Series(AAPL)
+```

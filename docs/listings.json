@@ -1,0 +1,17 @@
+[
+  {
+    "listing": "/general.html",
+    "items": [
+      "/general/SP500 distribution/SP500.html",
+      "/general/welcome/welcome.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/2023_08_04_Realty_Income/realty_income.html",
+      "/posts/2023_08_03_Samsung/samsung.html",
+      "/posts/2023_08_01_Apple/apple.html"
+    ]
+  }
+]

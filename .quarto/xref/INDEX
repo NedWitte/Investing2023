@@ -1,0 +1,71 @@
+{
+  "about.qmd": {
+    "about.html": "22dc5a01"
+  },
+  "blog/index.qmd": {
+    "index.html": "0a005f47"
+  },
+  "index.qmd": {
+    "index.html": "dfb7b139"
+  },
+  "about/about.qmd": {
+    "about.html": "9a6d6dee"
+  },
+  "index/index.qmd": {
+    "index.html": "9fb02425"
+  },
+  "blog/2022/12/08/log10-natural-log-scales-ggplot/index.qmd": {
+    "index.html": "d5ac996f"
+  },
+  "blog/2023/06/01/geocoding-routing-openstreetmap-r/index.qmd": {
+    "index.html": "93c825e8"
+  },
+  "projects/projects.qmd": {
+    "projects.html": "92ffe6e9"
+  },
+  "posts/posts_with_code/index.qmd": {
+    "index.html": "eaf330eb"
+  },
+  "posts/welcome/index.qmd": {
+    "index.html": "2e02f403"
+  },
+  "projects/index.qmd": {
+    "index.html": "ed0bd31f"
+  },
+  "projects/welcome/index.qmd": {
+    "index.html": "8c5891a1"
+  },
+  "home.qmd": {
+    "home.html": "696e98cd"
+  },
+  "projects/welcome/welcome.qmd": {
+    "welcome.html": "7054d70c"
+  },
+  "projects.qmd": {
+    "projects.html": "ff72f57c"
+  },
+  "posts/2023_08_01/apple.qmd": {
+    "apple.html": "e8160da6"
+  },
+  "posts/2023_08_03/samsung.qmd": {
+    "samsung.html": "0296eba5"
+  },
+  "general/SP500 distribution/SP500.qmd": {
+    "SP500.html": "5cc588ac"
+  },
+  "general/welcome/welcome.qmd": {
+    "welcome.html": "5b622bfb"
+  },
+  "general.qmd": {
+    "general.html": "291ace66"
+  },
+  "posts/2023_08_01_Apple/apple.qmd": {
+    "apple.html": "298e5717"
+  },
+  "posts/2023_08_03_Samsung/samsung.qmd": {
+    "samsung.html": "51f527e1"
+  },
+  "posts/2023_08_04_Realty_Income/realty_income.qmd": {
+    "realty_income.html": "6c77a480"
+  }
+}

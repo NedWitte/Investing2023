@@ -1,0 +1,16 @@
+{
+  "hash": "94a9c75c2bc98d1ae1a40fa21140e3e5",
+  "result": {
+    "markdown": "---\ntitle: \"Apple Stock analysis\"\ndescription: \"Apple article\"\nauthor: \"JNW\"\ndate: \"2023-08-02\"\nimage: apple_sign.png\nformat: \n  html:\n    fig-width: 8\n    fig-height: 6\n---\n\n\n**Apple stock analysis**\n\nApple is the biggest company by market value. Here is the chart.\n\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nchart_Series(AAPL)\n```\n\n::: {.cell-output-display}\n![](apple_files/figure-html/unnamed-chunk-3-1.png){width=768}\n:::\n:::\n",
+    "supporting": [
+      "apple_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

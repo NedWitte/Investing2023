@@ -1,0 +1,14 @@
+{
+  "hash": "fb908c0e93dd2bf1e8aba8f86f170e52",
+  "result": {
+    "markdown": "---\ntitle: \"About\"\nimage: images/themockup.png\nabout: \n  template: trestles\n  image-width: 20em\n  image-shape: round\n  links: \n    - icon: github\n      text: github page\n      href: https://github.com\n---\n\n\n\nThis is the about page. \n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

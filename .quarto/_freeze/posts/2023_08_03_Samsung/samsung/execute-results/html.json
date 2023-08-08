@@ -1,0 +1,16 @@
+{
+  "hash": "015acb6b3621de793ac3d6c529e43a9f",
+  "result": {
+    "markdown": "---\ntitle: \"Samsung Stock analysis\"\nauthor: \"JNW\"\ndate: \"2023-08-03\"\nimage: samsung_sign.png\nimage-height: \"2\"\nimage-width: \"2\"\n---\n\n\n<img src=\"samsung_sign.png\" alt=\"Samsung Sign\" width=\"300\" height=\"200\">\n\n**Samsung stock**\n\n\n\nSamsung makes the best phones. \n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nchart_Series(SMSN.IL)\n```\n\n::: {.cell-output-display}\n![](samsung_files/figure-html/unnamed-chunk-3-1.png){width=672}\n:::\n:::\n",
+    "supporting": [
+      "samsung_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

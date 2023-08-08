@@ -1,0 +1,84 @@
+---
+title: "The SP500"
+author: "JNW"
+description: "stuff"
+date: "2023-08-04"
+image: sp500.png
+---
+
+**The SP500 index**
+
+The monthly dividend stock
+
+```{r}
+#| echo: false
+#| output: false
+library(tidyquant)
+library(quantmod)
+library(ggplot2)
+library(tidyverse)
+library(tidyquant)
+library(plotly)
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+#data preparation
+sp500_df <- tq_index("SP500")
+
+sp500_df_top10 <- sp500_df %>%
+  arrange(desc(weight)) %>%
+  slice(1:10)
+
+# Assuming sp500_df is your original dataframe
+sp500_df_top10 <- sp500_df_top10 %>%
+  arrange(desc(weight)) %>%
+  slice(1:10) %>%
+  bind_rows(data.frame(symbol = "Top11-500", company = "Top11-500" ,weight = (1-sum(sp500_df_top10$weight))))
+
+
+```
+
+This is the distribution of the SP500. Scroll over the plot to get more detailed data.
+
+```{r}
+#| echo: false
+
+
+```
+So it is nicely visible that the top 10 biggest companies by market capitalization are taking 30% of the cake.
+
+```{r}
+#| echo: false
+library(plotly)
+
+# Assuming sp500_df_top10 is your dataframe
+fig <- plot_ly(
+  labels = sp500_df_top10$symbol,
+  values = sp500_df_top10$weight,
+  type = "pie",
+  textinfo = "label+percent",
+  insidetextorientation = "radial",
+  sort = FALSE
+) %>%
+layout(
+  title = "Top 10 Stocks by Weight",
+  scene = list(
+    annotations = list(
+      text = sp500_df_top10$company,
+      x = 0.5,
+      y = 0.5,
+      showarrow = FALSE,
+      font = list(size = 5)
+    )
+  )
+)
+
+# Display the interactive 3D pie chart
+fig
+
+
+```
