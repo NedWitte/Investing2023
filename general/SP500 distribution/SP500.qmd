@@ -160,6 +160,39 @@ plotly_data
 
 \`\`\`
 
+
+```{r}
+#| echo: false
+#| output: false
+
+
+# Load S&P 500 data before the crash
+data_before <- tq_get("^GSPC", from = "2019-01-01", to = "2020-02-19")
+
+# Load S&P 500 data after the crash
+data_after <- tq_get("^GSPC", from = "2020-02-20", to = "2022-04-01")
+
+data_normal <- tq_get("^GSPC", from = "2022-04-01", to = "2040-01-01")
+
+# Create a combined data frame
+combined_data <- rbind(mutate(data_before, Period = "Pre-Pandemic"),
+                       mutate(data_after, Period = "Pandemic"),
+                       mutate(data_normal , Period = "Normal"))
+```
+
+```{r}
+# Plot the data
+ggplot(combined_data, aes(x = date, y = adjusted, color = Period)) +
+  geom_line() +
+  labs(title = "S&P 500 Performance Before and After COVID-19 Crash",
+       x = "Date",
+       y = "Adjusted Closing Price",
+       color = "Period") +
+  theme_minimal()
+```
+```
+
+
 ## Conclusion
 
 In summary, the S&P 500 is a crucial index that provides insight into the performance of the U.S. stock market and, by extension, the broader economy. Its composition, calculation methodology, and historical significance make it an essential tool for investors and analysts alike.
