@@ -8,11 +8,6 @@ image: sp500.png
 
 **The SP500 index**
 
----
-title: An Overview of the S&P 500
-date: 2023-08-08
----
-
 # Introduction to the S&P 500
 
 The **S&P 500** is a stock market index that measures the performance of 500 of the largest publicly traded companies in the United States. It is widely regarded as a key indicator of the overall health and performance of the U.S. stock market and is used by investors, analysts, and economists to assess the state of the economy.
@@ -49,7 +44,6 @@ sp500_df_top10 <- sp500_df_top10 %>%
   arrange(desc(weight)) %>%
   slice(1:10) %>%
   bind_rows(data.frame(symbol = "Top11-500", company = "Top11-500" ,weight = (1-sum(sp500_df_top10$weight))))
-
 
 ```
 
@@ -160,7 +154,6 @@ plotly_data
 
 \`\`\`
 
-
 ```{r}
 #| echo: false
 #| output: false
@@ -178,6 +171,7 @@ data_normal <- tq_get("^GSPC", from = "2022-04-01", to = "2040-01-01")
 combined_data <- rbind(mutate(data_before, Period = "Pre-Pandemic"),
                        mutate(data_after, Period = "Pandemic"),
                        mutate(data_normal , Period = "Normal"))
+
 ```
 
 ```{r}
@@ -190,8 +184,8 @@ ggplot(combined_data, aes(x = date, y = adjusted, color = Period)) +
        color = "Period") +
   theme_minimal()
 ```
-```
 
+\`\`\`
 
 ## Conclusion
 
