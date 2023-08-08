@@ -19,7 +19,7 @@ website:
     right: 
       - about/about.qmd
       - icon: github
-        href: https://github.com/
+        href: https://github.com/NedWitte/ #will be changed
         
 format:
   html:
