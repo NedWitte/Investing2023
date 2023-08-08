@@ -1,4 +1,0 @@
-"0","sp500_df <- tq_index(""SP500"")
-"
-"2","Getting holdings for SP500
-"

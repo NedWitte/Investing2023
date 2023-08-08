@@ -49,10 +49,10 @@ This is the distribution of the SP500. Scroll over the plot to get more detailed
 
 
 ```
-So it is nicely visible that the top 10 biggest companies by market capitalization are taking 30% of the cake.
 
 ```{r}
 #| echo: false
+#| #| output: false
 library(plotly)
 
 # Assuming sp500_df_top10 is your dataframe
@@ -77,8 +77,51 @@ layout(
   )
 )
 
+
+```
+
+```{r}
 # Display the interactive 3D pie chart
 fig
 
+print(paste("So it is nicely visible that the top 10 biggest companies by market capitalization are taking roughly", as.character(round(sum(sp500_df_top10$weight[1:10]),3)*100), "% of the cake."))
+```
+
+Here is the chart of the SP500 since 1945:
+
+```{r}
+#| echo: false
+#| output: false
+
+# Load required libraries
+library(quantmod)
+library(ggplot2)
+
+# Fetch S&P 500 data
+sp <- getSymbols("^GSPC", from = "1950-01-01")
+
+
+            
+```
+
+
+```{r}
+# Create a plotly interactive chart
+plot_ly(data = sp, x = ~Date, y = ~GSPC.Adjusted, type = "scatter", mode = "lines") %>%
+  layout(title = "S&P 500 Performance", yaxis = list(title = "Price"))
+```
+
+And this a plot of the performance of the last two years:
+
+```{r}
+#Filter data for the last 2 years
+last_2_years <- sp[sp$Date >= as.Date(Sys.Date()) - 365*2, ]
+
+# Create a plotly interactive chart for the last 2 years
+plot_ly(data = last_2_years, x = ~Date, y = ~GSPC.Adjusted, type = "scatter", mode = "lines") %>%
+  layout(title = "S&P 500 Performance (Last 2 Years)", yaxis = list(title = "Price"))
 
 ```
+
+
+```{r}

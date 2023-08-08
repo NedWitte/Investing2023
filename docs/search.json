@@ -25,7 +25,7 @@
     "href": "general/SP500 distribution/SP500.html",
     "title": "The SP500",
     "section": "",
-    "text": "The SP500 index\nThe monthly dividend stock\nThis is the distribution of the SP500. Scroll over the plot to get more detailed data.\nSo it is nicely visible that the top 10 biggest companies by market capitalization are taking 30% of the cake.\n\nlibrary(plotly)\n\n# Assuming sp500_df_top10 is your dataframe\nfig &lt;- plot_ly(\n  labels = sp500_df_top10$symbol,\n  values = sp500_df_top10$weight,\n  type = \"pie\",\n  textinfo = \"label+percent\",\n  insidetextorientation = \"radial\",\n  sort = FALSE\n) %&gt;%\nlayout(\n  title = \"Top 10 Stocks by Weight\",\n  scene = list(\n    annotations = list(\n      text = sp500_df_top10$company,\n      x = 0.5,\n      y = 0.5,\n      showarrow = FALSE,\n      font = list(size = 5)\n    )\n  )\n)\n\n# Display the interactive 3D pie chart\nfig"
+    "text": "The SP500 index\nThe monthly dividend stock\nThis is the distribution of the SP500. Scroll over the plot to get more detailed data.\nSo it is nicely visible that the top 10 biggest companies by market capitalization are taking 30% of the cake."
   },
   {
     "objectID": "about/about.html",
