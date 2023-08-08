@@ -8,7 +8,18 @@ image: sp500.png
 
 **The SP500 index**
 
-The monthly dividend stock
+---
+title: An Overview of the S&P 500
+date: 2023-08-08
+---
+
+# Introduction to the S&P 500
+
+The **S&P 500** is a stock market index that measures the performance of 500 of the largest publicly traded companies in the United States. It is widely regarded as a key indicator of the overall health and performance of the U.S. stock market and is used by investors, analysts, and economists to assess the state of the economy.
+
+## Market Events and Performance
+
+The performance of the S&P 500 is subject to various market events, including economic data releases, corporate earnings reports, geopolitical developments, and central bank decisions. Market fluctuations in the S&P 500 can have a cascading effect on other financial markets and impact investor confidence.
 
 ```{r}
 #| echo: false
@@ -46,12 +57,6 @@ This is the distribution of the SP500. Scroll over the plot to get more detailed
 
 ```{r}
 #| echo: false
-
-
-```
-
-```{r}
-#| echo: false
 #| #| output: false
 library(plotly)
 
@@ -77,7 +82,6 @@ layout(
   )
 )
 
-
 ```
 
 ```{r}
@@ -93,35 +97,74 @@ Here is the chart of the SP500 since 1945:
 #| echo: false
 #| output: false
 
-# Load required libraries
-library(quantmod)
-library(ggplot2)
 
 # Fetch S&P 500 data
-sp <- getSymbols("^GSPC", from = "1950-01-01")
 
+sp <- tq_get("^GSPC", from = "1945-01-01", to = "2035-01-01")
 
-            
+#Filter data for the last 2 years
+last_2_years <- sp[sp$date >= as.Date(Sys.Date()) - 365*2, ]
+
+# Create a plotly interactive chart
+plotly_data <- sp %>%
+  plot_ly(x = ~date, y = ~adjusted, type = "scatter", mode = "lines") %>%
+  layout(title = "S&P 500 Closing Prices",
+         xaxis = list(title = "Date"),
+         yaxis = list(title = "Adjusted Closing Price"))
+
 ```
 
-
 ```{r}
-# Create a plotly interactive chart
-plot_ly(data = sp, x = ~Date, y = ~GSPC.Adjusted, type = "scatter", mode = "lines") %>%
-  layout(title = "S&P 500 Performance", yaxis = list(title = "Price"))
+
+# Display the interactive plot
+plotly_data
 ```
 
 And this a plot of the performance of the last two years:
 
 ```{r}
-#Filter data for the last 2 years
-last_2_years <- sp[sp$Date >= as.Date(Sys.Date()) - 365*2, ]
+#| echo: false
+#| output: false
 
 # Create a plotly interactive chart for the last 2 years
-plot_ly(data = last_2_years, x = ~Date, y = ~GSPC.Adjusted, type = "scatter", mode = "lines") %>%
+plot_ly(data = last_2_years, x = ~date, y = ~adjusted, type = "scatter", mode = "lines") %>%
   layout(title = "S&P 500 Performance (Last 2 Years)", yaxis = list(title = "Price"))
 
 ```
 
+```{r}
+# Display the interactive plot
+plotly_data
+```
+
+
+
+It is also interesting to look at the logarythmic chart:
 
 ```{r}
+#| echo: false
+#| output: false
+
+# Fetch S&P 500 data
+sp <- sp %>% mutate(adjusted = log(adjusted))
+
+plotly_data <- sp %>%
+  plot_ly(x = ~date, y = ~adjusted, type = "scatter", mode = "lines") %>%
+  layout(title = "S&P 500 Closing Prices log-scale",
+         xaxis = list(title = "Date"),
+         yaxis = list(title = "Adjusted Closing Price"))
+```
+
+```{r}
+# Display the interactive plot
+plotly_data
+```
+
+
+\`\`\`
+
+## Conclusion
+
+In summary, the S&P 500 is a crucial index that provides insight into the performance of the U.S. stock market and, by extension, the broader economy. Its composition, calculation methodology, and historical significance make it an essential tool for investors and analysts alike.
+
+For up-to-date information on the S&P 500, please refer to reputable financial news sources and market data providers.
