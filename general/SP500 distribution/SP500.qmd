@@ -57,7 +57,7 @@ This is the distribution of the SP500. Scroll over the plot to get more detailed
 
 ```{r}
 #| echo: false
-#| #| output: false
+#| output: false
 library(plotly)
 
 # Assuming sp500_df_top10 is your dataframe
@@ -115,7 +115,7 @@ plotly_data <- sp %>%
 ```
 
 ```{r}
-
+#| output: true
 # Display the interactive plot
 plotly_data
 ```
@@ -137,8 +137,6 @@ plot_ly(data = last_2_years, x = ~date, y = ~adjusted, type = "scatter", mode = 
 plotly_data
 ```
 
-
-
 It is also interesting to look at the logarythmic chart:
 
 ```{r}
@@ -159,7 +157,6 @@ plotly_data <- sp %>%
 # Display the interactive plot
 plotly_data
 ```
-
 
 \`\`\`
 
