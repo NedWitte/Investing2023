@@ -1,0 +1,194 @@
+---
+title: "The SP500"
+author: "JNW"
+description: "stuff"
+date: "2023-08-04"
+image: sp500.png
+---
+
+**The SP500 index**
+
+# Introduction to the S&P 500
+
+The **S&P 500** is a stock market index that measures the performance of 500 of the largest publicly traded companies in the United States. It is widely regarded as a key indicator of the overall health and performance of the U.S. stock market and is used by investors, analysts, and economists to assess the state of the economy.
+
+## Market Events and Performance
+
+The performance of the S&P 500 is subject to various market events, including economic data releases, corporate earnings reports, geopolitical developments, and central bank decisions. Market fluctuations in the S&P 500 can have a cascading effect on other financial markets and impact investor confidence.
+
+```{r}
+#| echo: false
+#| output: false
+library(tidyquant)
+library(quantmod)
+library(ggplot2)
+library(tidyverse)
+library(tidyquant)
+library(plotly)
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+#data preparation
+sp500_df <- tq_index("SP500")
+
+sp500_df_top10 <- sp500_df %>%
+  arrange(desc(weight)) %>%
+  slice(1:10)
+
+# Assuming sp500_df is your original dataframe
+sp500_df_top10 <- sp500_df_top10 %>%
+  arrange(desc(weight)) %>%
+  slice(1:10) %>%
+  bind_rows(data.frame(symbol = "Top11-500", company = "Top11-500" ,weight = (1-sum(sp500_df_top10$weight))))
+
+```
+
+This is the distribution of the SP500. Scroll over the plot to get more detailed data.
+
+```{r}
+#| echo: false
+#| output: false
+library(plotly)
+
+# Assuming sp500_df_top10 is your dataframe
+fig <- plot_ly(
+  labels = sp500_df_top10$symbol,
+  values = sp500_df_top10$weight,
+  type = "pie",
+  textinfo = "label+percent",
+  insidetextorientation = "radial",
+  sort = FALSE
+) %>%
+layout(
+  title = "Top 10 Stocks by Weight",
+  scene = list(
+    annotations = list(
+      text = sp500_df_top10$company,
+      x = 0.5,
+      y = 0.5,
+      showarrow = FALSE,
+      font = list(size = 5)
+    )
+  )
+)
+
+```
+
+```{r}
+# Display the interactive 3D pie chart
+fig
+
+print(paste("So it is nicely visible that the top 10 biggest companies by market capitalization are taking roughly", as.character(round(sum(sp500_df_top10$weight[1:10]),3)*100), "% of the cake."))
+```
+
+Here is the chart of the SP500 since 1945:
+
+```{r}
+#| echo: false
+#| output: false
+
+
+# Fetch S&P 500 data
+
+sp <- tq_get("^GSPC", from = "1945-01-01", to = "2035-01-01")
+
+#Filter data for the last 2 years
+last_2_years <- sp[sp$date >= as.Date(Sys.Date()) - 365*2, ]
+
+# Create a plotly interactive chart
+plotly_data <- sp %>%
+  plot_ly(x = ~date, y = ~adjusted, type = "scatter", mode = "lines") %>%
+  layout(title = "S&P 500 Closing Prices",
+         xaxis = list(title = "Date"),
+         yaxis = list(title = "Adjusted Closing Price"))
+
+```
+
+```{r}
+#| output: true
+# Display the interactive plot
+plotly_data
+```
+
+And this a plot of the performance of the last two years:
+
+```{r}
+#| echo: false
+#| output: false
+
+# Create a plotly interactive chart for the last 2 years
+plot_ly(data = last_2_years, x = ~date, y = ~adjusted, type = "scatter", mode = "lines") %>%
+  layout(title = "S&P 500 Performance (Last 2 Years)", yaxis = list(title = "Price"))
+
+```
+
+```{r}
+# Display the interactive plot
+plotly_data
+```
+
+It is also interesting to look at the logarythmic chart:
+
+```{r}
+#| echo: false
+#| output: false
+
+# Fetch S&P 500 data
+sp <- sp %>% mutate(adjusted = log(adjusted))
+
+plotly_data <- sp %>%
+  plot_ly(x = ~date, y = ~adjusted, type = "scatter", mode = "lines") %>%
+  layout(title = "S&P 500 Closing Prices log-scale",
+         xaxis = list(title = "Date"),
+         yaxis = list(title = "Adjusted Closing Price"))
+```
+
+```{r}
+# Display the interactive plot
+plotly_data
+```
+
+\`\`\`
+
+```{r}
+#| echo: false
+#| output: false
+
+
+# Load S&P 500 data before the crash
+data_before <- tq_get("^GSPC", from = "2019-01-01", to = "2020-02-19")
+
+# Load S&P 500 data after the crash
+data_after <- tq_get("^GSPC", from = "2020-02-20", to = "2022-04-01")
+
+data_normal <- tq_get("^GSPC", from = "2022-04-01", to = "2040-01-01")
+
+# Create a combined data frame
+combined_data <- rbind(mutate(data_before, Period = "Pre-Pandemic"),
+                       mutate(data_after, Period = "Pandemic"),
+                       mutate(data_normal , Period = "Normal"))
+
+```
+
+```{r}
+# Plot the data
+ggplot(combined_data, aes(x = date, y = adjusted, color = Period)) +
+  geom_line() +
+  labs(title = "S&P 500 Performance Before and After COVID-19 Crash",
+       x = "Date",
+       y = "Adjusted Closing Price",
+       color = "Period") +
+  theme_minimal()
+```
+
+\`\`\`
+
+## Conclusion
+
+In summary, the S&P 500 is a crucial index that provides insight into the performance of the U.S. stock market and, by extension, the broader economy. Its composition, calculation methodology, and historical significance make it an essential tool for investors and analysts alike.
+
+For up-to-date information on the S&P 500, please refer to reputable financial news sources and market data providers.

@@ -7,7 +7,7 @@ website:
   search: 
     location: navbar
     type: overlay
-  description: "Data science tips brought to you by Tom Mock"
+  description: "Personal blog as test script"
   favicon: themockup.png
   navbar:
     left:
@@ -15,6 +15,10 @@ website:
         href: index.qmd
       - text: General analysis
         href: general.qmd
+      - text: Ned Portfolio
+        href: portfolio.qmd
+      - text: Dividend income
+        href: dividend.qmd
       
     right: 
       - about/about.qmd
@@ -23,10 +27,12 @@ website:
         
 format:
   html:
-    theme: darkly
-    css: style.css
+    theme: 
+       - html/my-laterra.scss
+    css: 
+       - html/style.scs
     code-link: true
-     
-
+    fontsize: 1em
+    
 editor: visual 
 
