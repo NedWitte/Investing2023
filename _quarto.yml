@@ -25,6 +25,8 @@ website:
       - icon: github
         href: https://github.com/NedWitte/ #will be changed
         
+    search: true
+        
 format:
   html:
     theme: 
