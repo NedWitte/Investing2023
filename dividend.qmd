@@ -29,7 +29,7 @@ library(plotly)
 #| output: false
 
 #get data from the Google sheets 
-porfolio_df <- t
+
 
 ```
 
@@ -38,34 +38,12 @@ porfolio_df <- t
 #| output: false
 
 #prepare figure to plot
-fig <- plot_ly(
-  labels = sp500_df_top10$symbol,
-  values = sp500_df_top10$weight,
-  type = "pie",
-  textinfo = "label+percent",
-  insidetextorientation = "radial",
-  sort = FALSE
-) %>%
-layout(
-  title = "Top 10 Stocks by Weight",
-  scene = list(
-    annotations = list(
-      text = sp500_df_top10$company,
-      x = 0.5,
-      y = 0.5,
-      showarrow = FALSE,
-      font = list(size = 5)
-    )
-  )
-)
 
 ```
 
 ```{r}
 # Display the interactive 3D pie chart
-fig
 
-print(paste("In this portfolio the top 15 stocks compromises roughly", as.character(round(sum(sp500_df_top10$weight[1:10]),3)*100), "%  of the market capitaliztation."))
 ```
 
 ## Strategy
@@ -77,7 +55,7 @@ Generally, this portfolio has the purpose to add a signifcant amount of dividend
 ```{r}
 #| output: true
 # Display the interactive plot
-plotly_data
+
 ```
 
 ## Market Events and Performance
@@ -97,7 +75,7 @@ Let's take a look at both:
 1.  scenario: growth 3% p.a., 10k additional investment from the job income
 
 ```{r}
-paste0(print("In year 2023 the portfolio has an income of 180k. Today the value is", as.character(sum(x))),k)
+paste0(print("In year 2023 the portfolio has an income of 180k. Today the value is"))
 ```
 
 2.  scenario: growth 10% p.a. + 10k additional investment from job income

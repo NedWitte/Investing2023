@@ -26,6 +26,7 @@ website:
         href: https://github.com/NedWitte/ #will be changed
         
     search: true
+    pinned: true 
         
 format:
   html:

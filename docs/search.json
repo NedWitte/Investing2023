@@ -1,47 +1,5 @@
 [
   {
-    "objectID": "posts/2023_08_04_Realty_Income/realty_income.html",
-    "href": "posts/2023_08_04_Realty_Income/realty_income.html",
-    "title": "Realty Income Stock analysis",
-    "section": "",
-    "text": "Realty Income Corp\nThe monthly dividend stock\n\nchart_Series(O)\n\n\n\n\n\ndividends_df &lt;- getDividends(\"DLR\", \n             from = \"1970-01-01\",\n             to = Sys.Date(), \n             env = parent.frame(), \n             src = \"yahoo\", \n             verbose = FALSE,\n             split.adjust = TRUE,\n             curl.options = list())"
-  },
-  {
-    "objectID": "posts/2023_08_01_Apple/apple.html",
-    "href": "posts/2023_08_01_Apple/apple.html",
-    "title": "Apple Stock analysis",
-    "section": "",
-    "text": "Apple stock analysis\nApple is the biggest company by market value. Here is the chart.\n\nchart_Series(AAPL)"
-  },
-  {
-    "objectID": "general.html",
-    "href": "general.html",
-    "title": "Projects",
-    "section": "",
-    "text": "This is the site for general stuff like SP500, Nasdaq….etc\n\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nAug 4, 2023\n\n\nThe SP500\n\n\nJNW \n\n\n\n\nJan 3, 2023\n\n\nWarm welcome\n\n\nJNW \n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "general/SP500 distribution/SP500.html",
-    "href": "general/SP500 distribution/SP500.html",
-    "title": "The SP500",
-    "section": "",
-    "text": "The SP500 index\nThe monthly dividend stock\nThis is the distribution of the SP500. Scroll over the plot to get more detailed data.\nSo it is nicely visible that the top 10 biggest companies by market capitalization are taking 30% of the cake."
-  },
-  {
-    "objectID": "about/about.html",
-    "href": "about/about.html",
-    "title": "About",
-    "section": "",
-    "text": "This is my little side project in order to learn some more coding. This website is created with Quarto, which is a great tool to make data public as well as combing R, Python and html code."
-  },
-  {
-    "objectID": "general/welcome/welcome.html",
-    "href": "general/welcome/welcome.html",
-    "title": "Warm welcome",
-    "section": "",
-    "text": "This is just a file update"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "KarambolageInvesting",
@@ -54,5 +12,96 @@
     "title": "Samsung Stock analysis",
     "section": "",
     "text": "Samsung stock\nSamsung makes the best phones.\n\nchart_Series(SMSN.IL)"
+  },
+  {
+    "objectID": "portfolio.html",
+    "href": "portfolio.html",
+    "title": "My personal portfolio",
+    "section": "",
+    "text": "The KarambolageNed portfolio"
+  },
+  {
+    "objectID": "portfolio.html#strategy",
+    "href": "portfolio.html#strategy",
+    "title": "My personal portfolio",
+    "section": "Strategy",
+    "text": "Strategy\nThe strategy is easy: Safe and sound.\nGenerally, this portfolio has the purpose to add a signifcant amount of dividend income to the regular job income.\n\n# Display the interactive plot"
+  },
+  {
+    "objectID": "portfolio.html#market-events-and-performance",
+    "href": "portfolio.html#market-events-and-performance",
+    "title": "My personal portfolio",
+    "section": "Market Events and Performance",
+    "text": "Market Events and Performance\nCalculating the performance is tough since the money invested changes from to month due to the additional savings etc."
+  },
+  {
+    "objectID": "portfolio.html#long-term-predictions",
+    "href": "portfolio.html#long-term-predictions",
+    "title": "My personal portfolio",
+    "section": "Long term predictions",
+    "text": "Long term predictions\nFor this point, I want to demonstrate two scenarios:\n-1. scenario: weak outlook and an average growth of 3% while adding 10k per year\n-2. scenario: perfect wealth generation conditions with a growth of 10% while adding 10k per year\nLet’s take a look at both:\n\nscenario: growth 3% p.a., 10k additional investment from the job income\n\n\n#paste0(print(\"In year 2023 the portfolio has an income of 180k. Today the value is\", as.character(round(sum(x),3)), \"k\"))\n\n\nscenario: growth 10% p.a. + 10k additional investment from job income\n\nThis is the best case scenario."
+  },
+  {
+    "objectID": "portfolio.html#additional-thoughts",
+    "href": "portfolio.html#additional-thoughts",
+    "title": "My personal portfolio",
+    "section": "Additional thoughts",
+    "text": "Additional thoughts\nThe goal is not retire as fast as possible. Live without work is damn boring."
+  },
+  {
+    "objectID": "posts/2023_08_01_Apple/apple.html",
+    "href": "posts/2023_08_01_Apple/apple.html",
+    "title": "Apple Stock analysis",
+    "section": "",
+    "text": "Apple stock analysis\nApple is the biggest company by market value. Here is the chart.\n\nchart_Series(AAPL)"
+  },
+  {
+    "objectID": "posts/2023_08_04_Realty_Income/realty_income.html",
+    "href": "posts/2023_08_04_Realty_Income/realty_income.html",
+    "title": "Realty Income Stock analysis",
+    "section": "",
+    "text": "Realty Income Corp\nThe monthly dividend stock\n\nchart_Series(O)\n\n\n\n\n\ndividends_df &lt;- getDividends(\"DLR\", \n             from = \"1970-01-01\",\n             to = Sys.Date(), \n             env = parent.frame(), \n             src = \"yahoo\", \n             verbose = FALSE,\n             split.adjust = TRUE,\n             curl.options = list())"
+  },
+  {
+    "objectID": "general.html",
+    "href": "general.html",
+    "title": "Projects",
+    "section": "",
+    "text": "This is the site for general stuff like SP500, Nasdaq….etc\n\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nAug 4, 2023\n\n\nThe SP500\n\n\nJNW \n\n\n\n\nJan 3, 2023\n\n\nWarm welcome\n\n\nJNW \n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "dividend.html",
+    "href": "dividend.html",
+    "title": "My personal portfolio",
+    "section": "",
+    "text": "The KarambolageNed portfolio"
+  },
+  {
+    "objectID": "dividend.html#strategy",
+    "href": "dividend.html#strategy",
+    "title": "My personal portfolio",
+    "section": "Strategy",
+    "text": "Strategy\nThe strategy is easy: Safe and sound.\nGenerally, this portfolio has the purpose to add a signifcant amount of dividend income to the regular job income.\n\n# Display the interactive plot"
+  },
+  {
+    "objectID": "dividend.html#market-events-and-performance",
+    "href": "dividend.html#market-events-and-performance",
+    "title": "My personal portfolio",
+    "section": "Market Events and Performance",
+    "text": "Market Events and Performance\nThe performance of the S&P 500 is subject to various market events, including economic data releases, corporate earnings reports, geopolitical developments, and central bank decisions. Market fluctuations in the S&P 500 can have a cascading effect on other financial markets and impact investor confidence."
+  },
+  {
+    "objectID": "dividend.html#long-term-predictions",
+    "href": "dividend.html#long-term-predictions",
+    "title": "My personal portfolio",
+    "section": "Long term predictions",
+    "text": "Long term predictions\nFor this point, I want to demonstrate two scenarios:\n-1. scenario: weak outlook and an average growth of 3% while adding 10k per year\n-2. scenario: perfect wealth generation conditions with a growth of 10% while adding 10k per year\nLet’s take a look at both:\n\nscenario: growth 3% p.a., 10k additional investment from the job income\n\n\npaste0(print(\"In year 2023 the portfolio has an income of 180k. Today the value is\"))\n\n[1] \"In year 2023 the portfolio has an income of 180k. Today the value is\"\n\n\n[1] \"In year 2023 the portfolio has an income of 180k. Today the value is\"\n\n\n\nscenario: growth 10% p.a. + 10k additional investment from job income"
+  },
+  {
+    "objectID": "dividend.html#long-term-predictions-1",
+    "href": "dividend.html#long-term-predictions-1",
+    "title": "My personal portfolio",
+    "section": "Long term predictions",
+    "text": "Long term predictions"
   }
 ]
