@@ -2,7 +2,7 @@
 title: "My personal portfolio"
 author: "JNW"
 description: "stuff"
-date: "2023-08-08"
+date: "2023-08-10"
 image: sp500.png
 ---
 
@@ -15,6 +15,9 @@ This **portfolio** consist of a maximum of 100 values whereas the top 15 stock s
 ```{r}
 #| echo: false
 #| output: false
+#| include: false
+
+#load packages
 library(tidyquant)
 library(quantmod)
 library(ggplot2)
@@ -24,10 +27,14 @@ library(plotly)
 
 ```
 
-```{r}
+```{r} 
+ 
 #| echo: false
 #| output: false
+#| include: false
 
+
+#get dividends
 #get data from the Google sheets 
 #porfolio_df <- t
 

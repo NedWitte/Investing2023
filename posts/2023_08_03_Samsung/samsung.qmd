@@ -2,18 +2,18 @@
 title: "Samsung Stock analysis"
 author: "JNW"
 date: "2023-08-03"
+description: "The South Korean titan"
 image: samsung_sign.png
 image-height: "2"
 image-width: "2"
 ---
 
-<img src="samsung_sign.png" alt="Samsung Sign" width="300" height="200">
+<img src="samsung_sign.png" alt="Samsung Sign" width="300" height="200"/>
 
 **Samsung stock**
 
+Samsung makes the best phones.
 
-
-Samsung makes the best phones. 
 ```{r}
 #| echo: false
 #| output: false
@@ -33,5 +33,3 @@ getSymbols("SMSN.IL", from = '2017-01-01',
 chart_Series(SMSN.IL)
 
 ```
-
-
