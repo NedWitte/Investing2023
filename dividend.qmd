@@ -76,7 +76,8 @@ This is the dividend growth of the number 1 stock: JNJ
 #| echo: false
 #| output: false
 #| include: false
-
+#| warning: false
+ 
 fig <- plot_ly(df_dividend_master, x = ~year_month,  y = ~JNJ.div, type = 'bar', name = 'JNJ')
 #fig <- fig %>% add_trace(y = ~O.div, name = 'Realty income')
 ```
@@ -86,6 +87,9 @@ fig <- plot_ly(df_dividend_master, x = ~year_month,  y = ~JNJ.div, type = 'bar',
 #| output: TRUE
 #| results: hide
 #| warning: false
+#| fig-cap: "JNJ dividend growth since 2017"
+#| fig-alt: "Plotly plot generated"
+
 
 #prepare figure to plot
 fig
@@ -94,6 +98,10 @@ fig
 ```
 
 ```{r}
+#| echo: false
+#| output: false
+#| include: false
+#| warning: false
 # Display the interactive 3D pie chart
 
 ```

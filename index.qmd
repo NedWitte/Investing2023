@@ -21,5 +21,8 @@ This is the home page, where the stock posts should be displayed.
 ::: {#sample-listings}
 :::
 
+<iframe src="https://giphy.com/embed/9JrkkDoJuU0FbdbUZU" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen>
 
-<iframe src="https://giphy.com/embed/9JrkkDoJuU0FbdbUZU" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p>
+</iframe>
+
+<p>
