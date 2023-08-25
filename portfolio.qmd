@@ -27,7 +27,7 @@ library(plotly)
 
 ```
 
-```{r} 
+```{r}
  
 #| echo: false
 #| output: false
@@ -94,3 +94,32 @@ This is the best case scenario.
 ## Additional thoughts
 
 The goal is not retire as fast as possible. Live without work is damn boring.
+
+
+## Portfolio as table 
+
+
+```{r}
+#| echo: false
+#| output: false
+#| include: false
+
+#install.packages("gtExtras")
+#length(ls.str('package:gtExtras', mode='function'))
+library(gtExtras)
+library(tidyverse)
+library(gt)
+
+```
+
+```{r}
+#| echo: false
+#| output: true
+#| include: true
+head(mtcars) %>% 
+  gt() %>% 
+  gt_theme_nytimes() %>% 
+  tab_header(title = "Table styled like the NY Times")
+
+```
+

@@ -3,6 +3,7 @@ title: "KarambolageInvesting"
 format: 
  html: default
 listing:
+  id: sample-listings
   contents: posts
   sort: "date desc"
   type: default
@@ -14,3 +15,11 @@ title-block-banner: true
 ---
 
 This is the home page, where the stock posts should be displayed.
+
+#### Stock analysis listed here:
+
+::: {#sample-listings}
+:::
+
+
+<iframe src="https://giphy.com/embed/9JrkkDoJuU0FbdbUZU" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p>

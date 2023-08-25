@@ -109,7 +109,7 @@
     "href": "index.html",
     "title": "KarambolageInvesting",
     "section": "",
-    "text": "This is the home page, where the stock posts should be displayed.\n\n\n\n\n\n\n\n\n  \n\n\n\n\nRealty Income Stock analysis\n\n\n\n\n\nThe monthly dividend company\n\n\n\n\n\n\nAug 4, 2023\n\n\nJNW\n\n\n\n\n\n\n  \n\n\n\n\nSamsung Stock analysis\n\n\n\n\n\nThe South Korean titan\n\n\n\n\n\n\nAug 3, 2023\n\n\nJNW\n\n\n\n\n\n\n  \n\n\n\n\nApple Stock analysis\n\n\n\n\n\nApple article\n\n\n\n\n\n\nAug 2, 2023\n\n\nJNW\n\n\n\n\n\n\nNo matching items"
+    "text": "This is the home page, where the stock posts should be displayed.\n\nStock analysis listed here:\n\n\n\n\n  \n\n\n\n\nRealty Income Stock analysis\n\n\n\n\n\nThe monthly dividend company\n\n\n\n\n\n\nAug 4, 2023\n\n\nJNW\n\n\n\n\n\n\n  \n\n\n\n\nSamsung Stock analysis\n\n\n\n\n\nThe South Korean titan\n\n\n\n\n\n\nAug 3, 2023\n\n\nJNW\n\n\n\n\n\n\n  \n\n\n\n\nApple Stock analysis\n\n\n\n\n\nApple article\n\n\n\n\n\n\nAug 2, 2023\n\n\nJNW\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "portfolio.html",
@@ -152,5 +152,12 @@
     "title": "Samsung Stock analysis",
     "section": "",
     "text": "Samsung stock\nSamsung makes the best phones.\n\nchart_Series(SMSN.IL)"
+  },
+  {
+    "objectID": "portfolio.html#portfolio-as-table",
+    "href": "portfolio.html#portfolio-as-table",
+    "title": "My personal portfolio",
+    "section": "Portfolio as table",
+    "text": "Portfolio as table\n\n\n\n\n\n\n  \n    \n      Table styled like the NY Times\n    \n    \n    \n      mpg\n      cyl\n      disp\n      hp\n      drat\n      wt\n      qsec\n      vs\n      am\n      gear\n      carb\n    \n  \n  \n    21.0\n6\n160\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n    21.0\n6\n160\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n    22.8\n4\n108\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n    21.4\n6\n258\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n    18.7\n8\n360\n175\n3.15\n3.440\n17.02\n0\n0\n3\n2\n    18.1\n6\n225\n105\n2.76\n3.460\n20.22\n1\n0\n3\n1"
   }
 ]

@@ -81,8 +81,6 @@ fig <- plot_ly(df_dividend_master, x = ~year_month,  y = ~JNJ.div, type = 'bar',
 #fig <- fig %>% add_trace(y = ~O.div, name = 'Realty income')
 ```
 
-
-
 ```{r}
 #| echo: false
 #| output: TRUE
