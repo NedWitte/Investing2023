@@ -24,7 +24,7 @@ library(ggplot2)
 library(tidyverse)
 library(tidyquant)
 library(plotly)
-
+library(readxl)
 ```
 
 ```{r}
@@ -36,23 +36,37 @@ library(plotly)
 
 #get dividends
 #get data from the Google sheets 
-#porfolio_df <- t
+portfolio_df <- read_excel("data/2023_08_NedPortfolio.xlsx")
+
+
 
 ```
 
 ```{r}
 #| echo: false
 #| output: false
+#| include: false
 
 #prepare figure to plot
+# Create a pie chart
+pie_chart <- plot_ly(
+  data = portfolio_df,
+  labels =portfolio_df$ Wertpapier,
+  values = portfolio_df$`%-Anteil`,
+  type = "pie"
+) %>% layout(
+  title = "Portfolio Distribution",
+  showlegend = FALSE  # This removes the legend
+)
+
+# Display the pie chart
 
 ```
 
 ```{r}
 # Display the interactive 3D pie chart
-#fig
+pie_chart
 
-#print(paste("In this portfolio the top 15 stocks compromises roughly", as.character(round(sum(sp500_df_top10$weight[1:10]),3)*100), "%  of the market capitaliztation."))
 ```
 
 ## Strategy

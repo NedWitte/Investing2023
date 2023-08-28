@@ -96,6 +96,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.10.2/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
 <link rel="stylesheet" href="html/style.scs">
@@ -201,20 +209,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#get dividends</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#get data from the Google sheets </span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#porfolio_df &lt;- t</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>portfolio_df <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/2023_08_NedPortfolio.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+• `` -&gt; `...12`
+• `%` -&gt; `%...14`
+• `%` -&gt; `%...16`
+• `%` -&gt; `%...18`
+• `` -&gt; `...21`
+• `` -&gt; `...22`
+• `` -&gt; `...23`
+• `` -&gt; `...24`
+• `` -&gt; `...25`
+• `` -&gt; `...26`
+• `` -&gt; `...27`
+• `` -&gt; `...28`
+• `` -&gt; `...29`
+• `` -&gt; `...30`
+• `` -&gt; `...31`
+• `` -&gt; `...32`
+• `` -&gt; `...33`</code></pre>
+</div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the interactive 3D pie chart</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#fig</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#print(paste("In this portfolio the top 15 stocks compromises roughly", as.character(round(sum(sp500_df_top10$weight[1:10]),3)*100), "%  of the market capitaliztation."))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the interactive 3D pie chart</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pie_chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-7adb7217fadf17e8b924" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-7adb7217fadf17e8b924">{"x":{"visdat":{"52a057e176b1":["function () ","plotlyVisDat"]},"cur_data":"52a057e176b1","attrs":{"52a057e176b1":{"labels":["Johnson&Johnson","ThermoFisher Scientific","Alphabet","Samsung","Brookfield Corp","BASF","Nvidia","Illumina","McDonalds","Alibaba","Prosus NV","Glencore","Sika","LTC Properties","Fuchs Petroclub","Procter&Gamble","Ball Corp.","Reckit Benckiser","Swisscom","Flughafen Zürich","IBM","ICBC","Charterl Hall Grp","Porsche Holding","Parkway Life REIT","Covestro","NextEra Energy","Sony Corp","SPinn off JNJ","China Mobile LTD.","3M","Exxon Mobil Corp","Dupont de Nemours","Corteva","Simon Property","Crown Castle REIT","Sixt SE","Novartis","Softbank Group","BP PLC","Rexford Ind. Realty","Royal Dutch Shell","Naspers","Diageo","Baidu","JP Morgan","Hochtief AG","Continental","Oreal (L`)","Danaher","AIA Group LTD","Realty Income REIT","Mowi SK","Brookfield AS","Bayer AG","Nestle SA","Unilever","Essex Property Trust","Triton Intl RG","KKR&Co","Linde PLC","Coca Cola","Adobe","Prologis","SL Green REIT","Fraport AG","Visa","Walmart","Heineken","Vinci","Carlsberg","J Martins","LVHM","Kering","Roche Holding AG","British Land REIT","Enel","CA Immo REIT","Commonwealth Bank AUS","Anheuser-Busch Inbev","EDP-Energias","V.F Corp","Starbucks",null,null,null,"Wharf Holdings Ltd","Wipro ADR","Meituan Cl B","Sea Ltd","DBS Grp Hld","Shenzou Itl","Xiaomi","Infosys ADR","Pinduoduo","Weichai Power","Lenovo Group",null,null,"Adler Group",null,null,"Spin offs:","Alcon AG","Vitesco Tech Gr","Orion office REIT","Kyndril Holdings",null,null,null,null,null,null,null,null],"values":[0.05816891345,0.0256220214,0.05036269562,0.08498704887,0.041859584,0.03619818748,0.02832901629,0.02766171057,0.03210621846,0.0396606228,0.04078119278,0.006610103801,0.01062715831,0.01237033711,0.001888601086,0.006912279974,0.003655072635,0.004601891313,0.002990285053,0.004973316193,0.004532642606,0.002203367934,0.00830669711,0.006295336953,0.006610103801,0.007554404344,0.01601785534,0.007689124554,0,0.0033050519,0.03097305781,0.006742305877,0.004207047779,0.001921840465,0.005739332793,0.01158341999,0.0007554404344,0.003214399048,0.01510880869,0.007302590866,0.007684717819,0.007365544235,0.006473494989,0.004702616704,0.01259067391,0.002738471575,0.002908445672,0.003399481955,0.005288083041,0.005036269562,0.004784456084,0.02927331683,0.006295336953,0.01004735778,0.0138497413,0.003588342063,0.01374901591,0.006987824018,0.004555305819,0.004589300639,0.005967979431,0.002769948259,0.005426580454,0.005162176301,0.008383578597,0.008183938039,0.005823186682,0.004154922389,0.005728756627,0.005665803258,0.007755855126,0.007151502779,0.00382126953,0.003984948291,0.003701658128,0.003651295433,0.008681143752,0.002374915866,0.002518449548,0.004910362823,0.006295336953,0.005854663366,0.02544575196,null,null,null,0.001728069994,0.00264404152,0.002769948259,0.002178186586,0.002241139955,0.00212782389,0.002455181412,0.002757357585,0.002115233216,0.002880116656,0.006351994986,null,null,0.002832901629,null,null,null,0.0003864077822,0.0007363655634,0.0002061093318,9.228963973e-05,0.01004735778,0,0,0,0,0,0,0],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"pie"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Portfolio Distribution","showlegend":false,"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"labels":["Johnson&Johnson","ThermoFisher Scientific","Alphabet","Samsung","Brookfield Corp","BASF","Nvidia","Illumina","McDonalds","Alibaba","Prosus NV","Glencore","Sika","LTC Properties","Fuchs Petroclub","Procter&Gamble","Ball Corp.","Reckit Benckiser","Swisscom","Flughafen Zürich","IBM","ICBC","Charterl Hall Grp","Porsche Holding","Parkway Life REIT","Covestro","NextEra Energy","Sony Corp","SPinn off JNJ","China Mobile LTD.","3M","Exxon Mobil Corp","Dupont de Nemours","Corteva","Simon Property","Crown Castle REIT","Sixt SE","Novartis","Softbank Group","BP PLC","Rexford Ind. Realty","Royal Dutch Shell","Naspers","Diageo","Baidu","JP Morgan","Hochtief AG","Continental","Oreal (L`)","Danaher","AIA Group LTD","Realty Income REIT","Mowi SK","Brookfield AS","Bayer AG","Nestle SA","Unilever","Essex Property Trust","Triton Intl RG","KKR&Co","Linde PLC","Coca Cola","Adobe","Prologis","SL Green REIT","Fraport AG","Visa","Walmart","Heineken","Vinci","Carlsberg","J Martins","LVHM","Kering","Roche Holding AG","British Land REIT","Enel","CA Immo REIT","Commonwealth Bank AUS","Anheuser-Busch Inbev","EDP-Energias","V.F Corp","Starbucks",null,null,null,"Wharf Holdings Ltd","Wipro ADR","Meituan Cl B","Sea Ltd","DBS Grp Hld","Shenzou Itl","Xiaomi","Infosys ADR","Pinduoduo","Weichai Power","Lenovo Group",null,null,"Adler Group",null,null,"Spin offs:","Alcon AG","Vitesco Tech Gr","Orion office REIT","Kyndril Holdings",null,null,null,null,null,null,null,null],"values":[0.05816891345,0.0256220214,0.05036269562,0.08498704887,0.041859584,0.03619818748,0.02832901629,0.02766171057,0.03210621846,0.0396606228,0.04078119278,0.006610103801,0.01062715831,0.01237033711,0.001888601086,0.006912279974,0.003655072635,0.004601891313,0.002990285053,0.004973316193,0.004532642606,0.002203367934,0.00830669711,0.006295336953,0.006610103801,0.007554404344,0.01601785534,0.007689124554,0,0.0033050519,0.03097305781,0.006742305877,0.004207047779,0.001921840465,0.005739332793,0.01158341999,0.0007554404344,0.003214399048,0.01510880869,0.007302590866,0.007684717819,0.007365544235,0.006473494989,0.004702616704,0.01259067391,0.002738471575,0.002908445672,0.003399481955,0.005288083041,0.005036269562,0.004784456084,0.02927331683,0.006295336953,0.01004735778,0.0138497413,0.003588342063,0.01374901591,0.006987824018,0.004555305819,0.004589300639,0.005967979431,0.002769948259,0.005426580454,0.005162176301,0.008383578597,0.008183938039,0.005823186682,0.004154922389,0.005728756627,0.005665803258,0.007755855126,0.007151502779,0.00382126953,0.003984948291,0.003701658128,0.003651295433,0.008681143752,0.002374915866,0.002518449548,0.004910362823,0.006295336953,0.005854663366,0.02544575196,null,null,null,0.001728069994,0.00264404152,0.002769948259,0.002178186586,0.002241139955,0.00212782389,0.002455181412,0.002757357585,0.002115233216,0.002880116656,0.006351994986,null,null,0.002832901629,null,null,null,0.0003864077822,0.0007363655634,0.0002061093318,9.228963973e-05,0.01004735778,0,0,0,0,0,0,0],"type":"pie","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(255,255,255,1)"}},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#print(paste("In this portfolio the top 15 stocks compromises roughly", as.character(round(sum(sp500_df_top10$weight[1:10]),3)*100), "%  of the market capitaliztation."))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="strategy" class="level2">
 <h2 class="anchored" data-anchor-id="strategy">Strategy</h2>
 <p>The strategy is easy: Safe and sound.</p>
 <p>Generally, this portfolio has the purpose to add a signifcant amount of dividend income to the regular job income.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the interactive plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the interactive plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="market-events-and-performance" class="level2">
@@ -231,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>scenario: growth 3% p.a., 10k additional investment from the job income</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#paste0(print("In year 2023 the portfolio has an income of 180k. Today the value is", as.character(round(sum(x),3)), "k"))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#paste0(print("In year 2023 the portfolio has an income of 180k. Today the value is", as.character(round(sum(x),3)), "k"))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li>scenario: growth 10% p.a. + 10k additional investment from job income</li>
@@ -247,26 +278,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="obkzkbjmgk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="spwekojwxf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#obkzkbjmgk table {
+#spwekojwxf table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#obkzkbjmgk thead, #obkzkbjmgk tbody, #obkzkbjmgk tfoot, #obkzkbjmgk tr, #obkzkbjmgk td, #obkzkbjmgk th {
+#spwekojwxf thead, #spwekojwxf tbody, #spwekojwxf tfoot, #spwekojwxf tr, #spwekojwxf td, #spwekojwxf th {
   border-style: none;
 }
 
-#obkzkbjmgk p {
+#spwekojwxf p {
   margin: 0;
   padding: 0;
 }
 
-#obkzkbjmgk .gt_table {
+#spwekojwxf .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -292,12 +323,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#obkzkbjmgk .gt_caption {
+#spwekojwxf .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#obkzkbjmgk .gt_title {
+#spwekojwxf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -309,7 +340,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#obkzkbjmgk .gt_subtitle {
+#spwekojwxf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -321,7 +352,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#obkzkbjmgk .gt_heading {
+#spwekojwxf .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -333,13 +364,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#obkzkbjmgk .gt_bottom_border {
+#spwekojwxf .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#obkzkbjmgk .gt_col_headings {
+#spwekojwxf .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -354,7 +385,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#obkzkbjmgk .gt_col_heading {
+#spwekojwxf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 12px;
@@ -374,7 +405,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#obkzkbjmgk .gt_column_spanner_outer {
+#spwekojwxf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 12px;
@@ -386,15 +417,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#obkzkbjmgk .gt_column_spanner_outer:first-child {
+#spwekojwxf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#obkzkbjmgk .gt_column_spanner_outer:last-child {
+#spwekojwxf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#obkzkbjmgk .gt_column_spanner {
+#spwekojwxf .gt_column_spanner {
   border-bottom-style: none;
   border-bottom-width: 1px;
   border-bottom-color: #334422;
@@ -406,11 +437,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#obkzkbjmgk .gt_spanner_row {
+#spwekojwxf .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#obkzkbjmgk .gt_group_heading {
+#spwekojwxf .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -436,7 +467,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#obkzkbjmgk .gt_empty_group_heading {
+#spwekojwxf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -451,15 +482,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#obkzkbjmgk .gt_from_md > :first-child {
+#spwekojwxf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#obkzkbjmgk .gt_from_md > :last-child {
+#spwekojwxf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#obkzkbjmgk .gt_row {
+#spwekojwxf .gt_row {
   padding-top: 7px;
   padding-bottom: 7px;
   padding-left: 5px;
@@ -478,7 +509,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#obkzkbjmgk .gt_stub {
+#spwekojwxf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -491,7 +522,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#obkzkbjmgk .gt_stub_row_group {
+#spwekojwxf .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -505,15 +536,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#obkzkbjmgk .gt_row_group_first td {
+#spwekojwxf .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#obkzkbjmgk .gt_row_group_first th {
+#spwekojwxf .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#obkzkbjmgk .gt_summary_row {
+#spwekojwxf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -523,16 +554,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#obkzkbjmgk .gt_first_summary_row {
+#spwekojwxf .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#obkzkbjmgk .gt_first_summary_row.thick {
+#spwekojwxf .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#obkzkbjmgk .gt_last_summary_row {
+#spwekojwxf .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -542,7 +573,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#obkzkbjmgk .gt_grand_summary_row {
+#spwekojwxf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -552,7 +583,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#obkzkbjmgk .gt_first_grand_summary_row {
+#spwekojwxf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -562,7 +593,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#obkzkbjmgk .gt_last_grand_summary_row_top {
+#spwekojwxf .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -572,11 +603,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#obkzkbjmgk .gt_striped {
+#spwekojwxf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#obkzkbjmgk .gt_table_body {
+#spwekojwxf .gt_table_body {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -585,7 +616,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #FFFFFF;
 }
 
-#obkzkbjmgk .gt_footnotes {
+#spwekojwxf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -599,7 +630,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#obkzkbjmgk .gt_footnote {
+#spwekojwxf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -608,7 +639,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#obkzkbjmgk .gt_sourcenotes {
+#spwekojwxf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -622,7 +653,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#obkzkbjmgk .gt_sourcenote {
+#spwekojwxf .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -630,63 +661,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#obkzkbjmgk .gt_left {
+#spwekojwxf .gt_left {
   text-align: left;
 }
 
-#obkzkbjmgk .gt_center {
+#spwekojwxf .gt_center {
   text-align: center;
 }
 
-#obkzkbjmgk .gt_right {
+#spwekojwxf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#obkzkbjmgk .gt_font_normal {
+#spwekojwxf .gt_font_normal {
   font-weight: normal;
 }
 
-#obkzkbjmgk .gt_font_bold {
+#spwekojwxf .gt_font_bold {
   font-weight: bold;
 }
 
-#obkzkbjmgk .gt_font_italic {
+#spwekojwxf .gt_font_italic {
   font-style: italic;
 }
 
-#obkzkbjmgk .gt_super {
+#spwekojwxf .gt_super {
   font-size: 65%;
 }
 
-#obkzkbjmgk .gt_footnote_marks {
+#spwekojwxf .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#obkzkbjmgk .gt_asterisk {
+#spwekojwxf .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#obkzkbjmgk .gt_indent_1 {
+#spwekojwxf .gt_indent_1 {
   text-indent: 5px;
 }
 
-#obkzkbjmgk .gt_indent_2 {
+#spwekojwxf .gt_indent_2 {
   text-indent: 10px;
 }
 
-#obkzkbjmgk .gt_indent_3 {
+#spwekojwxf .gt_indent_3 {
   text-indent: 15px;
 }
 
-#obkzkbjmgk .gt_indent_4 {
+#spwekojwxf .gt_indent_4 {
   text-indent: 20px;
 }
 
-#obkzkbjmgk .gt_indent_5 {
+#spwekojwxf .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
