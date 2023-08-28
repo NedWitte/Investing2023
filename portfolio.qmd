@@ -4,6 +4,7 @@ author: "JNW"
 description: "stuff"
 date: "2023-08-10"
 image: sp500.png
+
 ---
 
 **The KarambolageNed portfolio**
@@ -25,6 +26,7 @@ library(tidyverse)
 library(tidyquant)
 library(plotly)
 library(readxl)
+library(gt)
 ```
 
 ```{r}
@@ -38,7 +40,13 @@ library(readxl)
 #get data from the Google sheets 
 portfolio_df <- read_excel("data/2023_08_NedPortfolio.xlsx")
 
+portfolio_df <- portfolio_df%>% filter(!is.na(Kaufkurs))
+#get transition course 
+# Define the currency pair
+currency_pair <- "EUR/USD"
 
+# Retrieve the exchange rate data
+exchange_rate_data <- getFX(currency_pair)
 
 ```
 
@@ -46,6 +54,7 @@ portfolio_df <- read_excel("data/2023_08_NedPortfolio.xlsx")
 #| echo: false
 #| output: false
 #| include: false
+
 
 #prepare figure to plot
 # Create a pie chart
@@ -130,10 +139,15 @@ library(gt)
 #| echo: false
 #| output: true
 #| include: true
-head(mtcars) %>% 
-  gt() %>% 
-  gt_theme_nytimes() %>% 
-  tab_header(title = "Table styled like the NY Times")
+#| warning: false
+
+portfolio_df %>%
+  select(Wertpapier, Kurs, Kaufkurs, Wert, Notiz) %>%
+  mutate_at(vars(Kurs,Wert, Kaufkurs), ~ round(., 2)) %>%
+  gt() %>%
+  tab_header(title = "Portfolio as Table", subtitle = "Price in EUR instead of USD") %>%
+  cols_label(Wertpapier = "Identifier", Wert = "Value",  Kurs = "Current Price", Kaufkurs = "Buying Price") 
+
 
 ```
 
