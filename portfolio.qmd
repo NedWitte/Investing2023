@@ -39,14 +39,39 @@ library(gt)
 #get dividends
 #get data from the Google sheets 
 portfolio_df <- read_excel("data/2023_08_NedPortfolio.xlsx")
-
 portfolio_df <- portfolio_df%>% filter(!is.na(Kaufkurs))
+portfolio_df$real_time_price_EUR <- NA
+portfolio_df$real_time_worth_EUR <- NA
+portfolio_df$Wertunterschied <- NA
+
+
 #get transition course 
 # Define the currency pair
 currency_pair <- "EUR/USD"
 
 # Retrieve the exchange rate data
-exchange_rate_data <- getFX(currency_pair)
+currency_pair <- "EUR/USD"
+start_date <- Sys.Date() - 1  # Get data for yesterday
+end_date <- Sys.Date()
+
+# Retrieve the exchange rate data
+getFX(currency_pair, from = start_date, to = end_date)
+exchange_rate_data_today <- as.vector(EURUSD$EUR.USD[1]) #EUR/USD
+
+for(i in 1:nrow(portfolio_df)) {
+   
+  if(is.na(portfolio_df$Yahoo_3_letter[i])) next
+  x1 <- tq_get("SSUN.F", get = "stock.prices", from = start_date, to = end_date)
+  
+  x1 <- tq_get(portfolio_df$Yahoo_3_letter[i], get = "stock.prices", from = start_date, to = end_date)
+  x1 <- x1$close
+  if(portfolio_df$currency[i] == "EUR") {portfolio_df$real_time_price_EUR[i] <- x1}
+  if(portfolio_df$currency[i] == "USD") {portfolio_df$real_time_price_EUR[i] <- x1/exchange_rate_data_today} 
+portfolio_df$real_time_worth_EUR[i] <- as.numeric(portfolio_df$Stück[i])*portfolio_df$real_time_price_EUR[i]
+portfolio_df$Einstandswert[i] <- as.numeric(portfolio_df$Stück[i])*portfolio_df$Kaufkurs[i]
+portfolio_df$Wertunterschied[i] <- portfolio_df$real_time_worth_EUR[i]-portfolio_df$Einstandswert[i]
+}
+
 
 ```
 

@@ -33,3 +33,14 @@ getSymbols("SMSN.IL", from = '2017-01-01',
 chart_Series(SMSN.IL)
 
 ```
+
+```{r}
+#| echo: false
+#| output: false
+getSymbols("BAS.DE", from = '2017-01-01',
+           to = "2027-03-01",warnings = FALSE,
+           auto.assign = TRUE)
+
+chart_Series(BAS.DE)
+
+```
