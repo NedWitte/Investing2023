@@ -11,7 +11,7 @@
     "href": "posts/2023_08_01_Apple/apple.html",
     "title": "Apple Stock analysis",
     "section": "",
-    "text": "Apple stock analysis\nApple is the biggest company by market value. Here is the chart.\n\n\nCode\nchart_Series(AAPL)\n\n\n\n\n\nApple paid there first dividend in 1987. The quarterly dividend was 0.000536 USD per share. In November 1997 they stopped to pay it. This period lasted until 2012.\n\n\n\n\nJNJ dividend growth since 2017"
+    "text": "Apple stock analysis\nApple is the biggest company by market value. Here is the chart.\n\n\nCode\nchart_Series(AAPL)\n\n\n\n\n\nApple paid there first dividend in 1987. The quarterly dividend was 0.000536 USD per share. In November 1997 they stopped to pay it. This period lasted until 2012.\n\n\n\n\nAPPLE dividend growth since 1987"
   },
   {
     "objectID": "portfolio/SP500.html",
