@@ -15,6 +15,7 @@ Apple is the biggest company by market value. Here is the chart.
 #| echo: false
 #| output: false
 library(tidyquant)
+library(plotly)
 ```
 
 ```{r}
@@ -28,4 +29,35 @@ getSymbols("AAPL", from = '2017-01-01',
 
 ```{r}
 chart_Series(AAPL)
+```
+
+Apple paid there first dividend in 1987. The quarterly dividend was 0.000536 USD per share. In November 1997 they stopped to pay it. This period lasted until 2012.
+
+```{r}
+#| echo: false
+#| output: false
+df_dividend <-  getDividends("AAPL",from="1950-01-01", auto.assign=FALSE)
+df_dividend <- as.data.frame(df_dividend)
+df_dividend$year <-  lubridate::year(rownames(df_dividend))
+df_dividend$month <- lubridate::month(rownames(df_dividend))
+df_dividend$year_month <- sprintf("%d-%02d", df_dividend$year, df_dividend$month)
+
+ 
+fig <- plot_ly(df_dividend, x = ~year_month,  y = ~AAPL.div, type = 'bar', name = 'AAPL')
+
+```
+
+```{r}
+#| echo: false
+#| output: TRUE
+#| results: hide
+#| warning: false
+#| fig-cap: "APPLE dividend growth since 1987"
+#| fig-alt: "Plotly plot generated"
+
+
+#prepare figure to plot
+fig
+
+
 ```

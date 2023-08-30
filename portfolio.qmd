@@ -30,7 +30,7 @@ library(gt)
 ```
 
 ```{r}
- 
+#| warning: false
 #| echo: false
 #| output: false
 #| include: false

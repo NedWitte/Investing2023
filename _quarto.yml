@@ -30,10 +30,11 @@ website:
         
 format:
   html:
-    theme: 
-       - html/my-laterra.scss
-    css: 
-       - html/style.scs
+    code-fold: true
+    fig-width: 8
+    fig-height: 6
+    theme: html/my-laterra.scss
+    css: html/style.scs
     code-link: true
     fontsize: 1em
     
