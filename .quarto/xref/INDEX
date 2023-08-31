@@ -76,5 +76,11 @@
   },
   "portfolio.qmd": {
     "portfolio.html": "6b63126d"
+  },
+  "general/Inflation_data/inflation1.qmd": {
+    "inflation1.html": "c100947d"
+  },
+  "general/Oil_prices/oilprices.qmd": {
+    "oilprices.html": "5a013f78"
   }
 }

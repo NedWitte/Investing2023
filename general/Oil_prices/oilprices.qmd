@@ -1,0 +1,109 @@
+---
+title: "Olive oil price"
+author: "JNW"
+description: "Some information about oil"
+date: "2023-08-28"
+image: oliveoil1.png
+---
+
+# Olive Oil prices
+![](oliveoil1.png){width="20%" height="20%"}
+
+```{r}
+#| echo: false
+#| output: false
+library(tidyquant)
+library(quantmod)
+library(ggplot2)
+library(tidyverse)
+library(tidyquant)
+library(plotly)
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+
+# Fetch data from Yahoo
+getSymbols("POLVOILUSDM", src = "FRED")
+
+# Extract CPI values
+df_oil <- as.data.frame(POLVOILUSDM)
+
+df_oil$year <-  lubridate::year(rownames(df_oil))
+df_oil$month <- lubridate::month(rownames(df_oil))
+df_oil$year_month <- sprintf("%d-%02d", df_oil$year, df_oil$month)
+
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+
+# Sample data for illustration
+# Specify the start and end dates of the financial crises
+crisis_2000_start <- as.Date("2000-01-03")
+crisis_2000_end <- as.Date("2001-12-31")
+
+crisis_2008_start <- as.Date("2008-09-01")
+crisis_2008_end <- as.Date("2009-06-30")
+
+# Create the plot
+fig <- plot_ly(data = df_oil, x = ~year_month, y = ~POLVOILUSDM, type = "scatter", mode = "lines",
+               line = list(color = "green"), name = "Global price of Olive Oil") %>%
+  add_trace(
+    type = "scatter", mode = "none",
+    x = c(crisis_2000_start, crisis_2000_end, crisis_2000_end, crisis_2000_start),
+    y = c(1000, 1000, max(df_oil$POLVOILUSDM), max(df_oil$POLVOILUSDM)),
+    fill = "tozeroy", fillcolor = "rgba(255, 165, 0, 0.3)", line = list(color = "transparent"),
+    showlegend = FALSE
+  ) %>%
+  add_trace(
+    type = "scatter", mode = "none",
+    x = c(crisis_2008_start, crisis_2008_end, crisis_2008_end, crisis_2008_start),
+    y = c(1000, 1000, max(df_oil$POLVOILUSDM), max(df_oil$POLVOILUSDM)),
+    fill = "tozeroy", fillcolor = "rgba(255, 0, 0, 0.3)", line = list(color = "transparent"),
+    showlegend = FALSE
+  ) %>%
+  layout(
+    title = "Olive oil price",
+    xaxis = list(title = "Year-month"),
+    yaxis = list(title = "U.S. Dollars per Metric Ton", range = c(1000, max(df_oil$POLVOILUSDM)+200))
+  ) %>%
+  add_annotations(
+    x = crisis_2000_start + (crisis_2000_end - crisis_2000_start) / 2,
+    y = max(df_oil$POLVOILUSDM),
+    text = "dot-com bubble burst",
+    showarrow = FALSE,
+    arrowhead = 0,
+    font = list(size = 8, color = "black"),
+    opacity = 0.6  # Set transparency level here
+  ) %>%
+  add_annotations(
+    x = crisis_2008_start + (crisis_2008_end - crisis_2008_start) / 2,
+    y = max(df_oil$POLVOILUSDM),
+    text = "Mortgage lending crisis",
+    showarrow = FALSE,
+    arrowhead = 0,
+    font = list(size = 8, color = "black"),
+    opacity = 0.6  # Set transparency level here
+  )
+
+
+```
+
+Here is the U.S. Dollars per Metric Ton of the FRED symbol "POLVOILUSDM" since 1990.
+
+```{r}
+#| output: true
+#| echo: false
+#| warning: false
+# Display the interactive 3D pie chart
+# Create a plotly plot
+fig
+
+```

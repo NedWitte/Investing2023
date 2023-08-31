@@ -12,3 +12,5 @@ about:
 ---
 
 This is my little side project in order to learn some more coding. This website is created with Quarto, which is a great tool to make data public as well as combing R, Python and html code.
+
+Learn more about Quarto [here](https://www.quarto.com).

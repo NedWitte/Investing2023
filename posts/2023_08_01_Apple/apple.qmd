@@ -4,7 +4,7 @@ description: "Apple stock analysis and growth perspectives"
 toc: true
 author: "JNW"
 date: "2023-08-02"
-image: apple_sign.png
+image: apple1.png
 ---
 
 **Apple stock analysis**
@@ -43,7 +43,11 @@ df_dividend$month <- lubridate::month(rownames(df_dividend))
 df_dividend$year_month <- sprintf("%d-%02d", df_dividend$year, df_dividend$month)
 
  
-fig <- plot_ly(df_dividend, x = ~year_month,  y = ~AAPL.div, type = 'bar', name = 'AAPL')
+fig <- plot_ly(df_dividend, x = ~year_month,  y = ~AAPL.div, type = 'bar', name = 'AAPL')%>%
+  layout(title = "Apple stock",
+         xaxis = list(title = "Year"),
+         yaxis = list(title = "price[USD]"))
+
 
 ```
 
@@ -61,3 +65,10 @@ fig
 
 
 ```
+
+
+So why the Apple stock is glowing so big times?
+
+<iframe src="https://giphy.com/embed/smGpsxCQzXwDS" width="360" height="480" frameBorder="0" class="giphy-embed" allowFullScreen>
+
+Maybe, it is because of .....

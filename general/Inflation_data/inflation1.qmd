@@ -1,0 +1,166 @@
+---
+title: "Inflation perspectives"
+author: "JNW"
+description: "Some information about Inflation in USA and Europe since 1960"
+date: "2023-08-31"
+image: inflation1.png
+---
+
+![](inflation1.png){width="50%" height="auto"}
+
+# Inflation history
+
+CPI stands for Consumer Price Index, and it's a widely used measure to track inflation in an economy. Inflation refers to the general increase in the prices of goods and services over time, which can erode the purchasing power of money. CPI is an important economic indicator that helps us understand how the cost of living is changing for consumers.
+
+**Here's a brief overview:**
+
+Consumer Price Index (CPI): CPI is a statistical measure that examines the average change in prices paid by urban consumers for a fixed basket of goods and services over time. This basket typically includes items like food, housing, clothing, transportation, and more. The CPI is calculated by comparing the current cost of this basket to its cost in a base year. The percentage change in this comparison reflects the overall inflation rate.
+
+Inflation: Inflation is the rate at which the general level of prices for goods and services rises, leading to a decrease in the purchasing power of money. It's usually measured on an annual basis. Mild inflation is generally considered normal and even beneficial for economic growth, as it encourages spending and investment. However, high or hyperinflation can be problematic, leading to uncertainty, reduced savings, and disruptions in economic planning.
+
+Central banks, like the Federal Reserve in the United States, closely monitor inflation. They use monetary policy tools, such as adjusting interest rates or engaging in open market operations, to try to keep inflation at a stable and manageable level. Economists and policymakers also study CPI and inflation data to understand economic trends, make informed decisions, and adjust policies as needed to maintain a stable and healthy economy.
+
+```{r}
+#| echo: false
+#| output: false
+library(tidyquant)
+library(quantmod)
+library(ggplot2)
+library(tidyverse)
+library(tidyquant)
+library(plotly)
+
+```
+
+
+```{r}
+#| echo: false
+#| output: false
+
+# Define the symbol for the CPI series on FRED
+cpi_symbol <- "FPCPITOTLZGUSA"
+
+# Fetch data from FRED
+getSymbols(cpi_symbol, src = "FRED")
+
+# Extract CPI values
+cpi_values <- as.data.frame(FPCPITOTLZGUSA)
+
+cpi_values$year <-  lubridate::year(rownames(cpi_values))
+cpi_values$month <- lubridate::month(rownames(cpi_values))
+cpi_values$year_month <- sprintf("%d-%02d", cpi_values$year, cpi_values$month)
+
+
+```
+
+
+
+```{r}
+#| echo: false
+#| output: false
+
+# Create a plotly plot
+fig <- plot_ly(data= cpi_values, x = cpi_values$year, y = cpi_values$FPCPITOTLZGUSA, type = "scatter", mode = "lines",
+        line = list(color = "blue"), name = "CPI") %>%
+  layout(title = "Inflation, consumer prices for the United States ",
+         xaxis = list(title = "Year"),
+         yaxis = list(title = "Percent"))
+
+```
+
+Here is the Inflation data of the FRED symbol "FPCPITOTLZGUSA" since 1960.
+```{r}
+#| output: true
+#| echo: false
+# Display the interactive 3D pie chart
+# Create a plotly plot
+fig
+
+```
+
+Here is the Inflation data of the FRED symbol "FPCPITOTLZGGER", "FPCPITOTLZGPRT", ""FPCPITOTLZGESP", ""FPCPITOTLZGGR" since 1960 as a comparison
+
+```{r}
+#| echo: false
+#| output: false
+
+# Define FRED symbols for CPI data in different European countries
+
+# Fetch data from FRED for each symbol
+getSymbols("FPCPITOTLZGDEU", src = "FRED") #germany
+getSymbols("FPCPITOTLZGPRT", src = "FRED") #Portugal
+getSymbols("FPCPITOTLZGESP", src = "FRED") #Spain
+getSymbols("FPCPITOTLZGGRC", src = "FRED") #Greece
+
+
+# Extract CPI values
+cpi_values_GER <- as.data.frame(FPCPITOTLZGDEU)
+cpi_values_GER$year <-  lubridate::year(rownames(cpi_values_GER))
+cpi_values_GER$month <- lubridate::month(rownames(cpi_values_GER))
+cpi_values_GER$year_month <- sprintf("%d-%02d", cpi_values_GER$year, cpi_values_GER$month)
+
+# Extract CPI values
+cpi_values_PT <- as.data.frame(FPCPITOTLZGPRT)
+cpi_values_PT$year <-  lubridate::year(rownames(cpi_values_PT))
+cpi_values_PT$month <- lubridate::month(rownames(cpi_values_PT))
+cpi_values_PT$year_month <- sprintf("%d-%02d", cpi_values_PT$year, cpi_values_GER$month)
+
+# Extract CPI values for Spain
+cpi_values_ES <- as.data.frame(FPCPITOTLZGESP)
+cpi_values_ES$year <-  lubridate::year(rownames(cpi_values_ES))
+cpi_values_ES$month <- lubridate::month(rownames(cpi_values_ES))
+cpi_values_ES$year_month <- sprintf("%d-%02d", cpi_values_ES$year, cpi_values_ES$month)
+
+# Extract CPI values for Greece
+cpi_values_GR <- as.data.frame(FPCPITOTLZGGRC)
+cpi_values_GR$year <-  lubridate::year(rownames(cpi_values_GR))
+cpi_values_GR$month <- lubridate::month(rownames(cpi_values_GR))
+cpi_values_GR$year_month <- sprintf("%d-%02d", cpi_values_GR$year, cpi_values_GR$month)
+
+# Assuming you have cpi_values_GER, cpi_values_PT, cpi_values_ES, and cpi_values_GR dataframes
+cpi_combined_data <- cpi_values_GER %>%
+  left_join(cpi_values, by = c("year_month", "year", "month")) %>%
+  left_join(cpi_values_PT, by = c("year_month", "year", "month")) %>%
+  left_join(cpi_values_ES, by = c("year_month", "year", "month")) %>%
+  left_join(cpi_values_GR, by = c("year_month", "year", "month"))
+
+
+fig <- plot_ly(data = cpi_combined_data, x = ~year) %>%
+  add_lines(y = ~FPCPITOTLZGUSA, name = "USA", line = list(dash = "dashdot")) %>%
+  add_lines(y = ~FPCPITOTLZGDEU, name = "Germany") %>%
+  add_lines(y = ~FPCPITOTLZGPRT, name = "Portugal") %>%
+  add_lines(y = ~FPCPITOTLZGESP, name = "Spain") %>%
+  add_lines(y = ~FPCPITOTLZGGRC, name = "Greece") %>%
+  layout(title = "Inflation for  4 different European Countries",
+         xaxis = list(title = "Year"),
+         yaxis = list(title = "Percent"),
+        legend = list(x = 0.02, y = 0.95),
+         plot_bgcolor = "rgb(240, 240, 240)",
+         paper_bgcolor = "rgb(255, 255, 255)")
+
+```
+
+```{r}
+#| output: true
+#| echo: false
+fig
+
+```
+
+Here's a summary based on historical trends:
+
+Germany: Germany, as one of the largest economies in Europe, has generally experienced relatively moderate inflation rates. It has maintained a focus on price stability, which is a key principle of the European Central Bank (ECB). Over the years, Germany has managed to keep inflation in check through various economic policies and structural reforms. Inflation rates in Germany tend to be more stable compared to some other European countries.
+
+Portugal: Portugal has experienced periods of higher inflation compared to some other Eurozone countries. Inflation has been influenced by factors such as fluctuations in oil prices, domestic economic conditions, and broader European economic trends. Portugal's inflation rates have sometimes been slightly higher than the Eurozone average, but efforts have been made to keep inflation under control.
+
+Spain: Spain has seen varying levels of inflation over the years. It went through a period of higher inflation leading up to the global financial crisis, partly due to a booming housing market. Inflation rates subsequently dropped during the financial crisis and its aftermath. Spain's economy has undergone significant changes, including labor market reforms, that have affected its inflation trajectory.
+
+Greece: Greece faced substantial economic challenges, including high inflation, prior to the Eurozone crisis. During the crisis, the country implemented austerity measures and structural reforms in exchange for financial assistance. As a result, inflation rates generally decreased. It's worth noting that Greece's economic situation and inflation trends have been heavily influenced by its fiscal and monetary policy adjustments.
+
+
+
+## Conclusion
+
+<iframe src="https://giphy.com/embed/SuLbUjO2GbbqGVC1gM" width="480" height="276" frameBorder="0" class="giphy-embed" allowFullScreen>
+
+
