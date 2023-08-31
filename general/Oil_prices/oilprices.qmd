@@ -1,11 +1,17 @@
 ---
 title: "Olive oil vs. rape seed oil"
-author: "JNW"
+author:
+  - name: JNW
+    url: https://github.com/NedWitte/
 description: "An interesting duell between two heroes"
 date: "2023-08-28"
+format: 
+  html:
+    number-sections: true
 ---
 
 # Olive Oil prices
+
 
 ![](oliveoil1.png){width="20%" height="20%"}
 
@@ -223,3 +229,6 @@ fig
 
 ```
 
+:::{.callout-note}
+Eat more rape seed oil!
+:::
