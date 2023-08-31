@@ -102,7 +102,7 @@
     "href": "general.html",
     "title": "Projects",
     "section": "",
-    "text": "This is the site for general stuff like SP500, Nasdaq….etc\n\nGeneral analysis listed here:\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nAug 31, 2023\n\n\nInflation perspectives\n\n\nJNW \n\n\n\n\nAug 28, 2023\n\n\nOlive oil price\n\n\nJNW \n\n\n\n\nAug 4, 2023\n\n\nThe SP500\n\n\nJNW \n\n\n\n\nJan 3, 2023\n\n\nWarm welcome\n\n\nJNW \n\n\n\n\n\n\nNo matching items"
+    "text": "This is the site for general stuff like SP500, Nasdaq….etc\n\nGeneral analysis listed here:\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nAug 31, 2023\n\n\nInflation perspectives\n\n\nJNW \n\n\n\n\nAug 28, 2023\n\n\nOlive oil vs. rape seed oil\n\n\nJNW \n\n\n\n\nAug 4, 2023\n\n\nThe SP500\n\n\nJNW \n\n\n\n\nJan 3, 2023\n\n\nWarm welcome\n\n\nJNW \n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "portfolio.html",
@@ -156,8 +156,8 @@
   {
     "objectID": "general/Oil_prices/oilprices.html",
     "href": "general/Oil_prices/oilprices.html",
-    "title": "Olive oil price",
+    "title": "Olive oil vs. rape seed oil",
     "section": "",
-    "text": "Olive Oil prices\n\nHere is the U.S. Dollars per Metric Ton of the FRED symbol “POLVOILUSDM” since 1990.\n\n\nWarning: Can't display both discrete & non-discrete data on same axis\n\n\nA line object has been specified, but lines is not in the mode\nAdding lines to the mode...\nA line object has been specified, but lines is not in the mode\nAdding lines to the mode..."
+    "text": "Olive Oil prices\n\nHere is the U.S. Dollars per Metric Ton of the FRED symbol “POLVOILUSDM” since 1990.\n\n\nWarning: Can't display both discrete & non-discrete data on same axis\n\n\nA line object has been specified, but lines is not in the mode\nAdding lines to the mode...\nA line object has been specified, but lines is not in the mode\nAdding lines to the mode...\n\n\n\n\n\n\n\n\nRape seed oil prices\n\nLet´s compare the olive oil price to the rapeseed oil chart (Ticker Symbol “PROILUSDM”):\nHere is the U.S. Dollars per Metric Ton of the FRED symbol “PROILUSDM” since 1990.\n\n\nWarning: Can't display both discrete & non-discrete data on same axis\n\n\nA line object has been specified, but lines is not in the mode\nAdding lines to the mode...\nA line object has been specified, but lines is not in the mode\nAdding lines to the mode...\n\n\n\n\n\n\n\n\nCombined view"
   }
 ]

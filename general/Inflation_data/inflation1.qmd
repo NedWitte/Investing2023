@@ -32,7 +32,6 @@ library(plotly)
 
 ```
 
-
 ```{r}
 #| echo: false
 #| output: false
@@ -53,8 +52,6 @@ cpi_values$year_month <- sprintf("%d-%02d", cpi_values$year, cpi_values$month)
 
 ```
 
-
-
 ```{r}
 #| echo: false
 #| output: false
@@ -69,6 +66,7 @@ fig <- plot_ly(data= cpi_values, x = cpi_values$year, y = cpi_values$FPCPITOTLZG
 ```
 
 Here is the Inflation data of the FRED symbol "FPCPITOTLZGUSA" since 1960.
+
 ```{r}
 #| output: true
 #| echo: false
@@ -157,10 +155,6 @@ Spain: Spain has seen varying levels of inflation over the years. It went throug
 
 Greece: Greece faced substantial economic challenges, including high inflation, prior to the Eurozone crisis. During the crisis, the country implemented austerity measures and structural reforms in exchange for financial assistance. As a result, inflation rates generally decreased. It's worth noting that Greece's economic situation and inflation trends have been heavily influenced by its fiscal and monetary policy adjustments.
 
-
-
 ## Conclusion
 
 <iframe src="https://giphy.com/embed/SuLbUjO2GbbqGVC1gM" width="480" height="276" frameBorder="0" class="giphy-embed" allowFullScreen>
-
-
