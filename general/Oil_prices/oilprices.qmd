@@ -3,7 +3,7 @@ title: "Olive oil vs. rape seed oil"
 author:
   - name: JNW
     url: https://github.com/NedWitte/
-description: "An interesting duell between two heroes"
+description: "An interesting duell between two heroes of the kitchen"
 date: "2023-08-28"
 format: 
   html:
@@ -12,8 +12,23 @@ format:
 
 # Olive Oil prices
 
+::: {layout-ncol=2}
+![Olive Oil](oliveoil1.png){#fig-oliveoil width="50%" height="30%"}
+![An olive](oliveoil2.png){#fig-olive width="50%" height="30%"}
+:::
 
-![](oliveoil1.png){width="20%" height="20%"}
+::: {.columns}
+
+::: {.column width="50%"}
+This is a beautiful picture of olive oil. Yummy
+:::
+
+::: {.column width="50%"}
+An olive.
+:::
+
+:::
+
 
 ```{r}
 #| echo: false
@@ -42,6 +57,8 @@ df_oil$month <- lubridate::month(rownames(df_oil))
 df_oil$year_month <- sprintf("%d-%02d", df_oil$year, df_oil$month)
 
 ```
+
+This dataframe has `r nrow(df_oil)` rows now.
 
 ```{r}
 #| echo: false
@@ -106,6 +123,7 @@ Here is the U.S. Dollars per Metric Ton of the FRED symbol "POLVOILUSDM" since 1
 #| warning: false
 #| message: false
 #| error: false
+#| fig-cap: Olive oil price change since 1990
 # Display the interactive ploty chart
 fig
 ```
@@ -188,11 +206,14 @@ Here is the U.S. Dollars per Metric Ton of the FRED symbol "PROILUSDM" since 199
 #| warning: false
 #| message: false
 #| error: false
+#| #| fig-cap: Rape seed oil price change since 1990
 # Display the interactive ploty chart
 fig
 ```
 
 # Combined view
+
+Here a plot to both see olive- and rape seed oil in a comparison.
 
 ```{r}
 #| echo: false
@@ -216,8 +237,6 @@ fig <- plot_ly(data = df_oil_combined, x = ~year_month) %>%
 
 ```
 
-
-
 ```{r}
 #| output: true
 #| echo: false
@@ -229,6 +248,6 @@ fig
 
 ```
 
-:::{.callout-note}
+::: callout-note
 Eat more rape seed oil!
 :::

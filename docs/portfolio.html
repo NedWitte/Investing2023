@@ -8,7 +8,7 @@
 
 <meta name="author" content="JNW">
 <meta name="dcterms.date" content="2023-08-10">
-<meta name="description" content="stuff">
+<meta name="description" content="The visualization of the KarambolageNedInvest portfolio">
 
 <title>My personal portfolio</title>
 <style>
@@ -23,40 +23,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -66,7 +32,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./themockup.png" rel="icon" type="image/png">
+<link href="./favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -109,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="html/style.scs">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -127,7 +93,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./general.html" rel="" target="">
- <span class="menu-text">General analysis</span></a>
+ <span class="menu-text">General and random posts</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./portfolio.html" rel="" target="" aria-current="page">
@@ -148,6 +114,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </i> 
  <span class="menu-text"></span></a>
   </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/" rel="" target=""><i class="bi bi-linkedin" role="img" aria-label="linkedin">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
 </ul>
             <div class="quarto-navbar-tools">
 </div>
@@ -159,7 +130,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#strategy" id="toc-strategy" class="nav-link" data-scroll-target="#strategy">Strategy</a></li>
+  <li><a href="#market-events-and-performance" id="toc-market-events-and-performance" class="nav-link" data-scroll-target="#market-events-and-performance">Market Events and Performance</a></li>
+  <li><a href="#long-term-predictions" id="toc-long-term-predictions" class="nav-link" data-scroll-target="#long-term-predictions">Long term predictions</a></li>
+  <li><a href="#additional-thoughts" id="toc-additional-thoughts" class="nav-link" data-scroll-target="#additional-thoughts">Additional thoughts</a></li>
+  <li><a href="#portfolio-as-table" id="toc-portfolio-as-table" class="nav-link" data-scroll-target="#portfolio-as-table">Portfolio as table</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -170,7 +156,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div>
   <div class="description">
-    stuff
+    The visualization of the KarambolageNedInvest portfolio
   </div>
 </div>
 
@@ -202,26 +188,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Introduction</h1>
 <p>This <strong>portfolio</strong> consist of a maximum of 100 values whereas the top 15 stock should compromise at least 40% of the total value.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the interactive 3D pie chart</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pie_chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-0d5fb8a12b19cd206cdc" style="width:100%;height:487px;"></div>
-<script type="application/json" data-for="htmlwidget-0d5fb8a12b19cd206cdc">{"x":{"visdat":{"2bc0a2c2400":["function () ","plotlyVisDat"]},"cur_data":"2bc0a2c2400","attrs":{"2bc0a2c2400":{"labels":["Johnson&Johnson","ThermoFisher Scientific","Alphabet","Samsung","Brookfield Corp","BASF","Nvidia","Illumina","McDonalds","Alibaba","Prosus NV","Glencore","Sika","LTC Properties","Fuchs Petroclub","Procter&Gamble","Ball Corp.","Reckit Benckiser","Swisscom","Flughafen Zürich","IBM","ICBC","Charterl Hall Grp","Porsche Holding","Parkway Life REIT","Covestro","NextEra Energy","Sony Corp","China Mobile LTD.","3M","Exxon Mobil Corp","Dupont de Nemours","Corteva","Simon Property","Crown Castle REIT","Sixt SE","Novartis","Softbank Group","BP PLC","Rexford Ind. Realty","Royal Dutch Shell","Naspers","Diageo","Baidu","JP Morgan","Hochtief AG","Continental","Oreal (L`)","Danaher","AIA Group LTD","Realty Income REIT","Mowi SK","Brookfield AS","Bayer AG","Nestle SA","Unilever","Essex Property Trust","Triton Intl RG","KKR&Co","Linde PLC","Coca Cola","Adobe","Prologis","SL Green REIT","Fraport AG","Visa","Walmart","Heineken","Vinci","Carlsberg","J Martins","LVHM","Kering","Roche Holding AG","British Land REIT","Enel","CA Immo REIT","Commonwealth Bank AUS","Anheuser-Busch Inbev","EDP-Energias","V.F Corp","Starbucks","Wharf Holdings Ltd","Wipro ADR","Meituan Cl B","Sea Ltd","DBS Grp Hld","Shenzou Itl","Xiaomi","Infosys ADR","Pinduoduo","Weichai Power","Lenovo Group","Adler Group","Alcon AG","Vitesco Tech Gr","Orion office REIT","Kyndril Holdings"],"values":[0.0581689134461422,0.025622021398896,0.0503626956243655,0.0849870488661168,0.0418595840018867,0.0361981874800127,0.0283290162887056,0.0276617105716828,0.032106218460533,0.0396606228041879,0.04078119278183,0.00661010380069798,0.0106271583104364,0.0123703371127348,0.00188860108591371,0.00691227997444417,0.00365507263493833,0.0046018913126764,0.0029902850526967,0.0049733161929061,0.0045326426061929,0.00220336793356599,0.00830669710954379,0.00629533695304569,0.00661010380069798,0.00755440434365483,0.0160178553433295,0.00768912455445001,0.00330505190034899,0.0309730578089848,0.00674230587671194,0.00420704777898137,0.00192184046502579,0.0057393327933527,0.0115834199936041,0.000755440434365483,0.00321439904822513,0.0151088086873097,0.007302590865533,0.00768471781858287,0.00736554423506346,0.00647349498881688,0.00470261670392513,0.0125906739060914,0.00273847157457488,0.00290844567230711,0.00339948195464467,0.00528808304055838,0.00503626956243655,0.00478445608431472,0.0292733168316625,0.00629533695304569,0.0100473577770609,0.0138497412967005,0.00358834206323604,0.0137490159054518,0.00698782401788072,0.00455530581922386,0.00458930063877031,0.00596797943148731,0.0027699482593401,0.00542658045352539,0.00516217630149747,0.00838357859731601,0.0081839380389594,0.00582318668156726,0.00415492238901016,0.00572875662727158,0.00566580325774112,0.00775585512615229,0.0071515027786599,0.00382126953049873,0.00398494829127792,0.00370165812839087,0.0036512954327665,0.00868114375151095,0.00237491586553649,0.00251844954806593,0.00491036282337564,0.00629533695304569,0.00585466336633249,0.0254457519642107,0.00172806999361104,0.00264404152027919,0.0027699482593401,0.00217818658575381,0.00224113995528427,0.00212782389012944,0.00245518141168782,0.00275735758543401,0.00211523321622335,0.0028801166560184,0.0063519949856231,0.00283290162887056,0.000386407782177944,0.000736365563397754,0.000206109331842716,9.22896397316498e-05],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"pie"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Portfolio Distribution","showlegend":false,"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"labels":["Johnson&Johnson","ThermoFisher Scientific","Alphabet","Samsung","Brookfield Corp","BASF","Nvidia","Illumina","McDonalds","Alibaba","Prosus NV","Glencore","Sika","LTC Properties","Fuchs Petroclub","Procter&Gamble","Ball Corp.","Reckit Benckiser","Swisscom","Flughafen Zürich","IBM","ICBC","Charterl Hall Grp","Porsche Holding","Parkway Life REIT","Covestro","NextEra Energy","Sony Corp","China Mobile LTD.","3M","Exxon Mobil Corp","Dupont de Nemours","Corteva","Simon Property","Crown Castle REIT","Sixt SE","Novartis","Softbank Group","BP PLC","Rexford Ind. Realty","Royal Dutch Shell","Naspers","Diageo","Baidu","JP Morgan","Hochtief AG","Continental","Oreal (L`)","Danaher","AIA Group LTD","Realty Income REIT","Mowi SK","Brookfield AS","Bayer AG","Nestle SA","Unilever","Essex Property Trust","Triton Intl RG","KKR&Co","Linde PLC","Coca Cola","Adobe","Prologis","SL Green REIT","Fraport AG","Visa","Walmart","Heineken","Vinci","Carlsberg","J Martins","LVHM","Kering","Roche Holding AG","British Land REIT","Enel","CA Immo REIT","Commonwealth Bank AUS","Anheuser-Busch Inbev","EDP-Energias","V.F Corp","Starbucks","Wharf Holdings Ltd","Wipro ADR","Meituan Cl B","Sea Ltd","DBS Grp Hld","Shenzou Itl","Xiaomi","Infosys ADR","Pinduoduo","Weichai Power","Lenovo Group","Adler Group","Alcon AG","Vitesco Tech Gr","Orion office REIT","Kyndril Holdings"],"values":[0.0581689134461422,0.025622021398896,0.0503626956243655,0.0849870488661168,0.0418595840018867,0.0361981874800127,0.0283290162887056,0.0276617105716828,0.032106218460533,0.0396606228041879,0.04078119278183,0.00661010380069798,0.0106271583104364,0.0123703371127348,0.00188860108591371,0.00691227997444417,0.00365507263493833,0.0046018913126764,0.0029902850526967,0.0049733161929061,0.0045326426061929,0.00220336793356599,0.00830669710954379,0.00629533695304569,0.00661010380069798,0.00755440434365483,0.0160178553433295,0.00768912455445001,0.00330505190034899,0.0309730578089848,0.00674230587671194,0.00420704777898137,0.00192184046502579,0.0057393327933527,0.0115834199936041,0.000755440434365483,0.00321439904822513,0.0151088086873097,0.007302590865533,0.00768471781858287,0.00736554423506346,0.00647349498881688,0.00470261670392513,0.0125906739060914,0.00273847157457488,0.00290844567230711,0.00339948195464467,0.00528808304055838,0.00503626956243655,0.00478445608431472,0.0292733168316625,0.00629533695304569,0.0100473577770609,0.0138497412967005,0.00358834206323604,0.0137490159054518,0.00698782401788072,0.00455530581922386,0.00458930063877031,0.00596797943148731,0.0027699482593401,0.00542658045352539,0.00516217630149747,0.00838357859731601,0.0081839380389594,0.00582318668156726,0.00415492238901016,0.00572875662727158,0.00566580325774112,0.00775585512615229,0.0071515027786599,0.00382126953049873,0.00398494829127792,0.00370165812839087,0.0036512954327665,0.00868114375151095,0.00237491586553649,0.00251844954806593,0.00491036282337564,0.00629533695304569,0.00585466336633249,0.0254457519642107,0.00172806999361104,0.00264404152027919,0.0027699482593401,0.00217818658575381,0.00224113995528427,0.00212782389012944,0.00245518141168782,0.00275735758543401,0.00211523321622335,0.0028801166560184,0.0063519949856231,0.00283290162887056,0.000386407782177944,0.000736365563397754,0.000206109331842716,9.22896397316498e-05],"type":"pie","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(255,255,255,1)"}},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-6e761861b84cc727c065" style="width:100%;height:379px;"></div>
+<script type="application/json" data-for="htmlwidget-6e761861b84cc727c065">{"x":{"visdat":{"52c42fe0129f":["function () ","plotlyVisDat"]},"cur_data":"52c42fe0129f","attrs":{"52c42fe0129f":{"labels":["Johnson&Johnson","ThermoFisher Scientific","Alphabet","Samsung","Brookfield Corp","BASF","Nvidia","Illumina","McDonalds","Alibaba","Prosus NV","Glencore","Sika","LTC Properties","Fuchs Petroclub","Procter&Gamble","Ball Corp.","Reckit Benckiser","Swisscom","Flughafen Zürich","IBM","ICBC","Charterl Hall Grp","Porsche Holding","Parkway Life REIT","Covestro","NextEra Energy","Sony Corp","China Mobile LTD.","3M","Exxon Mobil Corp","Dupont de Nemours","Corteva","Simon Property","Crown Castle REIT","Sixt SE","Novartis","Softbank Group","BP PLC","Rexford Ind. Realty","Royal Dutch Shell","Naspers","Diageo","Baidu","JP Morgan","Hochtief AG","Continental","Oreal (L`)","Danaher","AIA Group LTD","Realty Income REIT","Mowi SK","Brookfield AS","Bayer AG","Nestle SA","Unilever","Essex Property Trust","Triton Intl RG","KKR&Co","Linde PLC","Coca Cola","Adobe","Prologis","SL Green REIT","Fraport AG","Visa","Walmart","Heineken","Vinci","Carlsberg","J Martins","LVHM","Kering","Roche Holding AG","British Land REIT","Enel","CA Immo REIT","Commonwealth Bank AUS","Anheuser-Busch Inbev","EDP-Energias","V.F Corp","Starbucks","Wharf Holdings Ltd","Wipro ADR","Meituan Cl B","Sea Ltd","DBS Grp Hld","Shenzou Itl","Xiaomi","Infosys ADR","Pinduoduo","Weichai Power","Lenovo Group","Adler Group","Alcon AG","Vitesco Tech Gr","Orion office REIT","Kyndril Holdings"],"values":[9.31363062083235,4.86241399634376,9.50802274629284,8.96156676798558,6.84744190986256,5.10814062362707,4.30774452290319,1.87466972913881,7.36170019011254,4.86503271379278,4.96489775814217,1.39823869791657,0.104783041161007,1.43402381879113,0.36358898344991,1.34709206834858,0.475244044899091,0.626676279081145,0.532828700861415,0.901748231217397,0.768926534490255,0.555036873869246,3.06527327616825,0.941154368547018,1.24046626101884,0.93166118341144,2.33214348611702,1.45464993109335,null,2.79307331619134,1.64980818756117,0.805322618406938,0.529026458927289,0.693384966377339,1.75434438358602,0.0935078735854428,0.526198595677435,1.4663176687723,0.107982317353371,null,null,null,null,null,null,null,null,null,null,null,null,0.784268915074391,1.71886469429004,null,0.629102644721604,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"marker":{"line":{"width":0}},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"pie"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Portfolio Distribution","showlegend":false,"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"labels":["Johnson&Johnson","ThermoFisher Scientific","Alphabet","Samsung","Brookfield Corp","BASF","Nvidia","Illumina","McDonalds","Alibaba","Prosus NV","Glencore","Sika","LTC Properties","Fuchs Petroclub","Procter&Gamble","Ball Corp.","Reckit Benckiser","Swisscom","Flughafen Zürich","IBM","ICBC","Charterl Hall Grp","Porsche Holding","Parkway Life REIT","Covestro","NextEra Energy","Sony Corp","China Mobile LTD.","3M","Exxon Mobil Corp","Dupont de Nemours","Corteva","Simon Property","Crown Castle REIT","Sixt SE","Novartis","Softbank Group","BP PLC","Rexford Ind. Realty","Royal Dutch Shell","Naspers","Diageo","Baidu","JP Morgan","Hochtief AG","Continental","Oreal (L`)","Danaher","AIA Group LTD","Realty Income REIT","Mowi SK","Brookfield AS","Bayer AG","Nestle SA","Unilever","Essex Property Trust","Triton Intl RG","KKR&Co","Linde PLC","Coca Cola","Adobe","Prologis","SL Green REIT","Fraport AG","Visa","Walmart","Heineken","Vinci","Carlsberg","J Martins","LVHM","Kering","Roche Holding AG","British Land REIT","Enel","CA Immo REIT","Commonwealth Bank AUS","Anheuser-Busch Inbev","EDP-Energias","V.F Corp","Starbucks","Wharf Holdings Ltd","Wipro ADR","Meituan Cl B","Sea Ltd","DBS Grp Hld","Shenzou Itl","Xiaomi","Infosys ADR","Pinduoduo","Weichai Power","Lenovo Group","Adler Group","Alcon AG","Vitesco Tech Gr","Orion office REIT","Kyndril Holdings"],"values":[9.31363062083235,4.86241399634376,9.50802274629284,8.96156676798558,6.84744190986256,5.10814062362707,4.30774452290319,1.87466972913881,7.36170019011254,4.86503271379278,4.96489775814217,1.39823869791657,0.104783041161007,1.43402381879113,0.36358898344991,1.34709206834858,0.475244044899091,0.626676279081145,0.532828700861415,0.901748231217397,0.768926534490255,0.555036873869246,3.06527327616825,0.941154368547018,1.24046626101884,0.93166118341144,2.33214348611702,1.45464993109335,null,2.79307331619134,1.64980818756117,0.805322618406938,0.529026458927289,0.693384966377339,1.75434438358602,0.0935078735854428,0.526198595677435,1.4663176687723,0.107982317353371,null,null,null,null,null,null,null,null,null,null,null,null,0.784268915074391,1.71886469429004,null,0.629102644721604,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(255,255,255,1)","width":0}},"type":"pie","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <section id="strategy" class="level2">
 <h2 class="anchored" data-anchor-id="strategy">Strategy</h2>
 <p>The strategy is easy: Safe and sound.</p>
 <p>Generally, this portfolio has the purpose to add a signifcant amount of dividend income to the regular job income.</p>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the interactive plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
 </section>
 <section id="market-events-and-performance" class="level2">
 <h2 class="anchored" data-anchor-id="market-events-and-performance">Market Events and Performance</h2>
@@ -237,10 +212,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>scenario: growth 3% p.a., 10k additional investment from the job income</li>
 </ol>
 <div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#paste0(print("In year 2023 the portfolio has an income of 180k. Today the value is", as.character(round(sum(x),3)), "k"))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="cell-output-display">
+<p><img src="portfolio_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="1152"></p>
+</div>
 </div>
 <ol start="2" type="1">
 <li>scenario: growth 10% p.a. + 10k additional investment from job income</li>
@@ -256,23 +230,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="ssxvilhopq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ssxvilhopq table {
+<div id="vsqnnungpu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#vsqnnungpu table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ssxvilhopq thead, #ssxvilhopq tbody, #ssxvilhopq tfoot, #ssxvilhopq tr, #ssxvilhopq td, #ssxvilhopq th {
+#vsqnnungpu thead, #vsqnnungpu tbody, #vsqnnungpu tfoot, #vsqnnungpu tr, #vsqnnungpu td, #vsqnnungpu th {
   border-style: none;
 }
 
-#ssxvilhopq p {
+#vsqnnungpu p {
   margin: 0;
   padding: 0;
 }
 
-#ssxvilhopq .gt_table {
+#vsqnnungpu .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -298,12 +272,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#ssxvilhopq .gt_caption {
+#vsqnnungpu .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ssxvilhopq .gt_title {
+#vsqnnungpu .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -315,7 +289,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#ssxvilhopq .gt_subtitle {
+#vsqnnungpu .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -327,7 +301,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#ssxvilhopq .gt_heading {
+#vsqnnungpu .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -339,13 +313,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#ssxvilhopq .gt_bottom_border {
+#vsqnnungpu .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ssxvilhopq .gt_col_headings {
+#vsqnnungpu .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -360,7 +334,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#ssxvilhopq .gt_col_heading {
+#vsqnnungpu .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -380,7 +354,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#ssxvilhopq .gt_column_spanner_outer {
+#vsqnnungpu .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -392,15 +366,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#ssxvilhopq .gt_column_spanner_outer:first-child {
+#vsqnnungpu .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ssxvilhopq .gt_column_spanner_outer:last-child {
+#vsqnnungpu .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ssxvilhopq .gt_column_spanner {
+#vsqnnungpu .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -412,11 +386,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#ssxvilhopq .gt_spanner_row {
+#vsqnnungpu .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ssxvilhopq .gt_group_heading {
+#vsqnnungpu .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -442,7 +416,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#ssxvilhopq .gt_empty_group_heading {
+#vsqnnungpu .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -457,15 +431,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#ssxvilhopq .gt_from_md > :first-child {
+#vsqnnungpu .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ssxvilhopq .gt_from_md > :last-child {
+#vsqnnungpu .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ssxvilhopq .gt_row {
+#vsqnnungpu .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -484,7 +458,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#ssxvilhopq .gt_stub {
+#vsqnnungpu .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -497,7 +471,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ssxvilhopq .gt_stub_row_group {
+#vsqnnungpu .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -511,15 +485,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#ssxvilhopq .gt_row_group_first td {
+#vsqnnungpu .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ssxvilhopq .gt_row_group_first th {
+#vsqnnungpu .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ssxvilhopq .gt_summary_row {
+#vsqnnungpu .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -529,16 +503,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ssxvilhopq .gt_first_summary_row {
+#vsqnnungpu .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ssxvilhopq .gt_first_summary_row.thick {
+#vsqnnungpu .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ssxvilhopq .gt_last_summary_row {
+#vsqnnungpu .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -548,7 +522,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#ssxvilhopq .gt_grand_summary_row {
+#vsqnnungpu .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -558,7 +532,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ssxvilhopq .gt_first_grand_summary_row {
+#vsqnnungpu .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -568,7 +542,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#ssxvilhopq .gt_last_grand_summary_row_top {
+#vsqnnungpu .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -578,11 +552,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#ssxvilhopq .gt_striped {
+#vsqnnungpu .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ssxvilhopq .gt_table_body {
+#vsqnnungpu .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -591,7 +565,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#ssxvilhopq .gt_footnotes {
+#vsqnnungpu .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -605,7 +579,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#ssxvilhopq .gt_footnote {
+#vsqnnungpu .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -614,7 +588,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ssxvilhopq .gt_sourcenotes {
+#vsqnnungpu .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -628,7 +602,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#ssxvilhopq .gt_sourcenote {
+#vsqnnungpu .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -636,63 +610,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#ssxvilhopq .gt_left {
+#vsqnnungpu .gt_left {
   text-align: left;
 }
 
-#ssxvilhopq .gt_center {
+#vsqnnungpu .gt_center {
   text-align: center;
 }
 
-#ssxvilhopq .gt_right {
+#vsqnnungpu .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ssxvilhopq .gt_font_normal {
+#vsqnnungpu .gt_font_normal {
   font-weight: normal;
 }
 
-#ssxvilhopq .gt_font_bold {
+#vsqnnungpu .gt_font_bold {
   font-weight: bold;
 }
 
-#ssxvilhopq .gt_font_italic {
+#vsqnnungpu .gt_font_italic {
   font-style: italic;
 }
 
-#ssxvilhopq .gt_super {
+#vsqnnungpu .gt_super {
   font-size: 65%;
 }
 
-#ssxvilhopq .gt_footnote_marks {
+#vsqnnungpu .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ssxvilhopq .gt_asterisk {
+#vsqnnungpu .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ssxvilhopq .gt_indent_1 {
+#vsqnnungpu .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ssxvilhopq .gt_indent_2 {
+#vsqnnungpu .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ssxvilhopq .gt_indent_3 {
+#vsqnnungpu .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ssxvilhopq .gt_indent_4 {
+#vsqnnungpu .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ssxvilhopq .gt_indent_5 {
+#vsqnnungpu .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -714,494 +688,494 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </thead>
   <tbody class="gt_table_body">
     <tr><td headers="Wertpapier" class="gt_row gt_left">Johnson&amp;Johnson</td>
-<td headers="Kurs" class="gt_row gt_right">140.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">148.65</td>
 <td headers="Kaufkurs" class="gt_row gt_right">123.99</td>
-<td headers="Wert" class="gt_row gt_right">9240.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">9810.86</td>
 <td headers="Notiz" class="gt_row gt_left">Pharma&amp;Konsum, 04.02.2018</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">ThermoFisher Scientific</td>
-<td headers="Kurs" class="gt_row gt_right">407.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">512.20</td>
 <td headers="Kaufkurs" class="gt_row gt_right">179.45</td>
-<td headers="Wert" class="gt_row gt_right">4070.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">5122.00</td>
 <td headers="Notiz" class="gt_row gt_left">Healthcare, 31.05.2018</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Alphabet</td>
-<td headers="Kurs" class="gt_row gt_right">2000.00</td>
-<td headers="Kaufkurs" class="gt_row gt_right">1216.98</td>
-<td headers="Wert" class="gt_row gt_right">8000.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">125.20</td>
+<td headers="Kaufkurs" class="gt_row gt_right">60.85</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">10015.63</td>
 <td headers="Notiz" class="gt_row gt_left">Tech, 29.10.2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Samsung</td>
-<td headers="Kurs" class="gt_row gt_right">1350.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">944.00</td>
 <td headers="Kaufkurs" class="gt_row gt_right">943.82</td>
-<td headers="Wert" class="gt_row gt_right">13500.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">9440.00</td>
 <td headers="Notiz" class="gt_row gt_left">Elektronik, 02.08.2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Brookfield Corp</td>
-<td headers="Kurs" class="gt_row gt_right">28.91</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">31.36</td>
 <td headers="Kaufkurs" class="gt_row gt_right">22.36</td>
-<td headers="Wert" class="gt_row gt_right">6649.30</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">7213.01</td>
 <td headers="Notiz" class="gt_row gt_left">Private Equity&amp;Infra, 09.05.2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">BASF</td>
-<td headers="Kurs" class="gt_row gt_right">50.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">46.79</td>
 <td headers="Kaufkurs" class="gt_row gt_right">59.62</td>
-<td headers="Wert" class="gt_row gt_right">5750.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">5380.85</td>
 <td headers="Notiz" class="gt_row gt_left">Chemie, 30.11.2018</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Nvidia</td>
-<td headers="Kurs" class="gt_row gt_right">450.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">453.77</td>
 <td headers="Kaufkurs" class="gt_row gt_right">148.86</td>
-<td headers="Wert" class="gt_row gt_right">4500.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">4537.72</td>
 <td headers="Notiz" class="gt_row gt_left">CPU, 23.05.2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Illumina</td>
-<td headers="Kurs" class="gt_row gt_right">338.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">151.90</td>
 <td headers="Kaufkurs" class="gt_row gt_right">315.46</td>
-<td headers="Wert" class="gt_row gt_right">4394.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">1974.75</td>
 <td headers="Notiz" class="gt_row gt_left">Genomics, 09.08.2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">McDonalds</td>
-<td headers="Kurs" class="gt_row gt_right">170.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">258.49</td>
 <td headers="Kaufkurs" class="gt_row gt_right">173.54</td>
-<td headers="Wert" class="gt_row gt_right">5100.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">7754.72</td>
 <td headers="Notiz" class="gt_row gt_left">WW, 2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Alibaba</td>
-<td headers="Kurs" class="gt_row gt_right">105.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">85.41</td>
 <td headers="Kaufkurs" class="gt_row gt_right">173.47</td>
-<td headers="Wert" class="gt_row gt_right">6300.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">5124.76</td>
 <td headers="Notiz" class="gt_row gt_left">Tech China, 22.05.2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Prosus NV</td>
-<td headers="Kurs" class="gt_row gt_right">79.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">63.78</td>
 <td headers="Kaufkurs" class="gt_row gt_right">45.38</td>
-<td headers="Wert" class="gt_row gt_right">6478.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">5229.96</td>
 <td headers="Notiz" class="gt_row gt_left">Tencent, 2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Glencore</td>
-<td headers="Kurs" class="gt_row gt_right">3.50</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">4.91</td>
 <td headers="Kaufkurs" class="gt_row gt_right">3.52</td>
-<td headers="Wert" class="gt_row gt_right">1050.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">1472.89</td>
 <td headers="Notiz" class="gt_row gt_left">Materials, 26.04.2021</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Sika</td>
-<td headers="Kurs" class="gt_row gt_right">168.81</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">11.04</td>
 <td headers="Kaufkurs" class="gt_row gt_right">134.42</td>
-<td headers="Wert" class="gt_row gt_right">1688.10</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">110.38</td>
 <td headers="Notiz" class="gt_row gt_left">Bauchemie, 29.05.2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">LTC Properties</td>
-<td headers="Kurs" class="gt_row gt_right">39.30</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">30.21</td>
 <td headers="Kaufkurs" class="gt_row gt_right">36.25</td>
-<td headers="Wert" class="gt_row gt_right">1965.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">1510.58</td>
 <td headers="Notiz" class="gt_row gt_left">REIT Healthcare, 22.12.17</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Fuchs Petroclub</td>
-<td headers="Kurs" class="gt_row gt_right">30.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">38.30</td>
 <td headers="Kaufkurs" class="gt_row gt_right">44.80</td>
-<td headers="Wert" class="gt_row gt_right">300.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">383.00</td>
 <td headers="Notiz" class="gt_row gt_left">Schmierstoffe, 09.01.18</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Procter&amp;Gamble</td>
-<td headers="Kurs" class="gt_row gt_right">109.80</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">141.90</td>
 <td headers="Kaufkurs" class="gt_row gt_right">72.85</td>
-<td headers="Wert" class="gt_row gt_right">1098.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">1419.01</td>
 <td headers="Notiz" class="gt_row gt_left">Konsumgüter, 23.01.18</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Ball Corp.</td>
-<td headers="Kurs" class="gt_row gt_right">58.06</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">50.06</td>
 <td headers="Kaufkurs" class="gt_row gt_right">29.92</td>
-<td headers="Wert" class="gt_row gt_right">580.60</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">500.62</td>
 <td headers="Notiz" class="gt_row gt_left">feste Verpackungsmaterialien, 30.01.18</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Reckit Benckiser</td>
-<td headers="Kurs" class="gt_row gt_right">73.10</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">66.01</td>
 <td headers="Kaufkurs" class="gt_row gt_right">68.15</td>
-<td headers="Wert" class="gt_row gt_right">731.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">660.13</td>
 <td headers="Notiz" class="gt_row gt_left">Konsumgüter, 27.02.18</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Swisscom</td>
-<td headers="Kurs" class="gt_row gt_right">475.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">561.27</td>
 <td headers="Kaufkurs" class="gt_row gt_right">412.50</td>
-<td headers="Wert" class="gt_row gt_right">475.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">561.27</td>
 <td headers="Notiz" class="gt_row gt_left">Telekommunikations, 20.03.18</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Flughafen Zürich</td>
-<td headers="Kurs" class="gt_row gt_right">158.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">189.98</td>
 <td headers="Kaufkurs" class="gt_row gt_right">169.90</td>
-<td headers="Wert" class="gt_row gt_right">790.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">949.89</td>
 <td headers="Notiz" class="gt_row gt_left">Logistik, 06.04.18</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">IBM</td>
-<td headers="Kurs" class="gt_row gt_right">120.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">135.00</td>
 <td headers="Kaufkurs" class="gt_row gt_right">120.25</td>
-<td headers="Wert" class="gt_row gt_right">720.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">809.98</td>
 <td headers="Notiz" class="gt_row gt_left">IT-Technik, 19.04.18</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">ICBC</td>
-<td headers="Kurs" class="gt_row gt_right">0.35</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">0.58</td>
 <td headers="Kaufkurs" class="gt_row gt_right">0.74</td>
-<td headers="Wert" class="gt_row gt_right">350.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">584.67</td>
 <td headers="Notiz" class="gt_row gt_left">2. größte Bank China, 23.05.18</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Charterl Hall Grp</td>
-<td headers="Kurs" class="gt_row gt_right">2.64</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">6.46</td>
 <td headers="Kaufkurs" class="gt_row gt_right">2.78</td>
-<td headers="Wert" class="gt_row gt_right">1319.50</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">3228.92</td>
 <td headers="Notiz" class="gt_row gt_left">REIT AUS, 31.05.18</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Porsche Holding</td>
-<td headers="Kurs" class="gt_row gt_right">50.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">49.57</td>
 <td headers="Kaufkurs" class="gt_row gt_right">63.23</td>
-<td headers="Wert" class="gt_row gt_right">1000.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">991.40</td>
 <td headers="Notiz" class="gt_row gt_left">zyklischer Konsum,31.05.2018</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Parkway Life REIT</td>
-<td headers="Kurs" class="gt_row gt_right">2.10</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">2.61</td>
 <td headers="Kaufkurs" class="gt_row gt_right">1.70</td>
-<td headers="Wert" class="gt_row gt_right">1050.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">1306.69</td>
 <td headers="Notiz" class="gt_row gt_left">REIT-Singapor, 19.06.18</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Covestro</td>
-<td headers="Kurs" class="gt_row gt_right">60.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">49.07</td>
 <td headers="Kaufkurs" class="gt_row gt_right">73.34</td>
-<td headers="Wert" class="gt_row gt_right">1200.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">981.40</td>
 <td headers="Notiz" class="gt_row gt_left">Chemie, 21.06.18</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">NextEra Energy</td>
-<td headers="Kurs" class="gt_row gt_right">63.61</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">61.42</td>
 <td headers="Kaufkurs" class="gt_row gt_right">38.67</td>
-<td headers="Wert" class="gt_row gt_right">2544.40</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">2456.65</td>
 <td headers="Notiz" class="gt_row gt_left">Utility, 29.11.2018</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Sony Corp</td>
-<td headers="Kurs" class="gt_row gt_right">61.07</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">76.62</td>
 <td headers="Kaufkurs" class="gt_row gt_right">39.84</td>
-<td headers="Wert" class="gt_row gt_right">1221.40</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">1532.31</td>
 <td headers="Notiz" class="gt_row gt_left">Electronics, 30.03.2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">China Mobile LTD.</td>
-<td headers="Kurs" class="gt_row gt_right">7.50</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">8.34</td>
-<td headers="Wert" class="gt_row gt_right">525.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Mobilfunk, HK,06.05.2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">3M</td>
-<td headers="Kurs" class="gt_row gt_right">164.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">98.07</td>
 <td headers="Kaufkurs" class="gt_row gt_right">120.16</td>
-<td headers="Wert" class="gt_row gt_right">4920.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">2942.19</td>
 <td headers="Notiz" class="gt_row gt_left">Industrie&amp;Konsumgüter, 09.05.2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Exxon Mobil Corp</td>
-<td headers="Kurs" class="gt_row gt_right">63.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">102.23</td>
 <td headers="Kaufkurs" class="gt_row gt_right">67.26</td>
-<td headers="Wert" class="gt_row gt_right">1071.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">1737.89</td>
 <td headers="Notiz" class="gt_row gt_left">Öl&amp;basic Materials, 23.05.2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Dupont de Nemours</td>
-<td headers="Kurs" class="gt_row gt_right">55.69</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">70.69</td>
 <td headers="Kaufkurs" class="gt_row gt_right">61.81</td>
-<td headers="Wert" class="gt_row gt_right">668.28</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">848.32</td>
 <td headers="Notiz" class="gt_row gt_left">Chemie, 07.06.2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Corteva</td>
-<td headers="Kurs" class="gt_row gt_right">25.44</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">46.44</td>
 <td headers="Kaufkurs" class="gt_row gt_right">20.60</td>
-<td headers="Wert" class="gt_row gt_right">305.28</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">557.27</td>
 <td headers="Notiz" class="gt_row gt_left">Saatgut, 07.06.2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Simon Property</td>
-<td headers="Kurs" class="gt_row gt_right">130.24</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">104.34</td>
 <td headers="Kaufkurs" class="gt_row gt_right">150.07</td>
-<td headers="Wert" class="gt_row gt_right">911.68</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">730.40</td>
 <td headers="Notiz" class="gt_row gt_left">Mall REIT, 30.05.2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Crown Castle REIT</td>
-<td headers="Kurs" class="gt_row gt_right">92.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">92.40</td>
 <td headers="Kaufkurs" class="gt_row gt_right">91.99</td>
-<td headers="Wert" class="gt_row gt_right">1840.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">1848.00</td>
 <td headers="Notiz" class="gt_row gt_left">Telecom WW, 15.08.2023</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Sixt SE</td>
-<td headers="Kurs" class="gt_row gt_right">120.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">98.50</td>
 <td headers="Kaufkurs" class="gt_row gt_right">101.74</td>
-<td headers="Wert" class="gt_row gt_right">120.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">98.50</td>
 <td headers="Notiz" class="gt_row gt_left">Carsharing 11.07.2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Novartis</td>
-<td headers="Kurs" class="gt_row gt_right">85.10</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">92.38</td>
 <td headers="Kaufkurs" class="gt_row gt_right">65.44</td>
-<td headers="Wert" class="gt_row gt_right">510.60</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">554.29</td>
 <td headers="Notiz" class="gt_row gt_left">Pharma, 06.03.18</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Softbank Group</td>
-<td headers="Kurs" class="gt_row gt_right">32.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">20.59</td>
 <td headers="Kaufkurs" class="gt_row gt_right">36.12</td>
-<td headers="Wert" class="gt_row gt_right">2400.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">1544.60</td>
 <td headers="Notiz" class="gt_row gt_left">Tech World, 20.08.2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">BP PLC</td>
-<td headers="Kurs" class="gt_row gt_right">5.80</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">0.00</td>
 <td headers="Kaufkurs" class="gt_row gt_right">5.49</td>
-<td headers="Wert" class="gt_row gt_right">1160.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">113.75</td>
 <td headers="Notiz" class="gt_row gt_left">Energy, 23.08.2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Rexford Ind. Realty</td>
-<td headers="Kurs" class="gt_row gt_right">40.69</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">39.06</td>
-<td headers="Wert" class="gt_row gt_right">1220.70</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Industrial REIT, 23.08.2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Royal Dutch Shell</td>
-<td headers="Kurs" class="gt_row gt_right">26.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">25.00</td>
-<td headers="Wert" class="gt_row gt_right">1170.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Energy, 26.08.2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Naspers</td>
-<td headers="Kurs" class="gt_row gt_right">146.90</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">189.83</td>
-<td headers="Wert" class="gt_row gt_right">1028.30</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">E-Commerce Africa, 20.09.2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Diageo</td>
-<td headers="Kurs" class="gt_row gt_right">37.35</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">36.88</td>
-<td headers="Wert" class="gt_row gt_right">747.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Spirituosen, 25.09.2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Baidu</td>
-<td headers="Kurs" class="gt_row gt_right">200.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">144.80</td>
-<td headers="Wert" class="gt_row gt_right">2000.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Tech China, US ADR, 06.05.2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">JP Morgan</td>
-<td headers="Kurs" class="gt_row gt_right">87.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">113.80</td>
-<td headers="Wert" class="gt_row gt_right">435.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Banken US, 30.10.2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Hochtief AG</td>
-<td headers="Kurs" class="gt_row gt_right">77.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">108.17</td>
-<td headers="Wert" class="gt_row gt_right">462.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Infrastruktur WORLD, 28.01.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Continental</td>
-<td headers="Kurs" class="gt_row gt_right">90.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">100.27</td>
-<td headers="Wert" class="gt_row gt_right">540.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Automobilzulieferer GER, 28.01.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Oreal (L`)</td>
-<td headers="Kurs" class="gt_row gt_right">280.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">259.24</td>
-<td headers="Wert" class="gt_row gt_right">840.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Kosmetik, 31.01.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Danaher</td>
-<td headers="Kurs" class="gt_row gt_right">160.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">153.06</td>
-<td headers="Wert" class="gt_row gt_right">800.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Industrie&amp;Life Science, 19.02.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">AIA Group LTD</td>
-<td headers="Kurs" class="gt_row gt_right">7.60</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">7.68</td>
-<td headers="Wert" class="gt_row gt_right">760.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Versicherungen, HK, 12.03.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Realty Income REIT</td>
-<td headers="Kurs" class="gt_row gt_right">62.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">44.00</td>
-<td headers="Wert" class="gt_row gt_right">4650.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">REIT, 18.03.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Mowi SK</td>
-<td headers="Kurs" class="gt_row gt_right">20.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">16.52</td>
 <td headers="Kaufkurs" class="gt_row gt_right">16.38</td>
-<td headers="Wert" class="gt_row gt_right">1000.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">826.14</td>
 <td headers="Notiz" class="gt_row gt_left">Zuchtlachs 16.06.2020,</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Brookfield AS</td>
-<td headers="Kurs" class="gt_row gt_right">28.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">31.77</td>
 <td headers="Kaufkurs" class="gt_row gt_right">22.27</td>
-<td headers="Wert" class="gt_row gt_right">1596.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">1810.63</td>
 <td headers="Notiz" class="gt_row gt_left">Spinn-off Brookfield, 2022</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Bayer AG</td>
-<td headers="Kurs" class="gt_row gt_right">44.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">48.90</td>
-<td headers="Wert" class="gt_row gt_right">2200.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Pharma GER, 14.05.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Nestle SA</td>
-<td headers="Kurs" class="gt_row gt_right">95.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">110.45</td>
 <td headers="Kaufkurs" class="gt_row gt_right">96.77</td>
-<td headers="Wert" class="gt_row gt_right">570.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">662.69</td>
 <td headers="Notiz" class="gt_row gt_left">Konsum, 27.05.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Unilever</td>
-<td headers="Kurs" class="gt_row gt_right">42.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">44.67</td>
-<td headers="Wert" class="gt_row gt_right">2184.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Konsum, 04.10.2018</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Essex Property Trust</td>
-<td headers="Kurs" class="gt_row gt_right">222.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">225.54</td>
-<td headers="Wert" class="gt_row gt_right">1110.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">REIT West Coast US, 03.06.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Triton Intl RG</td>
-<td headers="Kurs" class="gt_row gt_right">26.80</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">27.25</td>
-<td headers="Wert" class="gt_row gt_right">723.60</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Container-Leasing, 10.06.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">KKR&amp;Co</td>
-<td headers="Kurs" class="gt_row gt_right">27.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">27.25</td>
-<td headers="Wert" class="gt_row gt_right">729.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Private Equity, 10.06.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Linde PLC</td>
-<td headers="Kurs" class="gt_row gt_right">237.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">184.58</td>
-<td headers="Wert" class="gt_row gt_right">948.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Chemistry, 11.06.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Coca Cola</td>
-<td headers="Kurs" class="gt_row gt_right">44.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">40.09</td>
-<td headers="Wert" class="gt_row gt_right">440.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Consumer, 07.07.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Adobe</td>
-<td headers="Kurs" class="gt_row gt_right">431.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">372.40</td>
-<td headers="Wert" class="gt_row gt_right">862.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Software Design 14.07.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Prologis</td>
-<td headers="Kurs" class="gt_row gt_right">82.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">82.37</td>
-<td headers="Wert" class="gt_row gt_right">820.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Logistik-REIT, 15.07.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">SL Green REIT</td>
-<td headers="Kurs" class="gt_row gt_right">53.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">38.70</td>
-<td headers="Wert" class="gt_row gt_right">1331.71</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">REIT New York, 19.08.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Fraport AG</td>
-<td headers="Kurs" class="gt_row gt_right">52.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">35.80</td>
-<td headers="Wert" class="gt_row gt_right">1300.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Airport Frankfurt, 24.07.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Visa</td>
-<td headers="Kurs" class="gt_row gt_right">185.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">168.80</td>
-<td headers="Wert" class="gt_row gt_right">925.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">US-Fintech, 24.07.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Walmart</td>
-<td headers="Kurs" class="gt_row gt_right">110.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">110.71</td>
-<td headers="Wert" class="gt_row gt_right">660.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">US-Konsum 31.07.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Heineken</td>
-<td headers="Kurs" class="gt_row gt_right">91.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">77.44</td>
-<td headers="Wert" class="gt_row gt_right">910.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Konsum WW, 06.08.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Vinci</td>
-<td headers="Kurs" class="gt_row gt_right">90.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">80.45</td>
-<td headers="Wert" class="gt_row gt_right">900.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Infrastruktur EU, 31.08.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Carlsberg</td>
-<td headers="Kurs" class="gt_row gt_right">176.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">114.99</td>
-<td headers="Wert" class="gt_row gt_right">1232.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Consumables, 21.09.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">J Martins</td>
-<td headers="Kurs" class="gt_row gt_right">14.20</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">14.06</td>
-<td headers="Wert" class="gt_row gt_right">1136.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Retail grocery, Pol/PT, 21.09.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">LVHM</td>
-<td headers="Kurs" class="gt_row gt_right">607.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">422.99</td>
-<td headers="Wert" class="gt_row gt_right">607.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">FR-Luxus, 27.10.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Kering</td>
-<td headers="Kurs" class="gt_row gt_right">633.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">543.65</td>
-<td headers="Wert" class="gt_row gt_right">633.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">FR-Luxus, 27.10.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Roche Holding AG</td>
-<td headers="Kurs" class="gt_row gt_right">294.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">302.80</td>
-<td headers="Wert" class="gt_row gt_right">588.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Healthcare, 29.09.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">British Land REIT</td>
-<td headers="Kurs" class="gt_row gt_right">5.80</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">4.10</td>
-<td headers="Wert" class="gt_row gt_right">580.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Commercial REIT London,25.10.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Enel</td>
-<td headers="Kurs" class="gt_row gt_right">8.46</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">6.83</td>
-<td headers="Wert" class="gt_row gt_right">1378.98</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Energy ITA, 27.10.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">CA Immo REIT</td>
-<td headers="Kurs" class="gt_row gt_right">25.15</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">25.64</td>
-<td headers="Wert" class="gt_row gt_right">377.25</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">REITs COM, GER&amp;East EU, 22.10.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Commonwealth Bank AUS</td>
-<td headers="Kurs" class="gt_row gt_right">40.01</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">41.09</td>
-<td headers="Wert" class="gt_row gt_right">400.05</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Australia Bank, 28.10.2020</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Anheuser-Busch Inbev</td>
-<td headers="Kurs" class="gt_row gt_right">52.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">53.11</td>
-<td headers="Wert" class="gt_row gt_right">780.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Beer WW, 11.05.2021</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">EDP-Energias</td>
-<td headers="Kurs" class="gt_row gt_right">5.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">5.14</td>
-<td headers="Wert" class="gt_row gt_right">1000.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Energy-POR, 14.04.2021</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">V.F Corp</td>
-<td headers="Kurs" class="gt_row gt_right">62.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">61.96</td>
-<td headers="Wert" class="gt_row gt_right">930.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">fashing WW, 23.12.2021</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Starbucks</td>
-<td headers="Kurs" class="gt_row gt_right">86.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">86.30</td>
-<td headers="Wert" class="gt_row gt_right">4042.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Coffee,19.01.2022</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Wharf Holdings Ltd</td>
-<td headers="Kurs" class="gt_row gt_right">1.83</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">2.04</td>
-<td headers="Wert" class="gt_row gt_right">274.50</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">China, HK, 15.01.2021</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Wipro ADR</td>
-<td headers="Kurs" class="gt_row gt_right">5.25</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">5.27</td>
-<td headers="Wert" class="gt_row gt_right">420.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">EM-IT, ADR, 19.01.2021</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Meituan Cl B</td>
-<td headers="Kurs" class="gt_row gt_right">40.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">41.10</td>
-<td headers="Wert" class="gt_row gt_right">440.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">IT-China, KYG, 26.01.2021</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Sea Ltd</td>
-<td headers="Kurs" class="gt_row gt_right">173.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">177.38</td>
-<td headers="Wert" class="gt_row gt_right">346.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Southeast-Asia, 27.01.2021</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">DBS Grp Hld</td>
-<td headers="Kurs" class="gt_row gt_right">17.80</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">18.07</td>
-<td headers="Wert" class="gt_row gt_right">356.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Finance ,23.03.2021</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Shenzou Itl</td>
-<td headers="Kurs" class="gt_row gt_right">16.90</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">17.79</td>
-<td headers="Wert" class="gt_row gt_right">338.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Textil, 25.02.2021</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Xiaomi</td>
-<td headers="Kurs" class="gt_row gt_right">2.60</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">2.72</td>
-<td headers="Wert" class="gt_row gt_right">390.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Tech, 25.02.2021</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Infosys ADR</td>
-<td headers="Kurs" class="gt_row gt_right">14.60</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">14.80</td>
-<td headers="Wert" class="gt_row gt_right">438.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">IT-India, 16.02.2021</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Pinduoduo</td>
-<td headers="Kurs" class="gt_row gt_right">112.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">118.93</td>
-<td headers="Wert" class="gt_row gt_right">336.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">E-Commerce china, 19.03.2021</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Weichai Power</td>
-<td headers="Kurs" class="gt_row gt_right">1.83</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">1.90</td>
-<td headers="Wert" class="gt_row gt_right">457.50</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Industry China, 03.05.2021</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Lenovo Group</td>
-<td headers="Kurs" class="gt_row gt_right">1.01</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">1.02</td>
-<td headers="Wert" class="gt_row gt_right">1009.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Tech HK, 05.01.2022</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Adler Group</td>
-<td headers="Kurs" class="gt_row gt_right">15.00</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">39.80</td>
-<td headers="Wert" class="gt_row gt_right">450.00</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Berlin Immobilien, 19.06.2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Alcon AG</td>
-<td headers="Kurs" class="gt_row gt_right">51.15</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">55.33</td>
-<td headers="Wert" class="gt_row gt_right">61.38</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">Augemedizin Novartis, 09.04.2019</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Vitesco Tech Gr</td>
-<td headers="Kurs" class="gt_row gt_right">66.43</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">83.55</td>
-<td headers="Wert" class="gt_row gt_right">116.97</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">NA</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Orion office REIT</td>
-<td headers="Kurs" class="gt_row gt_right">16.37</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">16.00</td>
-<td headers="Wert" class="gt_row gt_right">32.74</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">PG</td></tr>
     <tr><td headers="Wertpapier" class="gt_row gt_left">Kyndril Holdings</td>
-<td headers="Kurs" class="gt_row gt_right">14.66</td>
+<td headers="real_time_price_EUR" class="gt_row gt_right">NA</td>
 <td headers="Kaufkurs" class="gt_row gt_right">100.21</td>
-<td headers="Wert" class="gt_row gt_right">14.66</td>
+<td headers="real_time_worth_EUR" class="gt_row gt_right">NA</td>
 <td headers="Notiz" class="gt_row gt_left">IBM Spin off, 2020</td></tr>
   </tbody>
   

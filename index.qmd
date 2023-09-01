@@ -10,6 +10,8 @@ listing:
   categories: false
   sort-ui: false
   filter-ui: false
+  image-height: 150px
+  image-placeholder: "favicon.png"
 page-layout: full
 title-block-banner: true
 
