@@ -212,9 +212,9 @@ For this point, I want to demonstrate two scenarios:
 
 -2. scenario: perfect wealth generation conditions with a growth of 10% while adding 10k per year
 
-Let's take a look at both:
+-3. scenario: once 200k accumulation and 5% growth
 
-1.  scenario: growth 3% p.a., 10k additional investment from the job income
+Let's take a look at both:
 
 ```{r}
 #| echo: false
@@ -226,25 +226,31 @@ years <- 0:30  # You can adjust this to the number of years you want
 
 # Calculate the values for each year based on the growth rate and additional amount
 initial_amount <- 200000
-growth_rate <- 0.03  # 3% expressed as a decimal
+growth_rate_1 <- 0.03  # 3% expressed as a decimal
+growth_rate_2 <- 0.05  # 3% expressed as a decimal
+growth_rate_3 <- 0.10  # 3% expressed as a decimal
+
 additional_amount <- 10000
 
 # Calculate the values for each year
-values <- initial_amount * (1 + growth_rate)^years + additional_amount * years
+values_1 <- initial_amount * (1 + growth_rate_1)^years + additional_amount * years
+values_2 <- initial_amount * (1 + growth_rate_2)^years + additional_amount * years
+values_3 <- initial_amount * (1 + growth_rate_3)^years + additional_amount * years
+
 
 # Create a dataframe
-data <- data.frame(Year = years, Value = values)
+growth_df <- data.frame(Year = years, Value_1 = values_1, 
+                        Value_2 = values_2, 
+                        Value_3 = values_3)
 
-# Create the plot using Plotly
-plot <- plot_ly(data, x = ~Year, y = ~Value, type = 'bar', mode = 'markers')%>% 
-  layout(
-    title = "Growth of Investment Over Time",
-    xaxis = list(title = "Year"),
-    yaxis = list(title = "Value"),
-    showlegend = TRUE
-  )
-
-
+# Create a line plot using Plotly
+plot <- plot_ly(growth_df, x = ~Year, type = 'scatter', mode = 'lines') %>%
+  add_trace(y = ~Value_1, name = 'Scenario 1', text = ~paste("Year: ", Year, "<br>Value: EUR", round(Value_1, 0))) %>%
+  add_trace(y = ~Value_2, name = 'Scenario 2', text = ~paste("Year: ", Year, "<br>Value: EUR", round(Value_2, 0))) %>%
+  add_trace(y = ~Value_3, name = 'Scenario 3', text = ~paste("Year: ", Year, "<br>Value: EUR", round(Value_3, 0))) %>%
+  layout(title = "Investment Growth Over Time with 3 different scenarios",
+         xaxis = list(title = "Year after Initial investment"),
+         yaxis = list(title = "Investment Value"))
 
 
 ```
@@ -256,13 +262,19 @@ plot <- plot_ly(data, x = ~Year, y = ~Value, type = 'bar', mode = 'markers')%>%
 plot
 
 ```
-
-2.  scenario: growth 10% p.a. + 10k additional investment from job income
-
+Looking at this plot, I realized two things: First, an initial investment of 200k makes you a millionaire most likely over 30 years(with inflation adjustment most likely nothing special). And secondly, stock return and higher growth rate (green) outcompetes a lower performance and additional investments (orange line).
 
 
+```{r}
+#| output: true
+#| echo: false
+#| warning: false
+# Display the interactive plot
+plot
 
-This is the best case scenario.
+```
+
+
 
 ## Additional thoughts
 
