@@ -110,21 +110,31 @@ portfolio_df$`%-Anteil`[i] <- (portfolio_df$real_time_worth_EUR[i]/x1)*100
 #| output: false
 #| include: false
 
-
-#prepare figure to plot
-# Create a pie chart
+#
 pie_chart <- plot_ly(
   data = portfolio_df,
-  labels = portfolio_df$Wertpapier,
-  values = portfolio_df$`%-Anteil`,
+  labels = ~ifelse(`%-Anteil` > 1, Wertpapier, ""),
+  values = ~`%-Anteil`,
   type = "pie",
-  marker = list(line = list(width = 0))
+  marker = list(line = list(width = 0), textposition = "outside")  # Adjust textposition to "outside"
 ) %>% layout(
   title = "Portfolio Distribution",
   showlegend = FALSE  # This removes the legend
 )
 
-# Display the pie chart
+treemap_chart <- plot_ly(
+  data = portfolio_df,
+  ids = ~Wertpapier,
+  labels = ~Wertpapier,
+  parents = ~"Portfolio",  # Set a common parent for all entries
+  values = ~`%-Anteil`,
+  type = "treemap"
+) %>% layout(
+  title = "Portfolio Distribution (Treemap)",
+  margin = list(l = 0, r = 0, b = 0, t = 40)  # Adjust the margin for better visibility
+)
+
+
 
 ```
 
@@ -132,25 +142,14 @@ pie_chart <- plot_ly(
 #| echo: false
 # Display the interactive 3D pie chart
 pie_chart
+treemap_chart
 
 ```
 
-## Strategy
-
-The strategy is easy: Safe and sound.
-
-Generally, this portfolio has the purpose to add a signifcant amount of dividend income to the regular job income.
-
-```{r}
-#| output: true
-#| echo: false
-# Display the interactive plot
-
-```
 
 ## Market Events and Performance
 
-
+For this point, here we assume that all values were bought at the same time. Doing this plot, there is some difficulties aligning all the stock data since some downloaded data has many missing values.
 
 ```{r}
 #| warning: false
@@ -160,7 +159,7 @@ Generally, this portfolio has the purpose to add a signifcant amount of dividend
 
 #get transition course 
 # Define the currency pair
-start_date <- 2017-09-01  # Get data for yesterday
+start_date <- 2018 #
 end_date <- Sys.Date()
 
 df_portfolio_performance <- getSymbols(portfolio_df$Yahoo_3_letter[i], src = "yahoo", from = start_date, to = end_date,auto.assign = FALSE)
@@ -168,26 +167,63 @@ df_portfolio_performance <- as.data.frame(df_portfolio_performance)
 df_portfolio_performance$date <- rownames(df_portfolio_performance)
 df_portfolio_performance <- df_portfolio_performance %>% select(date)
 
+
 #loop
 for(i in 1:nrow(portfolio_df)) {
    
   if(is.na(portfolio_df$Yahoo_3_letter[i])) next
   
-  x1 <- getSymbols(portfolio_df$Yahoo_3_letter[i], src = "yahoo", from = start_date, to = end_date,auto.assign = FALSE)
+  x1 <- getSymbols(portfolio_df$Yahoo_3_letter[i], src = "yahoo", from = start_date, to = end_date, auto.assign = FALSE)
   x1 <- as.data.frame(x1[,6])
   x1$date <- rownames(x1)
+  x1$year <- lubridate::year(x1$date)
+  x1 <- x1 %>% filter(date>start_date)
   colnames(x1)[1] <- as.character(portfolio_df$Yahoo_3_letter[i])
   
-  #combine with left_join
-  df_portfolio_performance <- left_join(df_portfolio_performance, x1, by = "date")
+  x1$real_time_price_local_currency <- x1[,1]
+  x2 <- portfolio_df$currency[i]
+  
+  if(x2 == "EUR") {x1[,1] <- x1[,1]}
+  if(x2 == "USD") {x1[,1]  <- x1[,1]/exchange_rate_data_today_EUR_USD}
+  if(x2 == "CHF") {x1[,1]  <- x1[,1]/exchange_rate_data_today_EUR_CHF}
+  if(x2 == "GBP") {x1[,1]  <- x1[,1]/exchange_rate_data_today_EUR_GBP} 
+  if(x2 == "CNY") {x1[,1]  <- x1[,1]/exchange_rate_data_today_EUR_CNY} 
+  if(x2 == "SGD") {x1[,1]  <- x1[,1]/exchange_rate_data_today_EUR_SGD} 
+  if(x2 == "AUD") {x1[,1]  <- x1[,1]/exchange_rate_data_today_EUR_AUD} 
+  if(x2 == "NOK") {x1[,1]  <- x1[,1]/exchange_rate_data_today_EUR_NOK} 
+
+
+
+x1[,1] <- as.numeric(portfolio_df$Stück[i])*x1[,1]
+
+if(i == 39) {x1[,1] <- x1[,1]/1000} # BP
+
+message(i)
+#combine with left_join
+df_portfolio_performance <- left_join(df_portfolio_performance, 
+                                      x1 %>% select(1:2), by= "date")
   
 }
  
+df_portfolio_performance$year <- lubridate::year(df_portfolio_performance$date)
+df_portfolio_performance <- df_portfolio_performance %>% filter(date>start_date)
+
+
+# Calculate the total number of columns in the DataFrame
+num_columns <- ncol(df_portfolio_performance)
+# Calculate the threshold for the number of non-NA values required to include a row
+threshold <- 0.90 * num_columns
+# Calculate row sums only for rows meeting the threshold
+row_sums <- rowSums(!is.na(df_portfolio_performance), na.rm = TRUE)  # Count non-NA values per row
+# Filter rows where the number of non-NA values is greater than or equal to the threshold
+selected_rows <- which(row_sums >= threshold)
+# Create a new DataFrame with only the selected rows
+df_selected <- df_portfolio_performance[selected_rows, ]
+# If you want to add the sum as a new column to the selected DataFrame
+df_selected$Total_Sum <- rowSums(df_selected[2:(ncol(df_selected)-5)], na.rm = TRUE)
 
 
 ```
-
-
 
 
 ```{r}
@@ -195,7 +231,30 @@ for(i in 1:nrow(portfolio_df)) {
 #| output: false
 #| include: false
 
+df_selected$smoothed_Total_Sum <- df_selected$Total_Sum
 
+# Define a threshold for the jump
+jump_threshold <- 10000
+
+# Loop through the rows and smooth the values
+for (i in 2:(nrow(df_selected) - 1)) {
+  if (abs(df_selected$Total_Sum[i] - df_selected$Total_Sum[i - 1]) > jump_threshold &&
+      abs(df_selected$Total_Sum[i] - df_selected$Total_Sum[i + 1]) > jump_threshold) {
+    # If a jump of 50,000 or more is detected within 3 close rows, replace the value with the average of neighboring rows
+    df_selected$smoothed_Total_Sum[i] <- (df_selected$Total_Sum[i - 1] + df_selected$Total_Sum[i + 1]) / 2
+  }
+}
+# Create the smoothed line plot
+line_plot <- plot_ly(df_selected, x = ~date, y = ~smoothed_Total_Sum, type = 'scatter', mode = 'lines')
+
+
+
+```
+
+```{r}
+#| echo: false
+# Display the interactive 3D pie chart
+line_plot
 
 ```
 
@@ -263,16 +322,6 @@ plot
 
 ```
 Looking at this plot, I realized two things: First, an initial investment of 200k makes you a millionaire most likely over 30 years(with inflation adjustment most likely nothing special). And secondly, stock return and higher growth rate (green) outcompetes a lower performance and additional investments (orange line).
-
-
-```{r}
-#| output: true
-#| echo: false
-#| warning: false
-# Display the interactive plot
-plot
-
-```
 
 
 
