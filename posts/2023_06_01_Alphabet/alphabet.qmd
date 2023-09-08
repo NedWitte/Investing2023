@@ -1,0 +1,91 @@
+---
+title: "Google stock analysis"
+author: "JNW"
+date: "2023-06-01"
+description: "The Know it all"
+image: google1.png
+image-height: "2"
+image-width: "2"
+---
+
+
+
+**Google stock**
+
+
+
+```{r}
+#| echo: false
+#| output: false
+library(tidyquant)
+library(lubridate)
+library(plotly)
+```
+
+```{r}
+#| echo: false
+#| output: false
+end_date <- Sys.Date()
+
+# Calculate start_date as end_date minus 10 years
+start_date <- end_date %m-% years(100)
+
+getSymbols("GOOGL", from = start_date,
+           to = end_date,warnings = FALSE,
+           auto.assign = TRUE)
+
+df1 <- as.data.frame(GOOGL)
+df1$date <- rownames(df1)
+
+df2 <- df1 %>% filter(date > end_date %m-% years(10))
+df3 <- df1 %>% filter(date > end_date %m-% years(1))
+
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+
+
+plot1 <- plot_ly(data = df1, x = ~date, y = ~GOOGL.Adjusted, type = "scatter", mode = "lines", name = "Samsung stock") %>%
+  layout(title = paste("Stock Price for Alphabet"),
+         xaxis = list(title = "Date",
+                      nticks = 5),
+         yaxis = list(title = "Price")) 
+
+plot2 <- plot_ly(data = df2, x = ~date, y = ~GOOGL.Adjusted, type = "scatter", mode = "lines", name = "Samsung stock") %>%
+  layout(title = paste("Stock Price for Alphabet"),
+         xaxis = list(title = "Date",
+                      nticks = 5),
+         yaxis = list(title = "Price")) 
+
+plot3 <- plot_ly(data = df3, x = ~date, y = ~GOOGL.Adjusted, type = "scatter", mode = "lines", name = "Samsung stock") %>%
+  layout(title = paste("Stock Price for Alphabet"),
+         xaxis = list(title = "Date",
+                      nticks = 5),
+         yaxis = list(title = "Price")) 
+
+```
+
+::: {layout="[[1,1], [1]]"}
+```{r}
+#| label: Stock Price since inception
+#| echo: false
+plot1
+```
+
+```{r}
+#| label: Stock Price the last 10 years
+#| echo: false
+plot2
+```
+
+```{r}
+#| echo: false
+#| label: Stock Price the last 1 years
+plot3
+```
+:::

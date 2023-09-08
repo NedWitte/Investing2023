@@ -1,0 +1,51 @@
+---
+title: "TXN analysis"
+description: "chips"
+author: "JNW"
+date: "2023-09-07"
+image: texas_instruments1.png
+---
+
+**Texas instruments Corp**
+
+This company has never been cheap
+
+```{r}
+#| echo: false
+#| output: false
+#| warning: false
+
+#install.packages("rmarkdown")
+#install.packages("htmltools")
+#install.packages("htmlwidgets")
+#install.packages("rtools")
+#library(reticulate)
+#library(rmarkdown)
+
+#install.packages("Rtools")
+#install.packages("hexbin")
+#install.packages("evaluate")
+#install.packages("rmarkdown")
+#py_install("yfinance")
+#py_install("seaborn")
+#py_install("rpy2")
+
+
+```
+
+```{python}
+#| echo: false
+#| output: false
+#import libraries and download data
+import matplotlib.pyplot as plt
+import yfinance as yf
+import seaborn as sns
+import plotly.express as px
+import plotly.io as pio
+import pandas as pd
+
+
+```
+
+
+:::

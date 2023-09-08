@@ -18,29 +18,78 @@ Samsung makes the best phones.
 #| echo: false
 #| output: false
 library(tidyquant)
+library(lubridate)
+library(plotly)
 ```
 
 ```{r}
 #| echo: false
 #| output: false
-getSymbols("SMSN.IL", from = '2017-01-01',
-           to = "2027-03-01",warnings = FALSE,
+end_date <- Sys.Date()
+
+# Calculate start_date as end_date minus 10 years
+start_date <- end_date %m-% years(100)
+
+getSymbols("SMSN.IL", from = start_date,
+           to = end_date,warnings = FALSE,
            auto.assign = TRUE)
 
-```
+df1 <- as.data.frame(SMSN.IL)
+df1$date <- rownames(df1)
 
-```{r}
-chart_Series(SMSN.IL)
+df2 <- df1 %>% filter(date > end_date %m-% years(10))
+df3 <- df1 %>% filter(date > end_date %m-% years(1))
+
+
 
 ```
 
 ```{r}
 #| echo: false
 #| output: false
-getSymbols("BAS.DE", from = '2017-01-01',
-           to = "2027-03-01",warnings = FALSE,
-           auto.assign = TRUE)
 
-chart_Series(BAS.DE)
+
+
+plot1 <- plot_ly(data = df1, x = ~date, y = ~SMSN.IL.Adjusted, type = "scatter", mode = "lines", name = "Samsung stock") %>%
+  layout(title = paste("Stock Price for Samsung"),
+         xaxis = list(title = "Date",
+                      nticks = 5),
+         yaxis = list(title = "Price")) 
+
+plot2 <- plot_ly(data = df2, x = ~date, y = ~SMSN.IL.Adjusted, type = "scatter", mode = "lines", name = "Samsung stock") %>%
+  layout(title = paste("Stock Price for Samsung"),
+         xaxis = list(title = "Date",
+                      nticks = 5),
+         yaxis = list(title = "Price")) 
+
+plot3 <- plot_ly(data = df3, x = ~date, y = ~SMSN.IL.Adjusted, type = "scatter", mode = "lines", name = "Samsung stock") %>%
+  layout(title = paste("Stock Price for Samsung"),
+         xaxis = list(title = "Date",
+                      nticks = 5),
+         yaxis = list(title = "Price")) 
 
 ```
+
+::: {layout="[[1,1], [1]]"}
+
+```{r}
+#| label: Stock Price since inception
+#| echo: false
+plot1
+```
+
+```{r}
+#| label: Stock Price the last 10 years
+#| echo: false
+plot2
+```
+
+```{r}
+#| echo: false
+#| label: Stock Price the last 1 years
+plot3
+```
+
+
+
+:::

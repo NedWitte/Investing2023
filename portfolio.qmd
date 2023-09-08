@@ -8,7 +8,7 @@ date: "2023-08-10"
 **The KarambolageNed portfolio**
 
 # Introduction
-  
+
 This **portfolio** consist of a maximum of 100 values whereas the top 15 stock should compromise at least 40% of the total value.
 
 ```{r}
@@ -146,7 +146,6 @@ treemap_chart
 
 ```
 
-
 ## Market Events and Performance
 
 For this point, here we assume that all values were bought at the same time. Doing this plot, there is some difficulties aligning all the stock data since some downloaded data has many missing values.
@@ -225,7 +224,6 @@ df_selected$Total_Sum <- rowSums(df_selected[2:(ncol(df_selected)-5)], na.rm = T
 
 ```
 
-
 ```{r}
 #| echo: false
 #| output: false
@@ -257,9 +255,6 @@ line_plot <- plot_ly(df_selected, x = ~date, y = ~smoothed_Total_Sum, type = 'sc
 line_plot
 
 ```
-
-
-
 
 Calculating the performance is tough since the money invested changes from to month due to the additional savings etc.
 
@@ -317,13 +312,12 @@ plot <- plot_ly(growth_df, x = ~Year, type = 'scatter', mode = 'lines') %>%
 ```{r}
 #| output: true
 #| echo: false
-# Display the interactive plot
+
 plot
 
 ```
+
 Looking at this plot, I realized two things: First, an initial investment of 200k makes you a millionaire most likely over 30 years(with inflation adjustment most likely nothing special). And secondly, stock return and higher growth rate (green) outcompetes a lower performance and additional investments (orange line).
-
-
 
 ## Additional thoughts
 
@@ -341,7 +335,7 @@ The goal is not retire as fast as possible. Live without work is damn boring.
 library(gtExtras)
 library(tidyverse)
 library(gt)
-
+library(markdown)
 ```
 
 ```{r}
@@ -349,6 +343,7 @@ library(gt)
 #| output: true
 #| include: true
 #| warning: false
+
 
 portfolio_df %>%
   select(Wertpapier, real_time_price_EUR, Kaufkurs, real_time_worth_EUR, Notiz) %>%
@@ -359,6 +354,3 @@ portfolio_df %>%
 
 
 ```
-
-
-
