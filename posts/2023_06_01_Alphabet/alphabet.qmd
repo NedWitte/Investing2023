@@ -190,6 +190,9 @@ combined_data.to_excel("output.xlsx")
 ```
 
 ```{r}
+#| echo: false
+#| output: false
+#| include: false
 library(Quandl)
 quandl_api_key("JsgWMGX7fdWWvHhZPSpf")
 
