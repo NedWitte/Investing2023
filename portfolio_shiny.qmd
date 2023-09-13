@@ -1,0 +1,57 @@
+---
+title: "Quarto + Shiny"
+format:
+  html:
+    theme: cosmo
+    code-tools:
+      toggle: true
+server: shiny
+echo: false
+---
+
+
+### Inputs
+
+```{r}
+#| echo: false
+#| output: false
+#| include: false
+
+#install.packages("shiny")
+#install.packages("shiny.i18n")
+library(shiny)
+library(shinydashboard)
+library(shiny.i18n)
+```
+
+```{r}
+
+sliderInput("bins", "Number of bins:", 
+            min = 1,
+            max = 50, 
+            value = 10)
+
+plotOutput("distPlot")
+
+inputPanel(
+  shiny::selectInput("Chart_type", label = "Chart Type",
+                     choices = c("1","2","3")))
+
+```
+
+```{r}
+#| context: server
+
+output$distPlot <- renderPlot({
+  x <- faithful[,2]
+  bins <- seq(min(x), max(x), length, length.out = input$bins+1)
+  hist(x, breaks = bins, col = "darkgrey", border = "white")
+})
+
+
+```
+
+```{r}
+
+```
+

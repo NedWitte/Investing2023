@@ -2,17 +2,13 @@
 title: "Google stock analysis"
 author: "JNW"
 date: "2023-06-01"
-description: "The Know it all"
+description: "The Know it all-Company"
 image: google1.png
 image-height: "2"
 image-width: "2"
 ---
 
-
-
 **Google stock**
-
-
 
 ```{r}
 #| echo: false
@@ -20,6 +16,17 @@ image-width: "2"
 library(tidyquant)
 library(lubridate)
 library(plotly)
+library(reticulate)
+
+#py_install("finplot")
+#py_install("openpyxl")
+
+
+ticker_symbol <- "GOOGL"
+company <- "Alphabet"
+y_column <- paste(ticker_symbol, ".Adjusted", sep = "")
+
+
 ```
 
 ```{r}
@@ -30,16 +37,15 @@ end_date <- Sys.Date()
 # Calculate start_date as end_date minus 10 years
 start_date <- end_date %m-% years(100)
 
-getSymbols("GOOGL", from = start_date,
+getSymbols(ticker_symbol, from = start_date,
            to = end_date,warnings = FALSE,
            auto.assign = TRUE)
 
-df1 <- as.data.frame(GOOGL)
+
+# Convert the data to a data frame
+df1 <- as.data.frame(get(ticker_symbol))
 df1$date <- rownames(df1)
-
-df2 <- df1 %>% filter(date > end_date %m-% years(10))
-df3 <- df1 %>% filter(date > end_date %m-% years(1))
-
+df2 <- df1 %>% filter(date > end_date %m-% years(5))
 
 
 ```
@@ -49,43 +55,147 @@ df3 <- df1 %>% filter(date > end_date %m-% years(1))
 #| output: false
 
 
+plot1 <- plot_ly(data = df1, x = ~date, y = ~get(y_column), type = "scatter", mode = "lines", name = paste(company,                   "stock")) %>%
+         layout(title = paste("Since Inception: Stock Price for", company, "(", ticker_symbol, ")"),
+         xaxis = list(title = "Date", nticks = 5),
+         yaxis = list(title = "Price"))
 
-plot1 <- plot_ly(data = df1, x = ~date, y = ~GOOGL.Adjusted, type = "scatter", mode = "lines", name = "Samsung stock") %>%
-  layout(title = paste("Stock Price for Alphabet"),
-         xaxis = list(title = "Date",
-                      nticks = 5),
-         yaxis = list(title = "Price")) 
+plot2 <- plot_ly(data = df2, x = ~date, y = ~get(y_column), type = "scatter", mode = "lines", name = paste(company,                 "stock")) %>%
+         layout(title = paste("the last 5 years: Stock Price for", company, "(", ticker_symbol, ")"),
+         xaxis = list(title = "Date", nticks = 5),
+         yaxis = list(title = "Price"))
 
-plot2 <- plot_ly(data = df2, x = ~date, y = ~GOOGL.Adjusted, type = "scatter", mode = "lines", name = "Samsung stock") %>%
-  layout(title = paste("Stock Price for Alphabet"),
-         xaxis = list(title = "Date",
-                      nticks = 5),
-         yaxis = list(title = "Price")) 
 
-plot3 <- plot_ly(data = df3, x = ~date, y = ~GOOGL.Adjusted, type = "scatter", mode = "lines", name = "Samsung stock") %>%
-  layout(title = paste("Stock Price for Alphabet"),
-         xaxis = list(title = "Date",
-                      nticks = 5),
-         yaxis = list(title = "Price")) 
 
 ```
 
-::: {layout="[[1,1], [1]]"}
+```{python}
+#| echo: false
+#| output: false
+#| include: false
+
+import yfinance as yf
+import pandas as pd
+import matplotlib.pyplot as plt  
+import plotly.express as px
+
+# Set the ticker symbol as MSFT
+ticker_symbol = yf.Ticker("GOOGL")
+# Get all stock info
+stock_info = ticker_symbol.info
+
+# - balance sheet
+ticker_symbol.balance_sheet
+
+# - cash flow statement
+cashflow_df = ticker_symbol.cashflow
+
+
+# Extract the Free Cash Flow column (you may need to adjust the column name)
+free_cash_flow = cashflow_df.loc["Free Cash Flow"]
+free_cash_flow_2 = cashflow_df.loc["Free Cash Flow"].to_frame().T
+free_cash_flow_2 = free_cash_flow_2.transpose()
+free_cash_flow_2['date'] = free_cash_flow_2.index
+free_cash_flow_2['date'] = pd.to_datetime(free_cash_flow_2['date'])
+
+# Sort the DataFrame by the 'date' column in ascending order
+free_cash_flow_2 = free_cash_flow_2.sort_values(by='date', ascending=True)
+
+
+# Create a line plot for Free Cash Flow data using Plotly
+fig_1 =  px.bar(free_cash_flow_2, x='date', y='Free Cash Flow',
+             labels={'Free Cash Flow': 'Free Cash Flow'},
+             title='Free Cash Flow Over Time')
+
+
+ticker_symbol = yf.Ticker("MMM")
+# show holders
+#ticker_symbol.major_holders
+dividends_df = ticker_symbol.dividends
+
+# Get dividend data
+dividends_data = pd.DataFrame(dividends_df)
+
+# Create a bar plot for dividend data using Plotly
+fig_2 = px.bar(dividends_data, x=dividends_data.index, y=dividends_data.Dividends, labels={"index": "Date", "y": "Dividend Amount"})
+fig_2.update_layout(
+    title="Dividend History",
+    xaxis_title="Date",
+    yaxis_title="Dividend Amount (USD)",
+    xaxis=dict(type="category", showticklabels=False),
+    showlegend=False
+)
+
+
+```
+
 ```{r}
+#| layout-ncol: 2
 #| label: Stock Price since inception
 #| echo: false
 plot1
-```
-
-```{r}
-#| label: Stock Price the last 10 years
-#| echo: false
 plot2
+
+```
+
+```{python}
+#| label: Other data
+#| echo: false
+#Dividends plot
+fig_1.show()
+#free cash flow plot
+fig_2.show()
+
+```
+
+```{python}
+#| echo: false
+#| output: false
+#| include: false
+
+
+tickers_list = ["aapl", "goog", "amzn", "BAC", "BA"] # example list
+tickers_data= {} # empty dictionary
+
+for ticker in tickers_list:
+    ticker_object = yf.Ticker(ticker)
+
+    #convert info() output from dictionary to dataframe
+    temp = pd.DataFrame.from_dict(ticker_object.info, orient="index")
+    temp.reset_index(inplace=True)
+    temp.columns = ["Attribute", "Recent"]
+    
+    # add (ticker, dataframe) to main dictionary
+    tickers_data[ticker] = temp
+
+for ticker in tickers_list:
+    ticker_object = yf.Ticker(ticker)
+
+    #convert info() output from dictionary to dataframe
+    temp = pd.DataFrame.from_dict(ticker_object.info, orient="index")
+    temp.reset_index(inplace=True)
+    temp.columns = ["Attribute", "Recent"]
+    
+    # add (ticker, dataframe) to main dictionary
+    tickers_data[ticker] = temp
+
+combined_data = pd.concat(tickers_data)
+combined_data = combined_data.reset_index()
+
+del combined_data["level_1"] # clean up unnecessary column
+combined_data.columns = ["Ticker", "Attribute", "Recent"] # update column names
+
+combined_data.to_excel("output.xlsx")  
+
 ```
 
 ```{r}
-#| echo: false
-#| label: Stock Price the last 1 years
-plot3
+library(Quandl)
+quandl_api_key("JsgWMGX7fdWWvHhZPSpf")
+
+#df1 = Quandl("GOOGL",type = "raw")
+
+
+
+
 ```
-:::

@@ -1,0 +1,148 @@
+---
+title: "Alibaba stock analysis"
+author: "JNW"
+date: "2023-05-01"
+description: "The Chinese Amazon"
+image: baba1.png
+image-height: "2"
+image-width: "2"
+---
+
+**Alibaba stock**
+
+```{r}
+#| echo: false
+#| output: false
+library(tidyquant)
+library(lubridate)
+library(plotly)
+library(reticulate)
+library(Quandl)
+library(readxl)
+
+#reticulate::repl_python()
+#reticulate::install_miniconda(force = TRUE)
+
+
+ticker_symbol <- "BABA"
+company <- "Alibaba"
+y_column <- paste(ticker_symbol, ".Adjusted", sep = "")
+
+#personal API
+Quandl.api_key("JsgWMGX7fdWWvHhZPSpf")
+
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+end_date <- Sys.Date()
+
+# Calculate start_date as end_date minus 10 years
+start_date <- end_date %m-% years(100)
+
+getSymbols(ticker_symbol, from = start_date,
+           to = end_date,warnings = FALSE,
+           auto.assign = TRUE)
+
+
+# Convert the data to a data frame
+df1 <- as.data.frame(get(ticker_symbol))
+df1$date <- rownames(df1)
+df2 <- df1 %>% filter(date > end_date %m-% years(5))
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+plot1 <- plot_ly(data = df1, x = ~date, y = ~get(y_column), type = "scatter", mode = "lines", name = paste(company,                   "stock")) %>%
+         layout(title = paste("Since Inception: Stock Price for", company, "(", ticker_symbol, ")"),
+         xaxis = list(title = "Date", nticks = 5),
+         yaxis = list(title = "Price"))
+
+plot2 <- plot_ly(data = df2, x = ~date, y = ~get(y_column), type = "scatter", mode = "lines", name = paste(company,                 "stock")) %>%
+         layout(title = paste("the last 5 years: Stock Price for", company, "(", ticker_symbol, ")"),
+         xaxis = list(title = "Date", nticks = 5),
+         yaxis = list(title = "Price"))
+
+
+
+```
+
+```{r}
+#| layout-ncol: 2
+#| label: Stock Price since inception
+#| echo: false
+plot1
+plot2
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+library(reticulate)
+#install.packages("rgee")
+library(rgee)
+
+#py_install("yfinance")
+#py_install("pandas")
+#py_install("matplotlib")
+#py_install("plotly")
+
+
+```
+
+
+
+```{python}
+#| echo: false
+#| output: false
+#| include: false
+
+#load python packages
+import yfinance as yf
+import pandas as pd
+import matplotlib.pyplot as plt  
+import plotly.express as px
+
+
+
+# Set the ticker symbol as MSFT
+ticker_symbol = yf.Ticker("BABA")
+# Get all stock info
+stock_info = ticker_symbol.info
+
+# - balance sheet
+df1 = ticker_symbol.balance_sheet
+
+df1.to_csv('data/out.csv') 
+
+```
+
+
+```{r}
+#| echo: false
+#| output: false
+#| include: false
+balance_sheet_df <- read.csv("data/out.csv")
+
+x1 <- balance_sheet_df[40,]
+x1 <- t(x1)
+x1 <- as.data.frame(x1)
+colnames(x1) <- x1[1,]
+x1 <- x1 %>% slice(-1)
+
+```
+
+
+```{r}
+
+  
+  
+```
