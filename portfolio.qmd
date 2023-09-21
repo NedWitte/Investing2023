@@ -16,6 +16,8 @@ This **portfolio** consist of a maximum of 100 values whereas the top 15 stock s
 #| output: false
 #| include: false
 
+rm(list = ls())
+
 #load packages
 library(tidyquant)
 library(quantmod)
@@ -99,7 +101,7 @@ x1 <- sum(portfolio_df$real_time_worth_EUR, na.rm = TRUE)
 
 for(i in 1:nrow(portfolio_df)) {
   
-portfolio_df$`%-Anteil`[i] <- (portfolio_df$real_time_worth_EUR[i]/x1)*100
+portfolio_df$`%-Anteil`[i] <- (portfolio_df$real_time_worth_EUR[i]/x1)*100 #100 for %
 
 }
 
@@ -111,16 +113,16 @@ portfolio_df$`%-Anteil`[i] <- (portfolio_df$real_time_worth_EUR[i]/x1)*100
 #| include: false
 
 #
-pie_chart <- plot_ly(
-  data = portfolio_df,
-  labels = ~ifelse(`%-Anteil` > 1, Wertpapier, ""),
-  values = ~`%-Anteil`,
-  type = "pie",
-  marker = list(line = list(width = 0), textposition = "outside")  # Adjust textposition to "outside"
-) %>% layout(
-  title = "Portfolio Distribution",
-  showlegend = FALSE  # This removes the legend
-)
+#pie_chart <- plot_ly(
+  #data = portfolio_df,
+  #labels = ~ifelse(`%-Anteil` > 1, Wertpapier, ""),
+  #values = ~`%-Anteil`,
+  #type = "pie",
+  #marker = list(line = list(width = 0), textposition = "outside"))  # Adjust textposition to "outside"
+  #%>% layout(
+  #title = "Portfolio Distribution",
+  #showlegend = FALSE)  # This removes the legend
+
 
 treemap_chart <- plot_ly(
   data = portfolio_df,
@@ -141,7 +143,7 @@ treemap_chart <- plot_ly(
 ```{r}
 #| echo: false
 # Display the interactive 3D pie chart
-pie_chart
+#pie_chart
 treemap_chart
 
 ```
@@ -155,28 +157,29 @@ For this point, here we assume that all values were bought at the same time. Doi
 #| echo: false
 #| output: false
 #| include: false
+#| label: performance calculation
 
 #get transition course 
 # Define the currency pair
-start_date <- 2018 #
-end_date <- Sys.Date()
 
-df_portfolio_performance <- getSymbols(portfolio_df$Yahoo_3_letter[i], src = "yahoo", from = start_date, to = end_date,auto.assign = FALSE)
+df_portfolio_performance <- getSymbols("JNJ", src = "yahoo", from = "2018-01-01", to = end_date,auto.assign = FALSE)
 df_portfolio_performance <- as.data.frame(df_portfolio_performance)
 df_portfolio_performance$date <- rownames(df_portfolio_performance)
 df_portfolio_performance <- df_portfolio_performance %>% select(date)
 
+i <-1
 
 #loop
 for(i in 1:nrow(portfolio_df)) {
    
   if(is.na(portfolio_df$Yahoo_3_letter[i])) next
   
-  x1 <- getSymbols(portfolio_df$Yahoo_3_letter[i], src = "yahoo", from = start_date, to = end_date, auto.assign = FALSE)
+  x1 <- getSymbols(portfolio_df$Yahoo_3_letter[i], src = "yahoo",
+                   from = portfolio_df$Date_of_Purchase[i], to = end_date, auto.assign = FALSE)
+  
   x1 <- as.data.frame(x1[,6])
   x1$date <- rownames(x1)
   x1$year <- lubridate::year(x1$date)
-  x1 <- x1 %>% filter(date>start_date)
   colnames(x1)[1] <- as.character(portfolio_df$Yahoo_3_letter[i])
   
   x1$real_time_price_local_currency <- x1[,1]
@@ -205,21 +208,14 @@ df_portfolio_performance <- left_join(df_portfolio_performance,
 }
  
 df_portfolio_performance$year <- lubridate::year(df_portfolio_performance$date)
-df_portfolio_performance <- df_portfolio_performance %>% filter(date>start_date)
 
 
-# Calculate the total number of columns in the DataFrame
-num_columns <- ncol(df_portfolio_performance)
-# Calculate the threshold for the number of non-NA values required to include a row
-threshold <- 0.90 * num_columns
-# Calculate row sums only for rows meeting the threshold
-row_sums <- rowSums(!is.na(df_portfolio_performance), na.rm = TRUE)  # Count non-NA values per row
-# Filter rows where the number of non-NA values is greater than or equal to the threshold
-selected_rows <- which(row_sums >= threshold)
-# Create a new DataFrame with only the selected rows
-df_selected <- df_portfolio_performance[selected_rows, ]
+
 # If you want to add the sum as a new column to the selected DataFrame
-df_selected$Total_Sum <- rowSums(df_selected[2:(ncol(df_selected)-5)], na.rm = TRUE)
+df_portfolio_performance$Total_Sum <- rowSums(df_portfolio_performance[2:(ncol(df_portfolio_performance)-2)], na.rm = TRUE)
+
+
+df_portfolio_performance$Total_Sum_entries <- rowSums(!is.na(df_portfolio_performance[2:(ncol(df_portfolio_performance)-2)]))
 
 
 ```
@@ -229,23 +225,19 @@ df_selected$Total_Sum <- rowSums(df_selected[2:(ncol(df_selected)-5)], na.rm = T
 #| output: false
 #| include: false
 
-df_selected$smoothed_Total_Sum <- df_selected$Total_Sum
 
-# Define a threshold for the jump
-jump_threshold <- 10000
+#subset
+for (i in 1:(nrow(df_portfolio_performance)-1)) {
 
-# Loop through the rows and smooth the values
-for (i in 2:(nrow(df_selected) - 1)) {
-  if (abs(df_selected$Total_Sum[i] - df_selected$Total_Sum[i - 1]) > jump_threshold &&
-      abs(df_selected$Total_Sum[i] - df_selected$Total_Sum[i + 1]) > jump_threshold) {
-    # If a jump of 50,000 or more is detected within 3 close rows, replace the value with the average of neighboring rows
-    df_selected$smoothed_Total_Sum[i] <- (df_selected$Total_Sum[i - 1] + df_selected$Total_Sum[i + 1]) / 2
-  }
+if(df_portfolio_performance$Total_Sum_entries[i]>df_portfolio_performance$Total_Sum_entries[i+1]) {df_portfolio_performance[-c(i+1,i+2,i+3,i+4),]}
+  message(i)
 }
+
+
 # Create the smoothed line plot
-line_plot <- plot_ly(df_selected, x = ~date, y = ~smoothed_Total_Sum, type = 'scatter', mode = 'lines')
+line_plot <- plot_ly(df_portfolio_performance, x = ~date, y = ~Total_Sum, type = 'scatter', mode = 'lines')
 
-
+i <- 96
 
 ```
 

@@ -12,13 +12,11 @@ format:
 
 # Olive Oil prices
 
-::: {layout-ncol=2}
-![Olive Oil](oliveoil1.png){#fig-oliveoil width="50%" height="30%"}
-![An olive](oliveoil2.png){#fig-olive width="50%" height="30%"}
+::: {layout-ncol="2"}
+![Olive Oil](oliveoil1.png){#fig-oliveoil width="50%" height="30%"} ![An olive](oliveoil2.png){#fig-olive width="50%" height="30%"}
 :::
 
-::: {.columns}
-
+::: columns
 ::: {.column width="50%"}
 This is a beautiful picture of olive oil. Yummy
 :::
@@ -26,9 +24,7 @@ This is a beautiful picture of olive oil. Yummy
 ::: {.column width="50%"}
 An olive.
 :::
-
 :::
-
 
 ```{r}
 #| echo: false

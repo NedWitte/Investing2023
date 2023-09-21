@@ -1,0 +1,82 @@
+---
+title: "Snwoflake stock analysis"
+author: "JNW"
+date: "2023-09-21"
+description: "The data connector?"
+image: snowflake1.png
+image-height: "2"
+image-width: "2"
+---
+
+**Snowflake stock**
+
+Snowflake Inc. is a cloud computing–based data cloud company based in Bozeman, Montana. It was founded in July 2012 and was publicly launched in October 2014 after two years in stealth mode.
+
+
+```{r}
+#| echo: false
+#| output: false
+library(tidyquant)
+library(lubridate)
+library(plotly)
+
+
+ticker_symbol <- "SNOW"
+company <- "Snowflake"
+y_column <- paste(ticker_symbol, ".Adjusted", sep = "")
+y_col_Open <- paste(ticker_symbol, ".Open", sep = "")
+y_col_High <- paste(ticker_symbol, ".High", sep = "")
+y_col_Low <- paste(ticker_symbol, ".Low", sep = "")
+y_col_Close <- paste(ticker_symbol, ".Close", sep = "")
+y_col_Volume <- paste(ticker_symbol, ".Volume", sep = "")
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+#| warning: false
+
+getSymbols(ticker_symbol ,src='yahoo')
+
+df1 <- data.frame(Date=index(get(ticker_symbol )),coredata(get(ticker_symbol)))
+
+
+fig <- df1 %>% plot_ly(x = ~Date, type="candlestick",
+          open = ~get(y_col_Open), close = ~get(y_col_Close),
+          high = ~get(y_col_High), low = ~get(y_col_Low),
+          config = list(scrollZoom = FALSE, displayModeBar = FALSE)) %>% config(displayModeBar = F)
+fig <- fig %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.4), inherit = F)
+fig <- fig %>% layout(title = "Candlestick Chart since inception",
+         xaxis = list(rangeslider = list(visible = F)),
+         yaxis = list(title = "Stock price in USD"))  # Specify the custom y-axis title here
+
+
+
+```
+
+```{r}
+#| echo: false
+#| warning: false
+fig
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+df2 <- tail(df1, 365)
+
+fig <- df2 %>% plot_ly(x = ~Date, type="candlestick",
+          open = ~get(y_col_Open), close = ~get(y_col_Close),
+          high = ~get(y_col_High), low = ~get(y_col_Low)) 
+fig <- fig %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.75), inherit = F)
+fig <- fig %>% layout(showlegend = FALSE)
+
+```
+
+```{r}
+#| echo: false
+fig
+```

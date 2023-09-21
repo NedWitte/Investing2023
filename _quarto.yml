@@ -37,7 +37,7 @@ format:
   html:
     code-fold: false
     fig-width: 12
-    fig-height: 7
+    fig-height: 9
     theme: html/my-laterra.scss
     css: html/style.scs
     code-link: false

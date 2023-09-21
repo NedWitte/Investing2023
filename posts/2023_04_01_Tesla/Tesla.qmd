@@ -8,7 +8,23 @@ image-height: "2"
 image-width: "2"
 ---
 
-**Alibaba stock**
+**Tesla stock**
+
+```{r}
+#| echo: false
+#| output: false
+library(reticulate)
+#install.packages("rgee")
+library(rgee)
+
+#py_install("yfinance")
+#py_install("pandas")
+#py_install("matplotlib")
+#py_install("plotly")
+
+
+```
+
 
 ```{r}
 #| echo: false
@@ -19,6 +35,7 @@ library(plotly)
 library(reticulate)
 library(Quandl)
 library(readxl)
+library(quantmod)
 
 #reticulate::repl_python()
 #reticulate::install_miniconda(force = TRUE)
@@ -29,9 +46,7 @@ company <- "Tesla"
 y_column <- paste(ticker_symbol, ".Adjusted", sep = "")
 
 #personal API
-Quandl.api_key("JsgWMGX7fdWWvHhZPSpf")
-
-
+#Quandl.api_key("JsgWMGX7fdWWvHhZPSpf")
 
 ```
 
@@ -83,62 +98,14 @@ plot2
 
 ```
 
-```{r}
-#| echo: false
-#| output: false
-library(reticulate)
-#install.packages("rgee")
-library(rgee)
-
-#py_install("yfinance")
-#py_install("pandas")
-#py_install("matplotlib")
-#py_install("plotly")
-
-
-```
-
-```{python}
-#| echo: false
-#| output: false
-#| include: false
-
-#load python packages
-import yfinance as yf
-import pandas as pd
-import matplotlib.pyplot as plt  
-import plotly.express as px
-
-
-# Set the ticker symbol as MSFT
-ticker_symbol = yf.Ticker("TSLA")
-# Get all stock info
-stock_info = ticker_symbol.info
-
-# - balance sheet
-df1 = ticker_symbol.balance_sheet
-
-df1.to_csv('data/out.csv') 
-
-```
 
 ```{r}
 #| echo: false
 #| output: false
-#| include: false
-balance_sheet_df <- read.csv("data/out.csv")
 
-x1 <- balance_sheet_df[40,]
-x1 <- t(x1)
-x1 <- as.data.frame(x1)
-colnames(x1) <- x1[1,]
-x1 <- x1 %>% slice(-1)
-x1$date <- rownames(x1)
+
+
 
 ```
 
-```{r}
-#| echo: false
 
-  
-```

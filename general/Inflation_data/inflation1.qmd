@@ -160,49 +160,6 @@ Spain: Spain has seen varying levels of inflation over the years. It went throug
 
 Greece: Greece faced substantial economic challenges, including high inflation, prior to the Eurozone crisis. During the crisis, the country implemented austerity measures and structural reforms in exchange for financial assistance. As a result, inflation rates generally decreased. It's worth noting that Greece's economic situation and inflation trends have been heavily influenced by its fiscal and monetary policy adjustments.
 
-
-## Python code within Rstudio Quarto qmd file test
-
-
-```{python}
-#| echo: false
-#| output: false
-#| include: false
-
-# Import necessary libraries
-import pandas as pd
-import matplotlib.pyplot as plt
-from datetime import datetime
-import pandas_datareader as pdr
-
-# Set the start and end date for the data
-start_date = datetime(2000, 1, 1)
-end_date = datetime(2022, 12, 31)
-
-# Fetch CPI inflation data from FRED
-inflation_data = pdr.get_data_fred('CPIAUCSL', start=start_date, end=end_date)
-
-# Plot the inflation data
-plt.figure(figsize=(12, 6))
-plt.plot(inflation_data.index, inflation_data['CPIAUCSL'], color='b', label='CPI Inflation')
-plt.title('Consumer Price Index (CPI) Inflation Over Time')
-plt.xlabel('Year')
-plt.ylabel('CPI Inflation')
-plt.grid(True)
-plt.legend()
-plt.tight_layout()
-
-
-```
-
-And this a the CPI chart using python code:
-
-```{python}
-#| echo: false
-plt.show()
-
-```
-
 ## Conclusion
 
 <iframe src="https://giphy.com/embed/SuLbUjO2GbbqGVC1gM" width="480" height="276" frameBorder="0" class="giphy-embed" allowFullScreen>
