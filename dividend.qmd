@@ -147,8 +147,6 @@ pie_chart <- plot_ly(
   showlegend = FALSE)  # This removes the legend
 
 
-
-
 ```
 
 In total, before taxes and origin tax, the portfolio generates `r  x1` EUR dividends. Here the distribution is visible:
@@ -160,8 +158,41 @@ pie_chart
 
 ```
 
+## All received dividends since the first purchase
 
+Here a quick barplot of all receveided dividends after taxes etc.:
 
+```{r}
+#| warning: false
+#| echo: false
+#| output: false
+#| include: false
+
+#get dividends
+#get data from the Google sheets 
+action_tracker_df <- read_excel("data/2023_08_NedPortfolio.xlsx", sheet ="Performance Action tracker" )
+
+colors <- scale_color_viridis_d(option = "magma")
+
+portfolio_df <- portfolio_df %>%
+  arrange(desc(Dividendesumme))
+
+plot_div <- plot_ly(portfolio_df %>% arrange(desc(Dividendesumme)),
+                    x = ~Wertpapier, y = ~Dividendesumme, color = ~Wertpapier, type = "bar") %>%
+          layout(title = "Dividendensumme Histogram per Wertpapier",
+         xaxis = list(title = "Wertpapier"),
+         yaxis = list(title = "Dividendensumme (EUR)"),
+         showlegend= FALSE)
+
+```
+
+```{r}
+#| echo: false
+#| warning: false
+# Display the interactive 3D pie chart
+plot_div
+
+```
 
 
 ## Strategy
@@ -192,9 +223,4 @@ Let's take a look at both:
 
 1.  scenario: growth 3% p.a., 10k additional investment from the job income
 
-
 2.  scenario: growth 10% p.a. + 10k additional investment from job income
-
-
-
-
