@@ -10,8 +10,7 @@ image-width: "2"
 
 **Snowflake stock**
 
-Snowflake Inc. is a cloud computing–based data cloud company based in Bozeman, Montana. It was founded in July 2012 and was publicly launched in October 2014 after two years in stealth mode.
-
+Snowflake Inc. is a cloud computing--based data cloud company based in Bozeman, Montana. It was founded in July 2012 and was publicly launched in October 2014 after two years in stealth mode.
 
 ```{r}
 #| echo: false

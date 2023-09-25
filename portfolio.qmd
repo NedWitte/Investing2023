@@ -167,15 +167,25 @@ df_portfolio_performance <- as.data.frame(df_portfolio_performance)
 df_portfolio_performance$date <- rownames(df_portfolio_performance)
 df_portfolio_performance <- df_portfolio_performance %>% select(date)
 
-i <-1
+i <- 10
 
 #loop
 for(i in 1:nrow(portfolio_df)) {
    
   if(is.na(portfolio_df$Yahoo_3_letter[i])) next
   
-  x1 <- getSymbols(portfolio_df$Yahoo_3_letter[i], src = "yahoo",
-                   from = portfolio_df$Date_of_Purchase[i], to = end_date, auto.assign = FALSE)
+  # Test the connection to Yahoo Finance
+  tryCatch({
+    # Attempt to retrieve data
+    x1 <- getSymbols(portfolio_df$Yahoo_3_letter[i], src = "yahoo",
+                     from = portfolio_df$Date_of_Purchase[i], to = end_date, auto.assign = FALSE)
+  }, error = function(e) {
+    # If there's an error, print a message and continue to the next iteration
+    cat("Error fetching data for", portfolio_df$Yahoo_3_letter[i], ":", conditionMessage(e), "\n")
+    next
+  })
+
+
   
   x1 <- as.data.frame(x1[,6])
   x1$date <- rownames(x1)
@@ -224,25 +234,49 @@ df_portfolio_performance$Total_Sum_entries <- rowSums(!is.na(df_portfolio_perfor
 #| echo: false
 #| output: false
 #| include: false
+#| warning: false
 
-
+df_portfolio_performance$deleted <- NA
 #subset
 for (i in 1:(nrow(df_portfolio_performance)-1)) {
 
-if(df_portfolio_performance$Total_Sum_entries[i]>df_portfolio_performance$Total_Sum_entries[i+1]) {df_portfolio_performance[-c(i+1,i+2,i+3,i+4),]}
+if(df_portfolio_performance$Total_Sum_entries[i]>df_portfolio_performance$Total_Sum_entries[i+1])
+{ df_portfolio_performance$deleted[i+1] <- "yes"
+  df_portfolio_performance$deleted[i+2] <- "yes"}
+  
   message(i)
-}
+} #endloop
 
+df_portfolio_performance <- df_portfolio_performance %>% filter(is.na(deleted))
 
 # Create the smoothed line plot
-line_plot <- plot_ly(df_portfolio_performance, x = ~date, y = ~Total_Sum, type = 'scatter', mode = 'lines')
+# Assuming df_portfolio_performance contains your data
+buying_phase_start <- as.Date("2018-01-01")
+buying_phase_end <- as.Date("2021-12-31")
 
-i <- 96
+#plot code
+line_plot <- plot_ly(df_portfolio_performance, x = ~date, y = ~Total_Sum, type = 'scatter', mode = 'lines') %>%
+  config(displayModeBar = F) %>%
+  layout(dragmode = 'false') %>%
+  add_trace(
+    type = "scatter",
+    mode = "none",
+    fill = "toself",
+    x = c(buying_phase_start, buying_phase_end, buying_phase_end, buying_phase_start),
+    y = c(0, 0, max(df_portfolio_performance$Total_Sum), max(df_portfolio_performance$Total_Sum)),
+    fillcolor = "rgba(211,211,211,0.5)",
+    line = list(color = "transparent"),
+    text = "Buying phase") # Specify the hover label
+
+
+
+
 
 ```
 
 ```{r}
 #| echo: false
+#| warning: false
 # Display the interactive 3D pie chart
 line_plot
 

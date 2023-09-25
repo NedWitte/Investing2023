@@ -1,23 +1,22 @@
 ---
-title: "My personal portfolio"
+title: "My dividend income"
 author: "JNW"
 description: "stuff"
 date: "2023-08-08"
 image: sp500.png
 ---
 
-**The KarambolageNed dividends**
+**The KarambolageNed portfolio dividends**
 
-# Introduction
+## Introduction
 
-This site gives a brief overview about my \*\*dividend income\* and should be updated automatically via scripting.
+This site gives a brief overview about my dividend income and it's values are updated automatically via scripting. The Plot the data represents the amount of received dividends of the last year.
 
 ```{r}
 #| echo: false
 #| output: false
 #| include: false
 
-#install.packages("googlesheets4")
 library(dplyr)
 library(tidyquant)
 library(quantmod)
@@ -26,85 +25,144 @@ library(tidyverse)
 library(tidyquant)
 library(plotly)
 library(googlesheets4)
+library(readxl)
 
 ```
 
 ```{r}
+#| warning: false
 #| echo: false
 #| output: false
 #| include: false
 
-
-#read google sheet
-#df_google_sheets <- read_sheet("https://docs.google.com/spreadsheets/d/1Y9e1DGEYMJiGK50peNeANzt3d03J5ow__ETGrJd8elU/edit?usp=drivesdk")
-
+#get dividends
 #get data from the Google sheets 
-#string dividends
-div_string <- c("JNJ", "MSFT", "O")
+portfolio_df <- read_excel("data/2023_08_NedPortfolio.xlsx")
+portfolio_df <- portfolio_df%>% filter(!is.na(Kaufkurs))
+portfolio_df$real_time_dividend_local_currency <- NA
+portfolio_df$real_time_dividend_worth_EUR <- NA
+portfolio_df$Wertunterschied <- NA
+portfolio_df$real_time_price_local_currency <- NA
+portfolio_df$dividends_per_year <- NA
 
-nDiv <- length(div_string)
+#get transition course 
+# Define the currency pair
+start_date <- Sys.Date() - 1  # Get data for yesterday
+end_date <- Sys.Date()
 
-#create template for the whole year with monthly dividend stock Realty income 
-df_dividend_master = getDividends("O",from="2017-01-01", auto.assign=FALSE) 
-df_dividend_master <- as.data.frame(df_dividend_master)
-df_dividend_master$year <-  lubridate::year(rownames(df_dividend_master))
-df_dividend_master$month <- lubridate::month(rownames(df_dividend_master))
-df_dividend_master <- df_dividend_master %>% select(year, month)
-df_dividend_master <- df_dividend_master %>% filter(!duplicated(cbind(year,month)))
+# Retrieve the exchange rate data
+getFX("EUR/USD", from = start_date, to = end_date)
+exchange_rate_data_today_EUR_USD <- as.vector(EURUSD$EUR.USD[1]) #EUR/USD
+getFX("EUR/CHF", from = start_date, to = end_date)
+exchange_rate_data_today_EUR_CHF <- as.vector(EURCHF$EUR.CHF[1]) #EUR/CHF
+getFX("EUR/GBP", from = start_date, to = end_date)
+exchange_rate_data_today_EUR_GBP <- as.vector(EURGBP$EUR.GBP[1]) #EUR/GBp
+getFX("EUR/AUD", from = start_date, to = end_date)
+exchange_rate_data_today_EUR_AUD <- as.vector(EURAUD$EUR.AUD[1]) #EUR/AUD
+getFX("EUR/CNY", from = start_date, to = end_date)
+exchange_rate_data_today_EUR_CNY <- as.vector(EURCNY$EUR.CNY[1]) #EUR/CNY
+getFX("EUR/HKD", from = start_date, to = end_date)
+exchange_rate_data_today_EUR_HKD <- as.vector(EURHKD$EUR.HKD[1]) #EUR/HKD
+getFX("EUR/SGD", from = start_date, to = end_date)
+exchange_rate_data_today_EUR_SGD <- as.vector(EURSGD$EUR.SGD[1]) #EUR/SGD
+getFX("EUR/NOK", from = start_date, to = end_date)
+exchange_rate_data_today_EUR_NOK <- as.vector(EURNOK$EUR.NOK[1]) #EUR/NOK
 
-for (i in 1:nDiv) {
-  #loop and define x
-  x1 <- getDividends(div_string[i], from="2017-01-01", auto.assign=FALSE)
-  x1 <- as.data.frame(x1)
-  x1$year <-  lubridate::year(rownames(x1))
-  x1$month <- lubridate::month(rownames(x1))
+#define again
+start_date <- 2018-01-01  # Get data for yesterday
+end_date <- Sys.Date()
+last_year <- year(end_date ) - 1 #get last year
+
+i <-1
+
+#loop
+for(i in 1:nrow(portfolio_df)) {
+   
+  if(is.na(portfolio_df$Yahoo_3_letter[i])) next
   
-  #combine with left_join
-  df_dividend_master <- left_join(df_dividend_master, x1)
-}
+  x1 <- quantmod::getDividends(portfolio_df$Yahoo_3_letter[i], from = start_date, to = end_date)
+  x1 <- as.data.frame(x1)
+  x1$date <- rownames(x1)
+  x1 <- x1 %>%
+  group_by(year = lubridate::year(date)) %>%
+  mutate(year_entries = n())%>% 
+  ungroup()
+  
+  #calculate entries per year for dividend sum
+  entries_per_year <- x1 %>% filter(year == start_date)
+  entries_per_year <- entries_per_year$year_entries[1]
+    
+  x2 <- x1 %>% filter(year == last_year)
 
-df_dividend_master$year_month <- sprintf("%d-%02d", df_dividend_master$year, df_dividend_master$month)
-df_dividend_master <- df_dividend_master %>% filter(!duplicated(cbind(year_month)))
+  portfolio_df$real_time_dividend_local_currency[i] <- as.numeric(sum(x2[,1]))
+  portfolio_df$real_time_dividend_local_currency <- as.numeric(portfolio_df$real_time_dividend_local_currency)
+  
+  portfolio_df$dividends_per_year[i] <- as.numeric(entries_per_year)
 
+  
+  if(portfolio_df$currency[i] == "EUR") {portfolio_df$real_time_dividend_local_currency[i] <- portfolio_df$real_time_dividend_local_currency[i]}
+  if(portfolio_df$currency[i] == "USD") {portfolio_df$real_time_dividend_local_currency[i] <- portfolio_df$real_time_dividend_local_currency[i]/exchange_rate_data_today_EUR_USD} #USD
+  if(portfolio_df$currency[i] == "CHF") {portfolio_df$real_time_dividend_local_currency[i] <- portfolio_df$real_time_dividend_local_currency[i]/exchange_rate_data_today_EUR_CHF}
+  if(portfolio_df$currency[i] == "GBP") {portfolio_df$real_time_dividend_local_currency[i] <- portfolio_df$real_time_dividend_local_currency[i]/exchange_rate_data_today_EUR_GBP} 
+  if(portfolio_df$currency[i] == "CNY") {portfolio_df$real_time_dividend_local_currency[i] <- portfolio_df$real_time_dividend_local_currency[i]/exchange_rate_data_today_EUR_CNY} 
+  if(portfolio_df$currency[i] == "SGD") {portfolio_df$real_time_dividend_local_currency[i] <- portfolio_df$real_time_dividend_local_currency[i]/exchange_rate_data_today_EUR_SGD} 
+  if(portfolio_df$currency[i] == "AUD") {portfolio_df$real_time_dividend_local_currency[i] <- portfolio_df$real_time_dividend_local_currency[i]/exchange_rate_data_today_EUR_AUD} 
+  if(portfolio_df$currency[i] == "NOK") {portfolio_df$real_time_dividend_local_currency[i] <- portfolio_df$real_time_dividend_local_currency[i]/exchange_rate_data_today_EUR_NOK} 
+
+portfolio_df$real_time_dividend_local_currency <- as.numeric(portfolio_df$real_time_dividend_local_currency)
+  
+#corrections 
+portfolio_df$real_time_dividend_local_currency[39] <- portfolio_df$real_time_dividend_local_currency[39]/1000 # BP
+portfolio_df$real_time_dividend_local_currency[93] <- portfolio_df$real_time_dividend_local_currency[93]/100 # lenovo
+portfolio_df$real_time_dividend_local_currency[29] <- portfolio_df$real_time_dividend_local_currency[29]/100 # China Mobile
+
+
+#calculate Dividends sum
+portfolio_df$real_time_dividend_worth_EUR[i] <- as.numeric(portfolio_df$Stück[i])*portfolio_df$real_time_dividend_local_currency[i]
+
+
+}  #end loop
 
 
 ```
-
-This is the dividend growth of the number 1 stock: JNJ
 
 ```{r}
 #| echo: false
 #| output: false
 #| include: false
-#| warning: false
- 
-fig <- plot_ly(df_dividend_master, x = ~year_month,  y = ~JNJ.div, type = 'bar', name = 'JNJ')
-#fig <- fig %>% add_trace(y = ~O.div, name = 'Realty income')
+
+x1 <- sum(portfolio_df$real_time_dividend_worth_EUR, na.rm = TRUE)
+x1 <- round(x1, digits = 0)
+portfolio_df$Anteil <- portfolio_df$real_time_dividend_worth_EUR/x1*100
+
+#plot
+pie_chart <- plot_ly(
+  data = portfolio_df,
+  labels = ~ifelse(`Anteil` > 1, Wertpapier, ""),
+  values = ~real_time_dividend_worth_EUR,
+  type = "pie",
+  marker = list(line = list(width = 0), textposition = "outside")) %>%  # Adjust textposition to "outside"
+  layout(
+  title = "Portfolio Distribution",
+  showlegend = FALSE)  # This removes the legend
+
+
+
+
 ```
+
+In total, before taxes and origin tax, the portfolio generates `r  x1` EUR dividends. Here the distribution is visible:
 
 ```{r}
 #| echo: false
-#| output: TRUE
-#| results: hide
-#| warning: false
-#| fig-cap: "JNJ dividend growth since 2017"
-#| fig-alt: "Plotly plot generated"
-
-
-#prepare figure to plot
-fig
-
-
-```
-
-```{r}
-#| echo: false
-#| output: false
-#| include: false
-#| warning: false
 # Display the interactive 3D pie chart
+pie_chart
 
 ```
+
+
+
+
 
 ## Strategy
 
@@ -134,10 +192,9 @@ Let's take a look at both:
 
 1.  scenario: growth 3% p.a., 10k additional investment from the job income
 
-```{r}
-paste0(print("In year 2023 the portfolio has an income of 180k. Today the value is"))
-```
 
 2.  scenario: growth 10% p.a. + 10k additional investment from job income
 
-## Long term predictions
+
+
+

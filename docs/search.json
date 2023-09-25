@@ -4,14 +4,14 @@
     "href": "index.html",
     "title": "KarambolageInvesting",
     "section": "",
-    "text": "This is the home page, where the stock posts should be displayed.\n\nStock analysis listed here:\n\n\n\n\n  \n\n\n\n\nSnwoflake stock analysis\n\n\n\n\n\nThe data connector?\n\n\n\n\n\n\nSep 21, 2023\n\n\nJNW\n\n\n\n\n\n\n  \n\n\n\n\nTXN analysis\n\n\n\n\n\nchips\n\n\n\n\n\n\nSep 7, 2023\n\n\nJNW\n\n\n\n\n\n\n  \n\n\n\n\nRealty Income Stock analysis\n\n\n\n\n\nThe monthly dividend company\n\n\n\n\n\n\nAug 4, 2023\n\n\nJNW\n\n\n\n\n\n\n  \n\n\n\n\nSamsung Stock analysis\n\n\n\n\n\nThe South Korean titan\n\n\n\n\n\n\nAug 3, 2023\n\n\nJNW\n\n\n\n\n\n\n  \n\n\n\n\nApple Stock analysis\n\n\n\n\n\nApple stock analysis and growth perspectives\n\n\n\n\n\n\nAug 2, 2023\n\n\nJNW\n\n\n\n\n\n\n  \n\n\n\n\nGoogle stock analysis\n\n\n\n\n\nThe Know it all-Company\n\n\n\n\n\n\nJun 1, 2023\n\n\nJNW\n\n\n\n\n\n\n  \n\n\n\n\nAlibaba stock analysis\n\n\n\n\n\nThe Chinese Amazon\n\n\n\n\n\n\nMay 1, 2023\n\n\nJNW\n\n\n\n\n\n\n  \n\n\n\n\nTesla stock analysis\n\n\n\n\n\nEV Maker\n\n\n\n\n\n\nApr 1, 2023\n\n\nJNW\n\n\n\n\n\n\n  \n\n\n\n\nMeta stock analysis\n\n\n\n\n\nSocial media\n\n\n\n\n\n\nMar 1, 2023\n\n\nJNW\n\n\n\n\n\n\nNo matching items"
+    "text": "This is the home page, where the stock posts should be displayed.\n\nStock analysis listed here:\n\n\n\n\n  \n\n\n\n\nTXN analysis\n\n\n\n\n\nchips\n\n\n\n\n\n\nSep 23, 2023\n\n\nJNW\n\n\n\n\n\n\n  \n\n\n\n\nTXN analysis\n\n\n\n\n\nchips\n\n\n\n\n\n\nSep 22, 2023\n\n\nJNW\n\n\n\n\n\n\n  \n\n\n\n\nSnwoflake stock analysis\n\n\n\n\n\nThe data connector?\n\n\n\n\n\n\nSep 21, 2023\n\n\nJNW\n\n\n\n\n\n\n  \n\n\n\n\nTXN analysis\n\n\n\n\n\nchips\n\n\n\n\n\n\nSep 7, 2023\n\n\nJNW\n\n\n\n\n\n\n  \n\n\n\n\nRealty Income Stock analysis\n\n\n\n\n\nThe monthly dividend company\n\n\n\n\n\n\nAug 4, 2023\n\n\nJNW\n\n\n\n\n\n\n  \n\n\n\n\nSamsung Stock analysis\n\n\n\n\n\nThe South Korean titan\n\n\n\n\n\n\nAug 3, 2023\n\n\nJNW\n\n\n\n\n\n\n  \n\n\n\n\nApple Stock analysis\n\n\n\n\n\nApple stock analysis and growth perspectives\n\n\n\n\n\n\nAug 2, 2023\n\n\nJNW\n\n\n\n\n\n\n  \n\n\n\n\nGoogle stock analysis\n\n\n\n\n\nThe Know it all-Company\n\n\n\n\n\n\nJun 1, 2023\n\n\nJNW\n\n\n\n\n\n\n  \n\n\n\n\nAlibaba stock analysis\n\n\n\n\n\nThe Chinese Amazon\n\n\n\n\n\n\nMay 1, 2023\n\n\nJNW\n\n\n\n\n\n\n  \n\n\n\n\nTesla stock analysis\n\n\n\n\n\nEV Maker\n\n\n\n\n\n\nApr 1, 2023\n\n\nJNW\n\n\n\n\n\n\n  \n\n\n\n\nMeta stock analysis\n\n\n\n\n\nSocial media\n\n\n\n\n\n\nMar 1, 2023\n\n\nJNW\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/2023_08_04_Realty_Income/realty_income.html",
     "href": "posts/2023_08_04_Realty_Income/realty_income.html",
     "title": "Realty Income Stock analysis",
     "section": "",
-    "text": "Realty Income Corp\nThe monthly dividend stock\n\nchart_Series(O)\n\n\n\n\n\ndividends_df &lt;- getDividends(\"DLR\", \n             from = \"1970-01-01\",\n             to = Sys.Date(), \n             env = parent.frame(), \n             src = \"yahoo\", \n             verbose = FALSE,\n             split.adjust = TRUE,\n             curl.options = list())"
+    "text": "Realty Income Corp\nThe monthly dividend stock\n\nStocks charts within a tab\n\n\nChart since inceptionChart of the last year"
   },
   {
     "objectID": "posts/2023_07_01_Apple/apple.html",
@@ -39,7 +39,7 @@
     "href": "posts/2023_09_08_TXN_Texas_instruments/txn.html",
     "title": "TXN analysis",
     "section": "",
-    "text": "Texas instruments Corp\nThis company has never been cheap\n:::"
+    "text": "Texas instruments Corp\nThis company has never been cheap ever."
   },
   {
     "objectID": "posts/2023_09_21_Snowflake/snowflake.html",
@@ -53,7 +53,7 @@
     "href": "posts/2023_03_01_Meta/meta.html",
     "title": "Meta stock analysis",
     "section": "",
-    "text": "Meta Platforms stock"
+    "text": "Meta Platforms stock\nThis company owns not only Facebook, Instagram and WhatsApp. It is much more than that.\n\nStocks charts within a tab\n\n\nChart since inceptionChart of the last year"
   },
   {
     "objectID": "general/Inflation_data/inflation1.html#conclusion",
@@ -95,7 +95,7 @@
     "href": "portfolio.html#portfolio-as-table",
     "title": "My personal portfolio",
     "section": "Portfolio as table",
-    "text": "Portfolio as table\n\n\n\n\n\n\n  \n    \n      Portfolio as Table\n    \n    \n      Price in EUR instead of USD\n    \n    \n      Identifier\n      Current Price\n      Buying Price\n      Value\n      Notiz\n    \n  \n  \n    Johnson&Johnson\n152.39\n123.99\n10057.96\nPharma&Konsum, 04.02.2018\n    ThermoFisher Scientific\n472.30\n179.45\n4722.97\nHealthcare, 31.05.2018\n    Alphabet\n125.11\n60.85\n10008.51\nTech, 29.10.2019\n    Samsung\n986.00\n943.82\n9860.00\nElektronik, 02.08.2019\n    Brookfield Corp\n32.67\n22.36\n7513.12\nPrivate Equity&Infra, 09.05.2019\n    BASF\n45.69\n59.62\n5253.78\nChemie, 30.11.2018\n    Nvidia\n395.12\n148.86\n3951.23\nCPU, 23.05.2019\n    Illumina\n129.42\n315.46\n1682.44\nGenomics, 09.08.2019\n    McDonalds\n259.31\n173.54\n7779.16\nWW, 2019\n    Alibaba\n80.21\n173.47\n4812.30\nTech China, 22.05.2019\n    Prosus NV\n28.87\n45.38\n5159.85\nTencent, 2019\n    Glencore\n5.37\n3.52\n1610.84\nMaterials, 26.04.2021\n    Sika\n11.80\n134.42\n118.03\nBauchemie, 29.05.2019\n    LTC Properties\n29.86\n36.25\n1492.97\nREIT Healthcare, 22.12.17\n    Fuchs Petroclub\n36.88\n44.80\n368.80\nSchmierstoffe, 09.01.18\n    Procter&Gamble\n143.56\n72.85\n1435.63\nKonsumgüter, 23.01.18\n    Ball Corp.\n48.61\n29.92\n486.06\nfeste Verpackungsmaterialien, 30.01.18\n    Reckit Benckiser\n68.95\n68.15\n689.52\nKonsumgüter, 27.02.18\n    Swisscom\n574.51\n412.50\n574.51\nTelekommunikations, 20.03.18\n    Flughafen Zürich\n181.53\n169.90\n907.64\nLogistik, 06.04.18\n    IBM\n140.16\n120.25\n840.95\nIT-Technik, 19.04.18\n    ICBC\n0.60\n0.74\n601.57\n2. größte Bank China, 23.05.18\n    Charterl Hall Grp\n6.04\n2.78\n3019.28\nREIT AUS, 31.05.18\n    Porsche Holding\n49.49\n63.23\n989.80\nzyklischer Konsum,31.05.2018\n    Parkway Life REIT\n2.55\n1.70\n1275.83\nREIT-Singapor, 19.06.18\n    Covestro\n51.90\n73.34\n1038.00\nChemie, 21.06.18\n    NextEra Energy\n63.00\n38.67\n2520.09\nUtility, 29.11.2018\n    Sony Corp\n79.89\n39.84\n1597.74\nElectronics, 30.03.2019\n    China Mobile LTD.\nNA\n8.34\nNA\nMobilfunk, HK,06.05.2019\n    3M\n92.60\n120.16\n2777.99\nIndustrie&Konsumgüter, 09.05.2019\n    Exxon Mobil Corp\n108.89\n67.26\n1851.06\nÖl&basic Materials, 23.05.2019\n    Dupont de Nemours\n69.22\n61.81\n830.68\nChemie, 07.06.2019\n    Corteva\n48.43\n20.60\n581.14\nSaatgut, 07.06.2019\n    Simon Property\n106.42\n150.07\n744.91\nMall REIT, 30.05.2019\n    Crown Castle REIT\n90.49\n91.99\n1809.90\nTelecom WW, 15.08.2023\n    Sixt SE\n92.95\n101.74\n92.95\nCarsharing 11.07.2019\n    Novartis\n96.89\n65.44\n581.36\nPharma, 06.03.18\n    Softbank Group\n20.23\n36.12\n1517.53\nTech World, 20.08.2019\n    BP PLC\n0.00\n5.49\n121.16\nEnergy, 23.08.2019\n    Rexford Ind. Realty\n48.62\n39.06\n1458.73\nIndustrial REIT, 23.08.2019\n    Royal Dutch Shell\n30.39\n25.00\n1367.33\nEnergy, 26.08.2019\n    Naspers\n163.70\n189.83\n1145.92\nE-Commerce Africa, 20.09.2019\n    Diageo\n36.94\n36.88\n738.81\nSpirituosen, 25.09.2019\n    Baidu\n122.71\n144.80\n1227.12\nTech China, US ADR, 06.05.2019\n    JP Morgan\n138.73\n113.80\n693.63\nBanken US, 30.10.2019\n    Hochtief AG\n100.90\n108.17\n605.40\nInfrastruktur WORLD, 28.01.2020\n    Continental\n67.02\n100.27\n402.12\nAutomobilzulieferer GER, 28.01.2020\n    Oreal (L`)\n410.15\n259.24\n1230.45\nKosmetik, 31.01.2020\n    Danaher\n238.03\n153.06\n1190.17\nIndustrie&Life Science, 19.02.2020\n    AIA Group LTD\nNA\n7.68\nNA\nVersicherungen, HK, 12.03.2020\n    Realty Income REIT\n50.33\n44.00\n3774.52\nREIT, 18.03.2020\n    Mowi SK\n17.09\n16.38\n854.58\nZuchtlachs 16.06.2020,\n    Brookfield AS\n33.13\n22.27\n1888.61\nSpinn-off Brookfield, 2022\n    Bayer AG\n49.15\n48.90\n2457.75\nPharma GER, 14.05.2020\n    Nestle SA\n111.10\n96.77\n666.62\nKonsum, 27.05.2020\n    Unilever\n47.40\n44.67\n2464.75\nKonsum, 04.10.2018\n    Essex Property Trust\n209.42\n225.54\n1047.09\nREIT West Coast US, 03.06.2020\n    Triton Intl RG\nNA\n27.25\nNA\nContainer-Leasing, 10.06.2020\n    KKR&CO.\n59.52\n27.25\n1607.10\nPrivate Equity, 10.06.2020\n    Linde PLC\n359.55\n184.58\n1438.20\nChemistry, 11.06.2020\n    Coca Cola\n54.67\n40.09\n546.67\nConsumer, 07.07.2020\n    Adobe\n501.19\n372.40\n1002.39\nSoftware Design 14.07.2020\n    Prologis\n113.10\n82.37\n1131.05\nLogistik-REIT, 15.07.2020\n    SL Green REIT\n38.79\n38.70\n974.74\nREIT New York, 19.08.2020\n    Fraport AG\n52.68\n35.80\n1317.00\nAirport Frankfurt, 24.07.2020\n    Visa\n226.25\n168.80\n1131.23\nUS-Fintech, 24.07.2020\n    Walmart\n153.33\n110.71\n919.97\nUS-Konsum 31.07.2020\n    Heineken\n87.26\n77.44\n872.60\nKonsum WW, 06.08.2020\n    Vinci\n107.68\n80.45\n1076.80\nInfrastruktur EU, 31.08.2020\n    Carlsberg\n124.88\n114.99\n874.17\nConsumables, 21.09.2020\n    J Martins\n20.17\n14.06\n1613.46\nRetail grocery, Pol/PT, 21.09.2020\n    LVHM\n736.70\n422.99\n736.70\nFR-Luxus, 27.10.2020\n    Kering\n457.60\n543.65\n457.60\nFR-Luxus, 27.10.2020\n    Roche Holding AG\n267.03\n302.80\n534.05\nHealthcare, 29.09.2020\n    British Land REIT\n3.43\n4.10\n343.31\nCommercial REIT London,25.10.2020\n    Enel\n5.87\n6.83\n956.80\nEnergy ITA, 27.10.2020\n    CA Immo REIT\n30.80\n25.64\n462.00\nREITs COM, GER&East EU, 22.10.2020\n    Commonwealth Bank AUS\n61.62\n41.09\n616.20\nAustralia Bank, 28.10.2020\n    Anheuser-Busch Inbev\n53.69\n53.11\n805.28\nBeer WW, 11.05.2021\n    EDP-Energias\n4.23\n5.14\n846.40\nEnergy-POR, 14.04.2021\n    V.F Corp\n16.72\n61.96\n250.75\nfashing WW, 23.12.2021\n    Starbucks\n89.02\n86.30\n4183.80\nCoffee,19.01.2022\n    Wharf Holdings Ltd\n2.32\n2.04\n348.00\nChina, HK, 15.01.2021\n    Wipro ADR\n4.85\n5.27\n387.65\nEM-IT, ADR, 19.01.2021\n    Meituan Cl B\n28.48\n41.10\n313.33\nIT-China, KYG, 26.01.2021\n    Sea Ltd\n35.11\n177.38\n70.21\nSoutheast-Asia, 27.01.2021\n    DBS Grp Hld\n23.48\n18.07\n469.59\nFinance ,23.03.2021\n    Shenzou Itl\nNA\n17.79\nNA\nTextil, 25.02.2021\n    Xiaomi\nNA\n2.72\nNA\nTech, 25.02.2021\n    Infosys ADR\n16.74\n14.80\n502.05\nIT-India, 16.02.2021\n    Pinduoduo\n91.30\n118.93\n273.90\nE-Commerce china, 19.03.2021\n    Weichai Power\nNA\n1.90\nNA\nIndustry China, 03.05.2021\n    Lenovo Group\nNA\n1.02\nNA\nTech HK, 05.01.2022\n    Adler Group\nNA\n39.80\nNA\nBerlin Immobilien, 19.06.2019\n    Alcon AG\n75.46\n55.33\n90.55\nAugemedizin Novartis, 09.04.2019\n    Vitesco Tech Gr\n78.75\n83.55\n110.25\nSpin-off Continental, 01.09.2021\n    Orion office REIT\n5.12\n16.00\n10.23\nSpin-off, Realty Income\n    Kyndril Holdings\n14.89\n100.21\n14.89\nIBM Spin off, 2020"
+    "text": "Portfolio as table\n\n\n\n\n\n\n  \n    \n      Portfolio as Table\n    \n    \n      Price in EUR instead of USD\n    \n    \n      Identifier\n      Current Price\n      Buying Price\n      Value\n      Notiz\n    \n  \n  \n    Johnson&Johnson\n151.78\n123.99\n10017.80\nPharma&Konsum, 04.02.2018\n    ThermoFisher Scientific\n470.95\n179.45\n4709.50\nHealthcare, 31.05.2018\n    Alphabet\n122.47\n60.85\n9797.76\nTech, 29.10.2019\n    Samsung\n963.00\n943.82\n9630.00\nElektronik, 02.08.2019\n    Brookfield Corp\n31.02\n22.36\n7135.00\nPrivate Equity&Infra, 09.05.2019\n    BASF\n43.47\n59.62\n4998.48\nChemie, 30.11.2018\n    Nvidia\n385.11\n148.86\n3851.14\nCPU, 23.05.2019\n    Illumina\n125.19\n315.46\n1627.41\nGenomics, 09.08.2019\n    McDonalds\n254.65\n173.54\n7639.57\nWW, 2019\n    Alibaba\n78.97\n173.47\n4738.32\nTech China, 22.05.2019\n    Prosus NV\n27.36\n45.38\n4890.87\nTencent, 2019\n    Glencore\n5.22\n3.52\n1566.11\nMaterials, 26.04.2021\n    Sika\n11.47\n134.42\n114.66\nBauchemie, 29.05.2019\n    LTC Properties\n29.62\n36.25\n1481.14\nREIT Healthcare, 22.12.17\n    Fuchs Petroclub\n34.88\n44.80\n348.80\nSchmierstoffe, 09.01.18\n    Procter&Gamble\n142.85\n72.85\n1428.46\nKonsumgüter, 23.01.18\n    Ball Corp.\n47.32\n29.92\n473.21\nfeste Verpackungsmaterialien, 30.01.18\n    Reckit Benckiser\n68.63\n68.15\n686.25\nKonsumgüter, 27.02.18\n    Swisscom\n578.00\n412.50\n578.00\nTelekommunikations, 20.03.18\n    Flughafen Zürich\n179.74\n169.90\n898.71\nLogistik, 06.04.18\n    IBM\n138.38\n120.25\n830.26\nIT-Technik, 19.04.18\n    ICBC\n0.60\n0.74\n602.86\n2. größte Bank China, 23.05.18\n    Charterl Hall Grp\n5.88\n2.78\n2938.66\nREIT AUS, 31.05.18\n    Porsche Holding\n48.96\n63.23\n979.20\nzyklischer Konsum,31.05.2018\n    Parkway Life REIT\n2.54\n1.70\n1270.27\nREIT-Singapor, 19.06.18\n    Covestro\n51.36\n73.34\n1027.20\nChemie, 21.06.18\n    NextEra Energy\n62.82\n38.67\n2512.91\nUtility, 29.11.2018\n    Sony Corp\n77.93\n39.84\n1558.60\nElectronics, 30.03.2019\n    China Mobile LTD.\nNA\n8.34\nNA\nMobilfunk, HK,06.05.2019\n    3M\n91.53\n120.16\n2746.04\nIndustrie&Konsumgüter, 09.05.2019\n    Exxon Mobil Corp\n107.75\n67.26\n1831.75\nÖl&basic Materials, 23.05.2019\n    Dupont de Nemours\n68.41\n61.81\n820.91\nChemie, 07.06.2019\n    Corteva\n48.38\n20.60\n580.59\nSaatgut, 07.06.2019\n    Simon Property\n104.82\n150.07\n733.74\nMall REIT, 30.05.2019\n    Crown Castle REIT\n87.23\n91.99\n1744.50\nTelecom WW, 15.08.2023\n    Sixt SE\n91.00\n101.74\n91.00\nCarsharing 11.07.2019\n    Novartis\n95.85\n65.44\n575.12\nPharma, 06.03.18\n    Softbank Group\n19.50\n36.12\n1462.59\nTech World, 20.08.2019\n    BP PLC\n0.00\n5.49\n120.19\nEnergy, 23.08.2019\n    Rexford Ind. Realty\n47.54\n39.06\n1426.12\nIndustrial REIT, 23.08.2019\n    Royal Dutch Shell\n30.33\n25.00\n1364.63\nEnergy, 26.08.2019\n    Naspers\n149.54\n189.83\n1046.79\nE-Commerce Africa, 20.09.2019\n    Diageo\n35.91\n36.88\n718.27\nSpirituosen, 25.09.2019\n    Baidu\n120.18\n144.80\n1201.81\nTech China, US ADR, 06.05.2019\n    JP Morgan\n138.15\n113.80\n690.76\nBanken US, 30.10.2019\n    Hochtief AG\n98.55\n108.17\n591.30\nInfrastruktur WORLD, 28.01.2020\n    Continental\n66.06\n100.27\n396.36\nAutomobilzulieferer GER, 28.01.2020\n    Oreal (L`)\n399.65\n259.24\n1198.95\nKosmetik, 31.01.2020\n    Danaher\n234.38\n153.06\n1171.91\nIndustrie&Life Science, 19.02.2020\n    AIA Group LTD\nNA\n7.68\nNA\nVersicherungen, HK, 12.03.2020\n    Realty Income REIT\n48.88\n44.00\n3665.99\nREIT, 18.03.2020\n    Mowi SK\n16.92\n16.38\n845.83\nZuchtlachs 16.06.2020,\n    Brookfield AS\n32.00\n22.27\n1823.90\nSpinn-off Brookfield, 2022\n    Bayer AG\n47.77\n48.90\n2388.50\nPharma GER, 14.05.2020\n    Nestle SA\n111.51\n96.77\n669.09\nKonsum, 27.05.2020\n    Unilever\n47.50\n44.67\n2469.98\nKonsum, 04.10.2018\n    Essex Property Trust\n205.70\n225.54\n1028.49\nREIT West Coast US, 03.06.2020\n    Triton Intl RG\nNA\n27.25\nNA\nContainer-Leasing, 10.06.2020\n    KKR&CO.\n57.63\n27.25\n1556.03\nPrivate Equity, 10.06.2020\n    Linde PLC\n350.65\n184.58\n1402.60\nChemistry, 11.06.2020\n    Coca Cola\n54.03\n40.09\n540.25\nConsumer, 07.07.2020\n    Adobe\n482.49\n372.40\n964.98\nSoftware Design 14.07.2020\n    Prologis\n107.55\n82.37\n1075.53\nLogistik-REIT, 15.07.2020\n    SL Green REIT\n35.15\n38.70\n883.28\nREIT New York, 19.08.2020\n    Fraport AG\n52.34\n35.80\n1308.50\nAirport Frankfurt, 24.07.2020\n    Visa\n222.16\n168.80\n1110.78\nUS-Fintech, 24.07.2020\n    Walmart\n152.03\n110.71\n912.17\nUS-Konsum 31.07.2020\n    Heineken\n87.26\n77.44\n872.60\nKonsum WW, 06.08.2020\n    Vinci\n106.18\n80.45\n1061.80\nInfrastruktur EU, 31.08.2020\n    Carlsberg\n121.96\n114.99\n853.75\nConsumables, 21.09.2020\n    J Martins\n19.98\n14.06\n1598.41\nRetail grocery, Pol/PT, 21.09.2020\n    LVHM\n729.30\n422.99\n729.30\nFR-Luxus, 27.10.2020\n    Kering\n453.60\n543.65\n453.60\nFR-Luxus, 27.10.2020\n    Roche Holding AG\n260.98\n302.80\n521.97\nHealthcare, 29.09.2020\n    British Land REIT\n3.45\n4.10\n344.58\nCommercial REIT London,25.10.2020\n    Enel\n5.72\n6.83\n931.57\nEnergy ITA, 27.10.2020\n    CA Immo REIT\n30.70\n25.64\n460.50\nREITs COM, GER&East EU, 22.10.2020\n    Commonwealth Bank AUS\n60.27\n41.09\n602.67\nAustralia Bank, 28.10.2020\n    Anheuser-Busch Inbev\n53.36\n53.11\n800.38\nBeer WW, 11.05.2021\n    EDP-Energias\n4.16\n5.14\n832.80\nEnergy-POR, 14.04.2021\n    V.F Corp\n16.57\n61.96\n248.58\nfashing WW, 23.12.2021\n    Starbucks\n87.41\n86.30\n4108.41\nCoffee,19.01.2022\n    Wharf Holdings Ltd\n2.32\n2.04\n348.00\nChina, HK, 15.01.2021\n    Wipro ADR\n4.77\n5.27\n381.57\nEM-IT, ADR, 19.01.2021\n    Meituan Cl B\n27.73\n41.10\n304.99\nIT-China, KYG, 26.01.2021\n    Sea Ltd\n33.75\n177.38\n67.51\nSoutheast-Asia, 27.01.2021\n    DBS Grp Hld\n22.45\n18.07\n448.99\nFinance ,23.03.2021\n    Shenzou Itl\nNA\n17.79\nNA\nTextil, 25.02.2021\n    Xiaomi\nNA\n2.72\nNA\nTech, 25.02.2021\n    Infosys ADR\n16.66\n14.80\n499.69\nIT-India, 16.02.2021\n    Pinduoduo\n87.60\n118.93\n262.80\nE-Commerce china, 19.03.2021\n    Weichai Power\nNA\n1.90\nNA\nIndustry China, 03.05.2021\n    Lenovo Group\nNA\n1.02\nNA\nTech HK, 05.01.2022\n    Adler Group\nNA\n39.80\nNA\nBerlin Immobilien, 19.06.2019\n    Alcon AG\n74.52\n55.33\n89.42\nAugemedizin Novartis, 09.04.2019\n    Vitesco Tech Gr\n77.80\n83.55\n108.92\nSpin-off Continental, 01.09.2021\n    Orion office REIT\n5.01\n16.00\n10.03\nSpin-off, Realty Income\n    Kyndril Holdings\n14.67\n100.21\n14.67\nIBM Spin off, 2020"
   },
   {
     "objectID": "posts/2023_04_01_Tesla/Tesla.html",
@@ -110,5 +110,89 @@
     "title": "Projects",
     "section": "",
     "text": "This is the site for general stuff like SP500, Nasdaq….etc\n\nGeneral analysis listed here:\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nAug 31, 2023\n\n\nInflation perspectives\n\n\nJNW \n\n\n\n\nAug 28, 2023\n\n\nOlive oil vs. rape seed oil\n\n\nJNW \n\n\n\n\nAug 4, 2023\n\n\nThe SP500\n\n\nJNW \n\n\n\n\nJan 3, 2023\n\n\nWarm welcome\n\n\nJNW \n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/2023_03_01_Meta/meta.html#results",
+    "href": "posts/2023_03_01_Meta/meta.html#results",
+    "title": "Meta stock analysis",
+    "section": "Results",
+    "text": "Results\n\nPlots\nWe show a scatter plot in this section.\n\nfig1\n\n\n\n\n\n\n\nTables\nWe show the data in this tab.\n\nfig2"
+  },
+  {
+    "objectID": "posts/2023_09_22_Target/target_supermarket.html",
+    "href": "posts/2023_09_22_Target/target_supermarket.html",
+    "title": "TXN analysis",
+    "section": "",
+    "text": "Texas instruments Corp\nThis company has never been cheap ever."
+  },
+  {
+    "objectID": "posts/2023_09_22_Target/target_supermarket.html#chart-of-the-last-year",
+    "href": "posts/2023_09_22_Target/target_supermarket.html#chart-of-the-last-year",
+    "title": "TXN analysis",
+    "section": "Chart of the last year",
+    "text": "Chart of the last year"
+  },
+  {
+    "objectID": "posts/2023_09_08_TXN_Texas_instruments/txn.html#chart-of-the-last-year",
+    "href": "posts/2023_09_08_TXN_Texas_instruments/txn.html#chart-of-the-last-year",
+    "title": "TXN analysis",
+    "section": "Chart of the last year",
+    "text": "Chart of the last year"
+  },
+  {
+    "objectID": "posts/2023_09_23_Abbott/Abbott.html",
+    "href": "posts/2023_09_23_Abbott/Abbott.html",
+    "title": "TXN analysis",
+    "section": "",
+    "text": "Abbott Laboratories\nAbbott Laboratories is an American multinational medical devices and health care company with headquarters in Abbott Park, Illinois, United States. The company was founded by Chicago physician Wallace Calvin Abbott in 1888 to formulate known drugs; today, it sells medical devices, diagnostics, branded generic medicines and nutritional products. It split off its research-based pharmaceuticals business into AbbVie in 2013."
+  },
+  {
+    "objectID": "posts/2023_09_23_Abbott/Abbott.html#chart-of-the-last-year",
+    "href": "posts/2023_09_23_Abbott/Abbott.html#chart-of-the-last-year",
+    "title": "TXN analysis",
+    "section": "Chart of the last year",
+    "text": "Chart of the last year\n\n\n\n\n\n\n::: :::"
+  },
+  {
+    "objectID": "dividend.html",
+    "href": "dividend.html",
+    "title": "My dividend income",
+    "section": "",
+    "text": "The KarambolageNed portfolio dividends"
+  },
+  {
+    "objectID": "dividend.html#strategy",
+    "href": "dividend.html#strategy",
+    "title": "My dividend income",
+    "section": "Strategy",
+    "text": "Strategy\nThe strategy is easy: Safe and sound.\nGenerally, this portfolio has the purpose to add a signifcant amount of dividend income to the regular job income.\n\n# Display the interactive plot"
+  },
+  {
+    "objectID": "dividend.html#market-events-and-performance",
+    "href": "dividend.html#market-events-and-performance",
+    "title": "My dividend income",
+    "section": "Market Events and Performance",
+    "text": "Market Events and Performance\nThe performance of the S&P 500 is subject to various market events, including economic data releases, corporate earnings reports, geopolitical developments, and central bank decisions. Market fluctuations in the S&P 500 can have a cascading effect on other financial markets and impact investor confidence."
+  },
+  {
+    "objectID": "dividend.html#long-term-predictions",
+    "href": "dividend.html#long-term-predictions",
+    "title": "My dividend income",
+    "section": "Long term predictions",
+    "text": "Long term predictions\nFor this point, I want to demonstrate two scenarios:\n-1. scenario: weak outlook and an average growth of 3% while adding 10k per year\n-2. scenario: perfect wealth generation conditions with a growth of 10% while adding 10k per year\nLet’s take a look at both:\n\nscenario: growth 3% p.a., 10k additional investment from the job income\n\n\npaste0(print(\"In year 2023 the portfolio has an income of 180k. Today the value is\"))\n\n[1] \"In year 2023 the portfolio has an income of 180k. Today the value is\"\n\n\n[1] \"In year 2023 the portfolio has an income of 180k. Today the value is\"\n\n\n\nscenario: growth 10% p.a. + 10k additional investment from job income"
+  },
+  {
+    "objectID": "dividend.html#long-term-predictions-1",
+    "href": "dividend.html#long-term-predictions-1",
+    "title": "My dividend income",
+    "section": "Long term predictions",
+    "text": "Long term predictions"
+  },
+  {
+    "objectID": "posts/2023_09_23_Abbott/Abbott.html#chart-since-inception",
+    "href": "posts/2023_09_23_Abbott/Abbott.html#chart-since-inception",
+    "title": "TXN analysis",
+    "section": "Chart since inception",
+    "text": "Chart since inception"
   }
 ]

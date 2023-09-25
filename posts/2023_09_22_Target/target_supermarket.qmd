@@ -1,16 +1,14 @@
 ---
-title: "Meta stock analysis"
+title: "TXN analysis"
+description: "chips"
 author: "JNW"
-date: "2023-03-01"
-description: "Social media"
-image: meta1.png
-image-height: "2"
-image-width: "2"
+date: "2023-09-22"
+image: target1.png
 ---
 
-**Meta Platforms stock**
+**Texas instruments Corp**
 
-This company owns not only Facebook, Instagram and WhatsApp. It is much more than that.
+This company has never been cheap ever.
 
 ```{r}
 #| echo: false
@@ -27,8 +25,8 @@ library(plotly)
 #library(dash)
 
 
-ticker_symbol <- "META"
-company <- "Meta Platforms Inc"
+ticker_symbol <- "TGT"
+company <- "Target Corp."
 y_column <- paste(ticker_symbol, ".Adjusted", sep = "")
 y_col_Open <- paste(ticker_symbol, ".Open", sep = "")
 y_col_High <- paste(ticker_symbol, ".High", sep = "")
@@ -45,7 +43,8 @@ y_col_Volume <- paste(ticker_symbol, ".Volume", sep = "")
 
 getSymbols(ticker_symbol ,src='yahoo')
 
-df1 <- data.frame(Date=index(get(ticker_symbol )),coredata(get(ticker_symbol)))
+
+df1 <- data.frame(Date=index(get(ticker_symbol)),coredata(get(ticker_symbol)))
 
 
 fig1 <- df1 %>% plot_ly(x = ~Date, type = "candlestick",
@@ -56,13 +55,11 @@ fig1 <- fig1 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 
 
 # Remove legends for both traces
 fig1 <- fig1 %>% layout(
-  title = "Candlestick Chart since inception",
+  title = paste0("Candlestick Chart since inception for ", company),
   xaxis = list(rangeslider = list(visible = FALSE)),
    yaxis = list(title = "Stock price in USD"),
   showlegend = FALSE  # Hide legends for all traces
 )
-
-
 
 
 ```
@@ -81,7 +78,7 @@ fig2 <- fig2 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 
 
 # Remove legends for both traces
 fig2 <- fig2 %>% layout(
-  title = "Candlestick Chart since inception",
+  title = paste0("Candlestick Chart since inception for ", company),
   xaxis = list(rangeslider = list(visible = FALSE)),
    yaxis = list(title = "Stock price in USD"),
   showlegend = FALSE  # Hide legends for all traces
@@ -92,9 +89,7 @@ fig2 <- fig2 %>% layout(
 
 # Stocks charts within a tab
 
-::: nav-pills
-::: panel-tabset
-## Chart since inception
+::: nav-pills ::: panel-tabset \## Chart since inception
 
 ```{r}
 #| echo: false
@@ -107,5 +102,3 @@ fig1
 #| echo: false
 fig2
 ```
-:::
-:::
