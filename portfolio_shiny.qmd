@@ -1,57 +1,79 @@
 ---
 title: "Quarto + Shiny"
-format:
+format: 
   html:
-    theme: cosmo
-    code-tools:
-      toggle: true
+    page-layout: custom
 server: shiny
 echo: false
 ---
 
-
-### Inputs
+#### Inputs
 
 ```{r}
 #| echo: false
 #| output: false
 #| include: false
-
+#install.packages("pak")
 #install.packages("shiny")
 #install.packages("shiny.i18n")
+#install.packages("Rtools")
+#pak::pak("posit-dev/r-shinylive")
+library(pak)
 library(shiny)
 library(shinydashboard)
 library(shiny.i18n)
+library(bslib)
+
+
+library(datasets)
+
 ```
 
 ```{r}
-
-sliderInput("bins", "Number of bins:", 
-            min = 1,
-            max = 50, 
-            value = 10)
-
-plotOutput("distPlot")
-
-inputPanel(
-  shiny::selectInput("Chart_type", label = "Chart Type",
-                     choices = c("1","2","3")))
+#| context: data
+#| echo: false
+#| output: false
+WorldPhones <- as.data.frame(WorldPhones)
 
 ```
+
+
+```{r}
+#| panel: sidebar
+
+selectInput("nz", label = "Region", choices = colnames(WorldPhones))
+    
+
+```
+
+
+```{r}
+#| panel: fill
+ 
+plotOutput("barplot")
+
+```
+
+
 
 ```{r}
 #| context: server
-
-output$distPlot <- renderPlot({
-  x <- faithful[,2]
-  bins <- seq(min(x), max(x), length, length.out = input$bins+1)
-  hist(x, breaks = bins, col = "darkgrey", border = "white")
-})
-
+# Define a server for the Shiny app
+server <- function(input, output) {
+  
+  # Create a reactive expression to filter data based on user input
+  selected_data <- reactive({
+    region_name <- input$region
+    data <- WorldPhones[, c("Year", region_name), drop = FALSE]
+    colnames(data) <- c("Year", "Value")
+    return(data)
+  })
+  
+  # Create a barplot based on the selected data
+  output$barplot <- renderPlot({
+    data <- selected_data()
+    barplot(data$Value, names.arg = data$Year, col = "blue", main = paste("Barplot of", input$region))
+  })
+}
 
 ```
-
-```{r}
-
-```
-

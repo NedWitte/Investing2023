@@ -89,7 +89,8 @@ fig2 <- fig2 %>% layout(
 
 # Stocks charts within a tab
 
-::: nav-pills ::: panel-tabset
+::: nav-pills 
+::: panel-tabset
 
 ## Chart since inception
 
@@ -105,7 +106,8 @@ fig1
 fig2
 ```
 
-::: :::
+::: 
+:::
 
 # Dividend data within a tab
 

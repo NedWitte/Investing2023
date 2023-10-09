@@ -105,6 +105,7 @@ portfolio_df$`%-Anteil`[i] <- (portfolio_df$real_time_worth_EUR[i]/x1)*100 #100 
 
 }
 
+i <- 3
 ```
 
 ```{r}

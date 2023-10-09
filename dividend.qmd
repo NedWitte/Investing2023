@@ -73,8 +73,6 @@ start_date <- 2018-01-01  # Get data for yesterday
 end_date <- Sys.Date()
 last_year <- year(end_date ) - 1 #get last year
 
-i <-1
-
 #loop
 for(i in 1:nrow(portfolio_df)) {
    
@@ -174,25 +172,38 @@ action_tracker_df <- read_excel("data/2023_08_NedPortfolio.xlsx", sheet ="Perfor
 
 colors <- scale_color_viridis_d(option = "magma")
 
+#add empty columns
+portfolio_df[ nrow(portfolio_df) + 1 , ] <- NA
+
+portfolio_df$Wertpapier[nrow(portfolio_df)] <- "Old Dividends"
+portfolio_df$Dividendesumme[nrow(portfolio_df)] <- sum(action_tracker_df$`davon Dividende`, na.rm = TRUE)
+
 portfolio_df <- portfolio_df %>%
   arrange(desc(Dividendesumme))
+
 
 plot_div <- plot_ly(portfolio_df %>% arrange(desc(Dividendesumme)),
                     x = ~Wertpapier, y = ~Dividendesumme, color = ~Wertpapier, type = "bar") %>%
           layout(title = "Dividendensumme Histogram per Wertpapier",
-         xaxis = list(title = "Wertpapier"),
+         xaxis = list(titlefont = list(size = 6),  tickfont = list(size = 6),  tickangle=90 ),
          yaxis = list(title = "Dividendensumme (EUR)"),
          showlegend= FALSE)
+
+
+x1 <- sum(portfolio_df$Dividendesumme)
+x1 <- round(x1, digits = 0)
 
 ```
 
 ```{r}
 #| echo: false
 #| warning: false
-# Display the interactive 3D pie chart
+# Display the interactive 3D bar chart
 plot_div
 
 ```
+
+In total the portfolio received `r  x1` EUR in dividends.
 
 
 ## Strategy
@@ -202,7 +213,8 @@ The strategy is easy: Safe and sound.
 Generally, this portfolio has the purpose to add a signifcant amount of dividend income to the regular job income.
 
 ```{r}
-#| output: true
+#| echo: false
+#| warning: false
 # Display the interactive plot
 
 ```

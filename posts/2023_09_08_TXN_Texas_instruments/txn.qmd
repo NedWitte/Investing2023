@@ -10,7 +10,6 @@ image: texas_instruments1.png
 
 This company has never been cheap ever.
 
-
 ```{r}
 #| echo: false
 #| output: false
@@ -89,9 +88,8 @@ fig2 <- fig2 %>% layout(
 
 # Stocks charts within a tab
 
-::: nav-pills
-::: panel-tabset
-## Chart since inception
+::: nav-pills 
+::: panel-tabset \## Chart since inception
 
 ```{r}
 #| echo: false
@@ -104,3 +102,5 @@ fig1
 #| echo: false
 fig2
 ```
+:::
+:::
