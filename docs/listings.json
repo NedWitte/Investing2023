@@ -1,0 +1,27 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/2023_09_23_Abbott/Abbott.html",
+      "/posts/2023_09_22_Target/target_supermarket.html",
+      "/posts/2023_09_21_Snowflake/snowflake.html",
+      "/posts/2023_09_08_TXN_Texas_instruments/txn.html",
+      "/posts/2023_08_04_Realty_Income/realty_income.html",
+      "/posts/2023_08_03_Samsung/samsung.html",
+      "/posts/2023_07_01_Apple/apple.html",
+      "/posts/2023_06_01_Alphabet/alphabet.html",
+      "/posts/2023_05_01_Alibaba/Alibaba.html",
+      "/posts/2023_04_01_Tesla/Tesla.html",
+      "/posts/2023_03_01_Meta/meta.html"
+    ]
+  },
+  {
+    "listing": "/general.html",
+    "items": [
+      "/general/Inflation_data/inflation1.html",
+      "/general/Oil_prices/oilprices.html",
+      "/general/SP500 distribution/SP500.html",
+      "/general/welcome/welcome.html"
+    ]
+  }
+]

@@ -75,6 +75,9 @@ for(i in 1:nrow(portfolio_df)) {
   if(is.na(portfolio_df$Yahoo_3_letter[i])) next
   
   x1 <- tq_get(portfolio_df$Yahoo_3_letter[i], get = "stock.prices", from = start_date, to = end_date)
+  
+   if(any(is.na(x1))) next #skip the iteration for not finding the data
+     
   x1 <- x1$adjusted
 
   portfolio_df$real_time_price_local_currency[i] <- x1
@@ -105,7 +108,8 @@ portfolio_df$`%-Anteil`[i] <- (portfolio_df$real_time_worth_EUR[i]/x1)*100 #100 
 
 }
 
-i <- 3
+i <- 77
+
 ```
 
 ```{r}
@@ -168,7 +172,7 @@ df_portfolio_performance <- as.data.frame(df_portfolio_performance)
 df_portfolio_performance$date <- rownames(df_portfolio_performance)
 df_portfolio_performance <- df_portfolio_performance %>% select(date)
 
-i <- 10
+i <- 83
 
 #loop
 for(i in 1:nrow(portfolio_df)) {
@@ -239,7 +243,7 @@ df_portfolio_performance$Total_Sum_entries <- rowSums(!is.na(df_portfolio_perfor
 
 df_portfolio_performance$deleted <- NA
 #subset
-for (i in 1:(nrow(df_portfolio_performance)-1)) {
+for (i in 1:(nrow(df_portfolio_performance)-2)) {
 
 if(df_portfolio_performance$Total_Sum_entries[i]>df_portfolio_performance$Total_Sum_entries[i+1])
 { df_portfolio_performance$deleted[i+1] <- "yes"

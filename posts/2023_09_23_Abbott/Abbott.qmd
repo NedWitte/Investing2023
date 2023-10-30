@@ -89,9 +89,8 @@ fig2 <- fig2 %>% layout(
 
 # Stocks charts within a tab
 
-::: nav-pills 
+::: nav-pills
 ::: panel-tabset
-
 ## Chart since inception
 
 ```{r}
@@ -105,8 +104,7 @@ fig1
 #| echo: false
 fig2
 ```
-
-::: 
+:::
 :::
 
 # Dividend data within a tab
@@ -139,3 +137,17 @@ gg_plot_div <- ggplotly(gg_plot_div)
 #| echo: false
 gg_plot_div
 ```
+
+Let´s have a look how the company is presenting itself in the latest annual report. Here some pictures of the annual report 2022:
+
+::: {layout-nrow=2} 
+
+![Investor return](abbott2.png)
+
+![Revenue per Business](abbott3.png) { width=30% }
+
+![Balance Sheet](abbott4.png)
+
+![Inv. Return Comparison](abbott5.png) 
+
+:::
