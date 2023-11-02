@@ -1,0 +1,130 @@
+---
+title: "The Pharma race between Novo, Lilly, Pfizer and others"
+description: "The obesity winners and loosers"
+author: "JNW"
+date: "2023-10-23"
+image: abbott1.png
+---
+
+**The Pharma race**
+
+Albert Bourla, CEO of Pfizer, often makes this comparison:
+
+```{r}
+#| echo: false
+#| output: false
+#install.packages("dashCoreComponents")
+#install.packages("dashHtmlComponents")
+#install.packages("dash")
+library(tidyquant)
+library(lubridate)
+library(plotly)
+library(dplyr)
+library(tidyr)
+#dash
+#library(dashCoreComponents)
+#library(dashHtmlComponents)
+#library(dash)
+
+#1
+ticker_symbol_1 <- "PFE"
+company_1 <- "Pfizer Inc."
+#1
+ticker_symbol_2 <- "NVO"
+company_2 <- "Novo Nordisk"
+#1
+ticker_symbol_3 <- "LLY"
+company_3 <- "Eli Lilly and Company"
+#1
+ticker_symbol_4 <- "GSK"
+company_4 <- "GSK"
+
+
+# Define a vector of ticker symbols
+ticker_symbols <- c("PFE", "NVO", "LLY", "GSK")
+
+# Define the start and end dates for the data
+start_date <- "2020-01-01"
+end_date <- Sys.Date()
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+# Download stock price data for the specified symbols and date range
+getSymbols(ticker_symbols, from = start_date, to = end_date)
+
+df1 <- data.frame(Date=index(get(ticker_symbol_1)),coredata(get(ticker_symbol_1)))
+df2 <- data.frame(Date=index(get(ticker_symbol_2)),coredata(get(ticker_symbol_2)))
+df3 <- data.frame(Date=index(get(ticker_symbol_3)),coredata(get(ticker_symbol_3)))
+df4 <- data.frame(Date=index(get(ticker_symbol_4)),coredata(get(ticker_symbol_4)))
+
+merged_data <- left_join(df1, df2, by = "Date") %>%
+  left_join(., df3, by = "Date")%>%
+  left_join(., df4, by = "Date")
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+
+# Select the columns of interest (7, 13, and 19) and the Date column
+selected_data <- merged_data %>% select(Date, 7, 13, 19, 25)
+
+# Calculate the relative values by dividing each column by its initial value
+selected_data_normalized <- selected_data %>%
+  mutate(across(-Date, ~ . / .[1])) 
+
+
+plot1 <- plot_ly(selected_data_normalized, x = ~Date) %>%
+  add_trace(y = ~PFE.Adjusted, name = "Pfizer", type = "scatter", mode = "lines") %>%
+  add_trace(y = ~NVO.Adjusted, name = "Novo Nordisk", type = "scatter", mode = "lines") %>%
+  add_trace(y = ~LLY.Adjusted, name = "Eli Lilly", type = "scatter", mode = "lines") %>%
+  add_trace(y = ~GSK.Adjusted, name = "GSK", type = "scatter", mode = "lines") %>%
+  layout(
+    title = "Comparison of different pure pharma companies",
+    xaxis = list(title = "Date"),
+    yaxis = list(title = "Values")
+  )
+
+selected_data_normalized <- tail(selected_data_normalized, 365)
+
+plot2 <- plot_ly(selected_data_normalized, x = ~Date) %>% 
+  add_trace(y = ~PFE.Adjusted, name = "Pfizer", type = "scatter", mode = "lines") %>%
+  add_trace(y = ~NVO.Adjusted, name = "Novo Nordisk", type = "scatter", mode = "lines") %>%
+  add_trace(y = ~LLY.Adjusted, name = "Eli Lilly", type = "scatter", mode = "lines") %>%
+  add_trace(y = ~GSK.Adjusted, name = "GSK", type = "scatter", mode = "lines") %>%
+  layout(
+    title = "Comparison of different pure pharma companies",
+    xaxis = list(title = "Date"),
+    yaxis = list(title = "Values")
+  )
+
+```
+
+# Stocks charts within a tab
+
+::: nav-pills
+::: panel-tabset
+## Chart since inception
+
+```{r}
+#| echo: false
+plot1
+```
+
+## Chart of the last year
+
+```{r}
+#| echo: false
+plot2
+```
+:::
+:::
+
+But this says clearly one thing: Fat people make more money than a corona pandemic situation. 

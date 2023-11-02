@@ -69,7 +69,6 @@ plot2 <- plot_ly(data = df2, x = ~date, y = ~get(y_column), type = "scatter", mo
 
 ```
 
-
 ```{r}
 #| layout-ncol: 2
 #| label: Stock Price since inception

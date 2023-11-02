@@ -1,6 +1,6 @@
 ---
-title: "TXN analysis"
-description: "chips"
+title: "Abbott Laboratories analysis"
+description: "Medicine and medical instruments"
 author: "JNW"
 date: "2023-09-23"
 image: abbott1.png
@@ -140,14 +140,12 @@ gg_plot_div
 
 Let´s have a look how the company is presenting itself in the latest annual report. Here some pictures of the annual report 2022:
 
-::: {layout-nrow=2} 
-
+::: {layout-nrow="2"}
 ![Investor return](abbott2.png)
 
 ![Revenue per Business](abbott3.png) { width=30% }
 
 ![Balance Sheet](abbott4.png)
 
-![Inv. Return Comparison](abbott5.png) 
-
+![Inv. Return Comparison](abbott5.png)
 :::
