@@ -3,7 +3,7 @@ title: "The Pharma race between Novo, Lilly, Pfizer and others"
 description: "The obesity winners and loosers"
 author: "JNW"
 date: "2023-10-23"
-image: abbott1.png
+image: pharma_race_head1.png
 ---
 
 **The Pharma race**
@@ -92,7 +92,13 @@ plot1 <- plot_ly(selected_data_normalized, x = ~Date) %>%
     yaxis = list(title = "Values")
   )
 
-selected_data_normalized <- tail(selected_data_normalized, 365)
+
+#create plot 2 
+selected_data <- tail(selected_data, 365)
+
+selected_data_normalized <- selected_data %>%
+  mutate(across(-Date, ~ . / .[1])) 
+
 
 plot2 <- plot_ly(selected_data_normalized, x = ~Date) %>% 
   add_trace(y = ~PFE.Adjusted, name = "Pfizer", type = "scatter", mode = "lines") %>%
@@ -127,4 +133,4 @@ plot2
 :::
 :::
 
-But this says clearly one thing: Fat people make more money than a corona pandemic situation. 
+But this says clearly one thing: Fat people make more money than a corona pandemic situation.
