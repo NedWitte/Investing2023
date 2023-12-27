@@ -19,6 +19,8 @@ website:
         href: portfolio.qmd
       - text: Dividend income
         href: dividend.qmd
+      - text: Shiny App
+        href: portfolio_shiny.qmd
       
     right: 
       - about/about.qmd

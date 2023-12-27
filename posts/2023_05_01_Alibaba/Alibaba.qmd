@@ -13,38 +13,26 @@ image-width: "2"
 ```{r}
 #| echo: false
 #| output: false
+#install.packages("dashCoreComponents")
+#install.packages("dashHtmlComponents")
+#install.packages("dash")
 library(tidyquant)
 library(lubridate)
 library(plotly)
-library(reticulate)
-library(Quandl)
+#dash
+#library(dashCoreComponents)
+#library(dashHtmlComponents)
+#library(dash)
+
 
 ticker_symbol <- "BABA"
 company <- "Alibaba"
 y_column <- paste(ticker_symbol, ".Adjusted", sep = "")
-
-
-
-
-```
-
-```{r}
-#| echo: false
-#| output: false
-end_date <- Sys.Date()
-
-# Calculate start_date as end_date minus 10 years
-start_date <- end_date %m-% years(100)
-
-getSymbols(ticker_symbol, from = start_date,
-           to = end_date,warnings = FALSE,
-           auto.assign = TRUE)
-
-
-# Convert the data to a data frame
-df1 <- as.data.frame(get(ticker_symbol))
-df1$date <- rownames(df1)
-df2 <- df1 %>% filter(date > end_date %m-% years(5))
+y_col_Open <- paste(ticker_symbol, ".Open", sep = "")
+y_col_High <- paste(ticker_symbol, ".High", sep = "")
+y_col_Low <- paste(ticker_symbol, ".Low", sep = "")
+y_col_Close <- paste(ticker_symbol, ".Close", sep = "")
+y_col_Volume <- paste(ticker_symbol, ".Volume", sep = "")
 
 
 ```
@@ -53,25 +41,59 @@ df2 <- df1 %>% filter(date > end_date %m-% years(5))
 #| echo: false
 #| output: false
 
-plot1 <- plot_ly(data = df1, x = ~date, y = ~get(y_column), type = "scatter", mode = "lines", name = paste(company,                   "stock")) %>%
-         layout(title = paste("Since Inception: Stock Price for", company, "(", ticker_symbol, ")"),
-         xaxis = list(title = "Date", nticks = 5),
-         yaxis = list(title = "Price"))
+getSymbols(ticker_symbol ,src='yahoo')
 
-plot2 <- plot_ly(data = df2, x = ~date, y = ~get(y_column), type = "scatter", mode = "lines", name = paste(company,                 "stock")) %>%
-         layout(title = paste("the last 5 years: Stock Price for", company, "(", ticker_symbol, ")"),
-         xaxis = list(title = "Date", nticks = 5),
-         yaxis = list(title = "Price"))
 
+df1 <- data.frame(Date=index(get(ticker_symbol)),coredata(get(ticker_symbol)))
+
+
+fig1 <- df1 %>% plot_ly(x = ~Date, type = "candlestick",
+                       open = ~get(y_col_Open), close = ~get(y_col_Close),
+                       high = ~get(y_col_High), low = ~get(y_col_Low)) 
+
+fig1 <- fig1 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.2), inherit = FALSE)
+
+# Remove legends for both traces
+fig1 <- fig1 %>% layout(
+  title = paste0("Candlestick Chart since inception for ", company),
+  xaxis = list(rangeslider = list(visible = FALSE)),
+   yaxis = list(title = "Stock price in USD"),
+  showlegend = FALSE  # Hide legends for all traces
+)
 
 
 ```
 
 ```{r}
-#| layout-ncol: 2
-#| label: Stock Price since inception
 #| echo: false
-plot1
-plot2
+#| output: false
 
+df2 <- tail(df1, 365)
+
+fig2 <- df2 %>% plot_ly(x = ~Date, type = "candlestick",
+                       open = ~get(y_col_Open), close = ~get(y_col_Close),
+                       high = ~get(y_col_High), low = ~get(y_col_Low)) 
+
+fig2 <- fig2 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.2), inherit = FALSE)
+
+# Remove legends for both traces
+fig2 <- fig2 %>% layout(
+  title = paste0("Candlestick Chart since inception for ", company),
+  xaxis = list(rangeslider = list(visible = FALSE)),
+   yaxis = list(title = "Stock price in USD"),
+  showlegend = FALSE  # Hide legends for all traces
+)
+
+
+```
+
+# Stocks charts within a tab
+
+::: nav-pills
+::: panel-tabset
+## Chart since inception
+
+```{r}
+#| echo: false
+fig1
 ```
