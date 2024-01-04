@@ -1,5 +1,5 @@
 ---
-title: "KarambolageInvesting"
+title: "Karambolage_Investing"
 format: 
  html: default
 listing:
@@ -14,18 +14,11 @@ listing:
   image-placeholder: "favicon.png"
 page-layout: full
 title-block-banner: true
-
 ---
 
-This is the home page, where the stock posts should be displayed.
-
-#### Stock analysis listed here:
+# Stock analysis listed here:
 
 ::: {#sample-listings}
 :::
 
-<iframe src="https://giphy.com/embed/9JrkkDoJuU0FbdbUZU" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen>
-
-</iframe>
-
-<p>
+Go to the other tabs for more content.

@@ -1,12 +1,17 @@
 ---
-title: "Alibaba stock analysis"
+title: "Nike Clothing"
+description: "The Nike Swoosh?"
 author: "JNW"
-date: "2023-05-01"
-description: "The Chinese Amazon"
-image: baba1.PNG
+date: "2024-01-04"
+image: nike1.png
 ---
 
-**Alibaba stock**
+**Nike Inc**
+
+"At Nike, our passion for sport, innovation, and authenticity drives us. It fuels us through 
+challenges and inspires us to emerge even stronger. In fiscal 2023, that passion fed our 
+successes and helped to power transformations in support of future growth—both in the 
+business and with respect to corporate governance." - Message from the Executive Chairman
 
 ```{r}
 #| echo: false
@@ -18,10 +23,13 @@ library(tidyquant)
 library(lubridate)
 library(plotly)
 #dash
+#library(dashCoreComponents)
+#library(dashHtmlComponents)
+#library(dash)
 
 
-ticker_symbol <- "BABA"
-company <- "Alibaba"
+ticker_symbol <- "NKE"
+company <- "Nike Inc"
 y_column <- paste(ticker_symbol, ".Adjusted", sep = "")
 y_col_Open <- paste(ticker_symbol, ".Open", sep = "")
 y_col_High <- paste(ticker_symbol, ".High", sep = "")
@@ -101,3 +109,17 @@ fig2
 ```
 :::
 :::
+
+# Annual Meeting information:
+
+Check this out: Directors are getting 50k-300k paid in cash, stock awards, or other compensation:
+
+![Director Compensation 2023](2024_01_nike_compensation_directors.PNG)
+
+Nike has been growing Sales by a lot. The revenue of 2015 was 30 billion, in 2023 its roughly 50 billion marking nearly the double. Same for the Gross profit. The operating income just increased by roughly 20% though (4 billion to 5 billion) over the last 8 years.
+
+![Income statements 2015-2023](2024_01_nike_income_statement.PNG)
+
+Let's also take a look at some financials ratios. Historically the PE of Nike has always been around 20-30. Interestingsling the Price-to-Sales (PS) was 2.56 in 2017 and in roughly 3.19 in 2023. To get a fair stock price, it should get down to 2.80 roughly.
+
+![Financial ratios 2015-2023](2024_01_nike_ratios.PNG)
