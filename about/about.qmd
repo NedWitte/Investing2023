@@ -11,6 +11,9 @@ about:
       href: https://github.com
 ---
 
-This is my little side project in order to learn some more coding. This website is created with Quarto, which is a great tool to make data public as well as combing R, Python and html code.
+This is my little side project in order to learn some more coding. I also like to write down some thoughts here that I am going to review in the past. 
+
+This website is created with Quarto, which is a great tool to make data public as well as combing R, Python and html code.
+
 
 Learn more about Quarto [here](https://www.quarto.com).

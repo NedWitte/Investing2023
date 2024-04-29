@@ -17,7 +17,6 @@ image: baba1.PNG
 library(tidyquant)
 library(lubridate)
 library(plotly)
-#dash
 
 
 ticker_symbol <- "BABA"

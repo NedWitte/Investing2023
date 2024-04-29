@@ -1,7 +1,18 @@
 [
   {
+    "listing": "/general.html",
+    "items": [
+      "/general/2023_12_27_stock_market_prediction_for_2024/predictions_2024.html",
+      "/general/Inflation_data/inflation1.html",
+      "/general/Oil_prices/oilprices.html",
+      "/general/SP500 distribution/SP500.html",
+      "/general/welcome/welcome.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
+      "/posts/2024_04_29_AMZN_earnings_Apple_Earnings_forecast/2024_04_earnings.html",
       "/posts/2024_01_12_Hermes_LVHM_Kering/luxury_goods_race.html",
       "/posts/2024_01_04_Nike/nike.html",
       "/posts/2023_11_13_Johnson_and_Johnson/jnj.html",
@@ -18,16 +29,6 @@
       "/posts/2023_05_01_Alibaba/Alibaba.html",
       "/posts/2023_04_01_Tesla/Tesla.html",
       "/posts/2023_03_01_Meta/meta.html"
-    ]
-  },
-  {
-    "listing": "/general.html",
-    "items": [
-      "/general/2023_12_27_stock_market_prediction_for_2024/predictions_2024.html",
-      "/general/Inflation_data/inflation1.html",
-      "/general/Oil_prices/oilprices.html",
-      "/general/SP500 distribution/SP500.html",
-      "/general/welcome/welcome.html"
     ]
   }
 ]
