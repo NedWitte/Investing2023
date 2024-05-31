@@ -9,7 +9,7 @@ date: "2023-08-10"
 
 # Introduction
 
-This **portfolio** consist of a maximum of 100 values whereas the top 15 stock should compromise at least 40% of the total value.
+This portfolio consist of a maximum of 100 values whereas the top 15 stock should compromise at least 40% of the total value.
 
 ```{r}
 #| echo: false
