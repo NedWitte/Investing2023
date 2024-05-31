@@ -1,0 +1,115 @@
+---
+title: "What happenend to grocery prices?"
+description: "Some interesting developements in prices"
+date: "2024-05-31"
+format: 
+  html:
+    number-sections: true
+---
+
+# Olive Oil prices
+
+::: {layout-ncol="2"}
+![Olive Oil](oliveoil1.png){#fig-oliveoil width="50%" height="30%"} ![An olive](oliveoil2.png){#fig-olive width="50%" height="30%"}
+
+```{r}
+#| echo: false
+#| output: false
+library(tidyquant)
+library(quantmod)
+library(ggplot2)
+library(tidyverse)
+library(tidyquant)
+library(plotly)
+library(dplyr)
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+# Fetch data from Yahoo
+getSymbols("APU0000713111", src = "FRED")
+
+
+# Extract CPI values
+df_orange_juice <- as.data.frame(APU0000713111)
+
+df_orange_juice$year <-  lubridate::year(rownames(df_orange_juice))
+df_orange_juice$month <- lubridate::month(rownames(df_orange_juice))
+df_orange_juice$year_month <- sprintf("%d-%02d", df_orange_juice$year, df_orange_juice$month)
+
+```
+
+This dataframe has `r nrow(df_orange_juice)` rows now.
+
+```{r}
+#| echo: false
+#| output: false
+
+# Specify the start and end dates of the financial crises
+# Create the plot
+fig <- plot_ly(data = df_orange_juice, x = ~year_month, y = ~df_orange_juice$APU0000713111, type = "scatter", mode = "lines",
+               line = list(color = "green"), name = "Global price of Orange Juice 12 Ounce Can (Cost per 16 Ounces/473.2 Milliliters in USD") %>% 
+  layout(yaxis = list(title = "Orange Juice prices per 12 Ounce Can in USD"))
+
+```
+
+Here is the U.S. Dollars per Metric Ton of the FRED symbol "APU0000713111" since 1990.
+
+```{r}
+#| output: true
+#| echo: false
+#| warning: false
+#| message: false
+#| error: false
+#| fig-cap: Olive oil price change since 1990
+# Display the interactive ploty chart
+fig
+```
+
+And now lets check olive oil prices again
+
+```{r}
+#| echo: false
+#| output: false
+
+# Fetch data from Yahoo
+getSymbols("POLVOILUSDM", src = "FRED")
+
+
+# Extract CPI values
+df_olive_oil <- as.data.frame(POLVOILUSDM)
+
+df_olive_oil$year <-  lubridate::year(rownames(df_olive_oil))
+df_olive_oil$month <- lubridate::month(rownames(df_olive_oil))
+df_olive_oil$year_month <- sprintf("%d-%02d", df_olive_oil$year, df_olive_oil$month)
+
+```
+
+This dataframe has `r nrow(df_olive_oil)` rows now.
+
+```{r}
+#| echo: false
+#| output: false
+
+# Specify the start and end dates of the financial crises
+# Create the plot
+fig2 <- plot_ly(data = df_olive_oil, x = ~year_month, y = ~df_olive_oil$POLVOILUSDM, type = "scatter", mode = "lines",
+               line = list(color = "green"), name = "Global price of olive oil in USD per Metric ton") %>% 
+  layout(yaxis = list(title = "Global price of olive oil in USD per Metric ton"))
+
+```
+
+Here is the U.S. Dollars per Metric Ton of the FRED symbol "POLVOILUSDM" since 1990.
+
+```{r}
+#| output: true
+#| echo: false
+#| warning: false
+#| message: false
+#| error: false
+#| fig-cap: Olive oil price change since 1990
+# Display the interactive ploty chart
+fig2
+```

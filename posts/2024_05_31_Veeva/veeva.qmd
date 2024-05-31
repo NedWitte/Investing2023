@@ -12,17 +12,15 @@ C Veeva Systems Inc. is a cloud-computing company that focuses on providing soft
 
 Founding and Headquarters:
 
-Founded in 2007 by Peter Gassner and Matt Wallach.
-Headquartered in Pleasanton, California, United States
+Founded in 2007 by Peter Gassner and Matt Wallach. Headquartered in Pleasanton, California, United States
 
 Industry Focus:
 
-Veeva specializes in developing cloud-based software tailored for the life sciences sector.
-Their solutions address the unique challenges faced by companies in this industry
+Veeva specializes in developing cloud-based software tailored for the life sciences sector. Their solutions address the unique challenges faced by companies in this industry
 
 Market Capitalization:
 
-As of May 2023, the market cap is around 30Bi while having a revenue guidance of 2.4B for 2024. 
+As of May 2023, the market cap is around 30Bi while having a revenue guidance of 2.4B for 2024.
 
 ```{r}
 #| echo: false
@@ -125,7 +123,4 @@ fig2
 
 Veeva managed to grew revenue by 24% y/y. Compared to Salesforce, which is around 9% growth, this is high growth business. Obviously, the stock deserves a premium. And it has it. Which a EBITA around 0.4B, the stock has a P/E multiple around 55 (EPS of 3.48 to 194 USD shareprice).
 
-With the current AI boom, pharma companies might go into the trial phase way faster. Then, they are in need of Veeva as a CRM. They might be the next boom for this company. 
-
-
-
+With the current AI boom, pharma companies might go into the trial phase way faster. Then, they are in need of Veeva as a CRM. They might be the next boom for this company.
