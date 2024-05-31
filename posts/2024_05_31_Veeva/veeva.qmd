@@ -1,0 +1,131 @@
+---
+title: "Veeva "
+description: "A CRM for the life science industry"
+author: "JNW"
+date: "2024-05-31"
+image: veeva_flavicon.png
+---
+
+**Autodesk**
+
+C Veeva Systems Inc. is a cloud-computing company that focuses on providing software solutions for the pharmaceutical and life sciences industry. Here are some key points about Veeva:
+
+Founding and Headquarters:
+
+Founded in 2007 by Peter Gassner and Matt Wallach.
+Headquartered in Pleasanton, California, United States
+
+Industry Focus:
+
+Veeva specializes in developing cloud-based software tailored for the life sciences sector.
+Their solutions address the unique challenges faced by companies in this industry
+
+Market Capitalization:
+
+As of May 2023, the market cap is around 30Bi while having a revenue guidance of 2.4B for 2024. 
+
+```{r}
+#| echo: false
+#| output: false
+#install.packages("dashCoreComponents")
+#install.packages("dashHtmlComponents")
+#install.packages("dash")
+library(tidyquant)
+library(lubridate)
+library(plotly)
+#dash
+#library(dashCoreComponents)
+#library(dashHtmlComponents)
+#library(dash)
+
+
+ticker_symbol <- "VEEV"
+company <- "Veeva Systems"
+y_column <- paste(ticker_symbol, ".Adjusted", sep = "")
+y_col_Open <- paste(ticker_symbol, ".Open", sep = "")
+y_col_High <- paste(ticker_symbol, ".High", sep = "")
+y_col_Low <- paste(ticker_symbol, ".Low", sep = "")
+y_col_Close <- paste(ticker_symbol, ".Close", sep = "")
+y_col_Volume <- paste(ticker_symbol, ".Volume", sep = "")
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+getSymbols(ticker_symbol ,src='yahoo')
+
+
+df1 <- data.frame(Date=index(get(ticker_symbol)),coredata(get(ticker_symbol)))
+
+
+fig1 <- df1 %>% plot_ly(x = ~Date, type = "candlestick",
+                       open = ~get(y_col_Open), close = ~get(y_col_Close),
+                       high = ~get(y_col_High), low = ~get(y_col_Low)) 
+
+fig1 <- fig1 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.2), inherit = FALSE)
+
+# Remove legends for both traces
+fig1 <- fig1 %>% layout(
+  title = paste0("Candlestick Chart since inception for ", company),
+  xaxis = list(rangeslider = list(visible = FALSE)),
+   yaxis = list(title = "Stock price in USD"),
+  showlegend = FALSE  # Hide legends for all traces
+)
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+df2 <- tail(df1, 365)
+
+fig2 <- df2 %>% plot_ly(x = ~Date, type = "candlestick",
+                       open = ~get(y_col_Open), close = ~get(y_col_Close),
+                       high = ~get(y_col_High), low = ~get(y_col_Low)) 
+
+fig2 <- fig2 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.2), inherit = FALSE)
+
+# Remove legends for both traces
+fig2 <- fig2 %>% layout(
+  title = paste0("Candlestick Chart since inception for ", company),
+  xaxis = list(rangeslider = list(visible = FALSE)),
+   yaxis = list(title = "Stock price in USD"),
+  showlegend = FALSE  # Hide legends for all traces
+)
+
+
+```
+
+# Stocks charts within a tab
+
+::: nav-pills
+::: panel-tabset
+## Chart since inception
+
+```{r}
+#| echo: false
+fig1
+```
+
+## Chart of the last year
+
+```{r}
+#| echo: false
+fig2
+```
+:::
+:::
+
+#My bullcase for the stock
+
+Veeva managed to grew revenue by 24% y/y. Compared to Salesforce, which is around 9% growth, this is high growth business. Obviously, the stock deserves a premium. And it has it. Which a EBITA around 0.4B, the stock has a P/E multiple around 55 (EPS of 3.48 to 194 USD shareprice).
+
+With the current AI boom, pharma companies might go into the trial phase way faster. Then, they are in need of Veeva as a CRM. They might be the next boom for this company. 
+
+
+

@@ -1,0 +1,122 @@
+---
+title: "Honeywell"
+description: "An industrial conglomerate that will never stops growing?"
+author: "JNW"
+date: "2024-05-03"
+image: honeywell_flavicon.png
+---
+
+**Honeywell**
+
+Honeywell International is headquarted in Charlotte, North Corlina and operates in the aerospace, automation, performance materials and technologies businesses.
+
+```{r}
+#| echo: false
+#| output: false
+#install.packages("dashCoreComponents")
+#install.packages("dashHtmlComponents")
+#install.packages("dash")
+library(tidyquant)
+library(lubridate)
+library(plotly)
+#dash
+#library(dashCoreComponents)
+#library(dashHtmlComponents)
+#library(dash)
+
+
+ticker_symbol <- "HON"
+company <- "Honeywell"
+y_column <- paste(ticker_symbol, ".Adjusted", sep = "")
+y_col_Open <- paste(ticker_symbol, ".Open", sep = "")
+y_col_High <- paste(ticker_symbol, ".High", sep = "")
+y_col_Low <- paste(ticker_symbol, ".Low", sep = "")
+y_col_Close <- paste(ticker_symbol, ".Close", sep = "")
+y_col_Volume <- paste(ticker_symbol, ".Volume", sep = "")
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+getSymbols(ticker_symbol ,src='yahoo')
+
+
+df1 <- data.frame(Date=index(get(ticker_symbol)),coredata(get(ticker_symbol)))
+
+
+fig1 <- df1 %>% plot_ly(x = ~Date, type = "candlestick",
+                       open = ~get(y_col_Open), close = ~get(y_col_Close),
+                       high = ~get(y_col_High), low = ~get(y_col_Low)) 
+
+fig1 <- fig1 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.2), inherit = FALSE)
+
+# Remove legends for both traces
+fig1 <- fig1 %>% layout(
+  title = paste0("Candlestick Chart since inception for ", company),
+  xaxis = list(rangeslider = list(visible = FALSE)),
+   yaxis = list(title = "Stock price in USD"),
+  showlegend = FALSE  # Hide legends for all traces
+)
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+df2 <- tail(df1, 365)
+
+fig2 <- df2 %>% plot_ly(x = ~Date, type = "candlestick",
+                       open = ~get(y_col_Open), close = ~get(y_col_Close),
+                       high = ~get(y_col_High), low = ~get(y_col_Low)) 
+
+fig2 <- fig2 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.2), inherit = FALSE)
+
+# Remove legends for both traces
+fig2 <- fig2 %>% layout(
+  title = paste0("Candlestick Chart since inception for ", company),
+  xaxis = list(rangeslider = list(visible = FALSE)),
+   yaxis = list(title = "Stock price in USD"),
+  showlegend = FALSE  # Hide legends for all traces
+)
+
+
+```
+
+# Stocks charts within a tab
+
+::: nav-pills
+::: panel-tabset
+## Chart since inception
+
+```{r}
+#| echo: false
+fig1
+```
+
+## Chart of the last year
+
+```{r}
+#| echo: false
+fig2
+```
+:::
+:::
+
+# JP Morgan Industrials Conferences:
+
+This chart is their main message: A long-term EPS growth of 8-12%. And this is what I like. A average growing business giving me a return of at least 8%. That means you can double your money here every 10 years most likely. On top you get a 2% Dividend yield. Institutional investors will hold this stock and for me as a private investor, this gives me a sleep well at night feeling while doubling down every 10y.
+
+![Long-termin financial growth algorithm](HON_JPM_2024.PNG)
+
+
+# FY 2024 outlook:
+
+Earnings Q1 2024:
+![HON_earnings_outlook_FY24](HON_earnings_outlook_FY24.PNG) 
+
+Do they keep what they promise? Well, in 1Q 2024 they actually beat their guidance of 2.12-2.22$ by 0.03$. Great start! Organic sales growth is roughly 3%. More interestingly, in FY guidance, they promise up to 6B in Free cash flow  (13% growth). This is solid and a nice growth. They definetly justify their higher PE around 20. I am a buyer here and I will make it roughly 3% of my whole portfolio!

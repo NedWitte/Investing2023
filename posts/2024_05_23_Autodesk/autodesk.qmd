@@ -1,0 +1,119 @@
+---
+title: "Autodesk"
+description: "A monopol for construction software?"
+author: "JNW"
+date: "2024-05-24"
+image: autodesk_flavicon.png
+---
+
+**Autodesk**
+
+**Autodesk, Inc.** is an American [multinational](https://en.wikipedia.org/wiki/Multinational_corporation "Multinational corporation") [software](https://en.wikipedia.org/wiki/Software "Software") corporation that provides software products and services for the architecture, engineering, construction, manufacturing, media, education, and entertainment industries. Autodesk is headquartered in [San Francisco, California](https://en.wikipedia.org/wiki/San_Francisco,_California "San Francisco, California"),^[\[2\]](https://en.wikipedia.org/wiki/Autodesk#cite_note-hq-2)^ and has offices worldwide. Its U.S. offices are located in the states of California, Oregon, Colorado, Texas, Michigan, New Hampshire and Massachusetts. Its Canada offices are located in the provinces of Ontario, Quebec, and Alberta.
+
+```{r}
+#| echo: false
+#| output: false
+#install.packages("dashCoreComponents")
+#install.packages("dashHtmlComponents")
+#install.packages("dash")
+library(tidyquant)
+library(lubridate)
+library(plotly)
+#dash
+#library(dashCoreComponents)
+#library(dashHtmlComponents)
+#library(dash)
+
+
+ticker_symbol <- "ADSK"
+company <- "Autodesk"
+y_column <- paste(ticker_symbol, ".Adjusted", sep = "")
+y_col_Open <- paste(ticker_symbol, ".Open", sep = "")
+y_col_High <- paste(ticker_symbol, ".High", sep = "")
+y_col_Low <- paste(ticker_symbol, ".Low", sep = "")
+y_col_Close <- paste(ticker_symbol, ".Close", sep = "")
+y_col_Volume <- paste(ticker_symbol, ".Volume", sep = "")
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+getSymbols(ticker_symbol ,src='yahoo')
+
+
+df1 <- data.frame(Date=index(get(ticker_symbol)),coredata(get(ticker_symbol)))
+
+
+fig1 <- df1 %>% plot_ly(x = ~Date, type = "candlestick",
+                       open = ~get(y_col_Open), close = ~get(y_col_Close),
+                       high = ~get(y_col_High), low = ~get(y_col_Low)) 
+
+fig1 <- fig1 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.2), inherit = FALSE)
+
+# Remove legends for both traces
+fig1 <- fig1 %>% layout(
+  title = paste0("Candlestick Chart since inception for ", company),
+  xaxis = list(rangeslider = list(visible = FALSE)),
+   yaxis = list(title = "Stock price in USD"),
+  showlegend = FALSE  # Hide legends for all traces
+)
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+df2 <- tail(df1, 365)
+
+fig2 <- df2 %>% plot_ly(x = ~Date, type = "candlestick",
+                       open = ~get(y_col_Open), close = ~get(y_col_Close),
+                       high = ~get(y_col_High), low = ~get(y_col_Low)) 
+
+fig2 <- fig2 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.2), inherit = FALSE)
+
+# Remove legends for both traces
+fig2 <- fig2 %>% layout(
+  title = paste0("Candlestick Chart since inception for ", company),
+  xaxis = list(rangeslider = list(visible = FALSE)),
+   yaxis = list(title = "Stock price in USD"),
+  showlegend = FALSE  # Hide legends for all traces
+)
+
+
+```
+
+# Stocks charts within a tab
+
+::: nav-pills
+::: panel-tabset
+## Chart since inception
+
+```{r}
+#| echo: false
+fig1
+```
+
+## Chart of the last year
+
+```{r}
+#| echo: false
+fig2
+```
+:::
+:::
+
+# Key take aways for me:
+
+1. Gross profit return: Autodesk managed to increase the gross profit from 1.5B to 5B over 15 years representing a 8% return per annum:
+
+![Gross profit of Autodesk since 2009](2024_gross_profit_autodesk.PNG)
+
+2. AI play: I think software like CAD will be able to implement AI tools very early on. This might make engineers and architects more productive and cost-efficient. The customer will pay for it. 
+
+
+
