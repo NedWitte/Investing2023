@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/2024_06_27_Rexford_Realty/rexford_realty.html",
       "/posts/2024_05_31_Veeva/veeva.html",
       "/posts/2024_05_23_Autodesk/autodesk.html",
       "/posts/2024_05_03_Honeywell/honeywell.html",
@@ -22,6 +23,17 @@
       "/posts/2023_05_01_Alibaba/Alibaba.html",
       "/posts/2023_04_01_Tesla/Tesla.html",
       "/posts/2023_03_01_Meta/meta.html"
+    ]
+  },
+  {
+    "listing": "/general.html",
+    "items": [
+      "/general/2024_06_orange_juice_olive_oil/juice_olives_oil.html",
+      "/general/2023_12_27_stock_market_prediction_for_2024/predictions_2024.html",
+      "/general/Inflation_data/inflation1.html",
+      "/general/Oil_prices/oilprices.html",
+      "/general/SP500 distribution/SP500.html",
+      "/general/welcome/welcome.html"
     ]
   }
 ]

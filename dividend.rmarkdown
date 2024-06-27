@@ -1,0 +1,248 @@
+---
+title: "My dividend income"
+author: "JNW"
+description: "stuff"
+date: "2023-08-08"
+image: sp500.png
+---
+
+
+**The KarambolageNed portfolio dividends**
+
+## Introduction
+
+This site gives a brief overview about my dividend income and it's values are updated automatically via scripting. The Plot the data represents the amount of received dividends of the last year.
+
+
+```{r}
+#| echo: false
+#| output: false
+#| include: false
+
+library(dplyr)
+library(tidyquant)
+library(quantmod)
+library(ggplot2)
+library(tidyverse)
+library(tidyquant)
+library(plotly)
+library(googlesheets4)
+library(readxl)
+
+```
+
+```{r}
+#| warning: false
+#| echo: false
+#| output: false
+#| include: false
+
+#get dividends
+#get data from the Google sheets 
+portfolio_df <- read_excel("data/2023_08_NedPortfolio.xlsx")
+portfolio_df <- portfolio_df%>% filter(!is.na(Kaufkurs))
+portfolio_df$real_time_dividend_local_currency <- NA
+portfolio_df$real_time_dividend_worth_EUR <- NA
+portfolio_df$Wertunterschied <- NA
+portfolio_df$real_time_price_local_currency <- NA
+portfolio_df$dividends_per_year <- NA
+
+#get transition course 
+# Define the currency pair
+start_date <- Sys.Date() - 1  # Get data for yesterday
+end_date <- Sys.Date()
+
+# Retrieve the exchange rate data
+getFX("EUR/USD", from = start_date, to = end_date)
+exchange_rate_data_today_EUR_USD <- as.vector(EURUSD$EUR.USD[1]) #EUR/USD
+getFX("EUR/CHF", from = start_date, to = end_date)
+exchange_rate_data_today_EUR_CHF <- as.vector(EURCHF$EUR.CHF[1]) #EUR/CHF
+getFX("EUR/GBP", from = start_date, to = end_date)
+exchange_rate_data_today_EUR_GBP <- as.vector(EURGBP$EUR.GBP[1]) #EUR/GBp
+getFX("EUR/AUD", from = start_date, to = end_date)
+exchange_rate_data_today_EUR_AUD <- as.vector(EURAUD$EUR.AUD[1]) #EUR/AUD
+getFX("EUR/CNY", from = start_date, to = end_date)
+exchange_rate_data_today_EUR_CNY <- as.vector(EURCNY$EUR.CNY[1]) #EUR/CNY
+getFX("EUR/HKD", from = start_date, to = end_date)
+exchange_rate_data_today_EUR_HKD <- as.vector(EURHKD$EUR.HKD[1]) #EUR/HKD
+getFX("EUR/SGD", from = start_date, to = end_date)
+exchange_rate_data_today_EUR_SGD <- as.vector(EURSGD$EUR.SGD[1]) #EUR/SGD
+getFX("EUR/NOK", from = start_date, to = end_date)
+exchange_rate_data_today_EUR_NOK <- as.vector(EURNOK$EUR.NOK[1]) #EUR/NOK
+
+#define again
+start_date <- 2018-01-01  # Get data for yesterday
+end_date <- Sys.Date()
+last_year <- year(end_date ) - 1 #get last year
+
+#loop
+for(i in 1:nrow(portfolio_df)) {
+   
+  if(is.na(portfolio_df$Yahoo_3_letter[i])) next
+  
+  x1 <- quantmod::getDividends(portfolio_df$Yahoo_3_letter[i], from = start_date, to = end_date)
+  x1 <- as.data.frame(x1)
+  x1$date <- rownames(x1)
+  x1 <- x1 %>%
+  group_by(year = lubridate::year(date)) %>%
+  mutate(year_entries = n())%>% 
+  ungroup()
+  
+  #calculate entries per year for dividend sum
+  entries_per_year <- x1 %>% filter(year == start_date)
+  entries_per_year <- entries_per_year$year_entries[1]
+    
+  x2 <- x1 %>% filter(year == last_year)
+
+  portfolio_df$real_time_dividend_local_currency[i] <- as.numeric(sum(x2[,1]))
+  portfolio_df$real_time_dividend_local_currency <- as.numeric(portfolio_df$real_time_dividend_local_currency)
+  
+  portfolio_df$dividends_per_year[i] <- as.numeric(entries_per_year)
+
+  
+  if(portfolio_df$currency[i] == "EUR") {portfolio_df$real_time_dividend_local_currency[i] <- portfolio_df$real_time_dividend_local_currency[i]}
+  if(portfolio_df$currency[i] == "USD") {portfolio_df$real_time_dividend_local_currency[i] <- portfolio_df$real_time_dividend_local_currency[i]/exchange_rate_data_today_EUR_USD} #USD
+  if(portfolio_df$currency[i] == "CHF") {portfolio_df$real_time_dividend_local_currency[i] <- portfolio_df$real_time_dividend_local_currency[i]/exchange_rate_data_today_EUR_CHF}
+  if(portfolio_df$currency[i] == "GBP") {portfolio_df$real_time_dividend_local_currency[i] <- portfolio_df$real_time_dividend_local_currency[i]/exchange_rate_data_today_EUR_GBP} 
+  if(portfolio_df$currency[i] == "CNY") {portfolio_df$real_time_dividend_local_currency[i] <- portfolio_df$real_time_dividend_local_currency[i]/exchange_rate_data_today_EUR_CNY} 
+  if(portfolio_df$currency[i] == "SGD") {portfolio_df$real_time_dividend_local_currency[i] <- portfolio_df$real_time_dividend_local_currency[i]/exchange_rate_data_today_EUR_SGD} 
+  if(portfolio_df$currency[i] == "AUD") {portfolio_df$real_time_dividend_local_currency[i] <- portfolio_df$real_time_dividend_local_currency[i]/exchange_rate_data_today_EUR_AUD} 
+  if(portfolio_df$currency[i] == "NOK") {portfolio_df$real_time_dividend_local_currency[i] <- portfolio_df$real_time_dividend_local_currency[i]/exchange_rate_data_today_EUR_NOK} 
+
+portfolio_df$real_time_dividend_local_currency <- as.numeric(portfolio_df$real_time_dividend_local_currency)
+  
+#corrections 
+portfolio_df$real_time_dividend_local_currency[39] <- portfolio_df$real_time_dividend_local_currency[39]/1000 # BP
+portfolio_df$real_time_dividend_local_currency[93] <- portfolio_df$real_time_dividend_local_currency[93]/100 # lenovo
+portfolio_df$real_time_dividend_local_currency[29] <- portfolio_df$real_time_dividend_local_currency[29]/100 # China Mobile
+
+
+#calculate Dividends sum
+portfolio_df$real_time_dividend_worth_EUR[i] <- as.numeric(portfolio_df$Stück[i])*portfolio_df$real_time_dividend_local_currency[i]
+
+
+}  #end loop
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+#| include: false
+
+x1 <- sum(portfolio_df$real_time_dividend_worth_EUR, na.rm = TRUE)
+x1 <- round(x1, digits = 0)
+portfolio_df$Anteil <- portfolio_df$real_time_dividend_worth_EUR/x1*100
+
+#plot
+pie_chart <- plot_ly(
+  data = portfolio_df,
+  labels = ~ifelse(`Anteil` > 1, Wertpapier, ""),
+  values = ~real_time_dividend_worth_EUR,
+  type = "pie",
+  marker = list(line = list(width = 0), textposition = "outside")) %>%  # Adjust textposition to "outside"
+  layout(
+  title = "Portfolio Distribution",
+  showlegend = FALSE)  # This removes the legend
+
+
+```
+
+
+In total, before taxes and origin tax, the portfolio generates `r  x1` EUR dividends. Here the distribution is visible:
+
+
+```{r}
+#| echo: false
+# Display the interactive 3D pie chart
+pie_chart
+
+```
+
+
+## All received dividends since the first purchase
+
+Here a quick barplot of all receveided dividends after taxes etc.:
+
+
+```{r}
+#| warning: false
+#| echo: false
+#| output: false
+#| include: false
+
+#get dividends
+#get data from the Google sheets 
+action_tracker_df <- read_excel("data/2023_08_NedPortfolio.xlsx", sheet ="Performance Action tracker" )
+
+colors <- scale_color_viridis_d(option = "magma")
+
+#add empty columns
+portfolio_df[ nrow(portfolio_df) + 1 , ] <- NA
+
+portfolio_df$Wertpapier[nrow(portfolio_df)] <- "Old Dividends"
+portfolio_df$Dividendesumme[nrow(portfolio_df)] <- sum(action_tracker_df$`davon Dividende`, na.rm = TRUE)
+
+portfolio_df <- portfolio_df %>%
+  arrange(desc(Dividendesumme))
+
+
+plot_div <- plot_ly(portfolio_df %>% arrange(desc(Dividendesumme)),
+                    x = ~Wertpapier, y = ~Dividendesumme, color = ~Wertpapier, type = "bar") %>%
+          layout(title = "Dividendensumme Histogram per Wertpapier",
+         xaxis = list(titlefont = list(size = 6),  tickfont = list(size = 6),  tickangle=90 ),
+         yaxis = list(title = "Dividendensumme (EUR)"),
+         showlegend= FALSE)
+
+
+x1 <- sum(portfolio_df$Dividendesumme)
+x1 <- round(x1, digits = 0)
+
+```
+
+```{r}
+#| echo: false
+#| warning: false
+# Display the interactive 3D bar chart
+plot_div
+
+```
+
+
+In total the portfolio received `r  x1` EUR in dividends.
+
+
+## Strategy
+
+The strategy is easy: Safe and sound.
+
+Generally, this portfolio has the purpose to add a signifcant amount of dividend income to the regular job income.
+
+
+```{r}
+#| echo: false
+#| warning: false
+# Display the interactive plot
+
+```
+
+
+## Market Events and Performance
+
+The performance of the S&P 500 is subject to various market events, including economic data releases, corporate earnings reports, geopolitical developments, and central bank decisions. Market fluctuations in the S&P 500 can have a cascading effect on other financial markets and impact investor confidence.
+
+## Long term predictions
+
+For this point, I want to demonstrate two scenarios:
+
+-1. scenario: weak outlook and an average growth of 3% while adding 10k per year
+
+-2. scenario: perfect wealth generation conditions with a growth of 10% while adding 10k per year
+
+Let's take a look at both:
+
+1.  scenario: growth 3% p.a., 10k additional investment from the job income
+
+2.  scenario: growth 10% p.a. + 10k additional investment from job income
+

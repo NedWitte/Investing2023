@@ -1,0 +1,131 @@
+---
+title: "Rexford Realty"
+description: "Southern Californio Industrial REIT"
+author: "JNW"
+date: "2024-06-27"
+image: rexford_realty.png
+---
+
+**Rexford Industrial**
+
+This company has a very strong focus: Southern California! And I like that very much. Working for pretty global company in the past, I noticed that being super specific in a niche can be very beneficial! This REIT mainly has property in the high demand area of California which high barrier sub-markets and obviously a region that is fulfilled with emerging tech and industrial industries.
+
+```{r}
+#| echo: false
+#| output: false
+#install.packages("dashCoreComponents")
+#install.packages("dashHtmlComponents")
+#install.packages("dash")
+library(tidyquant)
+library(lubridate)
+library(plotly)
+#dash
+#library(dashCoreComponents)
+#library(dashHtmlComponents)
+#library(dash)
+
+
+ticker_symbol <- "REXR"
+company <- "Rexford Industrials"
+y_column <- paste(ticker_symbol, ".Adjusted", sep = "")
+y_col_Open <- paste(ticker_symbol, ".Open", sep = "")
+y_col_High <- paste(ticker_symbol, ".High", sep = "")
+y_col_Low <- paste(ticker_symbol, ".Low", sep = "")
+y_col_Close <- paste(ticker_symbol, ".Close", sep = "")
+y_col_Volume <- paste(ticker_symbol, ".Volume", sep = "")
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+getSymbols(ticker_symbol ,src='yahoo')
+
+
+df1 <- data.frame(Date=index(get(ticker_symbol)),coredata(get(ticker_symbol)))
+
+
+fig1 <- df1 %>% plot_ly(x = ~Date, type = "candlestick",
+                       open = ~get(y_col_Open), close = ~get(y_col_Close),
+                       high = ~get(y_col_High), low = ~get(y_col_Low)) 
+
+fig1 <- fig1 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.2), inherit = FALSE)
+
+# Remove legends for both traces
+fig1 <- fig1 %>% layout(
+  title = paste0("Candlestick Chart since inception for ", company),
+  xaxis = list(rangeslider = list(visible = FALSE)),
+   yaxis = list(title = "Stock price in USD"),
+  showlegend = FALSE  # Hide legends for all traces
+)
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+df2 <- tail(df1, 365)
+
+fig2 <- df2 %>% plot_ly(x = ~Date, type = "candlestick",
+                       open = ~get(y_col_Open), close = ~get(y_col_Close),
+                       high = ~get(y_col_High), low = ~get(y_col_Low)) 
+
+fig2 <- fig2 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.2), inherit = FALSE)
+
+# Remove legends for both traces
+fig2 <- fig2 %>% layout(
+  title = paste0("Candlestick Chart since inception for ", company),
+  xaxis = list(rangeslider = list(visible = FALSE)),
+   yaxis = list(title = "Stock price in USD"),
+  showlegend = FALSE  # Hide legends for all traces
+)
+
+
+```
+
+# Stocks charts within a tab
+
+::: nav-pills
+::: panel-tabset
+## Chart since inception
+
+```{r}
+#| echo: false
+fig1
+```
+
+## Chart of the last year
+
+```{r}
+#| echo: false
+fig2
+```
+:::
+:::
+
+#Overview about the company:
+
+Here a screenshot from their past presentation:
+
+![Overview Investor presentation April 2024](REXR_1_overview.PNG)
+
+![5 year performance compared to peer group](REXR_2.PNG)
+
+![Repositioning](REXR_3.PNG)
+
+![Growth of SQM since IPO (nearly 10x)](REXR_4.PNG)
+
+What I find particularly interesting is the EPS growth. It goes from 0.36 to 1.12 USD in a 8 year time span:
+
+![Financials](REXR_5.PNG)
+
+
+#My bullcase for the stock
+
+Rexford has a quite conservative leverage and balance sheet. It is comparable to those from Prologis or Stag Industrial with a DEBT to EBITA of roughly 2000% (3year average).Despite that, it managed to grow a little bit faster than other REITs. According to S&P, Fitch or Moody's its Balance Sheet is in the BBB area. I do not necessary trust those Grades, but most likely they know better than me. Its growth should continue with more properties going to market. On top of that, REITs and especially industrial REITs are solar/energy companies now as well (REXR generating over 70k MWH annually). This should be another small tailwind in the upcoming AI energy transition phase. 
+
+
