@@ -109,11 +109,12 @@ fig2
 
 # Key take aways for me:
 
-1. Gross profit return: Autodesk managed to increase the gross profit from 1.5B to 5B over 15 years representing a 8% return per annum:
+1.  Gross profit return: Autodesk managed to increase the gross profit from 1.5B to 5B over 15 years representing a 8% return per annum:
 
 ![Gross profit of Autodesk since 2009](2024_gross_profit_autodesk.PNG)
 
-2. AI play: I think software like CAD will be able to implement AI tools very early on. This might make engineers and architects more productive and cost-efficient. The customer will pay for it. 
+2.  AI play: I think software like CAD will be able to implement AI tools very early on. This might make engineers and architects more productive and cost-efficient. The customer will pay for it.
 
 
+I bought this at around 197 Euros in May 2024.
 
