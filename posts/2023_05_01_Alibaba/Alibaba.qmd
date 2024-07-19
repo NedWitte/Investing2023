@@ -100,3 +100,13 @@ fig2
 ```
 :::
 :::
+
+## Updates on 28.06.2024:
+
+-Taobao and Tmall's 2024 6.18 Campaign Scores Brand, Loyalty Program Wins
+
+-Alibaba Cloud's Qwen2 with Enhanced Capabilities Tops LLM Leaderboard:
+
+-   Qwen 2 series outperformed other leading open-source models in 15 benchmarks
+
+-   29 languages, from Italian to Arabic, were included in training of Alibaba Cloud's Qwen2

@@ -1,0 +1,144 @@
+---
+title: "The catastrophic IT crash friday in summer"
+description: "Small recap of the 19.07.2024"
+author: "JNW"
+date: "2024-07-19"
+image: flav_2024_07_19.png
+---
+
+**The catastrophic IT crash friday in summer**
+
+First a quick 5 stock comparison graph:
+
+```{r}
+#| echo: false
+#| output: false
+#install.packages("dashCoreComponents")
+#install.packages("dashHtmlComponents")
+#install.packages("dash")
+library(tidyquant)
+library(lubridate)
+library(plotly)
+library(dplyr)
+library(tidyr)
+#dash
+#library(dashCoreComponents)
+#library(dashHtmlComponents)
+#library(dash)
+
+#1
+ticker_symbol_1 <- "AMZN"
+company_1 <- "Amazon"
+#2
+ticker_symbol_2 <- "JNJ"
+company_2 <- "Jhnson and Johnson"
+#3
+ticker_symbol_3 <- "BRKR"
+company_3 <- "Bruker"
+#4
+ticker_symbol_4 <- "O"
+company_4 <- "Realty Income"
+#5
+ticker_symbol_5 <- "NKE"
+company_5 <- "Nike"
+
+
+# Define a vector of ticker symbols
+ticker_symbols <- c(ticker_symbol_1, ticker_symbol_2, ticker_symbol_3, ticker_symbol_4, ticker_symbol_5)
+
+# Define the start and end dates for the data
+start_date <- "2020-01-01"
+end_date <- "2024-07-19"
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+# Download stock price data for the specified symbols and date range
+getSymbols(ticker_symbols, from = start_date, to = end_date)
+
+df1 <- data.frame(Date=index(get(ticker_symbol_1)),coredata(get(ticker_symbol_1)))
+df2 <- data.frame(Date=index(get(ticker_symbol_2)),coredata(get(ticker_symbol_2)))
+df3 <- data.frame(Date=index(get(ticker_symbol_3)),coredata(get(ticker_symbol_3)))
+df4 <- data.frame(Date=index(get(ticker_symbol_4)),coredata(get(ticker_symbol_4)))
+df5 <- data.frame(Date=index(get(ticker_symbol_5)),coredata(get(ticker_symbol_5)))
+
+merged_data <- left_join(df1, df2, by = "Date") %>%
+  left_join(., df3, by = "Date")%>%
+  left_join(., df4, by = "Date")%>%
+  left_join(., df5, by = "Date")
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+
+# Select the columns of interest (7, 13, and 19) and the Date column
+selected_data <- merged_data %>% select(Date, 7, 13, 19, 25, 31)
+
+# Calculate the relative values by dividing each column by its initial value
+selected_data_normalized <- selected_data %>%
+  mutate(across(-Date, ~ . / .[1])) 
+
+
+fig1 <- plot_ly(selected_data_normalized, x = ~Date) %>%
+  add_trace(y = ~AMZN.Adjusted, name = "Amazon", type = "scatter", mode = "lines") %>%
+  add_trace(y = ~JNJ.Adjusted, name = "Johnson and Johnson", type = "scatter", mode = "lines") %>%
+  add_trace(y = ~BRKR.Adjusted, name = "Bruker", type = "scatter", mode = "lines") %>%
+  add_trace(y = ~O.Adjusted, name = "Realty Income", type = "scatter", mode = "lines") %>%
+  add_trace(y = ~NKE.Adjusted, name = "NIKE", type = "scatter", mode = "lines") %>%
+  layout(
+    title = "Comparison of different pure pharma companies",
+    xaxis = list(title = "Date"),
+    yaxis = list(title = "Values")
+  )
+
+
+#create plot 2 
+selected_data <- tail(selected_data, 365)
+
+selected_data_normalized <- selected_data %>%
+  mutate(across(-Date, ~ . / .[1])) 
+
+
+fig2 <- plot_ly(selected_data_normalized, x = ~Date) %>%
+  add_trace(y = ~AMZN.Adjusted, name = "Amazon", type = "scatter", mode = "lines") %>%
+  add_trace(y = ~JNJ.Adjusted, name = "Johnson and Johnson", type = "scatter", mode = "lines") %>%
+  add_trace(y = ~BRKR.Adjusted, name = "Bruker", type = "scatter", mode = "lines") %>%
+  add_trace(y = ~O.Adjusted, name = "Realty Income", type = "scatter", mode = "lines") %>%
+  add_trace(y = ~NKE.Adjusted, name = "NIKE", type = "scatter", mode = "lines") %>%
+  layout(
+    title = "Comparison of different pure pharma companies",
+    xaxis = list(title = "Date"),
+    yaxis = list(title = "Values")
+  )
+
+```
+
+::: nav-pills
+::: panel-tabset
+## Chart since inception
+
+```{r}
+#| echo: false
+fig1
+```
+
+## Chart of the last year
+
+```{r}
+#| echo: false
+fig2
+```
+:::
+:::
+
+
+These charts as shown here show the stock perfomrance since 2020 until July 2024 (without dividends). The performance of Nike is just shocking. Also a life science company like Bruker could only increase roughly 20% over nearly 5 years. 
+
+Breaking news on 19th July: massive IT problems at Crowdstrike and Microsoft. 
