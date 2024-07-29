@@ -139,6 +139,6 @@ fig2
 :::
 
 
-These charts as shown here show the stock perfomrance since 2020 until July 2024 (without dividends). The performance of Nike is just shocking. Also a life science company like Bruker could only increase roughly 20% over nearly 5 years. 
+These charts as shown here show the stock performance since 2020 until July 2024 (without dividends). The performance of Nike is just shocking. Also a life science company like Bruker could only increase roughly 20% over nearly 5 years. 
 
 Breaking news on 19th July: massive IT problems at Crowdstrike and Microsoft. 
