@@ -37,13 +37,13 @@ library(readxl)
 
 #get dividends
 #get data from the Google sheets 
-portfolio_df <- read_excel("data/2023_08_NedPortfolio.xlsx")
-portfolio_df <- portfolio_df%>% filter(!is.na(Kaufkurs))
-portfolio_df$real_time_dividend_local_currency <- NA
-portfolio_df$real_time_dividend_worth_EUR <- NA
-portfolio_df$Wertunterschied <- NA
-portfolio_df$real_time_price_local_currency <- NA
-portfolio_df$dividends_per_year <- NA
+#portfolio_df <- read_excel("data/2023_08_NedPortfolio.xlsx")
+#portfolio_df <- portfolio_df%>% filter(!is.na(Kaufkurs))
+#portfolio_df$real_time_dividend_local_currency <- NA
+#portfolio_df$real_time_dividend_worth_EUR <- NA
+#portfolio_df$Wertunterschied <- NA
+#portfolio_df$real_time_price_local_currency <- NA
+#portfolio_df$dividends_per_year <- NA
 
 #get transition course 
 # Define the currency pair

@@ -38,12 +38,12 @@ library(reshape)
 
 #get dividends
 #get data from the Google sheets 
-portfolio_df <- read_excel("data/2023_08_NedPortfolio.xlsx")
-portfolio_df <- portfolio_df%>% filter(!is.na(Kaufkurs))
-portfolio_df$real_time_price_EUR <- NA
-portfolio_df$real_time_worth_EUR <- NA
-portfolio_df$Wertunterschied <- NA
-portfolio_df$real_time_price_local_currency <- NA
+#portfolio_df <- read_excel("data/2023_08_NedPortfolio.xlsx")
+#portfolio_df <- portfolio_df%>% filter(!is.na(Kaufkurs))
+#portfolio_df$real_time_price_EUR <- NA
+#portfolio_df$real_time_worth_EUR <- NA
+#portfolio_df$Wertunterschied <- NA
+#portfolio_df$real_time_price_local_currency <- NA
 
 #get transition course 
 # Define the currency pair
@@ -71,225 +71,35 @@ exchange_rate_data_today_EUR_NOK <- as.vector(EURNOK$EUR.NOK[1]) #EUR/NOK
 
 ```
 
-## Market Events and Performance
+## the portfolio of my top 15
 
-For this point, here we assume that all values were bought at the same time. Doing this plot, there is some difficulties aligning all the stock data since some downloaded data has many missing values.
+These 15 core companies should make 5% each, thus 75% in total:
 
-```{r}
-#| warning: false
-#| echo: false
-#| output: false
-#| include: false
-#| label: performance calculation
-
-#get transition course 
-# Define the currency pair
-
-df_portfolio_performance <- getSymbols("JNJ", src = "yahoo", from = "2018-01-01", to = end_date,auto.assign = FALSE)
-df_portfolio_performance <- as.data.frame(df_portfolio_performance)
-df_portfolio_performance$date <- rownames(df_portfolio_performance)
-df_portfolio_performance <- df_portfolio_performance %>% select(date)
-
-i <-1
-
-#loop
-for(i in 1:nrow(portfolio_df)) {
-   
-  if(is.na(portfolio_df$Yahoo_3_letter[i])) next
-  
-  x1 <- getSymbols(portfolio_df$Yahoo_3_letter[i], src = "yahoo",
-                   from = portfolio_df$Date_of_Purchase[i], to = end_date, auto.assign = FALSE)
-  
-  x1 <- as.data.frame(x1[,6])
-  x1$date <- rownames(x1)
-  x1$year <- lubridate::year(x1$date)
-  colnames(x1)[1] <- as.character(portfolio_df$Yahoo_3_letter[i])
-  
-  x1$real_time_price_local_currency <- x1[,1]
-  x2 <- portfolio_df$currency[i]
-  
-  if(x2 == "EUR") {x1[,1] <- x1[,1]}
-  if(x2 == "USD") {x1[,1]  <- x1[,1]/exchange_rate_data_today_EUR_USD}
-  if(x2 == "CHF") {x1[,1]  <- x1[,1]/exchange_rate_data_today_EUR_CHF}
-  if(x2 == "GBP") {x1[,1]  <- x1[,1]/exchange_rate_data_today_EUR_GBP} 
-  if(x2 == "CNY") {x1[,1]  <- x1[,1]/exchange_rate_data_today_EUR_CNY} 
-  if(x2 == "SGD") {x1[,1]  <- x1[,1]/exchange_rate_data_today_EUR_SGD} 
-  if(x2 == "AUD") {x1[,1]  <- x1[,1]/exchange_rate_data_today_EUR_AUD} 
-  if(x2 == "NOK") {x1[,1]  <- x1[,1]/exchange_rate_data_today_EUR_NOK} 
+-JNJ 
+-Alphabet
+-ThermoFisher
+-Samsung
+-Brookfield Corp
+-BASF
+-NVIDIA
+-Rexford Realty
+-MCD
+-Alibaba
+-Prosus
+-Texas Instruments
+-Bruker
+-Honeywell
+-open position
 
 
-
-x1[,1] <- as.numeric(portfolio_df$Stück[i])*x1[,1]
-
-if(i == 39) {x1[,1] <- x1[,1]/1000} # BP
-
-message(i)
-#combine with left_join
-df_portfolio_performance <- left_join(df_portfolio_performance, 
-                                      x1 %>% select(1:2), by= "date")
-  
-}
- 
-df_portfolio_performance$year <- lubridate::year(df_portfolio_performance$date)
-
-
-
-# If you want to add the sum as a new column to the selected DataFrame
-df_portfolio_performance$Total_Sum <- rowSums(df_portfolio_performance[2:(ncol(df_portfolio_performance)-2)], na.rm = TRUE)
-
-
-df_portfolio_performance$Total_Sum_entries <- rowSums(!is.na(df_portfolio_performance[2:(ncol(df_portfolio_performance)-2)]))
-
-
-```
-
-```{r}
-#| echo: false
-#| output: false
-#| include: false
-#| warning: false
-
-df_portfolio_performance$deleted <- NA
-#subset
-for (i in 1:(nrow(df_portfolio_performance)-1)) {
-
-if(df_portfolio_performance$Total_Sum_entries[i]>df_portfolio_performance$Total_Sum_entries[i+1])
-{ df_portfolio_performance$deleted[i+1] <- "yes"
-  df_portfolio_performance$deleted[i+2] <- "yes"}
-  
-  message(i)
-} #endloop
-
-df_portfolio_performance <- df_portfolio_performance %>% filter(is.na(deleted))
-
-# Create the smoothed line plot
-# Assuming df_portfolio_performance contains your data
-buying_phase_start <- as.Date("2018-01-01")
-buying_phase_end <- as.Date("2021-12-31")
-
-#plot code
-line_plot <- plot_ly(df_portfolio_performance, x = ~date, y = ~Total_Sum, type = 'scatter', mode = 'lines') %>%
-  config(displayModeBar = F) %>%
-  layout(dragmode = 'false') %>%
-  add_trace(
-    type = "scatter",
-    mode = "none",
-    fill = "toself",
-    x = c(buying_phase_start, buying_phase_end, buying_phase_end, buying_phase_start),
-    y = c(0, 0, max(df_portfolio_performance$Total_Sum), max(df_portfolio_performance$Total_Sum)),
-    fillcolor = "rgba(211,211,211,0.5)",
-    line = list(color = "transparent"),
-    text = "Buying phase") # Specify the hover label
+-Rest ETF consumer 10%
+-15% Asia ETF
 
 
 
 
 
-```
-
-```{r}
-#| echo: false
-#| warning: false
-# Display the interactive 3D pie chart
-line_plot
-
-```
-
-Calculating the performance is tough since the money invested changes from to month due to the additional savings etc.
-
-## Long term predictions
-
-For this point, I want to demonstrate two scenarios:
-
--1. scenario: weak outlook and an average growth of 3% while adding 10k per year
-
--2. scenario: perfect wealth generation conditions with a growth of 10% while adding 10k per year
-
--3. scenario: once 200k accumulation and 5% growth
-
-Let's take a look at both:
-
-```{r}
-#| echo: false
-#| output: false
-#| include: false
-
-# Create a vector of years from 1 to n (where n is the number of years you want to calculate)
-years <- 0:30  # You can adjust this to the number of years you want
-
-# Calculate the values for each year based on the growth rate and additional amount
-initial_amount <- 200000
-growth_rate_1 <- 0.03  # 3% expressed as a decimal
-growth_rate_2 <- 0.05  # 3% expressed as a decimal
-growth_rate_3 <- 0.10  # 3% expressed as a decimal
-
-additional_amount <- 10000
-
-# Calculate the values for each year
-values_1 <- initial_amount * (1 + growth_rate_1)^years + additional_amount * years
-values_2 <- initial_amount * (1 + growth_rate_2)^years + additional_amount * years
-values_3 <- initial_amount * (1 + growth_rate_3)^years + additional_amount * years
 
 
-# Create a dataframe
-growth_df <- data.frame(Year = years, Value_1 = values_1, 
-                        Value_2 = values_2, 
-                        Value_3 = values_3)
-
-# Create a line plot using Plotly
-plot <- plot_ly(growth_df, x = ~Year, type = 'scatter', mode = 'lines') %>%
-  add_trace(y = ~Value_1, name = 'Scenario 1', text = ~paste("Year: ", Year, "<br>Value: EUR", round(Value_1, 0))) %>%
-  add_trace(y = ~Value_2, name = 'Scenario 2', text = ~paste("Year: ", Year, "<br>Value: EUR", round(Value_2, 0))) %>%
-  add_trace(y = ~Value_3, name = 'Scenario 3', text = ~paste("Year: ", Year, "<br>Value: EUR", round(Value_3, 0))) %>%
-  layout(title = "Investment Growth Over Time with 3 different scenarios",
-         xaxis = list(title = "Year after Initial investment"),
-         yaxis = list(title = "Investment Value"))
 
 
-```
-
-```{r}
-#| output: true
-#| echo: false
-
-plot
-
-```
-
-Looking at this plot, I realized two things: First, an initial investment of 200k makes you a millionaire most likely over 30 years(with inflation adjustment most likely nothing special). And secondly, stock return and higher growth rate (green) outcompetes a lower performance and additional investments (orange line).
-
-## Additional thoughts
-
-The goal is not retire as fast as possible. Live without work is damn boring.
-
-## Portfolio as table
-
-```{r}
-#| echo: false
-#| output: false
-#| include: false
-
-#install.packages("gtExtras")
-#length(ls.str('package:gtExtras', mode='function'))
-library(gtExtras)
-library(tidyverse)
-library(gt)
-library(markdown)
-```
-
-```{r}
-#| echo: false
-#| output: true
-#| include: true
-#| warning: false
-
-
-portfolio_df %>%
-  select(Wertpapier, real_time_price_EUR, Kaufkurs, real_time_worth_EUR, Notiz) %>%
-  mutate_at(vars(real_time_price_EUR, Kaufkurs, real_time_worth_EUR), ~ round(., 2)) %>%
-  gt() %>%
-  tab_header(title = "Portfolio as Table", subtitle = "Price in EUR instead of USD") %>%
-  cols_label(Wertpapier = "Identifier", real_time_worth_EUR = "Value",  real_time_price_EUR = "Current Price", Kaufkurs = "Buying Price") 
-
-
-```

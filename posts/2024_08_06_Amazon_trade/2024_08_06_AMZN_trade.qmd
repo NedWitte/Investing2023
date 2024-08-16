@@ -1,0 +1,148 @@
+---
+title: "Amazon trade August 2024"
+description: "AMZN earnings and sell of due to the carry trade"
+author: "JNW"
+date: "2024-08-06"
+image: amazon_y2000.png
+---
+
+**Amazon trade in early August**
+
+Here the chart: You can clearly see the earnings release on 01.08.2024 (fig1):
+
+```{r}
+#| echo: false
+#| output: false
+#| label: load packages and define metrics
+#install.packages("dashCoreComponents")
+#install.packages("dashHtmlComponents")
+#install.packages("dash")
+library(tidyquant)
+library(lubridate)
+library(plotly)
+#dash
+#library(dashCoreComponents)
+#library(dashHtmlComponents)
+#library(dash)
+
+#define
+ticker_symbol <- "AMZN"
+company <- "Amazon"
+start_date <- lubridate::as_date("2024-07-01", "%Y-%m-%d") 
+end_date <- lubridate::as_date("2024-08-29", "%Y-%m-%d") 
+purchase_price <- 168
+exit_price <- 170.5
+
+
+
+y_column <- paste(ticker_symbol, ".Adjusted", sep = "")
+y_col_Open <- paste(ticker_symbol, ".Open", sep = "")
+y_col_High <- paste(ticker_symbol, ".High", sep = "")
+y_col_Low <- paste(ticker_symbol, ".Low", sep = "")
+y_col_Close <- paste(ticker_symbol, ".Close", sep = "")
+y_col_Volume <- paste(ticker_symbol, ".Volume", sep = "")
+
+
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+#| label: get data and make fig1 fig2
+
+# Get the stock data from Yahoo Finance
+getSymbols(ticker_symbol, src = "yahoo")
+
+
+df1 <- data.frame(Date=index(get(ticker_symbol)),coredata(get(ticker_symbol)))
+
+df1$Date <- lubridate::as_date(df1$Date, "%Y-%m-%d") 
+
+#filter by timeframe 
+df2 <- df1 %>%
+  filter(Date > start_date | Date > end_date)
+
+#make figure
+fig1 <- df2 %>% plot_ly(x = ~Date, type = "candlestick",
+                       open = ~get(y_col_Open), close = ~get(y_col_Close),
+                       high = ~get(y_col_High), low = ~get(y_col_Low)) 
+
+fig1 <- fig1 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.2), inherit = FALSE)
+
+#add purchase price
+fig1 <- fig1 %>%
+  add_lines(x = ~Date, y = purchase_price, line = list(color = 'black', width = 1), inherit = FALSE, name= "Purchase Price")
+#add exit price
+fig1 <- fig1 %>%
+  add_lines(x = ~Date, y = exit_price, line = list(color = 'blue', width = 1), inherit = FALSE,  name= "Exit Price")
+
+
+# Remove legends for both traces
+fig1 <- fig1 %>% layout(
+  title = paste0("Candlestick Chart timeframe for ", company),
+  xaxis = list(rangeslider = list(visible = FALSE)),
+   yaxis = list(title = "Stock price in USD"),
+  showlegend = FALSE  # Hide legends for all traces
+)
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+
+
+fig2 <- df1 %>% plot_ly(x = ~Date, type = "candlestick",
+                       open = ~get(y_col_Open), close = ~get(y_col_Close),
+                       high = ~get(y_col_High), low = ~get(y_col_Low)) 
+
+fig2 <- fig2 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.2), inherit = FALSE)
+
+# Remove legends for both traces
+fig2 <- fig2 %>% layout(
+  title = paste0("Candlestick Chart since data inception for ", company),
+  xaxis = list(rangeslider = list(visible = FALSE)),
+   yaxis = list(title = "Stock price in USD"),
+  showlegend = FALSE  # Hide legends for all traces
+)
+
+fig2 <- fig2 %>%
+  add_lines(x = ~Date, y = purchase_price, line = list(color = 'black', width = 1.5), inherit = FALSE)
+#add exit price
+fig2 <- fig2 %>%
+  add_lines(x = ~Date, y = exit_price, line = list(color = 'blue', width = 1.5), inherit = FALSE)
+
+
+
+```
+
+# Stocks charts within a tab
+
+::: nav-pills
+::: panel-tabset
+## Chart in the given timeframe
+
+```{r}
+#| echo: false
+fig1
+```
+
+## Chart since inception
+
+```{r}
+#| echo: false
+fig2
+```
+:::
+:::
+
+I bought on Friday, the 02.08.2024. But unfortunately way to early. Over the weekend, the market dropped a lot. Later known as the "Black Monday of August 2024". The following Tuesday, it stabilized a lot. But at least, I managed to buy only after the job reports on Friday leading the a better entrance price.
+
+On 13.08.2024, the PPI data (producer inflation) for USA came out less strong then expected, thus opening the door for the FED to cute in September. Unclear is by how much (0.25% or 0.5%). Personally, I think they might only hike by 0.25%. I sold my Amazon shares with slight profit on 13.08.2024 after a big day rally. It looked like that AMZN shares are not able to get significantly above 170 USD (I managed to sell exactly there) marking a strong resistance. Until that being resolved, AMZN might be in a trading range between 165 and 170 USD. 
+
+
+In total, I am planning to get in back at 165 USD. 

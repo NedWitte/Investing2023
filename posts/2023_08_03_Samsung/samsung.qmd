@@ -12,7 +12,20 @@ image-width: "2"
 
 **Samsung stock**
 
-Samsung makes the best phones.
+Samsung makes the good phones. But not only that, they are involved basically everywhere. 
+
+
+Officially they devide their businesses into: 
+
+1: DX division: Televisions, monitors, airconditioners, laundry machines etc. (roughly 65%)
+
+2: DS division: DRAM, NANDflash, etc. (30%)
+
+3: SDC: smartphones
+
+4: Haman: digital cockpits 
+
+5: Others: 
 
 ```{r}
 #| echo: false
@@ -71,7 +84,6 @@ plot3 <- plot_ly(data = df3, x = ~date, y = ~SMSN.IL.Adjusted, type = "scatter",
 ```
 
 ::: {layout="[[1,1], [1]]"}
-
 ```{r}
 #| label: Stock Price since inception
 #| echo: false
@@ -89,7 +101,4 @@ plot2
 #| label: Stock Price the last 1 years
 plot3
 ```
-
-
-
 :::

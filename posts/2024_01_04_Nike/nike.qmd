@@ -8,10 +8,7 @@ image: nike1.png
 
 **Nike Inc**
 
-"At Nike, our passion for sport, innovation, and authenticity drives us. It fuels us through 
-challenges and inspires us to emerge even stronger. In fiscal 2023, that passion fed our 
-successes and helped to power transformations in support of future growth—both in the 
-business and with respect to corporate governance." - Message from the Executive Chairman
+"At Nike, our passion for sport, innovation, and authenticity drives us. It fuels us through challenges and inspires us to emerge even stronger. In fiscal 2023, that passion fed our successes and helped to power transformations in support of future growth---both in the business and with respect to corporate governance." - Message from the Executive Chairman
 
 ```{r}
 #| echo: false

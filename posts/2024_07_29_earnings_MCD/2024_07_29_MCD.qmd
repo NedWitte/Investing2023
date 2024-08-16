@@ -18,7 +18,7 @@ According to the Release (https:[Hyperlink to Q2 Earnings](https://corporate.mcd
 
 This sounds very disappointing, but shares are trading 2% percent higher in the pre-market. Apparently, MCD tries to lure back consumers for higher dinner discounts.
 
-My thoughts: MCD will struggle a few more quarters before they are on a growing path again. I will try to buy the stock at lower levels around 220USD. Long-term no brainer.
+My thoughts: MCD will struggle a few more quarters before they are on a growing path again. I will try to buy the stock at lower levels around 220USD. Long-term no brainer? I am not sure anymore. I am pretty confident that MCD will always exits and make its profits, however GLP1-drugs (obesity drugs) might actually be big road-blocker. That might block growth until 2030 and rather earlier then later. 
 
 ```{r}
 #| echo: false
