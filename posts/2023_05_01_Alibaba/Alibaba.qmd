@@ -3,7 +3,9 @@ title: "Alibaba stock analysis"
 author: "JNW"
 date: "2023-05-01"
 description: "The Chinese Amazon"
-image: baba1.PNG
+image: baba1.png
+image-height: "2"
+image-width: "2"
 ---
 
 **Alibaba stock**
@@ -17,6 +19,10 @@ image: baba1.PNG
 library(tidyquant)
 library(lubridate)
 library(plotly)
+#dash
+#library(dashCoreComponents)
+#library(dashHtmlComponents)
+#library(dash)
 
 
 ticker_symbol <- "BABA"
@@ -100,25 +106,3 @@ fig2
 ```
 :::
 :::
-
-
-
-
-## Updates on 15.08.2024:
-
--June quarter results: 
-
-Revenue grew 4% y/y, Income from operations decreased of 15% y/y, Net income decreased 27% y/y, diluted earnings per ADS decreased ("only") by 5% y/y, Free cash flow (a non-GAAP measurement of liquidity) decreased by 56% compared to Q2 2023.
-
-
-## Updates on 28.06.2024:
-
--Taobao and Tmall's 2024 6.18 Campaign Scores Brand, Loyalty Program Wins
-
--Alibaba Cloud's Qwen2 with Enhanced Capabilities Tops LLM Leaderboard:
-
--Qwen 2 series outperformed other leading open-source models in 15 benchmarks
-
--29 languages, from Italian to Arabic, were included in training of Alibaba Cloud's Qwen2
-
-

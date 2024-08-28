@@ -1,16 +1,12 @@
 ---
-title: "Meta stock analysis"
+title: "NVIDIA"
+description: "The GPUs that will change the world?"
 author: "JNW"
-date: "2023-03-01"
-description: "Social media"
-image: meta1.png
-image-height: "2"
-image-width: "2"
+date: "2024-08-28"
+image: NVIDIA_flav1.png
 ---
 
-**Meta Platforms stock**
-
-This company owns not only Facebook, Instagram and WhatsApp. It is much more than that.
+**NVIDIA**
 
 ```{r}
 #| echo: false
@@ -27,8 +23,8 @@ library(plotly)
 #library(dash)
 
 
-ticker_symbol <- "META"
-company <- "Meta Platforms Inc"
+ticker_symbol <- "NVDA"
+company <- "NVIDIA"
 y_column <- paste(ticker_symbol, ".Adjusted", sep = "")
 y_col_Open <- paste(ticker_symbol, ".Open", sep = "")
 y_col_High <- paste(ticker_symbol, ".High", sep = "")
@@ -112,12 +108,12 @@ fig2
 
 # Earnings informations/comments:
 
-## Earnings from 31.07.2024
+## Earnings from 29.08.2024:
 
-Incredible! Revenue is up by 22% while costs and expenses are only 7%. This results in diluted earnings per share to 5.16 for Q2 2024, so FY EPS should be at least 20 USD. Given that growth of over 20%, this stock deserves a multiple of at least 30 (plus they overspend on CAPEX). Easy calculation: 20 USD \* 30 = 600 USD stock price. Right now we see a stock price of roughly 530 USD. There is some room until the rest of the year.
+29.08.2024:
 
 
-Here the chart picture in the given timeframe:
+28.08.2024: One of the most anticipated earnings of the year. Maybe the most important earnings of the last 5 years. It will show where AI will end up in a phase where people fear a soft landing or a recession. Last quarter, NVIDIA made 26B in revenue with a net income of nearly 15B. Growth is expected to slow that but the Street estimates 31-33B in revenue. Traders are positioned +/- 10% on the down or upsides. For most people its not smart to anticipate any earnings movement here. I personally will go into the earnings with earnings META. META might be the first beneficiary of AI and LLM. Zuckerberg has a great understanding of what AI can do in the short- and long term. My thoughts: There might not be such a strong movement as anticipated. Traders are already strongly positioned and willing to be the stock at lower levels. This signals to me that NOTHING will come with surprises on that Wednesday evening. Chances are more on the upside than downside and the market went down in advance (QQQ at 471.86 as of recording) opening door for a Thursday +3% rally. 
 
 ```{r}
 #| echo: false
@@ -135,12 +131,10 @@ library(plotly)
 #library(dash)
 
 #define
-ticker_symbol <- "META"
-company <- "Meta Platforms"
 start_date <- lubridate::as_date("2024-03-01", "%Y-%m-%d") 
 end_date <- lubridate::as_date("2024-10-29", "%Y-%m-%d") 
-purchase_price <- 527
-exit_price <- 600
+purchase_price <- 115
+exit_price <- 140
 
 
 
@@ -227,10 +221,13 @@ fig2 <- fig2 %>%
 
 ```
 
-
 ```{r}
 #| echo: false
 fig1
 ```
 
+## Earnings from 29.05.2024:
 
+Those earnings were incredible:
+
+[![Earnings from Q1 2025](NVIDIA_Q1_2025_earnings.PNG)](https://s201.q4cdn.com/141608511/files/doc_financials/2025/q1/NVDA-F1Q25-Quarterly-Presentation-FINAL.pdf)
