@@ -29,7 +29,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
+<link href="./favicon_main.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-listing/list.min.js"></script>
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -64,7 +64,7 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-sample-listings .list');
+    const listingTargetEl = window.document.querySelector('#listing-posts-listings .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
@@ -78,7 +78,35 @@ ul.task-list li input[type="checkbox"] {
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-sample-listings'] = new List('listing-sample-listings', options);
+    window['quarto-listings']['listing-posts-listings'] = new List('listing-posts-listings', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-market-listings .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-market-listings'] = new List('listing-market-listings', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -125,10 +153,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="./dividend.html" rel="" target="">
  <span class="menu-text">Dividend income</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./portfolio_shiny.html" rel="" target="">
- <span class="menu-text">Shiny App</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -178,7 +202,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#stock-analysis-listed-here" id="toc-stock-analysis-listed-here" class="nav-link active" data-scroll-target="#stock-analysis-listed-here">Stock analysis listed here:</a></li>
+  <li><a href="#stock-analysis-are-listed-here" id="toc-stock-analysis-are-listed-here" class="nav-link active" data-scroll-target="#stock-analysis-are-listed-here">Stock analysis are listed here:</a></li>
+  <li><a href="#general-market-analysis-are-listed-here" id="toc-general-market-analysis-are-listed-here" class="nav-link" data-scroll-target="#general-market-analysis-are-listed-here">General market analysis are listed here:</a></li>
   </ul>
 </nav>
     </div>
@@ -188,17 +213,45 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="stock-analysis-listed-here" class="level1">
-<h1>Stock analysis listed here:</h1>
-<div id="listing-sample-listings" class="quarto-listing quarto-listing-container-default">
+<section id="stock-analysis-are-listed-here" class="level1">
+<h1>Stock analysis are listed here:</h1>
+<div id="listing-posts-listings" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1724796000000" data-listing-file-modified-sort="1724857564323" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1727474400000" data-listing-file-modified-sort="1725444689840" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<div class="thumbnail">
+<p><a href="./posts/2024_09_04_Bruker/2024_Bruker.html"> <img src="./posts/2024_09_04_Bruker/flav_Bruker.png" class="thumbnail-image" style="height: 150px;"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/2024_09_04_Bruker/2024_Bruker.html">
+<h3 class="no-anchor listing-title" data-anchor-id="stock-analysis-are-listed-here">
+Bruker
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+<p>Material reserach, Life science and analytical instruments</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/2024_09_04_Bruker/2024_Bruker.html">
+<div class="listing-date">
+Sep 28, 2024
+</div>
+<div class="listing-author">
+JNW
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1724796000000" data-listing-file-modified-sort="1725435517876" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
 <div class="thumbnail">
 <p><a href="./posts/2024_08_28_NVIDIA/2024_08_NVIDIA.html"> <img src="./posts/2024_08_28_NVIDIA/NVIDIA_flav1.png" class="thumbnail-image" style="height: 150px;"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/2024_08_28_NVIDIA/2024_08_NVIDIA.html">
-<h3 class="no-anchor listing-title" data-anchor-id="stock-analysis-listed-here">
+<h3 class="no-anchor listing-title">
 NVIDIA
 </h3>
 <div class="listing-subtitle">
@@ -220,7 +273,7 @@ JNW
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1723672800000" data-listing-file-modified-sort="1723720266105" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1723672800000" data-listing-file-modified-sort="1723720266105" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
 <div class="thumbnail">
 <p><a href="./posts/2024_08_15_Walmart/2024_08_15_Walmart_earnings.html"> <img src="./posts/2024_08_15_Walmart/Walmart_flav.png" class="thumbnail-image" style="height: 150px;"> </a></p>
 </div>
@@ -248,7 +301,7 @@ JNW
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1722895200000" data-listing-file-modified-sort="1723617463696" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1722895200000" data-listing-file-modified-sort="1723617463696" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
 <div class="thumbnail">
 <p><a href="./posts/2024_08_06_Amazon_trade/2024_08_06_AMZN_trade.html"> <img src="./posts/2024_08_06_Amazon_trade/amazon_y2000.png" class="thumbnail-image" style="height: 150px;"> </a></p>
 </div>
@@ -276,7 +329,7 @@ JNW
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1722204000000" data-listing-file-modified-sort="1723619288364" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1722204000000" data-listing-file-modified-sort="1723619288364" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
 <div class="thumbnail">
 <p><a href="./posts/2024_07_29_earnings_MCD/2024_07_29_MCD.html"> <img src="./posts/2024_07_29_earnings_MCD/x2024_07_MCD.png" class="thumbnail-image" style="height: 150px;"> </a></p>
 </div>
@@ -304,7 +357,7 @@ JNW
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1721340000000" data-listing-file-modified-sort="1721396541761" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1721340000000" data-listing-file-modified-sort="1721396541761" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
 <div class="thumbnail">
 <p><a href="./posts/2024_07_19_thoughts_July/2024_07_19_thoughts.html"> <img src="./posts/2024_07_19_thoughts_July/flav_2024_07_19.png" class="thumbnail-image" style="height: 150px;"> </a></p>
 </div>
@@ -332,7 +385,7 @@ JNW
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1719439200000" data-listing-file-modified-sort="1719480299663" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="6" data-listing-date-sort="1719439200000" data-listing-file-modified-sort="1719480299663" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
 <div class="thumbnail">
 <p><a href="./posts/2024_06_27_Rexford_Realty/rexford_realty.html"> <img src="./posts/2024_06_27_Rexford_Realty/rexford_realty.png" class="thumbnail-image" style="height: 150px;"> </a></p>
 </div>
@@ -360,7 +413,7 @@ JNW
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-listing-date-sort="1717106400000" data-listing-file-modified-sort="1717159289230" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="7" data-listing-date-sort="1717106400000" data-listing-file-modified-sort="1717159289230" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
 <div class="thumbnail">
 <p><a href="./posts/2024_05_31_Veeva/veeva.html"> <img src="./posts/2024_05_31_Veeva/veeva_flavicon.png" class="thumbnail-image" style="height: 150px;"> </a></p>
 </div>
@@ -388,7 +441,7 @@ JNW
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-listing-date-sort="1716501600000" data-listing-file-modified-sort="1721395194181" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="8" data-listing-date-sort="1716501600000" data-listing-file-modified-sort="1721395194181" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
 <div class="thumbnail">
 <p><a href="./posts/2024_05_23_Autodesk/autodesk.html"> <img src="./posts/2024_05_23_Autodesk/autodesk_flavicon.png" class="thumbnail-image" style="height: 150px;"> </a></p>
 </div>
@@ -416,7 +469,7 @@ JNW
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-listing-date-sort="1714687200000" data-listing-file-modified-sort="1724231338269" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="9" data-listing-date-sort="1714687200000" data-listing-file-modified-sort="1724231338269" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
 <div class="thumbnail">
 <p><a href="./posts/2024_05_03_Honeywell/honeywell.html"> <img src="./posts/2024_05_03_Honeywell/honeywell_flavicon.png" class="thumbnail-image" style="height: 150px;"> </a></p>
 </div>
@@ -444,7 +497,7 @@ JNW
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-listing-date-sort="1714341600000" data-listing-file-modified-sort="1714388140961" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<div class="quarto-post image-right" data-index="10" data-listing-date-sort="1714341600000" data-listing-file-modified-sort="1714388140961" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
 <div class="thumbnail">
 <p><a href="./posts/2024_04_29_AMZN_earnings_Apple_Earnings_forecast/2024_04_earnings.html"> <img src="./posts/2024_04_29_AMZN_earnings_Apple_Earnings_forecast/favicon_bigtech.png" class="thumbnail-image" style="height: 150px;"> </a></p>
 </div>
@@ -472,7 +525,7 @@ JNW
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-listing-date-sort="1705014000000" data-listing-file-modified-sort="1705071459913" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="11" data-listing-date-sort="1705014000000" data-listing-file-modified-sort="1705071459913" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
 <div class="thumbnail">
 <p><a href="./posts/2024_01_12_Hermes_LVHM_Kering/luxury_goods_race.html"> <img src="./posts/2024_01_12_Hermes_LVHM_Kering/luxury_fav1.png" class="thumbnail-image" style="height: 150px;"> </a></p>
 </div>
@@ -500,7 +553,7 @@ JNW
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-listing-date-sort="1704322800000" data-listing-file-modified-sort="1722502798745" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="12" data-listing-date-sort="1704322800000" data-listing-file-modified-sort="1722502798745" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
 <div class="thumbnail">
 <p><a href="./posts/2024_01_04_Nike/nike.html"> <img src="./posts/2024_01_04_Nike/nike1.png" class="thumbnail-image" style="height: 150px;"> </a></p>
 </div>
@@ -528,7 +581,7 @@ JNW
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-listing-date-sort="1699830000000" data-listing-file-modified-sort="1699869145941" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="13" data-listing-date-sort="1699830000000" data-listing-file-modified-sort="1699869145941" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
 <div class="thumbnail">
 <p><a href="./posts/2023_11_13_Johnson_and_Johnson/jnj.html"> <img src="./posts/2023_11_13_Johnson_and_Johnson/jnj1.png" class="thumbnail-image" style="height: 150px;"> </a></p>
 </div>
@@ -556,7 +609,7 @@ JNW
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-listing-date-sort="1699225200000" data-listing-file-modified-sort="1699284722841" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="14" data-listing-date-sort="1699225200000" data-listing-file-modified-sort="1699284722841" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
 <div class="thumbnail">
 <p><a href="./posts/2023_11_06_Biontech/biontech.html"> <img src="./posts/2023_11_06_Biontech/biontech_logo1.png" class="thumbnail-image" style="height: 150px;"> </a></p>
 </div>
@@ -584,7 +637,7 @@ JNW
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="14" data-listing-date-sort="1698012000000" data-listing-file-modified-sort="1699284414043" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="15" data-listing-date-sort="1698012000000" data-listing-file-modified-sort="1699284414043" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
 <div class="thumbnail">
 <p><a href="./posts/2023_10_23_Pharma_Race/pharma_race.html"> <img src="./posts/2023_10_23_Pharma_Race/pharma_race_head1.png" class="thumbnail-image" style="height: 150px;"> </a></p>
 </div>
@@ -612,7 +665,7 @@ JNW
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="15" data-listing-date-sort="1695420000000" data-listing-file-modified-sort="1724309559540" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="16" data-listing-date-sort="1695420000000" data-listing-file-modified-sort="1724309559540" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
 <div class="thumbnail">
 <p><a href="./posts/2023_09_23_Abbott/Abbott.html"> <img src="./posts/2023_09_23_Abbott/abbott1.png" class="thumbnail-image" style="height: 150px;"> </a></p>
 </div>
@@ -640,7 +693,7 @@ JNW
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="16" data-listing-date-sort="1695333600000" data-listing-file-modified-sort="1695377427819" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="17" data-listing-date-sort="1695333600000" data-listing-file-modified-sort="1695377427819" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
 <div class="thumbnail">
 <p><a href="./posts/2023_09_22_Target/target_supermarket.html"> <img src="./posts/2023_09_22_Target/target1.png" class="thumbnail-image" style="height: 150px;"> </a></p>
 </div>
@@ -668,7 +721,7 @@ JNW
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="17" data-listing-date-sort="1695247200000" data-listing-file-modified-sort="1695368000610" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="18" data-listing-date-sort="1695247200000" data-listing-file-modified-sort="1695368000610" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
 <div class="thumbnail">
 <p><a href="./posts/2023_09_21_Snowflake/snowflake.html"> <img src="./posts/2023_09_21_Snowflake/snowflake1.png" class="thumbnail-image" style="height: 150px;"> </a></p>
 </div>
@@ -696,7 +749,7 @@ JNW
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="18" data-listing-date-sort="1694037600000" data-listing-file-modified-sort="1699868824968" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="19" data-listing-date-sort="1694037600000" data-listing-file-modified-sort="1725434912849" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
 <div class="thumbnail">
 <p><a href="./posts/2023_09_08_TXN_Texas_instruments/txn.html"> <img src="./posts/2023_09_08_TXN_Texas_instruments/texas_instruments1.png" class="thumbnail-image" style="height: 150px;"> </a></p>
 </div>
@@ -724,7 +777,7 @@ JNW
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="19" data-listing-date-sort="1691100000000" data-listing-file-modified-sort="1699285214910" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="20" data-listing-date-sort="1691100000000" data-listing-file-modified-sort="1699285214910" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
 <div class="thumbnail">
 <p><a href="./posts/2023_08_04_Realty_Income/realty_income.html"> <img src="./posts/2023_08_04_Realty_Income/Realtyincome_sign.png" class="thumbnail-image" style="height: 150px;"> </a></p>
 </div>
@@ -752,7 +805,7 @@ JNW
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="20" data-listing-date-sort="1691013600000" data-listing-file-modified-sort="1723640421715" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="21" data-listing-date-sort="1691013600000" data-listing-file-modified-sort="1723640421715" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
 <div class="thumbnail">
 <p><a href="./posts/2023_08_03_Samsung/samsung.html"> <img src="./posts/2023_08_03_Samsung/samsung_sign.png" class="thumbnail-image" style="height: 150px;"> </a></p>
 </div>
@@ -780,7 +833,7 @@ JNW
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="21" data-listing-date-sort="1690927200000" data-listing-file-modified-sort="1695712174389" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="22" data-listing-date-sort="1690927200000" data-listing-file-modified-sort="1695712174389" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
 <div class="thumbnail">
 <p><a href="./posts/2023_07_01_Apple/apple.html"> <img src="./posts/2023_07_01_Apple/apple1.png" class="thumbnail-image" style="height: 150px;"> </a></p>
 </div>
@@ -808,7 +861,7 @@ JNW
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="22" data-listing-date-sort="1685570400000" data-listing-file-modified-sort="1698942099859" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="23" data-listing-date-sort="1685570400000" data-listing-file-modified-sort="1725435611590" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
 <div class="thumbnail">
 <p><a href="./posts/2023_06_01_Alphabet/alphabet.html"> <img src="./posts/2023_06_01_Alphabet/google1.png" class="thumbnail-image" style="height: 150px;"> </a></p>
 </div>
@@ -836,7 +889,7 @@ JNW
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="23" data-listing-date-sort="1682892000000" data-listing-file-modified-sort="1724231374942" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="24" data-listing-date-sort="1682892000000" data-listing-file-modified-sort="1724231374942" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
 <div class="thumbnail">
 <p><a href="./posts/2023_05_01_Alibaba/Alibaba.html"> <img src="./posts/2023_05_01_Alibaba/baba1.png" class="thumbnail-image" style="height: 150px;"> </a></p>
 </div>
@@ -864,9 +917,9 @@ JNW
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="24" data-listing-date-sort="1680300000000" data-listing-file-modified-sort="1724312632139" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
+<div class="quarto-post image-right" data-index="25" data-listing-date-sort="1680300000000" data-listing-file-modified-sort="1724312632139" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
 <div class="thumbnail">
-<p><a href="./posts/2023_04_01_Tesla/Tesla.html"> <img src="./posts/2023_04_01_Tesla/tesla1.png" class="thumbnail-image" style="height: 150px;"> </a></p>
+<p><a href="./posts/2023_04_01_Tesla/Tesla.html"> <img data-src="./posts/2023_04_01_Tesla/tesla1.png" class="thumbnail-image" style="height: 150px;"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/2023_04_01_Tesla/Tesla.html">
@@ -892,7 +945,7 @@ JNW
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="25" data-listing-date-sort="1677625200000" data-listing-file-modified-sort="1724244354586" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<div class="quarto-post image-right" data-index="26" data-listing-date-sort="1677625200000" data-listing-file-modified-sort="1725259606077" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
 <div class="thumbnail">
 <p><a href="./posts/2023_03_01_Meta/meta.html"> <img data-src="./posts/2023_03_01_Meta/meta1.png" class="thumbnail-image" style="height: 150px;"> </a></p>
 </div>
@@ -924,11 +977,49 @@ JNW
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-<nav id="sample-listings-pagination" class="listing-pagination" aria-label="Page Navigation">
+<nav id="posts-listings-pagination" class="listing-pagination" aria-label="Page Navigation">
   <ul class="pagination"></ul>
 </nav>
 </div>
-<p>Go to the other tabs for more content.</p>
+<p>Go to the next page for more entries:</p>
+</section>
+<section id="general-market-analysis-are-listed-here" class="level1">
+<h1>General market analysis are listed here:</h1>
+<div id="listing-market-listings" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1725400800000" data-listing-file-modified-sort="1725452275582" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="./market/2024_09_04_market/2024_09_market_comments.html"> <img src="./market/2024_09_04_market/2024_09_QQQ.png" class="thumbnail-image" style="height: 150px;"> </a></p>
+</div>
+<div class="body">
+<a href="./market/2024_09_04_market/2024_09_market_comments.html">
+<h3 class="no-anchor listing-title" data-anchor-id="general-market-analysis-are-listed-here">
+2024 September
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+<p>Semiconductor sell-off and technology sell off?</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./market/2024_09_04_market/2024_09_market_comments.html">
+<div class="listing-date">
+Sep 4, 2024
+</div>
+<div class="listing-author">
+JNW
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
 
 
 

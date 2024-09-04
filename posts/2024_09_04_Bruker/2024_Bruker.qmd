@@ -1,16 +1,14 @@
 ---
-title: "Meta stock analysis"
+title: "Bruker"
+description: "Material reserach, Life science and analytical instruments"
 author: "JNW"
-date: "2023-03-01"
-description: "Social media"
-image: meta1.png
-image-height: "2"
-image-width: "2"
+date: "2024-09-28"
+image: flav_Bruker.png
 ---
 
-**Meta Platforms stock**
+**Bruker Corp**
 
-This company owns not only Facebook, Instagram and WhatsApp. It is much more than that.
+Bruker is a research and scientific company that groups their earnings into BSI BioSpin, BSI CALID and BSI Nano segments. It commints itself to spend 10% of their revenue into R&D. Their main customers are Academic&goverments, Industrial & Greentech, Biopharma, Microbiology, Semi-Metrology and Applied/Food. FOr me they are clearly a market leading in NMR and EPR spectroscopy, Preclinical imaging, Biotypers, NIR, X-ray and Atomic Force Microscopy (AFM).
 
 ```{r}
 #| echo: false
@@ -27,8 +25,8 @@ library(plotly)
 #library(dash)
 
 
-ticker_symbol <- "META"
-company <- "Meta Platforms Inc"
+ticker_symbol <- "BRKR"
+company <- "Bruker Corp"
 y_column <- paste(ticker_symbol, ".Adjusted", sep = "")
 y_col_Open <- paste(ticker_symbol, ".Open", sep = "")
 y_col_High <- paste(ticker_symbol, ".High", sep = "")
@@ -112,11 +110,11 @@ fig2
 
 # Earnings informations/comments:
 
-## Earnings from 31.07.2024
+## Earnings from 06.08.2024 Q2 2024:
 
-Incredible! Revenue is up by 22% while costs and expenses are only 7%. This results in diluted earnings per share to 5.16 for Q2 2024, so FY EPS should be at least 20 USD. Given that growth of over 20%, this stock deserves a multiple of at least 30 (plus they overspend on CAPEX). Easy calculation: 20 USD \* 30 = 600 USD stock price. Right now we see a stock price of roughly 530 USD. There is some room until the rest of the year.
+The quarter Q2 2024 showed strong organic and CER revenue growth. Revenue increased to 800M from 682 M (17.4%). Full Year EPS should be around 2.80 USD and based on FY growth the stock should deserve a PE of 20. Fair price should be only around 56 USD whereas the stock trades at around 60 USD. 
 
-Here the chart picture in the given timeframe:
+
 
 ```{r}
 #| echo: false
@@ -134,12 +132,10 @@ library(plotly)
 #library(dash)
 
 #define
-ticker_symbol <- "META"
-company <- "Meta Platforms"
-start_date <- lubridate::as_date("2024-03-01", "%Y-%m-%d") 
-end_date <- lubridate::as_date("2024-10-29", "%Y-%m-%d") 
-purchase_price <- 527
-exit_price <- 600
+start_date <- lubridate::as_date("2023-03-01", "%Y-%m-%d") 
+end_date <- lubridate::as_date("2024-12-31", "%Y-%m-%d") 
+purchase_price <- 44
+exit_price <- 60
 
 
 
@@ -230,3 +226,5 @@ fig2 <- fig2 %>%
 #| echo: false
 fig1
 ```
+
+

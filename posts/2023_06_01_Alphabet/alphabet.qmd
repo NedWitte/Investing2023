@@ -13,39 +13,26 @@ image-width: "2"
 ```{r}
 #| echo: false
 #| output: false
+#install.packages("dashCoreComponents")
+#install.packages("dashHtmlComponents")
+#install.packages("dash")
 library(tidyquant)
 library(lubridate)
 library(plotly)
-library(reticulate)
-
-#py_install("finplot")
-#py_install("openpyxl")
+#dash
+#library(dashCoreComponents)
+#library(dashHtmlComponents)
+#library(dash)
 
 
 ticker_symbol <- "GOOGL"
-company <- "Alphabet"
+company <- "Alphabet A Shares"
 y_column <- paste(ticker_symbol, ".Adjusted", sep = "")
-
-
-```
-
-```{r}
-#| echo: false
-#| output: false
-end_date <- Sys.Date()
-
-# Calculate start_date as end_date minus 10 years
-start_date <- end_date %m-% years(100)
-
-getSymbols(ticker_symbol, from = start_date,
-           to = end_date,warnings = FALSE,
-           auto.assign = TRUE)
-
-
-# Convert the data to a data frame
-df1 <- as.data.frame(get(ticker_symbol))
-df1$date <- rownames(df1)
-df2 <- df1 %>% filter(date > end_date %m-% years(5))
+y_col_Open <- paste(ticker_symbol, ".Open", sep = "")
+y_col_High <- paste(ticker_symbol, ".High", sep = "")
+y_col_Low <- paste(ticker_symbol, ".Low", sep = "")
+y_col_Close <- paste(ticker_symbol, ".Close", sep = "")
+y_col_Volume <- paste(ticker_symbol, ".Volume", sep = "")
 
 
 ```
@@ -54,40 +41,188 @@ df2 <- df1 %>% filter(date > end_date %m-% years(5))
 #| echo: false
 #| output: false
 
+getSymbols(ticker_symbol ,src='yahoo')
 
-plot1 <- plot_ly(data = df1, x = ~date, y = ~get(y_column), type = "scatter", mode = "lines", name = paste(company,                   "stock")) %>%
-         layout(title = paste("Since Inception: Stock Price for", company, "(", ticker_symbol, ")"),
-         xaxis = list(title = "Date", nticks = 5),
-         yaxis = list(title = "Price"))
-
-plot2 <- plot_ly(data = df2, x = ~date, y = ~get(y_column), type = "scatter", mode = "lines", name = paste(company,                 "stock")) %>%
-         layout(title = paste("the last 5 years: Stock Price for", company, "(", ticker_symbol, ")"),
-         xaxis = list(title = "Date", nticks = 5),
-         yaxis = list(title = "Price"))
+df1 <- data.frame(Date=index(get(ticker_symbol )),coredata(get(ticker_symbol)))
 
 
+fig1 <- df1 %>% plot_ly(x = ~Date, type = "candlestick",
+                       open = ~get(y_col_Open), close = ~get(y_col_Close),
+                       high = ~get(y_col_High), low = ~get(y_col_Low)) 
 
-```
+fig1 <- fig1 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.2), inherit = FALSE)
 
-```{r}
-#| layout-ncol: 2
-#| label: Stock Price since inception
-#| echo: false
-plot1
-plot2
+# Remove legends for both traces
+fig1 <- fig1 %>% layout(
+  title = "Candlestick Chart since inception",
+  xaxis = list(rangeslider = list(visible = FALSE)),
+   yaxis = list(title = "Stock price in USD"),
+  showlegend = FALSE  # Hide legends for all traces
+)
+
+
+
 
 ```
 
 ```{r}
 #| echo: false
 #| output: false
-#| include: false
-library(Quandl)
-quandl_api_key("JsgWMGX7fdWWvHhZPSpf")
 
-#df1 = Quandl("GOOGL",type = "raw")
+df2 <- tail(df1, 365)
+
+fig2 <- df2 %>% plot_ly(x = ~Date, type = "candlestick",
+                       open = ~get(y_col_Open), close = ~get(y_col_Close),
+                       high = ~get(y_col_High), low = ~get(y_col_Low)) 
+
+fig2 <- fig2 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.2), inherit = FALSE)
+
+# Remove legends for both traces
+fig2 <- fig2 %>% layout(
+  title = "Candlestick Chart since inception",
+  xaxis = list(rangeslider = list(visible = FALSE)),
+   yaxis = list(title = "Stock price in USD"),
+  showlegend = FALSE  # Hide legends for all traces
+)
+
+
+```
+
+# Stocks charts within a tab
+
+::: nav-pills
+::: panel-tabset
+## Chart since inception
+
+```{r}
+#| echo: false
+fig1
+```
+
+## Chart of the last year
+
+```{r}
+#| echo: false
+fig2
+```
+:::
+:::
+
+# Earnings informations/comments:
+
+## Earnings from 23.07.2024:
+
+Revenue of 84.74B and Net income of 23.62B. That sounds like an awesome Net profit margin of nearly 28%. They will end up with over >110B Net Income most likely. Based on their earnings growth, they deserve a multiple of at least 20 P/E. That makes a market cap of 2.2T + 100B cash they have laying around in their Balance sheet (in total 2.3 trillion then). As of 04.09.2024, their market cap is around 2T making it a fair buy already as of today. I will continue to add here and I am expection in to maybe hit 3T already next year. They have nice AI opportunities in Self-driving cars and Life science as well as their core business of advertisment. Youtube is a totally underrated platform (its basically Netflix or Youtube as entertainment for me). 
+
+From a technical chart perspective, I am trying to add around the 5th of August lows at 154 USD:
+
+```{r}
+#| echo: false
+#| output: false
+#| label: load packages and define metrics
+#install.packages("dashCoreComponents")
+#install.packages("dashHtmlComponents")
+#install.packages("dash")
+library(tidyquant)
+library(lubridate)
+library(plotly)
+#dash
+#library(dashCoreComponents)
+#library(dashHtmlComponents)
+#library(dash)
+
+#define
+start_date <- lubridate::as_date("2024-03-01", "%Y-%m-%d") 
+end_date <- lubridate::as_date("2026-10-29", "%Y-%m-%d") 
+purchase_price <- 154
+exit_price <- 250
+
+
+y_column <- paste(ticker_symbol, ".Adjusted", sep = "")
+y_col_Open <- paste(ticker_symbol, ".Open", sep = "")
+y_col_High <- paste(ticker_symbol, ".High", sep = "")
+y_col_Low <- paste(ticker_symbol, ".Low", sep = "")
+y_col_Close <- paste(ticker_symbol, ".Close", sep = "")
+y_col_Volume <- paste(ticker_symbol, ".Volume", sep = "")
 
 
 
 
 ```
+
+```{r}
+#| echo: false
+#| output: false
+#| label: get data and make fig1 fig2
+
+# Get the stock data from Yahoo Finance
+getSymbols(ticker_symbol, src = "yahoo")
+
+
+df1 <- data.frame(Date=index(get(ticker_symbol)),coredata(get(ticker_symbol)))
+
+df1$Date <- lubridate::as_date(df1$Date, "%Y-%m-%d") 
+
+#filter by timeframe 
+df2 <- df1 %>%
+  filter(Date > start_date | Date > end_date)
+
+#make figure
+fig1 <- df2 %>% plot_ly(x = ~Date, type = "candlestick",
+                       open = ~get(y_col_Open), close = ~get(y_col_Close),
+                       high = ~get(y_col_High), low = ~get(y_col_Low)) 
+
+#add purchase price
+fig1 <- fig1 %>%
+  add_lines(x = ~Date, y = purchase_price, line = list(color = 'black', width = 1), inherit = FALSE, name= "Purchase Price")
+#add exit price
+fig1 <- fig1 %>%
+  add_lines(x = ~Date, y = exit_price, line = list(color = 'blue', width = 1), inherit = FALSE,  name= "Exit Price")
+
+
+# Remove legends for both traces
+fig1 <- fig1 %>% layout(
+  title = paste0("Candlestick Chart timeframe for ", company),
+  xaxis = list(rangeslider = list(visible = FALSE)),
+   yaxis = list(title = "Stock price in USD"),
+  showlegend = FALSE  # Hide legends for all traces
+)
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+
+
+fig2 <- df1 %>% plot_ly(x = ~Date, type = "candlestick",
+                       open = ~get(y_col_Open), close = ~get(y_col_Close),
+                       high = ~get(y_col_High), low = ~get(y_col_Low)) 
+
+fig2 <- fig2 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.2), inherit = FALSE)
+
+# Remove legends for both traces
+fig2 <- fig2 %>% layout(
+  title = paste0("Candlestick Chart since data inception for ", company),
+  xaxis = list(rangeslider = list(visible = FALSE)),
+   yaxis = list(title = "Stock price in USD"),
+  showlegend = FALSE  # Hide legends for all traces
+)
+
+fig2 <- fig2 %>%
+  add_lines(x = ~Date, y = purchase_price, line = list(color = 'black', width = 1.5), inherit = FALSE)
+#add exit price
+fig2 <- fig2 %>%
+  add_lines(x = ~Date, y = exit_price, line = list(color = 'blue', width = 1.5), inherit = FALSE)
+
+
+
+```
+
+```{r}
+#| echo: false
+fig1
+```
+

@@ -4,7 +4,8 @@
       "general"
     ],
     "index.qmd": [
-      "posts"
+      "posts",
+      "market"
     ]
   }
 }

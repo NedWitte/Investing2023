@@ -11,9 +11,12 @@ about:
       href: https://github.com
 ---
 
-This is my little side project in order to learn some more coding. I also like to write down some thoughts here that I am going to review in the past. 
+This is my little side project in order to learn some more coding. I also like to write down some thoughts here that I am going to review in the past.
 
-This website is created with Quarto, which is a great tool to make data public as well as combing R, Python and html code.
+This website is created with Quarto, which is a great tool to make data public as well as combing R, Python and html code (Learn more about Quarto [here](https://www.quarto.com).)
 
+Its me newest passion to follow financials news, watch Bloomberg and trying to understand the psychology of financial markets. After years, I figured out how portfolio managers are managing. Since I am a retail investor, I figured partly out when to shine and when to be greedy. In simple terms: "Be greedy when there is blood on the streets". But this is easier said then done. I am pretty much already happy, when I make 60% of my choice correct.
 
-Learn more about Quarto [here](https://www.quarto.com).
+Here a photo from a sunrise from the financial hub of the world:
+
+![Sunrise NY on 04.09.2024](images/NY1_sunrise.PNG){fig-alt="Sunrise NY on 04.09.2024"}

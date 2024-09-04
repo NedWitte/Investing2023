@@ -89,8 +89,7 @@ fig2 <- fig2 %>% layout(
 # Stocks charts within a tab
 
 ::: nav-pills
-::: panel-tabset 
-
+::: panel-tabset
 ## Chart since inception
 
 ```{r}
@@ -106,5 +105,3 @@ fig2
 ```
 :::
 :::
-
-

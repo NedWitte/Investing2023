@@ -7,8 +7,8 @@ website:
   search: 
     location: navbar
     type: overlay
-  description: "Personal investing blog "
-  favicon: favicon.png
+  description: "Personal blog as test script"
+  favicon: favicon_main.png
   navbar:
     left:
       - text: Stock analysis
@@ -19,8 +19,6 @@ website:
         href: portfolio.qmd
       - text: Dividend income
         href: dividend.qmd
-      - text: Shiny App
-        href: portfolio_shiny.qmd
       
     right: 
       - about/about.qmd

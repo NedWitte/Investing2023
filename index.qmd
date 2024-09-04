@@ -3,22 +3,40 @@ title: "Karambolage_Investing"
 format: 
  html: default
 listing:
-  id: sample-listings
-  contents: posts
-  sort: "date desc"
-  type: default
-  categories: false
-  sort-ui: false
-  filter-ui: false
-  image-height: 150px
-  image-placeholder: "favicon.png"
+  - id: posts-listings
+    contents: posts
+    sort: "date desc"
+    type: default
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    image-height: 150px
+    image-placeholder: "favicon_main.png"
+  - id: market-listings
+    contents: market
+    sort: "date desc"
+    type: default
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    image-height: 150px
+    image-placeholder: "favicon_main.png"
 page-layout: full
 title-block-banner: true
+
 ---
 
-# Stock analysis listed here:
+# Stock analysis are listed here:
 
-::: {#sample-listings}
+::: {#posts-listings}
 :::
 
-Go to the other tabs for more content.
+Go to the next page for more entries:
+
+
+# General market analysis are listed here:
+
+::: {#market-listings}
+:::
+
+

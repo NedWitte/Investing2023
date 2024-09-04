@@ -110,10 +110,11 @@ fig2
 
 ## Earnings from 29.08.2024:
 
-29.08.2024:
+**29.08.2024:**
 
+After-market moves led to -7% (116 USD roughly). Q2 revenue came in as 30B and Gross margin came down to 75% (from 78%).
 
-28.08.2024: One of the most anticipated earnings of the year. Maybe the most important earnings of the last 5 years. It will show where AI will end up in a phase where people fear a soft landing or a recession. Last quarter, NVIDIA made 26B in revenue with a net income of nearly 15B. Growth is expected to slow that but the Street estimates 31-33B in revenue. Traders are positioned +/- 10% on the down or upsides. For most people its not smart to anticipate any earnings movement here. I personally will go into the earnings with earnings META. META might be the first beneficiary of AI and LLM. Zuckerberg has a great understanding of what AI can do in the short- and long term. My thoughts: There might not be such a strong movement as anticipated. Traders are already strongly positioned and willing to be the stock at lower levels. This signals to me that NOTHING will come with surprises on that Wednesday evening. Chances are more on the upside than downside and the market went down in advance (QQQ at 471.86 as of recording) opening door for a Thursday +3% rally. 
+**28.08.2024:** One of the most anticipated earnings of the year. Maybe the most important earnings of the last 5 years. It will show where AI will end up in a phase where people fear a soft landing or a recession. Last quarter, NVIDIA made 26B in revenue with a net income of nearly 15B. Growth is expected to slow that but the Street estimates 31-33B in revenue. Traders are positioned +/- 10% on the down or upsides. For most people its not smart to anticipate any earnings movement here. I personally will go into the earnings with earnings META. META might be the first beneficiary of AI and LLM. Zuckerberg has a great understanding of what AI can do in the short- and long term. My thoughts: There might not be such a strong movement as anticipated. Traders are already strongly positioned and willing to be the stock at lower levels. This signals to me that NOTHING will come with surprises on that Wednesday evening. Chances are more on the upside than downside and the market went down in advance (QQQ at 471.86 as of recording) opening door for a Thursday +3% rally.
 
 ```{r}
 #| echo: false
