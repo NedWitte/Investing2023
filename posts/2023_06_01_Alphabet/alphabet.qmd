@@ -112,7 +112,7 @@ fig2
 
 ## Earnings from 23.07.2024:
 
-Revenue of 84.74B and Net income of 23.62B. That sounds like an awesome Net profit margin of nearly 28%. They will end up with over >110B Net Income most likely. Based on their earnings growth, they deserve a multiple of at least 20 P/E. That makes a market cap of 2.2T + 100B cash they have laying around in their Balance sheet (in total 2.3 trillion then). As of 04.09.2024, their market cap is around 2T making it a fair buy already as of today. I will continue to add here and I am expection in to maybe hit 3T already next year. They have nice AI opportunities in Self-driving cars and Life science as well as their core business of advertisment. Youtube is a totally underrated platform (its basically Netflix or Youtube as entertainment for me). 
+Revenue of 84.74B and Net income of 23.62B. That sounds like an awesome Net profit margin of nearly 28%. They will end up with over \>110B Net Income most likely. Based on their earnings growth, they deserve a multiple of at least 20 P/E. That makes a market cap of 2.2T + 100B cash they have laying around in their Balance sheet (in total 2.3 trillion then). As of 04.09.2024, their market cap is around 2T making it a fair buy already as of today. I will continue to add here and I am expection in to maybe hit 3T already next year. They have nice AI opportunities in Self-driving cars and Life science as well as their core business of advertisment. Youtube is a totally underrated platform (its basically Netflix or Youtube as entertainment for me).
 
 From a technical chart perspective, I am trying to add around the 5th of August lows at 154 USD:
 
@@ -225,4 +225,12 @@ fig2 <- fig2 %>%
 #| echo: false
 fig1
 ```
+
+# Charts
+
+## Technical Chart analysis from 18.09.2024:
+
+Alphabet won an EU antitrust process (over 1.5BN) this morning. From a technical point of view, this might be a good entry point for a trade. Taking profit could be around 200 USD in mid 2026 (30% upside):
+
+![Technical Chart analysis from 18.09.2024](images/Chart_GOOGL_2024_09_18.PNG)
 

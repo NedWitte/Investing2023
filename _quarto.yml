@@ -7,7 +7,7 @@ website:
   search: 
     location: navbar
     type: overlay
-  description: "Personal blog as test script"
+  description: "Investing blog and my personal notes "
   favicon: favicon_main.png
   navbar:
     left:

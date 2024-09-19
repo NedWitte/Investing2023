@@ -8,7 +8,12 @@ image: flav_Bruker.png
 
 **Bruker Corp**
 
-Bruker is a research and scientific company that groups their earnings into BSI BioSpin, BSI CALID and BSI Nano segments. It commints itself to spend 10% of their revenue into R&D. Their main customers are Academic&goverments, Industrial & Greentech, Biopharma, Microbiology, Semi-Metrology and Applied/Food. FOr me they are clearly a market leading in NMR and EPR spectroscopy, Preclinical imaging, Biotypers, NIR, X-ray and Atomic Force Microscopy (AFM).
+Bruker is a research and scientific company that groups their earnings into BSI BioSpin, BSI CALID and BSI Nano segments. It commints itself to spend 10% of their revenue into R&D. Their main customers are Academic&goverments, Industrial & Greentech, Biopharma, Microbiology, Semi-Metrology and Applied/Food. In my opinion, they are clearly a market leading in NMR and EPR spectroscopy, Preclinical imaging, Biotypers, NIR, X-ray and Atomic Force Microscopy (AFM).
+
+
+*A purely financial return perspective:*
+
+From September 2014 to September 2024, this stock managed to return 14% p.a. (278% over 10y). The SP500 returned 7.7% or 111% over the same period. The dividend for BRKR is very minimal and only 0.05 per quarter (0.20 USD for 2024). Its close peer ThermoFisher Scientific managed to return 417% over the same period (btw as a comparison the high flyer GOOGL returned 445%). However, Thermo followed a more aggressive financial M&A strategy that definetly paid of during a time a low interest rates. I believe that from 2024-2034 Bruker might have a better return since its internal structure are more organized.
 
 ```{r}
 #| echo: false
@@ -112,9 +117,7 @@ fig2
 
 ## Earnings from 06.08.2024 Q2 2024:
 
-The quarter Q2 2024 showed strong organic and CER revenue growth. Revenue increased to 800M from 682 M (17.4%). Full Year EPS should be around 2.80 USD and based on FY growth the stock should deserve a PE of 20. Fair price should be only around 56 USD whereas the stock trades at around 60 USD. 
-
-
+The quarter Q2 2024 showed strong organic and CER revenue growth. Revenue increased to 800M from 682 M (17.4%). Full Year EPS should be around 2.80 USD and based on FY growth the stock should deserve a PE of 20. Fair price should be only around 56 USD whereas the stock trades at around 60 USD.
 
 ```{r}
 #| echo: false
@@ -226,5 +229,3 @@ fig2 <- fig2 %>%
 #| echo: false
 fig1
 ```
-
-
