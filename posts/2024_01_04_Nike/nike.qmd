@@ -107,6 +107,14 @@ fig2
 :::
 :::
 
+# Earnings informations/comments:
+
+**Earnings from 21.12.2024 (Q2 2025):**
+
+**Earnings from 01.10.2024 (Q1 2025):**
+
+The numbers were pretty disappointing. During the quarter Nike Direct Sales were down 13% while digital sales were down 15%. Net income Q/Q went to by -28% to roughly 1B. I do not think its about the numbers today. This quarter was meant to get all bad numbers out before the new CEO Elliot comes in on 14.10.2024. Also Chinese stimulus should be very beneficial to Nike sales in the upcoming quarters.
+
 # Annual Meeting information:
 
 Check this out: Directors are getting 50k-300k paid in cash, stock awards, or other compensation:
@@ -117,6 +125,6 @@ Nike has been growing Sales by a lot. The revenue of 2015 was 30 billion, in 202
 
 ![Income statements 2015-2023](2024_01_nike_income_statement.PNG)
 
-Let's also take a look at some financials ratios. Historically the PE of Nike has always been around 20-30. Interestingsling the Price-to-Sales (PS) was 2.56 in 2017 and in roughly 3.19 in 2023. To get a fair stock price, it should get down to 2.80 roughly.
+Let's also take a look at some financials ratios. Historically the PE of Nike has always been around 20-30. Interestingly, the Price-to-Sales (PS) was 2.56 in 2017 and in roughly 3.19 in 2023. To get a fair stock price, it should get down to 2.80 roughly.
 
 ![Financial ratios 2015-2023](2024_01_nike_ratios.PNG)

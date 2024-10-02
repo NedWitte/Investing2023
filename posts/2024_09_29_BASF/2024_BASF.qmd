@@ -1,0 +1,128 @@
+---
+title: "BASF"
+description: "A chemistry giant that will continue to struggle"
+author: "JNW"
+date: "2024-09-29"
+image: BASF_Flav.png
+---
+
+**BASF-  "Badische Anilin- und Sodafabrik"**
+
+BASF is a large chemistry producer headquartered in Ludwigshafen in the state of Baden-Würtenberg.
+
+*A purely financial return perspective:*
+
+BASF has been stagnating for the last 10 years. The stock chart nicely reflects the company's financial accurately. For the last 20 years, the earnings by share fluctuated around -0,10 Cents to plus 2.00 Euros per share nicely reflecting a cyclical chemistry business. However, the share still return a net positive return with dividends and partially buybacks. 
+
+
+
+```{r}
+#| echo: false
+#| output: false
+#install.packages("dashCoreComponents")
+#install.packages("dashHtmlComponents")
+#install.packages("dash")
+library(tidyquant)
+library(lubridate)
+library(plotly)
+#dash
+#library(dashCoreComponents)
+#library(dashHtmlComponents)
+#library(dash)
+
+
+ticker_symbol <- "BASFY"
+company <- "BASF AG (BASFY)"
+y_column <- paste(ticker_symbol, ".Adjusted", sep = "")
+y_col_Open <- paste(ticker_symbol, ".Open", sep = "")
+y_col_High <- paste(ticker_symbol, ".High", sep = "")
+y_col_Low <- paste(ticker_symbol, ".Low", sep = "")
+y_col_Close <- paste(ticker_symbol, ".Close", sep = "")
+y_col_Volume <- paste(ticker_symbol, ".Volume", sep = "")
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+getSymbols(ticker_symbol ,src='yahoo')
+
+df1 <- data.frame(Date=index(get(ticker_symbol )),coredata(get(ticker_symbol)))
+
+
+fig1 <- df1 %>% plot_ly(x = ~Date, type = "candlestick",
+                       open = ~get(y_col_Open), close = ~get(y_col_Close),
+                       high = ~get(y_col_High), low = ~get(y_col_Low)) 
+
+fig1 <- fig1 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.2), inherit = FALSE)
+
+# Remove legends for both traces
+fig1 <- fig1 %>% layout(
+  title = "Candlestick Chart since inception",
+  xaxis = list(rangeslider = list(visible = FALSE)),
+   yaxis = list(title = "Stock price in USD"),
+  showlegend = FALSE  # Hide legends for all traces
+)
+
+
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+df2 <- tail(df1, 365)
+
+fig2 <- df2 %>% plot_ly(x = ~Date, type = "candlestick",
+                       open = ~get(y_col_Open), close = ~get(y_col_Close),
+                       high = ~get(y_col_High), low = ~get(y_col_Low)) 
+
+fig2 <- fig2 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.2), inherit = FALSE)
+
+# Remove legends for both traces
+fig2 <- fig2 %>% layout(
+  title = "Candlestick Chart since inception",
+  xaxis = list(rangeslider = list(visible = FALSE)),
+   yaxis = list(title = "Stock price in USD"),
+  showlegend = FALSE  # Hide legends for all traces
+)
+
+
+```
+
+# Stocks charts within a tab
+
+::: nav-pills
+::: panel-tabset
+## Chart since inception
+
+```{r}
+#| echo: false
+fig1
+```
+
+## Chart of the last year
+
+```{r}
+#| echo: false
+fig2
+```
+:::
+:::
+
+
+*New corporate strategy:*
+
+On 26.09.2024, BASF presented new ambitions. They want to return 12 billion to shareholders from 2025-2028 (a dividend of 2.25 Euros per share). BASF debt level might allow it, however it is still not poised for long-term growth. However, this move might make sense in its current interest rate cutting cycle. 
+
+*A tactical hegde play:*
+
+Personally, I consider BASF as a more defense hedge play. The downside risk might be pretty low. It might return 2-3% in stock price return over the long-term and a high dividend on top. I will consider adding for low prices around 42 Euros which reflects a dividend yield of above 5%.
+
+
+# Earnings informations/comments:
+

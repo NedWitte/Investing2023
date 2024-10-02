@@ -1,0 +1,125 @@
+---
+title: "Rockwell Automation"
+description: "The largest pure play industrial automation play"
+author: "JNW"
+date: "2024-09-30"
+image: Rockwell_Automation_flav.png
+---
+
+**Rockwell Automation- a global leader in industrial automation and digital transformation**
+
+Headquarted in Milwaukee, Wisconson, this company makes the world more productive. 
+
+
+
+*A purely financial return perspective:*
+
+Rockwell had a revenue of 9B in 2023 and grows very cyclically. I estimate the 5-y profit around 1B and based on its Price-to of 4.81 (EPS forecast of 8.32) and should deserve a PE around 15-20. The market cap is at 29B making it too expensive (appropriate shareprice: 16*8.32 USD= 133 USD.
+
+```{r}
+#| echo: false
+#| output: false
+#install.packages("dashCoreComponents")
+#install.packages("dashHtmlComponents")
+#install.packages("dash")
+library(tidyquant)
+library(lubridate)
+library(plotly)
+#dash
+#library(dashCoreComponents)
+#library(dashHtmlComponents)
+#library(dash)
+
+
+ticker_symbol <- "ROK"
+company <- "Rockwell Auto"
+y_column <- paste(ticker_symbol, ".Adjusted", sep = "")
+y_col_Open <- paste(ticker_symbol, ".Open", sep = "")
+y_col_High <- paste(ticker_symbol, ".High", sep = "")
+y_col_Low <- paste(ticker_symbol, ".Low", sep = "")
+y_col_Close <- paste(ticker_symbol, ".Close", sep = "")
+y_col_Volume <- paste(ticker_symbol, ".Volume", sep = "")
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+getSymbols(ticker_symbol ,src='yahoo')
+
+df1 <- data.frame(Date=index(get(ticker_symbol )),coredata(get(ticker_symbol)))
+
+
+fig1 <- df1 %>% plot_ly(x = ~Date, type = "candlestick",
+                       open = ~get(y_col_Open), close = ~get(y_col_Close),
+                       high = ~get(y_col_High), low = ~get(y_col_Low)) 
+
+fig1 <- fig1 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.2), inherit = FALSE)
+
+# Remove legends for both traces
+fig1 <- fig1 %>% layout(
+  title = "Candlestick Chart since inception",
+  xaxis = list(rangeslider = list(visible = FALSE)),
+   yaxis = list(title = "Stock price in USD"),
+  showlegend = FALSE  # Hide legends for all traces
+)
+
+
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+df2 <- tail(df1, 365)
+
+fig2 <- df2 %>% plot_ly(x = ~Date, type = "candlestick",
+                       open = ~get(y_col_Open), close = ~get(y_col_Close),
+                       high = ~get(y_col_High), low = ~get(y_col_Low)) 
+
+fig2 <- fig2 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.2), inherit = FALSE)
+
+# Remove legends for both traces
+fig2 <- fig2 %>% layout(
+  title = "Candlestick Chart since inception",
+  xaxis = list(rangeslider = list(visible = FALSE)),
+   yaxis = list(title = "Stock price in USD"),
+  showlegend = FALSE  # Hide legends for all traces
+)
+
+
+```
+
+# Stocks charts within a tab
+
+::: nav-pills
+::: panel-tabset
+## Chart since inception
+
+```{r}
+#| echo: false
+fig1
+```
+
+## Chart of the last year
+
+```{r}
+#| echo: false
+fig2
+```
+:::
+:::
+
+*A premium valuation:*
+
+Rockwell is valuated with a premium US-valuation. 
+
+
+
+# Earnings informations/comments:
+
+
