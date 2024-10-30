@@ -1,12 +1,16 @@
 ---
-title: "Amazon trade August 2024"
-description: "AMZN earnings and sell of due to the carry trade"
+title: "Amazon - a consumer giant"
+description: "AMZN"
 author: "JNW"
 date: "2024-08-06"
 image: amazon_y2000.png
 ---
 
-**Amazon trade in early August**
+Amazon is constantly evolving. Most likely it will not stop inventing for the next 50 years.
+
+## **Trade history:**
+
+**-Amazon trade in early August**
 
 Here the chart: You can clearly see the earnings release on 01.08.2024 (fig1):
 
@@ -142,7 +146,6 @@ fig2
 
 I bought on Friday, the 02.08.2024. But unfortunately way to early. Over the weekend, the market dropped a lot. Later known as the "Black Monday of August 2024". The following Tuesday, it stabilized a lot. But at least, I managed to buy only after the job reports on Friday leading the a better entrance price.
 
-On 13.08.2024, the PPI data (producer inflation) for USA came out less strong then expected, thus opening the door for the FED to cute in September. Unclear is by how much (0.25% or 0.5%). Personally, I think they might only hike by 0.25%. I sold my Amazon shares with slight profit on 13.08.2024 after a big day rally. It looked like that AMZN shares are not able to get significantly above 170 USD (I managed to sell exactly there) marking a strong resistance. Until that being resolved, AMZN might be in a trading range between 165 and 170 USD. 
+On 13.08.2024, the PPI data (producer inflation) for USA came out less strong then expected, thus opening the door for the FED to cute in September. Unclear is by how much (0.25% or 0.5%). Personally, I think they might only hike by 0.25%. I sold my Amazon shares with slight profit on 13.08.2024 after a big day rally. It looked like that AMZN shares are not able to get significantly above 170 USD (I managed to sell exactly there) marking a strong resistance. Until that being resolved, AMZN might be in a trading range between 165 and 170 USD.
 
-
-In total, I am planning to get in back at 165 USD. 
+In total, I am planning to get in back at 165 USD.

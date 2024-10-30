@@ -8,14 +8,11 @@ image-height: "2"
 image-width: "2"
 ---
 
-<img src="samsung_sign.png" alt="Samsung Sign" width="300" height="200"/>
-
 **Samsung stock**
 
-Samsung makes the good phones. But not only that, they are involved basically everywhere. 
+Samsung makes the good phones. But not only that, they are involved basically everywhere.
 
-
-Officially they devide their businesses into: 
+Officially they devide their businesses into:
 
 1: DX division: Televisions, monitors, airconditioners, laundry machines etc. (roughly 65%)
 
@@ -23,9 +20,12 @@ Officially they devide their businesses into:
 
 3: SDC: smartphones
 
-4: Haman: digital cockpits 
+4: Haman: digital cockpits
 
-5: Others: 
+5: Others:
+
+
+Personally, I like the stock a lot. It gives great exposure into Asian capital markets and I consider the stock a infrastructure play into AI, semiconductors and electronics. 
 
 ```{r}
 #| echo: false

@@ -1,14 +1,16 @@
 ---
-title: "McDonalds earnings miss Q2?"
-description: "MCD earnings"
+title: "McDonalds is a fast food giant and a real estate monster"
+description: "MCD earnings comments and company vision"
 author: "JNW"
 date: "2024-07-29"
 image: x2024_07_MCD.png
 ---
 
-**McDondalds earnings Q2-2024**
+**McDondalds- the real estate giant**
 
-According to the Release (https:[Hyperlink to Q2 Earnings](https://corporate.mcdonalds.com/content/dam/sites/corp/nfl/pdf/MCD%20-%20Q2-24%20Earnings%20Release.pdf "Hyperlink to Q2 Earnings")), Q2-2024 had this headline:
+Earnings comments:
+
+Q2-2024: According to the Release (https:[Hyperlink to Q2 Earnings](https://corporate.mcdonalds.com/content/dam/sites/corp/nfl/pdf/MCD%20-%20Q2-24%20Earnings%20Release.pdf "Hyperlink to Q2 Earnings")), Q2-2024 had this headline:
 
 **-Consolidated revenues for the quarter were nearly \$6.5 billion, an increase over prior year of about 1% in constant currencies**
 
@@ -18,7 +20,7 @@ According to the Release (https:[Hyperlink to Q2 Earnings](https://corporate.mcd
 
 This sounds very disappointing, but shares are trading 2% percent higher in the pre-market. Apparently, MCD tries to lure back consumers for higher dinner discounts.
 
-My thoughts: MCD will struggle a few more quarters before they are on a growing path again. I will try to buy the stock at lower levels around 220USD. Long-term no brainer? I am not sure anymore. I am pretty confident that MCD will always exits and make its profits, however GLP1-drugs (obesity drugs) might actually be big road-blocker. That might block growth until 2030 and rather earlier then later. 
+My thoughts: MCD will struggle a few more quarters before they are on a growing path again. I will try to buy the stock at lower levels around 220USD. Long-term no brainer? I am not sure anymore. I am pretty confident that MCD will always exits and make its profits, however GLP1-drugs (obesity drugs) might actually be big road-blocker. That might block growth until 2030 and rather earlier then later.
 
 ```{r}
 #| echo: false

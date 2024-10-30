@@ -8,6 +8,8 @@ image: NVIDIA_flav1.png
 
 **NVIDIA**
 
+NVIDIA turns out to be the most discussed stock in 2024. They figured out how to turn GPUs with parallel processing into AI enalbers.
+
 ```{r}
 #| echo: false
 #| output: false
