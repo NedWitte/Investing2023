@@ -1,0 +1,64 @@
+---
+title: "The Allstar simple portfolio" 
+description: "Here I am going to present you the simplest portfolio of all time. Most likely it will still work by 2040.....or most likely forever" 
+author: "JNW" 
+date: "2024-12-04" 
+image: flav_portfolio1.PNG
+---
+
+**December 2024**
+
+This is the easiest portfolio of all time:
+
+```{r} 
+#| echo: false
+#| output: false
+library(tidyquant)
+library(plotly)
+
+df1 <- data.frame(
+  Company = c("Amazon", "Alphabet", "Procter&Gamble", "JP Morgan", "Johnson&Johnson", "Walmart","Starbucks", "Brookfield Corp", "Texas Instruments", "Danaher"),
+  Value = c("10%", "10%", "10%", "10%", "10%", "10%","10%", "10%", "10%", "10%")
+)
+
+
+
+```
+
+
+```{r}
+#| echo: false
+#| output: false
+
+#install.packages("lessR")
+library(lessR)
+
+# Create the pie chart with labels and arrows
+# Donut chart
+fig1 <- PieChart(Company, data = df1,
+         main = NULL)
+
+```
+
+
+```{r}
+#| warning: false
+#| echo: false
+#| results: hide
+fig1 <- PieChart(Company, data = df1,
+         main = NULL)
+```
+
+
+
+------------------------------------------------------------------------
+
+**This portfolio might double every 7 years:
+
+year 0: 100k
+year 7: 200k
+year 14: 400k
+year 21K: 800k
+year 28: 1.6M
+
+

@@ -3,7 +3,7 @@ title: "My dividend income"
 author: "JNW"
 description: "stuff"
 date: "2023-08-08"
-image: sp500.png
+
 ---
 
 **The KarambolageNed portfolio dividends**

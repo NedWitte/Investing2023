@@ -1,0 +1,26 @@
+---
+title: "The market after the election" 
+description: "Donald Trump won with quite a margin. The market celebretes it" 
+author: "JNW" 
+date: "2024-11-25" 
+image: flav_Donald_Trump_election.png
+---
+
+**November 2024**
+
+Donald Trump won. And obviously the result will heavily disappointed a lot of people not only in the US, but also in the whole world. He stands for disruption....clearly something the citizen was looking for. Anyway, the market liked it. The days after the results, the SP500 gained and the technical bullish chart is intact.
+
+![Candle chart as of 25 November 2024](2024_11_25_SP500_candle.PNG)
+
+On top of that, Trump continues to signal a pro-business environment such as a less-regulatory burden for Full-Self-Driving cars (Musk, Tesla).
+
+Nonetheless, everything Trump wants to implement is highly inflationary. And that might be exactly the mechanism that ruins Trump's image. Obviously, everyone hates inflation. Despite higher wages, it just makes you feel weaker independent of your income situation.
+
+------------------------------------------------------------------------
+
+**What might happen in the next 5 years with Trump as a president:**
+
+-   sentiment towards Trump will gradually decrease and swing towards a negative picture. The end of 2024 might be the highest popularity Trump will ever see and most likely never see again. Inflation will spike in 2025 and 2026.
+-   Europe will face huge problems, not only the on the Ukraine front, but also economically. The EU needs China, but also needs USA. It will stay caught up in the middle. Strong political leadership might be able to find good deals in negotiations. Still a waking-up punch that EU policies need.
+-   EV and FSD transition continues and will speed up.
+-   Big Tech will continue to compound nicely.

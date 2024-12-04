@@ -69,44 +69,7 @@ getFX("EUR/NOK", from = start_date, to = end_date)
 exchange_rate_data_today_EUR_NOK <- as.vector(EURNOK$EUR.NOK[1]) #EUR/NOK
 
 
-#loop
-for(i in 1:nrow(portfolio_df)) {
-   
-  if(is.na(portfolio_df$Yahoo_3_letter[i])) next
-  
-  x1 <- tq_get(portfolio_df$Yahoo_3_letter[i], get = "stock.prices", from = start_date, to = end_date)
-  x1 <- x1$adjusted
-
-  portfolio_df$real_time_price_local_currency[i] <- x1
-  
-  if(portfolio_df$currency[i] == "EUR") {portfolio_df$real_time_price_EUR[i] <- x1}
-  if(portfolio_df$currency[i] == "USD") {portfolio_df$real_time_price_EUR[i] <- x1/exchange_rate_data_today_EUR_USD} #USD
-  if(portfolio_df$currency[i] == "CHF") {portfolio_df$real_time_price_EUR[i] <- x1/exchange_rate_data_today_EUR_CHF}
-  if(portfolio_df$currency[i] == "GBP") {portfolio_df$real_time_price_EUR[i] <- x1/exchange_rate_data_today_EUR_GBP} 
-  if(portfolio_df$currency[i] == "CNY") {portfolio_df$real_time_price_EUR[i] <- x1/exchange_rate_data_today_EUR_CNY} 
-  if(portfolio_df$currency[i] == "SGD") {portfolio_df$real_time_price_EUR[i] <- x1/exchange_rate_data_today_EUR_SGD} 
-  if(portfolio_df$currency[i] == "AUD") {portfolio_df$real_time_price_EUR[i] <- x1/exchange_rate_data_today_EUR_AUD} 
-  if(portfolio_df$currency[i] == "NOK") {portfolio_df$real_time_price_EUR[i] <- x1/exchange_rate_data_today_EUR_NOK} 
-
-#corrections
-portfolio_df$real_time_price_EUR[39] <- portfolio_df$real_time_price_EUR[39]/1000  #BP
-  
-portfolio_df$real_time_worth_EUR[i] <- as.numeric(portfolio_df$Stück[i])*portfolio_df$real_time_price_EUR[i]
-portfolio_df$Einstandswert[i] <- as.numeric(portfolio_df$Stück[i])*portfolio_df$Kaufkurs[i]
-portfolio_df$Wertunterschied[i] <- portfolio_df$real_time_worth_EUR[i]-portfolio_df$Einstandswert[i]
-
-}
-
-x1 <- sum(portfolio_df$real_time_worth_EUR, na.rm = TRUE)
-
-for(i in 1:nrow(portfolio_df)) {
-  
-portfolio_df$`%-Anteil`[i] <- (portfolio_df$real_time_worth_EUR[i]/x1)*100 #100 for %
-
-}
-
 ```
-
 
 ```{r}
 #| echo: false
@@ -125,36 +88,5 @@ portfolio_df$`%-Anteil`[i] <- (portfolio_df$real_time_worth_EUR[i]/x1)*100 #100 
   #showlegend = FALSE)  # This removes the legend
 
 
-treemap_chart <- plot_ly(
-  data = portfolio_df,
-  ids = ~Wertpapier,
-  labels = ~Wertpapier,
-  parents = ~"Portfolio",  # Set a common parent for all entries
-  values = ~`%-Anteil`,
-  type = "treemap"
-) %>% layout(
-  title = "Portfolio Distribution (Treemap)",
-  margin = list(l = 0, r = 0, b = 0, t = 40)  # Adjust the margin for better visibility
-)
-
-
 
 ```
-
-```{r}
-#| echo: false
-# Display the interactive 3D pie chart
-#pie_chart
-treemap_chart
-
-```
-
-## Market Events and Performance
-
-For this point, here we assume that all values were bought at the same time. Doing this plot, there is some difficulties aligning all the stock data since some downloaded data has many missing values.
-
-
-
-
-
-
