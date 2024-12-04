@@ -10,12 +10,13 @@ image: flav_portfolio1.PNG
 
 This is the easiest portfolio of all time:
 
-```{r} 
+```{r}
 #| echo: false
 #| output: false
 library(tidyquant)
 library(plotly)
-
+#install.packages("gganimate")
+#install.packages("lessR")
 df1 <- data.frame(
   Company = c("Amazon", "Alphabet", "Procter&Gamble", "JP Morgan", "Johnson&Johnson", "Walmart","Starbucks", "Brookfield Corp", "Texas Instruments", "Danaher"),
   Value = c("10%", "10%", "10%", "10%", "10%", "10%","10%", "10%", "10%", "10%")
@@ -25,12 +26,11 @@ df1 <- data.frame(
 
 ```
 
-
 ```{r}
 #| echo: false
 #| output: false
 
-#install.packages("lessR")
+
 library(lessR)
 
 # Create the pie chart with labels and arrows
@@ -40,7 +40,6 @@ fig1 <- PieChart(Company, data = df1,
 
 ```
 
-
 ```{r}
 #| warning: false
 #| echo: false
@@ -49,16 +48,10 @@ fig1 <- PieChart(Company, data = df1,
          main = NULL)
 ```
 
-
-
 ------------------------------------------------------------------------
 
-**This portfolio might double every 7 years:
+\*\*This portfolio might double every 7 years:
 
-year 0: 100k
-year 7: 200k
-year 14: 400k
-year 21K: 800k
-year 28: 1.6M
+year 0: 100k year 7: 200k year 14: 400k year 21K: 800k year 28: 1.6M
 
 

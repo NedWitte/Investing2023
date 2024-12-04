@@ -2,8 +2,8 @@
     "sortOrder": [
         {
             "columnIndex": 2,
-            "ascending": false
+            "ascending": true
         }
     ],
-    "path": "~/Quarto/KarambolageInvesting/Investing2023/posts"
+    "path": "~"
 }
