@@ -1,0 +1,1 @@
+"This chart illustrates the relative appreciation of the covered stocks since 2007. The share prices were normalized, with the origin representing a y-value of 100%. A value of 200% indicates a doubling of the share price."
