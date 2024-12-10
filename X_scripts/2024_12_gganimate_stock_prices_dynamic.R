@@ -1,6 +1,6 @@
 #####set basics #### 
 username <- "WITTEJ09"
-setwd(paste0("C:/Users/",username,"/OneDrive - Pfizer/Document/")) ####essential modify
+#setwd(paste0("C:/Users/",username,"/OneDrive - Pfizer/Document/")) ####essential modify
 
 
 #### Load necessary libraries####
@@ -520,12 +520,12 @@ anim_save("animated_relative_share_price_cat_vs_de.mp4", animation = animated_pl
 
 ##################################################next batch in January 2025 ####
 #### NR 1: cosmetic PG, Kimberly Clark Colgate and Loreal #####
-# Define ticker symbols and company names
+# Define the ticker symbols and company names
 ticker_symbols <- c("PG", "KMB", "CL", "OR.PA")
 companies <- c("Procter & Gamble", "Kimberly-Clark Corp.", "Colgate-Palmolive Company", "L'Oreal")
 
 # Fetch stock data from Yahoo Finance
-getSymbols(ticker_symbols, src = 'yahoo')
+getSymbols(ticker_symbols, src = 'yahoo', from = "2010-01-01")
 
 # Convert the fetched data into a data frame for each company
 df_list <- lapply(ticker_symbols, function(ticker) {
@@ -538,40 +538,49 @@ df_list <- lapply(ticker_symbols, function(ticker) {
 # Combine the data frames
 df_combined <- do.call(rbind, df_list)
 
-# Calculate relative share price appreciation (both starting at 100%)
+# Normalize on 2010-01-01
 df_combined <- df_combined %>%
   group_by(Company) %>%
   mutate(Relative_Close = 100 * Close / first(Close))
 
-# Create a line chart using ggplot2
-p <- ggplot(df_combined, aes(x = Date, y = Relative_Close, color = Company)) +
-  geom_line(size = 2.5) +  # Increase line thickness
-  labs(title = "Relative Share Price Appreciation of Procter & Gamble, Kimberly-Clark Corp., Colgate-Palmolive Company, and L'Oreal",
-       y = "Relative Share Price (Starting at 100%)") +
-  theme_minimal() +
-  theme(legend.position = c(0.05, 0.95),  # Position legend within the plot
-        legend.justification = c("left", "top"),
-        legend.text = element_text(size = 30),  # Increase size of legend text
-        legend.title = element_blank(),  # Remove legend title
-        axis.title.x = element_blank(),  # Remove x-axis title
-        axis.text.x = element_text(size = 22),
-        axis.text.y = element_text(size = 20)) +  # Increase size of y-axis labels
-  scale_color_manual(values = c("Procter & Gamble" = "green", "Kimberly-Clark Corp." = "blue", "Colgate-Palmolive Company" = "red", "L'Oreal" = "purple")) +  # Set colors
-  transition_reveal(Date)  # Add transition for animation
+# Split data into periods
+df_2010_2015 <- df_combined %>% filter(Date >= as.Date("2010-01-01") & Date <= as.Date("2015-12-31"))
+df_2015_2020 <- df_combined %>% filter(Date >= as.Date("2015-01-01") & Date <= as.Date("2020-12-31"))
+df_2020_now <- df_combined %>% filter(Date >= as.Date("2020-01-01"))
 
-# Animate the plot and save as video with resolution 1920x1080
-animated_plot <- animate(p, nframes = 1500, fps = 30, renderer = av_renderer(), height = 1920, width = 1080)
+# Function to create and save animation
+create_animation <- function(data, title, filename) {
+  p <- ggplot(data, aes(x = Date, y = Relative_Close, color = Company)) +
+    geom_line(size = 2.5) +
+    labs(title = title, y = "Relative Share Price (Starting at 100%)") +
+    theme_minimal() +
+    theme(legend.position = c(0.05, 0.95),
+          legend.justification = c("left", "top"),
+          legend.text = element_text(size = 30),
+          legend.title = element_blank(),
+          axis.title.x = element_blank(),
+          axis.text.x = element_text(size = 22),
+          axis.text.y = element_text(size = 20)) +
+    scale_color_manual(values = c("Procter & Gamble" = "green", "Kimberly-Clark Corp." = "blue", "Colgate-Palmolive Company" = "red", "L'Oreal" = "purple")) +
+    transition_reveal(Date)
+  
+  animated_plot <- animate(p, nframes = 150, fps = 30, renderer = av_renderer(), height = 1920, width = 1080)
+  anim_save(filename, animation = animated_plot)
+}
 
-# Save the animation as a video file
-anim_save("animated_relative_share_price_pg_kmb_cl_or.mp4", animation = animated_plot)
+# Create and save animations for each period
+create_animation(df_2010_2015, "Relative Share Price Appreciation (2010-2015)", "plot_2010_2015.mp4")
+create_animation(df_2015_2020, "Relative Share Price Appreciation (2015-2020)", "plot_2015_2020.mp4")
+create_animation(df_2020_now, "Relative Share Price Appreciation (2020-now)", "plot_2020_now.mp4")
+
 
 #### NR 2: Alibaba vs Tencent vs Xiaomi ####
-# Define ticker symbols and company names
-ticker_symbols <- c("BABA", "0700.HK", "1810.HK")
-companies <- c("Alibaba", "Tencent", "Xiaomi")
+# Define the ticker symbols and company names
+ticker_symbols <- c("BABA", "XIACF", "TCEHY")
+companies <- c("Alibaba", "Xiaomi", "Tencent")
 
 # Fetch stock data from Yahoo Finance
-getSymbols(ticker_symbols, src = 'yahoo')
+getSymbols(ticker_symbols, src = 'yahoo', from = "2018-08-01")
 
 # Convert the fetched data into a data frame for each company
 df_list <- lapply(ticker_symbols, function(ticker) {
@@ -584,39 +593,48 @@ df_list <- lapply(ticker_symbols, function(ticker) {
 # Combine the data frames
 df_combined <- do.call(rbind, df_list)
 
-# Calculate relative share price appreciation (both starting at 100%)
+# Normalize on 2018-08-01
 df_combined <- df_combined %>%
   group_by(Company) %>%
   mutate(Relative_Close = 100 * Close / first(Close))
 
-# Create a line chart using ggplot2
-p <- ggplot(df_combined, aes(x = Date, y = Relative_Close, color = Company)) +
-  geom_line(size = 2.5) +  # Increase line thickness
-  labs(title = "Relative Share Price Appreciation of Alibaba, Tencent, and Xiaomi",
-       y = "Relative Share Price (Starting at 100%)") +
-  theme_minimal() +
-  theme(legend.position = c(0.05, 0.95),  # Position legend within the plot
-        legend.justification = c("left", "top"),
-        legend.text = element_text(size = 30),  # Increase size of legend text
-        legend.title = element_blank(),  # Remove legend title
-        axis.title.x = element_blank(),  # Remove x-axis title
-        axis.text.x = element_text(size = 22),
-        axis.text.y = element_text(size = 20)) +  # Increase size of y-axis labels
-  scale_color_manual(values = c("Alibaba" = "green", "Tencent" = "blue", "Xiaomi" = "red")) +  # Set colors
-  transition_reveal(Date)  # Add transition for animation
+# Split data into periods
+df_2018_2020 <- df_combined %>% filter(Date >= as.Date("2018-08-01") & Date <= as.Date("2020-12-31"))
+df_2020_2022 <- df_combined %>% filter(Date >= as.Date("2020-01-01") & Date <= as.Date("2022-12-31"))
+df_2022_now <- df_combined %>% filter(Date >= as.Date("2022-01-01"))
 
-# Animate the plot and save as video with resolution 1920x1080
-animated_plot <- animate(p, nframes = 1500, fps = 30, renderer = av_renderer(), height = 1920, width = 1080)
+# Function to create and save animation
+create_animation <- function(data, title, filename) {
+  p <- ggplot(data, aes(x = Date, y = Relative_Close, color = Company)) +
+    geom_line(size = 2.5) +
+    labs(title = title, y = "Relative Share Price (Starting at 100%)") +
+    theme_minimal() +
+    theme(legend.position = c(0.05, 0.95),
+          legend.justification = c("left", "top"),
+          legend.text = element_text(size = 30),
+          legend.title = element_blank(),
+          axis.title.x = element_blank(),
+          axis.text.x = element_text(size = 22),
+          axis.text.y = element_text(size = 20)) +
+    scale_color_manual(values = c("Alibaba" = "green", "Xiaomi" = "blue", "Tencent" = "red")) +
+    transition_reveal(Date)
+  
+  animated_plot <- animate(p, nframes = 1500, fps = 30, renderer = av_renderer(), height = 1920, width = 1080)
+  anim_save(filename, animation = animated_plot)
+}
 
-# Save the animation as a video file
-anim_save("animated_relative_share_price_baba_0700_1810.mp4", animation = animated_plot)
+# Create and save animations for each period
+create_animation(df_2018_2020, "Relative Share Price Appreciation (August 2018 - 2020)", "plot_2018_2020.mp4")
+create_animation(df_2020_2022, "Relative Share Price Appreciation (2020 - 2022)", "plot_2020_2022.mp4")
+create_animation(df_2022_now, "Relative Share Price Appreciation (2022 - now)", "plot_2022_now.mp4")
+
 #### NR 3: Walmart vs Target vs Ahold####
-# Define ticker symbols and company names
-ticker_symbols <- c("WMT", "TGT", "AD.AS")
+# Define the ticker symbols and company names
+ticker_symbols <- c("WMT", "TGT", "ADRNY")
 companies <- c("Walmart", "Target", "Ahold")
 
 # Fetch stock data from Yahoo Finance
-getSymbols(ticker_symbols, src = 'yahoo')
+getSymbols(ticker_symbols, src = 'yahoo', from = "2005-01-01")
 
 # Convert the fetched data into a data frame for each company
 df_list <- lapply(ticker_symbols, function(ticker) {
@@ -629,32 +647,40 @@ df_list <- lapply(ticker_symbols, function(ticker) {
 # Combine the data frames
 df_combined <- do.call(rbind, df_list)
 
-# Calculate relative share price appreciation (both starting at 100%)
+# Normalize on 2005-01-01
 df_combined <- df_combined %>%
   group_by(Company) %>%
   mutate(Relative_Close = 100 * Close / first(Close))
 
-# Create a line chart using ggplot2
-p <- ggplot(df_combined, aes(x = Date, y = Relative_Close, color = Company)) +
-  geom_line(size = 2.5) +  # Increase line thickness
-  labs(title = "Relative Share Price Appreciation of Walmart, Target, and Ahold",
-       y = "Relative Share Price (Starting at 100%)") +
-  theme_minimal() +
-  theme(legend.position = c(0.05, 0.95),  # Position legend within the plot
-        legend.justification = c("left", "top"),
-        legend.text = element_text(size = 30),  # Increase size of legend text
-        legend.title = element_blank(),  # Remove legend title
-        axis.title.x = element_blank(),  # Remove x-axis title
-        axis.text.x = element_text(size = 22),
-        axis.text.y = element_text(size = 20)) +  # Increase size of y-axis labels
-  scale_color_manual(values = c("Walmart" = "blue", "Target" = "red", "Ahold" = "black")) +  # Set colors
-  transition_reveal(Date)  # Add transition for animation
+# Split data into periods
+df_2005_2012 <- df_combined %>% filter(Date >= as.Date("2005-01-01") & Date <= as.Date("2012-12-31"))
+df_2012_2017 <- df_combined %>% filter(Date >= as.Date("2012-01-01") & Date <= as.Date("2017-12-31"))
+df_2017_now <- df_combined %>% filter(Date >= as.Date("2017-01-01"))
 
-# Animate the plot and save as video with resolution 1920x1080
-animated_plot <- animate(p, nframes = 1500, fps = 30, renderer = av_renderer(), height = 1920, width = 1080)
+# Function to create and save animation
+create_animation <- function(data, title, filename) {
+  p <- ggplot(data, aes(x = Date, y = Relative_Close, color = Company)) +
+    geom_line(size = 2.5) +
+    labs(title = title, y = "Relative Share Price (Starting at 100%)") +
+    theme_minimal() +
+    theme(legend.position = c(0.05, 0.95),
+          legend.justification = c("left", "top"),
+          legend.text = element_text(size = 30),
+          legend.title = element_blank(),
+          axis.title.x = element_blank(),
+          axis.text.x = element_text(size = 22),
+          axis.text.y = element_text(size = 20)) +
+    scale_color_manual(values = c("Walmart" = "green", "Target" = "blue", "Ahold" = "red")) +
+    transition_reveal(Date)
+  
+  animated_plot <- animate(p, nframes = 1500, fps = 30, renderer = av_renderer(), height = 1920, width = 1080)
+  anim_save(filename, animation = animated_plot)
+}
 
-# Save the animation as a video file
-anim_save("animated_relative_share_price_wmt_tgt_ad.mp4", animation = animated_plot)
+# Create and save animations for each period
+create_animation(df_2005_2012, "Relative Share Price Appreciation (2005-2012)", "plot_2005_2012.mp4")
+create_animation(df_2012_2017, "Relative Share Price Appreciation (2012-2017)", "plot_2012_2017.mp4")
+create_animation(df_2017_now, "Relative Share Price Appreciation (2017-now)", "plot_2017_now.mp4")
 
 #### NR 4: Thermofisher vs Danaher ####
 # Define ticker symbols and company names
