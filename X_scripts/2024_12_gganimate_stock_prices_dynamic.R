@@ -1003,3 +1003,58 @@ anim_save("animated_relative_share_price_adsk_vs_cdns.mp4", animation = animated
 ####################################################batch NR 3: Feb 2025 ####
 
 
+
+
+
+#### Plot 600 trading days duel ####
+# Define ticker symbols and company names
+ticker_symbols <- c("NFLX", "DIS")
+companies <- c("Netflix", "Walt Disney")
+
+# Fetch stock data from Yahoo Finance
+getSymbols(ticker_symbols, src = 'yahoo')
+
+# Convert the fetched data into a data frame for each company
+df_list <- lapply(ticker_symbols, function(ticker) {
+  df <- data.frame(Date = index(get(ticker)), coredata(get(ticker)))
+  colnames(df) <- c("Date", "Open", "High", "Low", "Close", "Volume", "Adjusted")
+  df$Company <- companies[which(ticker_symbols == ticker)]
+  return(df)
+})
+
+# Combine the data frames
+df_combined <- do.call(rbind, df_list)
+
+# Filter to only show the last 300 trading days
+df_combined <- df_combined %>%
+  group_by(Company) %>%
+  filter(Date >= max(Date) - 600)
+
+# Calculate relative share price appreciation (both starting at 100%)
+df_combined <- df_combined %>%
+  group_by(Company) %>%
+  mutate(Relative_Close = 100 * Close / first(Close))
+
+# Create a line chart using ggplot2
+p <- ggplot(df_combined, aes(x = Date, y = Relative_Close, color = Company)) +
+  geom_line(size = 2.5) +  # Increase line thickness
+  labs(title = "Relative Share Price Appreciation of Netflix and Walt Disney",
+       y = "Relative Share Price (Starting at 100%)") +
+  theme_minimal() +
+  theme(legend.position = c(0.05, 0.95),  # Position legend within the plot
+        legend.justification = c("left", "top"),
+        legend.text = element_text(size = 70),  # Increase size of legend text
+        legend.title = element_blank(),  # Remove legend title
+        axis.title.x = element_blank(),  # Remove x-axis title
+        axis.text.x = element_text(size = 22),
+        axis.text.y = element_text(size = 20)) +  # Increase size of y-axis labels
+  scale_color_manual(values = c("Netflix" = "black", "Walt Disney" = "blue")) +  # Set colors
+  scale_x_date(date_labels = "%b", date_breaks = "3 months") +  # Improve date axis
+  transition_reveal(Date)  # Add transition for animation
+
+# Animate the plot and save as video with resolution 1920x1080
+animated_plot <- animate(p, nframes = 600, fps = 30, renderer = av_renderer(), height = 1920, width = 1080)
+
+# Save the animation as a video file
+anim_save("animated_relative_share_price_nflx_vs_dis.mp4", animation = animated_plot)
+
