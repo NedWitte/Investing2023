@@ -1,12 +1,12 @@
 ---
-title: "Market predictions for 2024"
+title: "Market predictions for 2025"
 description: "Trends and top performers 2024: 5 trends and 5 stock to look on."
 author: "JNW"
-date: "2023-12-27"
+date: "2024-12-27"
 image: stockmarket_1.png
 ---
 
-### **Trends for 2024**
+### **Trends for 2025**
 
 1.  AI: AI Software stocks will be able to sell their software nicely. Big tech already started that in 2024.
 2.  Seminconductors: Some stocks will continue to perform nicely, but the broader semiconductor market might not. Hard to stockpick here.
@@ -14,16 +14,14 @@ image: stockmarket_1.png
 4.  US REITS: Those REITs like REXR, VICI, etc. have a low valuation and possibly they deliver 20% in 2025.
 5.  Chemistry: Possibly Chemistry companies hit rock-botton in 2024 and they are set for a strong comeback in 2025.
 
-### **Top performers for 2024**
+### **Top performers for 2025**
 
-1.   NVIDIA: I continue to believe that NVIDIA will deliver in 2025, but it will not double in share price. My price target for 2025: 200 USD and then the RSI might fall.
+1.  NVIDIA: I continue to believe that NVIDIA will deliver in 2025, but it will not double in share price. My price target for 2025: 200 USD and then the RSI might fall.
 
 2.  Merck: Pharma will develop a strong pipeline and defensive stocks will perform nicely when growth fears start.
 
 3.  Rexford Realty: Industrial REIT based in California. Defensive play while the FED lowers interest rates.
 
-4.  Samsung: Cheap valuation caused by politcal problems in Korea. This stock might come back strongly with AI features and a strong semiconductors upswing.
+4.  Samsung: Cheap valuation caused by political problems in Korea. This stock might come back strongly with AI features and a strong semiconductors upswing.
 
 5.  Adobe: AI software play. Adobe only grows 10% which is too few, but possibly their growth accelerates again in 2025.
-
-6.  Lyondellbasell: Chemistry-comeback in 2025 possible.

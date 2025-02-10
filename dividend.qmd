@@ -1,9 +1,8 @@
 ---
 title: "My dividend income"
 author: "JNW"
-description: "stuff"
+description: "Predicitons and future dividend"
 date: "2023-08-08"
-
 ---
 
 **The KarambolageNed portfolio dividends**
@@ -60,12 +59,14 @@ The performance of the S&P 500 is subject to various market events, including ec
 
 For this point, I want to demonstrate two scenarios:
 
--1. scenario: weak outlook and an average growth of 3% while adding 10k per year
+-1. scenario: 200k start, weak performance and an average growth of 5% while adding 10k per year (2% starting dividend yield), taxed with 26% without DRIP:
 
--2. scenario: perfect wealth generation conditions with a growth of 10% while adding 10k per year
+![Dividend Athlete scenario 1](data/pictures/Growth_5p25_200k.PNG)
 
-Let's take a look at both:
+In this scenario 1, the portfolio will be worth roughly over 1M with a dividend income of 22k after 25 years.
 
-1.  scenario: growth 3% p.a., 10k additional investment from the job income
+-2. scenario: 200k start, weak performance and an average growth of 10% while adding 10k per year (2% starting dividend yield), taxed with 26% without DRIP:
 
-2.  scenario: growth 10% p.a. + 10k additional investment from job income
+![Dividend Athlete scenario 2](data/pictures/Growth_10p25_200k.PNG)
+
+In this scenario 2, the portfolio will be worth roughly over 2.5M with a dividend income of 50k after 25 years.

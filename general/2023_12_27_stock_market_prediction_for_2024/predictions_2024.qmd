@@ -29,3 +29,7 @@ image: stockmarket_1.png
 4\. Walt Disney: The media giant might be a turn-around in 2024. Every giant needs to go down before going up (look at Intel in 2023). I believe Walt disney has unique selling point and brand. They kind of lost the battle with Netflix, but there theme markets will stay unbeatable.
 
 5\. Alibaba: Never forget China! Alibaba is making a decent continous quarterly profit and is even willing to pay a small dividend. That is what Western investor appreciate! Another candidate for a nice turn around!
+
+#Update 02.01.2025:
+
+Performance Review: Alphabet made 35%, LVHM -17%, Novo Nordisk -16%, Walt Disney made 23%, Alibaba made 14%. In a equalized portfolio with each stock holding 20%, this portfolio would have made 7.8% and clearly underperforming the market (SP500 made 25%).

@@ -18,7 +18,7 @@ website:
       - text: Ned Portfolio
         href: portfolio.qmd
       - text: Dividend income
-        href: dividend.qmdl
+        href: dividend.qmd
       
     right: 
       - about/about.qmd

@@ -1,18 +1,8 @@
 [
   {
-    "listing": "/general.html",
-    "items": [
-      "/general/2024_06_orange_juice_olive_oil/juice_olives_oil.html",
-      "/general/2023_12_27_stock_market_prediction_for_2024/predictions_2024.html",
-      "/general/Inflation_data/inflation1.html",
-      "/general/Oil_prices/oilprices.html",
-      "/general/SP500 distribution/SP500.html",
-      "/general/welcome/welcome.html"
-    ]
-  },
-  {
     "listing": "/index.html",
     "items": [
+      "/posts/2025_02_10_AMD/Advanced_Micro_Devices.html",
       "/posts/2024_10_02_Teradyne/Teradyne.html",
       "/posts/2024_09_30_Rockwell_Automation/Rockwell_Automation.html",
       "/posts/2024_09_29_BASF/2024_BASF.html",
@@ -48,6 +38,18 @@
       "/market/2024_09_04_market/2024_09_market_comments.html",
       "/market/2024_07_19_thoughts_July/2024_07_19_thoughts.html",
       "/market/2024_04_29_AMZN_earnings_Apple_Earnings_forecast/2024_04_earnings.html"
+    ]
+  },
+  {
+    "listing": "/general.html",
+    "items": [
+      "/general/2024_12_16_stock_market_prediction_for_2025/predictions_2025.html",
+      "/general/2024_06_orange_juice_olive_oil/juice_olives_oil.html",
+      "/general/2023_12_27_stock_market_prediction_for_2024/predictions_2024.html",
+      "/general/Inflation_data/inflation1.html",
+      "/general/Oil_prices/oilprices.html",
+      "/general/SP500 distribution/SP500.html",
+      "/general/welcome/welcome.html"
     ]
   }
 ]
