@@ -41,6 +41,7 @@ library(reshape)
 #get data from the Google sheets 
 portfolio_df <- read_excel("data/NedPortfolio_Management.xlsx")
 portfolio_df <- portfolio_df%>% filter(!is.na(Kaufkurs))
+portfolio_df$`Bilanz %` <- portfolio_df$`Bilanz %` *100
 
 ```
 
@@ -50,16 +51,62 @@ portfolio_df <- portfolio_df%>% filter(!is.na(Kaufkurs))
 #| output: false
 #| include: false
 
+portfolio_df_1 <- portfolio_df %>% filter(`Pie %` >0.01)
+portfolio_df_1 <- portfolio_df_1 %>% arrange(desc(`Pie %`))
+
+sum_main_portfolio <- sum(portfolio_df_1$`Pie %`)
+sum_main_portfolio_label <- paste0("Total: ", round(100*sum_main_portfolio, 1), "%")
+
 # Create the pie chart
-p1 <- ggplot(portfolio_df, aes(x = "", y = Wert, fill = Wertpapier)) +
-  geom_bar(width = 1, stat = "identity") +
-  coord_polar("y", start = 0) +
+p1 <- ggplot(portfolio_df_1, aes(x = "", y = `Pie %`, fill = reorder(Wertpapier, -`Pie %`))) +
+  geom_col(color = "black") +
+  geom_label(aes(label = Wertpapier), color = "white",
+             position = position_stack(vjust = 0.5),
+              box.padding = 3,
+              point.padding = 5,
+             show.legend = FALSE,
+             size = 3) + 
+  scale_fill_viridis_d() +
+  coord_polar(theta = "y") + 
   theme_void() +
-  theme(legend.position = "none") + # Remove the legend
-  geom_text_repel(aes(label = paste0(Wertpapier, ": ", Wert)), 
-                  position = position_stack(vjust = 0.5), 
-                  size = 4) + # Add labels with ggrepel
-  labs(title = "Portfolio Distribution")
+  theme(legend.position = "none")+
+  ggtitle(sum_main_portfolio_label)
+
+
+```
+
+These are all my holdings which are above 1% value in the portfolio:
+
+```{r}
+#| warning: false
+#| echo: false
+#| output: true
+#| include: true
+
+print(p1)
+
+```
+
+```{r}
+#| warning: false
+#| echo: false
+#| output: false
+#| include: false
+
+
+return_df <- data.frame(return = portfolio_df$`Bilanz %`,
+                        stock = portfolio_df$Wertpapier)
+
+
+# Create the boxplot
+p2 <- ggplot(return_df, aes(y = return)) +
+  geom_boxplot() +
+  theme_minimal() +
+  ggtitle("Boxplot of Returns with Stock Labels") +
+  xlab("") +  # Remove x-axis label
+  ylab("Return (%)")
+
+
 
 ```
 
@@ -69,6 +116,7 @@ p1 <- ggplot(portfolio_df, aes(x = "", y = Wert, fill = Wertpapier)) +
 #| output: true
 #| include: true
 
-p1
+print(p2)
 
 ```
+
