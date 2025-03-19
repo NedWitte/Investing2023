@@ -22,10 +22,12 @@ library(pak)
 library(shiny)
 library(shinydashboard)
 library(shiny.i18n)
-library(bslib)
+library(dplyr)
+library(shiny)
+library(ggplot2)
+library(viridis)
+library(readxl)
 
-
-library(datasets)
 
 ```
 
@@ -33,47 +35,54 @@ library(datasets)
 #| context: data
 #| echo: false
 #| output: false
-WorldPhones <- as.data.frame(WorldPhones)
+#get dividends
+#get data from the Excel sheet in Github
+portfolio_df <- read_excel("data/NedPortfolio_Management.xlsx")
+portfolio_df <- portfolio_df%>% filter(!is.na(value))
+
+portfolio_df_1 <- portfolio_df %>% filter(`pie_%` >0.01)
+portfolio_df_1 <- portfolio_df_1 %>% arrange(desc(`pie_%`))
+
+sum_main_portfolio <- sum(portfolio_df_1$`pie_%`)
+sum_main_portfolio_label <- paste0("Total: ", round(100*sum_main_portfolio, 1), "%")
 
 ```
-
-
-```{r}
-#| panel: sidebar
-
-selectInput("nz", label = "Region", choices = colnames(WorldPhones))
-    
-
-```
-
-
-```{r}
-#| panel: fill
- 
-plotOutput("barplot")
-
-```
-
-
 
 ```{r}
 #| context: server
 # Define a server for the Shiny app
+# Define UI
+ui <- fluidPage(
+  titlePanel("Reactive Pie Chart"),
+  sidebarLayout(
+    sidebarPanel(
+      # Add any inputs you need here
+    ),
+    mainPanel(
+      plotOutput("pieChart")
+    )
+  )
+)
+
+# Define server logic
 server <- function(input, output) {
-  
-  # Create a reactive expression to filter data based on user input
-  selected_data <- reactive({
-    region_name <- input$region
-    data <- WorldPhones[, c("Year", region_name), drop = FALSE]
-    colnames(data) <- c("Year", "Value")
-    return(data)
-  })
-  
-  # Create a barplot based on the selected data
-  output$barplot <- renderPlot({
-    data <- selected_data()
-    barplot(data$Value, names.arg = data$Year, col = "blue", main = paste("Barplot of", input$region))
+  output$pieChart <- renderPlot({
+    ggplot(portfolio_df_1, aes(x = "", y = `pie_%`, fill = reorder(asset, -`pie_%`))) +
+      geom_col(color = "black") +
+      geom_label(aes(label = asset), color = "white",
+                 position = position_stack(vjust = 0.5),
+                 box.padding = 3,
+                 point.padding = 5,
+                 show.legend = FALSE,
+                 size = 2) + 
+      scale_fill_viridis_d() +
+      coord_polar(theta = "y") + 
+      theme_void() +
+      theme(legend.position = "none") +
+      ggtitle(sum_main_portfolio_label)
   })
 }
 
+# Run the application
+shinyApp(ui = ui, server = server)
 ```

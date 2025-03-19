@@ -10,7 +10,7 @@ listing:
     categories: false
     sort-ui: false
     filter-ui: false
-    image-height: 150px
+    image-height: 50px
     image-placeholder: "favicon_main.png"
   - id: market-listings
     contents: market
@@ -19,11 +19,10 @@ listing:
     categories: false
     sort-ui: false
     filter-ui: false
-    image-height: 150px
+    image-height: 50px
     image-placeholder: "favicon_main.png"
 page-layout: full
 title-block-banner: true
-
 ---
 
 # Stock analysis are listed here:
@@ -33,10 +32,7 @@ title-block-banner: true
 
 Go to the next page for more entries:
 
-
-# General market analysis are listed here:
+# General market comments are listed here:
 
 ::: {#market-listings}
 :::
-
-

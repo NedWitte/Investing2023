@@ -8,6 +8,8 @@ image: amazon_y2000.png
 
 Amazon is constantly evolving. Most likely it will not stop inventing for the next 50 years.
 
+## **Earnings comments:**
+
 ## **Trade history:**
 
 **-Amazon trade in early August**

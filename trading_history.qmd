@@ -1,0 +1,34 @@
+---
+title: "My trading history"
+author: "JNW"
+description: "A notebook of my trading history"
+date: "2025-01-01"
+---
+
+**The KarambolageNed portfolio trading history**
+
+# Introduction
+
+This is a little logbook of my trades.
+
+# History in descending order
+
+## Logbook:
+
+19.03.2025_1: Trading: JF7CB4\|DE000JF7CB45: 2x Long NASDAQ100 \# Scenario: Buy at session lows, sell bounce ; SL at 99.07 Euro, TP at 100 \# End: Bought at 99.02, sold at 100.XX, P/L: +15
+
+18.03.2025_4: Trading: JF7CB4\|DE000JF7CB45: 2x Long NASDAQ100 \# Scenario: Buy at session lows, sell bounce ; SL at 99.07 Euro, TP at 102 \# End: Bought at 99.02, sold at XX, P/L: +15
+
+18.03.2025_3: Trading: JF7CB4\|DE000JF7CB45: 2x Long NASDAQ100 \# Scenario: Buy at session lows, sell bounce ; SL at 99.07 Euro, TP at 102 \# End: Bought at 99.07, sold at 99.29, P/L: +10
+
+18.03.2025_2: Trading: JF7CB4\|DE000JF7CB45: 2x Long NASDAQ100 \# Scenario: Buy at session lows, sell bounce ; SL at 99.00 Euro, TP at 99.51 via Stop Loss order \# End: Bought at 99.36, sold at 99.51, P/L: +5
+
+18.03.2025_1: Trading: JA01H0\|DE000JA01H01 \# Scenario: Buy SPY -.10% pre-market upon strong EUR at 1.09 at resistance, hoping for weaker Euro, plan to sell SPY at 570 ish, tight Stop Loss; SL at 106.70 Euro, TP at 108.50 \# End: Bought at 107.79, sold at 106.77 (EURO went down to -0.1%), P/L: -32.XX
+
+17.03.2025_2: Trading: JF7CB4\|DE000JF7CB45: 2x Long NASDAQ100 \# Scenario: Buy after sell-off 1h after opening, sell bounce ; SL1 at 101.15 Euro, SL2 at 101.45 Euro, TP at 102 \# End: Bought at 101.08, sold at 102.36 ; P/L: +47.60
+
+17.03.2025_1: Trading: JF7CB4\|DE000JF7CB45: 2x Long NASDAQ100 \# Scenario: Buy at session lows, sell dead cat bounce, wait for Retail Sales US, go with momentum in pre-market ; SL1 at 101.15 Euro, SL2 at 101.45 Euro, TP at 102 \# End: Bought at 101.08, sold at 102.36, (Retail Sales come in worse than expected but market actually went up, not a good report, QQQ went higher); P/L: +35
+
+14.03.2025: Trading: PH2NDX\|DE000PH2NDX8: 2x Long NASDAQ100 \# Scenario: Buy at session lows after bad announcement on Trump, sell bounce ; SL at 84 Euro, TP at 85 \# End: Bought at 87.03, sold at 87.20, P/L: +8.40
+
+12.02.2025 - 15.08.2025: Swing-Trade: Amazon stock Scenario: Buy at 213, sell at 250 Euros

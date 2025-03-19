@@ -6,9 +6,21 @@ date: "2024-07-29"
 image: x2024_07_MCD.png
 ---
 
-**McDondalds- the real estate giant**
+# **McDondalds- the real estate giant**
 
-Earnings comments:
+## Earnings comments:
+
+10.02.2025: The headlines
+
+-   **Global Systemwide sales\* were over \$130 billion for the full year, with full year growth of more than \$1 billion (more than \$2 billion in constant currencies)**
+
+-   **Systemwide sales to loyalty members were approximately \$30 billion for the full year and approximately \$8 billion for the quarter across 60 loyalty markets, with full year growth of 30% over prior year**
+
+-   **90-day active loyalty users were over 175 million across 60 loyalty markets as of year-end, with growth of approximately 15% over prior year**
+
+These headlines basically hid the real performance of MCD. Because those were quite underwhelming. Global Sales increased by only 0.4% while EPS was flat. That is the real headline. Despite cheaper meals, people buy less.
+
+\--\> I continue to think that this stock will lack in performance within the next 10y due to GLP1-drugs.
 
 Q2-2024: According to the Release (https:[Hyperlink to Q2 Earnings](https://corporate.mcdonalds.com/content/dam/sites/corp/nfl/pdf/MCD%20-%20Q2-24%20Earnings%20Release.pdf "Hyperlink to Q2 Earnings")), Q2-2024 had this headline:
 

@@ -1,0 +1,123 @@
+---
+title: "Blackrock"
+description: "The biggest asset manager of the world"
+author: "JNW"
+date: "2025-03-12"
+image: Blackrock_flav.png
+---
+
+**Blackrock**
+
+Blackrock states in their investor day presentation slides that they "serve clients with excellence".
+
+```{r}
+#| echo: false
+#| output: false
+#install.packages("dashCoreComponents")
+#install.packages("dashHtmlComponents")
+#install.packages("dash")
+library(tidyquant)
+library(lubridate)
+library(plotly)
+#dash
+#library(dashCoreComponents)
+#library(dashHtmlComponents)
+#library(dash)
+
+
+ticker_symbol <- "BLK"
+company <- "Blackrock"
+y_column <- paste(ticker_symbol, ".Adjusted", sep = "")
+y_col_Open <- paste(ticker_symbol, ".Open", sep = "")
+y_col_High <- paste(ticker_symbol, ".High", sep = "")
+y_col_Low <- paste(ticker_symbol, ".Low", sep = "")
+y_col_Close <- paste(ticker_symbol, ".Close", sep = "")
+y_col_Volume <- paste(ticker_symbol, ".Volume", sep = "")
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+getSymbols(ticker_symbol ,src='yahoo')
+
+df1 <- data.frame(Date=index(get(ticker_symbol )),coredata(get(ticker_symbol)))
+
+
+fig1 <- df1 %>% plot_ly(x = ~Date, type = "candlestick",
+                       open = ~get(y_col_Open), close = ~get(y_col_Close),
+                       high = ~get(y_col_High), low = ~get(y_col_Low)) 
+
+fig1 <- fig1 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.2), inherit = FALSE)
+
+# Remove legends for both traces
+fig1 <- fig1 %>% layout(
+  title = "Candlestick Chart since inception",
+  xaxis = list(rangeslider = list(visible = FALSE)),
+   yaxis = list(title = "Stock price in USD"),
+  showlegend = FALSE  # Hide legends for all traces
+)
+
+
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+df2 <- tail(df1, 365)
+
+fig2 <- df2 %>% plot_ly(x = ~Date, type = "candlestick",
+                       open = ~get(y_col_Open), close = ~get(y_col_Close),
+                       high = ~get(y_col_High), low = ~get(y_col_Low)) 
+
+fig2 <- fig2 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.2), inherit = FALSE)
+
+# Remove legends for both traces
+fig2 <- fig2 %>% layout(
+  title = "Candlestick Chart since inception",
+  xaxis = list(rangeslider = list(visible = FALSE)),
+   yaxis = list(title = "Stock price in USD"),
+  showlegend = FALSE  # Hide legends for all traces
+)
+
+
+```
+
+# Stocks charts within a tab
+
+::: nav-pills
+::: panel-tabset
+## Chart since inception
+
+```{r}
+#| echo: false
+fig1
+```
+
+## Chart of the last year
+
+```{r}
+#| echo: false
+fig2
+```
+:::
+:::
+
+*A purely financial return perspective:*
+
+# Valuation:
+
+Blackrock is expecting an EPS of 61 USD in 2027. Based on its growth, the stock deserves an P/E of 20-25. This makes a stock price of 1240 or 1550 USD. Today's stock price is 910 USD. So over 2 years, it shows a 36% upside.
+
+![Blackrock EPS forecast](Blackrock_EPS_forecast_2025_03.PNG)
+
+# Earnings informations/comments:
+
+## News from 15th Jan 2025:
+
+Blackrock has 14% increase in full year revenue and a 21% increase in full years operating income. This is phenomenal growth.

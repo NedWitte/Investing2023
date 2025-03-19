@@ -1,0 +1,122 @@
+---
+title: "Reddit"
+description: "Reddit - one of the most populuar websits in the world"
+author: "JNW"
+date: "2025-02-19"
+image: Reddit_flav.png
+---
+
+**Reddit**
+
+Reddit is among the top 5 most trafficed sites in the world. 
+
+```{r}
+#| echo: false
+#| output: false
+#install.packages("dashCoreComponents")
+#install.packages("dashHtmlComponents")
+#install.packages("dash")
+library(tidyquant)
+library(lubridate)
+library(plotly)
+#dash
+#library(dashCoreComponents)
+#library(dashHtmlComponents)
+#library(dash)
+
+
+ticker_symbol <- "RDDT"
+company <- "Reddit"
+y_column <- paste(ticker_symbol, ".Adjusted", sep = "")
+y_col_Open <- paste(ticker_symbol, ".Open", sep = "")
+y_col_High <- paste(ticker_symbol, ".High", sep = "")
+y_col_Low <- paste(ticker_symbol, ".Low", sep = "")
+y_col_Close <- paste(ticker_symbol, ".Close", sep = "")
+y_col_Volume <- paste(ticker_symbol, ".Volume", sep = "")
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+getSymbols(ticker_symbol ,src='yahoo')
+
+df1 <- data.frame(Date=index(get(ticker_symbol )),coredata(get(ticker_symbol)))
+
+
+fig1 <- df1 %>% plot_ly(x = ~Date, type = "candlestick",
+                       open = ~get(y_col_Open), close = ~get(y_col_Close),
+                       high = ~get(y_col_High), low = ~get(y_col_Low)) 
+
+fig1 <- fig1 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.2), inherit = FALSE)
+
+# Remove legends for both traces
+fig1 <- fig1 %>% layout(
+  title = "Candlestick Chart since inception",
+  xaxis = list(rangeslider = list(visible = FALSE)),
+   yaxis = list(title = "Stock price in USD"),
+  showlegend = FALSE  # Hide legends for all traces
+)
+
+
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+df2 <- tail(df1, 365)
+
+fig2 <- df2 %>% plot_ly(x = ~Date, type = "candlestick",
+                       open = ~get(y_col_Open), close = ~get(y_col_Close),
+                       high = ~get(y_col_High), low = ~get(y_col_Low)) 
+
+fig2 <- fig2 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.2), inherit = FALSE)
+
+# Remove legends for both traces
+fig2 <- fig2 %>% layout(
+  title = "Candlestick Chart since inception",
+  xaxis = list(rangeslider = list(visible = FALSE)),
+   yaxis = list(title = "Stock price in USD"),
+  showlegend = FALSE  # Hide legends for all traces
+)
+
+
+```
+
+# Stocks charts within a tab
+
+::: nav-pills
+::: panel-tabset
+## Chart since inception
+
+```{r}
+#| echo: false
+fig1
+```
+
+## Chart of the last year
+
+```{r}
+#| echo: false
+fig2
+```
+:::
+:::
+
+*A purely financial return perspective:*
+
+# valuation:
+
+Reddit grew 71% y/y to 427.7 Million and daily active uniques increased 39% to 101.7 M while having a Gross Margin of 92.6%. That is incredible. Total FY revenue is 1300.2 M. The market cap of this company at 187 USD is roughly 35B. And this company is only starting to begin to monetize its traffic. So, this kind of valuation is purely based on growth perspectives. So far, with 70% growth, this stock does not look expensive.
+
+
+# Earnings informations/comments:
+
+## Earnings from 12th Feb 2025:
+
+Reddit grew 71% y/y to 427.7 Million and daily active uniques increased 39% to 101.7 M while having a Gross Margin of 92.6%. That is incredible. Total FY revenue is 1300.2 M. Free Cash flow was 215.8 M and only a CAPEX of 6.2M (less than 1% of revenue).

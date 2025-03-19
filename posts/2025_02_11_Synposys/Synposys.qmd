@@ -8,7 +8,7 @@ image: Synopsys_flav.png
 
 **Synopsys**
 
-Synopsys, Inc. is an American electronic design automation (EDA) company headquartered in Sunnyvale, California, that focuses on silicon design and verification, silicon intellectual property and software security and quality. Synopsys supplies tools and services to the semiconductor design and manufacturing industry. 
+Synopsys, Inc. is an American electronic design automation (EDA) company headquartered in Sunnyvale, California, that focuses on silicon design and verification, silicon intellectual property and software security and quality. Synopsys supplies tools and services to the semiconductor design and manufacturing industry.
 
 ```{r}
 #| echo: false
@@ -108,16 +108,16 @@ fig2
 :::
 :::
 
-*A purely financial return perspective:*
+# Interesting facts:
 
-# valuation:
+-revenue categorized by EDA, Design IP, Others
 
-SNPS makes over 6B in revenue while having a market cap  of roughly 81 B (Feb 2025).In 2025, the company is expected to grow 13%, thus growth is slowing down. An EPS of 2025 is expected, making FY2025 Forward PE of 35 (527 USD/15 USD). Based on the growth and also its past growth, this valuation is slightly elevated, however possibly in an acceptable range.
+# *A purely financial return perspective:*
 
+# Valuation:
 
+SNPS makes over 6B in revenue while having a market cap of roughly 81 B (Feb 2025).In 2025, the company is expected to grow 13%, thus growth is slowing down. An EPS of 2025 is expected, making FY2025 Forward PE of 35 (527 USD/15 USD). Based on the growth and also its past growth, this valuation is slightly elevated, however possibly in an acceptable range.
 
 # Earnings informations/comments:
 
 ## Earnings from 26th Feb 2025:
-
-

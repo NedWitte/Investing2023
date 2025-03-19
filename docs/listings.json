@@ -1,7 +1,23 @@
 [
   {
+    "listing": "/general.html",
+    "items": [
+      "/general/2025_02_17_vacation_budget/2025_02_vacation_bugdet.html",
+      "/general/2024_12_16_stock_market_prediction_for_2025/predictions_2025.html",
+      "/general/2024_06_orange_juice_olive_oil/juice_olives_oil.html",
+      "/general/2023_12_27_stock_market_prediction_for_2024/predictions_2024.html",
+      "/general/Inflation_data/inflation1.html",
+      "/general/Oil_prices/oilprices.html",
+      "/general/SP500 distribution/SP500.html",
+      "/general/welcome/welcome.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
+      "/posts/2025_03_12_Blackrock/Blackrock.html",
+      "/posts/2025_02_20_Microsoft/MIcrosoft.html",
+      "/posts/2025_02_19_Reddit/Reddit.html",
       "/posts/2025_02_11_Synposys/Synposys.html",
       "/posts/2025_02_10_AMD/Advanced_Micro_Devices.html",
       "/posts/2024_10_02_Teradyne/Teradyne.html",
@@ -32,25 +48,14 @@
       "/posts/2023_05_01_Alibaba/Alibaba.html",
       "/posts/2023_04_01_Tesla/Tesla.html",
       "/posts/2023_03_01_Meta/meta.html",
+      "/market/2025_03_05_escalation/2025_03_escalation.html",
+      "/market/2025_02_19_tariffs_and_etc/2025_02_tariffs_etc.html",
       "/market/2024_12_04_the_all_star_portfolio/2024_12_04_all_star_portfolio.html",
       "/market/2024_11_25_the_market_after_the_election/2024_11_25_the_market_after_the_election.html",
       "/market/2024_10_30_taxes_UK/2024_10_30_taxes_UK.html",
       "/market/2024_09_19_FED_50cut/2024_09_19_FED_cut50.html",
       "/market/2024_09_04_market/2024_09_market_comments.html",
-      "/market/2024_07_19_thoughts_July/2024_07_19_thoughts.html",
-      "/market/2024_04_29_AMZN_earnings_Apple_Earnings_forecast/2024_04_earnings.html"
-    ]
-  },
-  {
-    "listing": "/general.html",
-    "items": [
-      "/general/2024_12_16_stock_market_prediction_for_2025/predictions_2025.html",
-      "/general/2024_06_orange_juice_olive_oil/juice_olives_oil.html",
-      "/general/2023_12_27_stock_market_prediction_for_2024/predictions_2024.html",
-      "/general/Inflation_data/inflation1.html",
-      "/general/Oil_prices/oilprices.html",
-      "/general/SP500 distribution/SP500.html",
-      "/general/welcome/welcome.html"
+      "/market/2024_07_19_thoughts_July/2024_07_19_thoughts.html"
     ]
   }
 ]

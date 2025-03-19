@@ -17,8 +17,13 @@ website:
         href: general.qmd
       - text: Ned Portfolio
         href: portfolio.qmd
+      - text: Ned Portfolio_Shiny
+        href: portfolio_shiny.qmd
       - text: Dividend income
         href: dividend.qmd
+      - text: Trading History
+        href: trading_history.qmd
+        
       
     right: 
       - about/about.qmd

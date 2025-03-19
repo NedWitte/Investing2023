@@ -1,0 +1,15 @@
+---
+title: "The average family can not effort a day at the Disney resorts anymore....."
+description: "There is just no money for vacations for lower-income families."
+author: "JNW"
+date: "2025-02-17"
+image: vacation_bugdet_Disney.PNG
+---
+
+# The average family can not effort a day at the Disney resorts anymore
+
+A family needs at least roughly 700 USD to spend a nice two-day Disney theme park visit. Take a look at the figure below:
+
+![Money spent per income quartile](vacation_buget_Disney.PNG)
+
+Basically the lower 40% of US-society can not afford a two-day visit at Disney. It surpasses their budget by a lot.

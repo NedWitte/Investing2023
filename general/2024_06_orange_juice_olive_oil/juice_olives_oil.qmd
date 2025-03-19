@@ -2,6 +2,7 @@
 title: "What happenend to grocery prices?"
 description: "Some interesting developements in prices"
 date: "2024-05-31"
+author: "JNW"
 format: 
   html:
     number-sections: true
@@ -9,8 +10,7 @@ format:
 
 # Olive Oil prices
 
-::: {layout-ncol="2"}
-![Olive Oil](oliveoil1.png){#fig-oliveoil width="50%" height="30%"} ![An olive](oliveoil2.png){#fig-olive width="50%" height="30%"}
+::: {layout-ncol="2"} ![Olive Oil](oliveoil1.png){#fig-oliveoil width="50%" height="30%"} ![An olive](oliveoil2.png){#fig-olive width="50%" height="30%"}
 
 ```{r}
 #| echo: false

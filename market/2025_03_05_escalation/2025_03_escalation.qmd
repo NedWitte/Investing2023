@@ -1,0 +1,44 @@
+---
+title: "Trump tariffs threats worked?" 
+description: "Germany is lifting its debt brake" 
+author: "JNW" 
+date: "2025-03-05" 
+image: Germany_debt_brake.png
+---
+
+**March 2025**
+
+This is just my opinion: Trump and Vance were bullying Zelensky in Washington DC. Only 3 days later, Germany and the EU is raising more capital to finance its defense and its huge infrastructure package. Wasn't this Trumps plan in the first place? As a result of this infrastructure companies like Hochtief, BASF and other went up up to 10% on those news.
+
+Now on 05.03.2025, it became visible that there is already excemptions made for US car companies like Ford and GM. It is supposedly only about Fentanyl. April will be about trade war.
+
+I continue to believe that we will see a relieve rally at some point.
+
+------------------------------------------------------------------------
+
+**What might happen after:**
+
+-   at some point Trump will celebrate that he lifted the tariffs
+-   EU will start to grow again as a result of increased spending.
+-   Ukraine war will continue but just with EU as a supporter
+-   for stocks: stocks will gain massively. It is important to stay invested
+
+------------------------------------------------------------------------
+
+**Chart of today from the Compound Podcast:**
+
+![Figure 1: Chart from the Compound displaying the VIX spread (1M-4M) and the SP500](2025_03_10_1M_VIX_vs_4M_VIX.PNG)
+
+The lower part of the chart displays the spread between the 1M and the 4M future VIX contracts. If its peaks above, the volatility in the future is expected to be lower than the near-term future. Generallly this highly correlates with a bottom or short-term bottom.
+
+Nonetheless, the VIX has not reached excessive levels. It is sitting roughly at 26.
+
+![VIX in US equities as of 10.03.2025](2025_03_10_VIX.PNG)
+
+Here the PE ratios for the SP500 for Mag7 and the rest of the SP500 (minus Mag7):
+
+![](MAG7_vs_SPY_2025_03_13.PNG)
+
+Here another chart that might make you feel more relaxed. Nearly in every case such a drawdown is being recovered within the same year:
+
+![Drawdowns since 1990](Intra_year_drawdown_2025_03.PNG)

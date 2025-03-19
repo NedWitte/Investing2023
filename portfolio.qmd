@@ -9,7 +9,7 @@ date: "2023-08-10"
 
 # Introduction
 
-This **portfolio** consist of a maximum of 100 values whereas the top 12 stock should compromise at least 60% of the total value.
+This **portfolio** consist of a maximum of 100 values whereas the top 15 stock should compromise at least 70% of the total value.
 
 ```{r}
 #| echo: false
@@ -29,6 +29,7 @@ library(readxl)
 library(ggrepel)
 library(gt)
 library(reshape)
+
 ```
 
 ```{r}
@@ -40,8 +41,8 @@ library(reshape)
 #get dividends
 #get data from the Google sheets 
 portfolio_df <- read_excel("data/NedPortfolio_Management.xlsx")
-portfolio_df <- portfolio_df%>% filter(!is.na(Kaufkurs))
-portfolio_df$`Bilanz %` <- portfolio_df$`Bilanz %` *100
+portfolio_df <- portfolio_df%>% filter(!is.na(value))
+
 
 ```
 
@@ -51,16 +52,16 @@ portfolio_df$`Bilanz %` <- portfolio_df$`Bilanz %` *100
 #| output: false
 #| include: false
 
-portfolio_df_1 <- portfolio_df %>% filter(`Pie %` >0.01)
-portfolio_df_1 <- portfolio_df_1 %>% arrange(desc(`Pie %`))
+portfolio_df_1 <- portfolio_df %>% filter(`pie_pct` >0.01)
+portfolio_df_1 <- portfolio_df_1 %>% arrange(desc(`pie_pct`))
 
-sum_main_portfolio <- sum(portfolio_df_1$`Pie %`)
+sum_main_portfolio <- sum(portfolio_df_1$`pie_pct`)
 sum_main_portfolio_label <- paste0("Total: ", round(100*sum_main_portfolio, 1), "%")
 
 # Create the pie chart
-p1 <- ggplot(portfolio_df_1, aes(x = "", y = `Pie %`, fill = reorder(Wertpapier, -`Pie %`))) +
+p1 <- ggplot(portfolio_df_1, aes(x = "", y = `pie_pct`, fill = reorder(asset, -`pie_pct`))) +
   geom_col(color = "black") +
-  geom_label(aes(label = Wertpapier), color = "white",
+  geom_label(aes(label = asset), color = "white",
              position = position_stack(vjust = 0.5),
               box.padding = 3,
               point.padding = 5,
@@ -73,9 +74,18 @@ p1 <- ggplot(portfolio_df_1, aes(x = "", y = `Pie %`, fill = reorder(Wertpapier,
   ggtitle(sum_main_portfolio_label)
 
 
-```
+# Create the pie chart
+p2 <- plot_ly(portfolio_df_1, labels = ~asset, values = ~pie_pct, type = 'pie',
+             textinfo = 'label+percent',
+             insidetextorientation = 'radial',
+             marker = list(colors = viridis::viridis(4), line = list(color = 'black', width = 1))) %>%
+  layout(title = 'Portfolio Distribution',
+         showlegend = FALSE,
+         xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
+         yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
 
-These are all my holdings which are above 1% value in the portfolio:
+
+```
 
 ```{r}
 #| warning: false
@@ -84,39 +94,36 @@ These are all my holdings which are above 1% value in the portfolio:
 #| include: true
 
 print(p1)
-
-```
-
-```{r}
-#| warning: false
-#| echo: false
-#| output: false
-#| include: false
-
-
-return_df <- data.frame(return = portfolio_df$`Bilanz %`,
-                        stock = portfolio_df$Wertpapier)
-
-
-# Create the boxplot
-p2 <- ggplot(return_df, aes(y = return)) +
-  geom_boxplot() +
-  theme_minimal() +
-  ggtitle("Boxplot of Returns with Stock Labels") +
-  xlab("") +  # Remove x-axis label
-  ylab("Return (%)")
-
-
-
-```
-
-```{r}
-#| warning: false
-#| echo: false
-#| output: true
-#| include: true
-
 print(p2)
 
 ```
 
+# Long-term goal:
+
+-   the long-term goal is simply: creating 50k cashflow in dividends with a dividend yield of maximum 2.5%. The portfolios value will at least 2 million then.
+-   retiring with 55 and just live. Kids should be old enough by then and the cash flow should support enough
+
+# Strategy updates:
+
+## April 2026:
+
+-   more investments, regular buy of undervalued opportunities
+
+## June 2026:
+
+-   sell of Alibaba for now (I am trying to buy in 2026 for 80 Euros again)
+-   sell of Prosus
+
+## March 2025:
+
+-   in early 2025, I had to raise for a 19k kitchen. Thankfully I sold some stocks before the small crash caused by president Trump and his tariff negotiations.
+
+-   in this sell-off, I saw some German stocks and defensive stocks rising such as BASF, Hochtief. I sold those even though I made a 2k loss on BASF (even though a positive return with dividends).
+
+-   I also decided to sell stocks whose dividends where taxed too highly such as Swiss stocks and French stocks (Sika, Vinci, Airport Zürich). I came to this realization too late, but those 35% source tax are not beneficial for a long-term holding.
+
+-   Due to uncertainty, I am a believer that big tech stocks are doing still very well. I own 4 big tech stocks now: Alphabet, Amazon, Microsoft and Nvidia.
+
+![Portfolio Top 15 as of March 2025](data/pictures/portfolio_2025_03.PNG)
+
+# 

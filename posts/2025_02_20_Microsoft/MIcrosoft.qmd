@@ -1,0 +1,129 @@
+---
+title: "Microsoft"
+description: "The company that is everywhere in our worklife"
+author: "JNW"
+date: "2025-02-20"
+image: Microsoft_flav.png
+---
+
+**Microsoft**
+
+Microsoft has been among for a long time now.
+
+```{r}
+#| echo: false
+#| output: false
+#install.packages("dashCoreComponents")
+#install.packages("dashHtmlComponents")
+#install.packages("dash")
+library(tidyquant)
+library(lubridate)
+library(plotly)
+#dash
+#library(dashCoreComponents)
+#library(dashHtmlComponents)
+#library(dash)
+
+
+ticker_symbol <- "MSFT"
+company <- "Microsoft"
+y_column <- paste(ticker_symbol, ".Adjusted", sep = "")
+y_col_Open <- paste(ticker_symbol, ".Open", sep = "")
+y_col_High <- paste(ticker_symbol, ".High", sep = "")
+y_col_Low <- paste(ticker_symbol, ".Low", sep = "")
+y_col_Close <- paste(ticker_symbol, ".Close", sep = "")
+y_col_Volume <- paste(ticker_symbol, ".Volume", sep = "")
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+getSymbols(ticker_symbol ,src='yahoo')
+
+df1 <- data.frame(Date=index(get(ticker_symbol )),coredata(get(ticker_symbol)))
+
+
+fig1 <- df1 %>% plot_ly(x = ~Date, type = "candlestick",
+                       open = ~get(y_col_Open), close = ~get(y_col_Close),
+                       high = ~get(y_col_High), low = ~get(y_col_Low)) 
+
+fig1 <- fig1 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.2), inherit = FALSE)
+
+# Remove legends for both traces
+fig1 <- fig1 %>% layout(
+  title = "Candlestick Chart since inception",
+  xaxis = list(rangeslider = list(visible = FALSE)),
+   yaxis = list(title = "Stock price in USD"),
+  showlegend = FALSE  # Hide legends for all traces
+)
+
+
+
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+df2 <- tail(df1, 365)
+
+fig2 <- df2 %>% plot_ly(x = ~Date, type = "candlestick",
+                       open = ~get(y_col_Open), close = ~get(y_col_Close),
+                       high = ~get(y_col_High), low = ~get(y_col_Low)) 
+
+fig2 <- fig2 %>% add_lines(x = ~Date, y = ~get(y_col_Open), line = list(color = 'black', width = 0.2), inherit = FALSE)
+
+# Remove legends for both traces
+fig2 <- fig2 %>% layout(
+  title = "Candlestick Chart since inception",
+  xaxis = list(rangeslider = list(visible = FALSE)),
+   yaxis = list(title = "Stock price in USD"),
+  showlegend = FALSE  # Hide legends for all traces
+)
+
+
+```
+
+# Stocks charts within a tab
+
+::: nav-pills
+::: panel-tabset
+## Chart since inception
+
+```{r}
+#| echo: false
+fig1
+```
+
+## Chart of the last year
+
+```{r}
+#| echo: false
+fig2
+```
+:::
+:::
+
+*A purely financial return perspective:*
+
+# Valuation:
+
+Microsoft median revenue growth from June 2020 to 2024 was 15.7%. On a 10y frame, the revenue was 93.5B in 2014 and in 2024, it was 245B. Personally, I think we will see a revenue of 500 B in 2034. On a EPS metric, the EPS per share in 2014 was 2.63 USD, and in 2024, it was 11.80 USD. That is roughly 3x. Currently with a share price of 400 USD (27.02.2025), this make a valuation of  36 PE (PEG of 2.12). Based on this, Microsoft is priced at a premium valuation. Based on a 10% EPS growth, we will see an EPS of 29 USD in 2034. Based on a premium valuation of 25x PE, this would deserve a stock price of 725 USD. Including dividends, I am expecting to double the money. Btw, based on a EPS growth of 12%, the EPS would be 34 USD and that would deserve a stock price of 850 USD. I invested in this stock hoping to double the money within 10 years.
+
+
+
+# Earnings informations/comments:
+
+## News from 20th Feb 2025:
+
+MSFT reveals a new chip. But this chip was build by engineers hired from a lot of different US companies....specifically Intel.
+
+![Microsoft Unveils Majorana 1 Quantum Chip](Feb25_Microsoft_Chip.PNG)
+
+## Earnings from 29th Jan 2025:
+
+MSFT EPS came in at 3.24 USD while 3.11 USD was expected.
