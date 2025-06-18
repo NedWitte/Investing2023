@@ -18,8 +18,8 @@ I continue to believe that we will see a relieve rally at some point.
 
 **What might happen after:**
 
--   at some point Trump will celebrate that he lifted the tariffs
--   EU will start to grow again as a result of increased spending.
+-   at some point Trump will celebrate that he lifted the tariffs; Trump will decrease corporate tax later in 2025
+-   EU will start to grow again as a result of increased spending
 -   Ukraine war will continue but just with EU as a supporter
 -   for stocks: stocks will gain massively. It is important to stay invested
 
@@ -42,3 +42,9 @@ Here the PE ratios for the SP500 for Mag7 and the rest of the SP500 (minus Mag7)
 Here another chart that might make you feel more relaxed. Nearly in every case such a drawdown is being recovered within the same year:
 
 ![Drawdowns since 1990](Intra_year_drawdown_2025_03.PNG)
+
+Nonetheless, there is also areas to worry about. Look at this piece of soft data:
+
+![Percentage of US consumers worried about loosing their job. ](US_citizen_worried_about_loosing_JOBS.PNG)
+
+Obviously, this is highly influenced by the stock market, simple because wealth is heavily connected to the stock market.

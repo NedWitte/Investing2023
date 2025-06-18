@@ -15,20 +15,82 @@ This is a little logbook of my trades.
 
 ## Logbook:
 
-19.03.2025_1: Trading: JF7CB4\|DE000JF7CB45: 2x Long NASDAQ100 \# Scenario: Buy at session lows, sell bounce ; SL at 99.07 Euro, TP at 100 \# End: Bought at 99.02, sold at 100.XX, P/L: +15
+#### Options June 2025:
 
-18.03.2025_4: Trading: JF7CB4\|DE000JF7CB45: 2x Long NASDAQ100 \# Scenario: Buy at session lows, sell bounce ; SL at 99.07 Euro, TP at 102 \# End: Bought at 99.02, sold at XX, P/L: +15
+##### Total: 17+7 =24 Euro
 
-18.03.2025_3: Trading: JF7CB4\|DE000JF7CB45: 2x Long NASDAQ100 \# Scenario: Buy at session lows, sell bounce ; SL at 99.07 Euro, TP at 102 \# End: Bought at 99.07, sold at 99.29, P/L: +10
+16.06.2025: Trading: SPY at 599 at support (109.25 Euro); P/L: +2
 
-18.03.2025_2: Trading: JF7CB4\|DE000JF7CB45: 2x Long NASDAQ100 \# Scenario: Buy at session lows, sell bounce ; SL at 99.00 Euro, TP at 99.51 via Stop Loss order \# End: Bought at 99.36, sold at 99.51, P/L: +5
+12.06.2025: Trading: SPY at 593 at support (109.66 Euro); P/L: +45.30
 
-18.03.2025_1: Trading: JA01H0\|DE000JA01H01 \# Scenario: Buy SPY -.10% pre-market upon strong EUR at 1.09 at resistance, hoping for weaker Euro, plan to sell SPY at 570 ish, tight Stop Loss; SL at 106.70 Euro, TP at 108.50 \# End: Bought at 107.79, sold at 106.77 (EURO went down to -0.1%), P/L: -32.XX
+10.06.2025: Trading: SPY at 594 at support (109.66 Euro); P/L: +8.20
 
-17.03.2025_2: Trading: JF7CB4\|DE000JF7CB45: 2x Long NASDAQ100 \# Scenario: Buy after sell-off 1h after opening, sell bounce ; SL1 at 101.15 Euro, SL2 at 101.45 Euro, TP at 102 \# End: Bought at 101.08, sold at 102.36 ; P/L: +47.60
+05.06.2025: Trading: SPY at 594 at support (109.66 Euro); P/L: +9.60
 
-17.03.2025_1: Trading: JF7CB4\|DE000JF7CB45: 2x Long NASDAQ100 \# Scenario: Buy at session lows, sell dead cat bounce, wait for Retail Sales US, go with momentum in pre-market ; SL1 at 101.15 Euro, SL2 at 101.45 Euro, TP at 102 \# End: Bought at 101.08, sold at 102.36, (Retail Sales come in worse than expected but market actually went up, not a good report, QQQ went higher); P/L: +35
+02.06.2025: Trading: QQQ at 517 pre-market at support (107 Euro); P/L: +17
+
+#### Options May 2025:
+
+##### Total: 13.05+4.35=17.40
+
+*Strategy: Wait for pullback, hold cash after 10days winning streak in SPY, 02.05: SPY at* 565
+
+30.05.2025: Trading: QQQ at 517 at support; P/L: +4.35
+
+06.05.2025: Trading: SPY at 559 at support; P/L: +13.05
+
+#### Options April 2025:
+
+##### Total: 54.20+7+20+32.91+1+15-(87.24)= +42
+
+30.04.2025: JF7CB4, Buy: 87.72, Sell: 88.15 ; QQQ: +15 (entry after bad pre-mrkt)
+
+27.04.2025: QQQ; stopped out: +1
+
+18.04.2025-23.04.2025: JF7CB4, Buy: 80.86, Sell: 84.15 ; QQQ: +32.91 (big sell of Easter Monday because Trump/Powell, big gain 22.04.2025 and overnight after Tesla earnings)
+
+16.04.2025-17.04.2025: JF7CB4, QQQ: +30 (big rise late hours and overnight action)
+
+08.04.2025: JF7CB4, QQQ: +7
+
+07.04.2025: JF7CB4, QQQ: +54.20
+
+28.03.2025_1 - 02.05.2025: Swingtrading: JA01H0\|DE000JA01H01: 2x Long SPY\*10, Bought at 108.79, Sold at 101.50 \# P/L: -87.24
+
+#### Options March 2025:
+
+##### Total: 8.40+47.60-32.55+5.55+10.73+15.17+2.45+17.00- 3.14 +4+10.50+4.60 = 90.36
+
+28.03.2025_1: Trading: JA01H0\|DE000JA01H01: 2x Long SPY\*10, Bought at 108.79, Sold at \# P/L: +4.60
+
+26.03.2025_2: Trading: JA01H0\|DE000JA01H01: 2x Long SPY \# P/L: +4.60
+
+25.03.2025_1: Trading: JA01H0\|DE000JA01H01: 2x Long SPY \# End: Bought at 112.34 , sold at 112.69 , P/L: +10.50
+
+25.03.2025_2: Trading: JA01H0\|DE000JA01H01: 2x Long QQQ \# Scenario: Buy at lows, ; SL at 100.00 Euro, TP at 102.05 \# End: Bought at 112.64 , sold at 112.69 , P/L: +4
+
+21.03.2025_1: Trading: JF7CB4\|DE000JF7CB45: 2x Long NASDAQ100 \# Scenario: Buy at pre-market, sell buy dynamic after open (witching options expiration day) ; SL at 100.00 Euro, TP at 102.05 \# End: Bought at 101.22 , sold at 101.72 , P/L: -3.14 (it went down heavily in pre-market and regenerated over the trading hours, crazy sell-off first, use wrong trading exchange)
+
+20.03.2025_1: Trading: JF7CB4\|DE000JF7CB45: 2x Long NASDAQ100 \# Scenario: Buy at pre-market, sell 1h after open ; SL at 101.50 Euro, TP at 102.05 \# End: Bought at 101.50 , sold at 102.05 , P/L: +17.00
+
+19.03.2025_1: Trading: JF7CB4\|DE000JF7CB45: 2x Long NASDAQ100 \# Scenario: Buy at pre-market, sell 1h after open ; SL at 101.00 Euro, TP at 103.68 \# End: Bought at 101.58 , sold at 101.68, P/L: +2.45
+
+18.03.2025_4: Trading: JF7CB4\|DE000JF7CB45: 2x Long NASDAQ100 \# Scenario: Buy at session lows, sell bounce ; SL at 99.07 Euro, TP at 102 \# End: Bought at 99.02, sold at XX, P/L: +15.17
+
+18.03.2025_3: Trading: JF7CB4\|DE000JF7CB45: 2x Long NASDAQ100 \# Scenario: Buy at session lows, sell bounce ; SL at 99.07 Euro, TP at 102 \# End: Bought at 99.07, sold at 99.29, P/L: +10.73
+
+18.03.2025_2: Trading: JF7CB4\|DE000JF7CB45: 2x Long NASDAQ100 \# Scenario: Buy at session lows, sell bounce ; SL at 98.80 Euro, TP at 99.51 via Stop Loss order \# End: Bought at 99.36, sold at 99.51, P/L: +5.55
+
+18.03.2025_1: Trading: JA01H0\|DE000JA01H01 \# Scenario: Buy SPY -.10% pre-market upon strong EUR at 1.09 at resistance, hoping for weaker Euro, plan to sell SPY at 570 ish, tight Stop Loss; SL at 106.70 Euro, TP at 108.50 \# End: Bought at 107.79, sold at 106.77 (EURO went down to -0.1%), P/L: -32.55
+
+17.03.2025_1: Trading: JF7CB4\|DE000JF7CB45: 2x Long NASDAQ100 \# Scenario: Buy after sell-off 1h after opening, sell bounce ; SL1 at 101.15 Euro, SL2 at 101.45 Euro, TP at 102 \# End: Bought at 101.08, sold at 102.36 ; P/L: +47.60
 
 14.03.2025: Trading: PH2NDX\|DE000PH2NDX8: 2x Long NASDAQ100 \# Scenario: Buy at session lows after bad announcement on Trump, sell bounce ; SL at 84 Euro, TP at 85 \# End: Bought at 87.03, sold at 87.20, P/L: +8.40
 
-12.02.2025 - 15.08.2025: Swing-Trade: Amazon stock Scenario: Buy at 213, sell at 250 Euros
+#### Scalable 2025 total:
+
+10k start: ytd at 9000 Euro
+
+April: Purchase Alphabet at 136 Euro, P/L: + Euro (multiple trades, hold through earnings on 24.04.25)
+
+Februar: Purchase Amazon at 213 Euro, P/L: -1000 Euro

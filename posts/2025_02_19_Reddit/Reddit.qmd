@@ -8,7 +8,7 @@ image: Reddit_flav.png
 
 **Reddit**
 
-Reddit is among the top 5 most trafficed sites in the world. 
+Reddit is among the top 5 most trafficed sites in the world.
 
 ```{r}
 #| echo: false
@@ -112,8 +112,11 @@ fig2
 
 # valuation:
 
-Reddit grew 71% y/y to 427.7 Million and daily active uniques increased 39% to 101.7 M while having a Gross Margin of 92.6%. That is incredible. Total FY revenue is 1300.2 M. The market cap of this company at 187 USD is roughly 35B. And this company is only starting to begin to monetize its traffic. So, this kind of valuation is purely based on growth perspectives. So far, with 70% growth, this stock does not look expensive.
+Reddit grew 71% y/y to 427.7 Million and daily active uniques increased 39% to 101.7 M while having a Gross Margin of 92.6%. That is incredible. Total FY revenue is 1300.2 M. The market cap of this company at 187 USD is roughly 35B. (#Update 21.03.2025: 109 USD stock price and 19B market cap). And this company is only starting to begin to monetize its traffic. So, this kind of valuation is purely based on growth perspectives. So far, with 70% growth, this stock does not look expensive. In 2025, the net income will be at least 100M. Staying at 109 USD, this would make a 200, but with at least 50% growth. In 2026, this PE is 100 and in 2027 its 50. 
 
+# Ownership history:
+
+I am thinking of buying this stock at 100 USD. 
 
 # Earnings informations/comments:
 
